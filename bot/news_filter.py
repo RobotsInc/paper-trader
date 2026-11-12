@@ -1,4 +1,4 @@
-"""AI news filter: once a day, an LLM (free via GitHub Models) reads recent
+"""AI news filter: once a day, an LLM (Google Gemini, free tier) reads recent
 headlines and can veto symbols whose price action is likely to be headline-driven.
 If anything fails, it fails open: the bot trades on its rules alone."""
 import json
@@ -11,7 +11,9 @@ import requests
 import alpaca
 import config as C
 
-ENDPOINT = "https://models.github.ai/inference/chat/completions"
+ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+# Tried in order until one works (free-tier Flash models). Override with repo variable AI_MODEL.
+FALLBACK_MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
 
 PROMPT = """You are a risk filter for an intraday long-only breakout trading bot.
 It buys stocks that break above their first-15-minute range and closes everything
@@ -44,24 +46,12 @@ def run(symbols, now):
                     headlines[s].append(n.get("headline", "").strip())
         lines = [f"{s}: " + (" | ".join(h) if h else "(no recent news)")
                  for s, h in headlines.items()]
-        body = {
-            "model": C.AI_MODEL,
-            "temperature": 0,
-            "messages": [
-                {"role": "system", "content": PROMPT},
-                {"role": "user", "content": f"Today is {now:%A, %B %d, %Y}.\n\n" + "\n".join(lines)},
-            ],
-        }
-        r = requests.post(
-            ENDPOINT,
-            headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
-                     "Content-Type": "application/json"},
-            json=body, timeout=60,
-        )
-        if r.status_code >= 400 or not r.text.strip().startswith("{"):
-            raise RuntimeError(f"HTTP {r.status_code}: {r.text[:200]!r}")
+        key = os.environ.get("GEMINI_API_KEY", "").strip()
+        if not key:
+            raise RuntimeError("no GEMINI_API_KEY secret set")
+        user = f"Today is {now:%A, %B %d, %Y}.\n\n" + "\n".join(lines)
+        text = _ask_gemini(key, user, result)
         step = "reading AI reply"
-        text = r.json()["choices"][0]["message"]["content"]
         data = json.loads(re.search(r"\{.*\}", text, re.S).group(0))
         for s in symbols:
             d = data.get(s) or {}
@@ -71,3 +61,21 @@ def run(symbols, now):
         result["error"] = f"while {step}: {type(e).__name__}: {e}"[:400]
         result["decisions"] = {}
     return result
+
+
+def _ask_gemini(key, user, result):
+    models = [C.AI_MODEL] if C.AI_MODEL and C.AI_MODEL != "auto" else FALLBACK_MODELS
+    body = {
+        "systemInstruction": {"parts": [{"text": PROMPT}]},
+        "contents": [{"role": "user", "parts": [{"text": user}]}],
+        "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
+    }
+    errors = []
+    for model in models:
+        r = requests.post(ENDPOINT.format(model=model), json=body, timeout=60,
+                          headers={"x-goog-api-key": key, "Content-Type": "application/json"})
+        if r.status_code == 200:
+            result["model"] = model
+            return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+        errors.append(f"{model}: HTTP {r.status_code} {r.text[:120]!r}")
+    raise RuntimeError("; ".join(errors))

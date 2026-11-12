@@ -14,14 +14,15 @@ run for free by GitHub Actions. Results: **[SCORECARD.md](SCORECARD.md)**.
 - No new trades after 2:30 PM; **everything closed by ~3:45 PM**. Never holds overnight.
 
 ## AI news filter
-Once a day, a free AI model (via GitHub Models) reads the last ~20 hours of headlines for each
+Once a day, a free AI model (Google Gemini's free tier) reads the last ~20 hours of headlines for each
 stock and can **block** stocks with event risk (earnings today, CEO crisis, regulatory shock...).
 Every blocked trade is still simulated, so the scorecard shows whether the AI saved or cost money.
 If the AI call fails, the bot trades on rules alone.
 
 - Turn it off: **Settings -> Secrets and variables -> Actions -> Variables -> New variable**
   `AI_FILTER` = `off`
-- Change model: variable `AI_MODEL` (default `openai/gpt-4o-mini`)
+- Needs repo secret `GEMINI_API_KEY` (free key from https://aistudio.google.com/apikey)
+- Change model: variable `AI_MODEL` (default `auto` = tries free Flash models in order)
 
 ## Files
 | File | What it is |

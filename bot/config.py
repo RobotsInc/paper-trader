@@ -19,7 +19,7 @@ MIN_RANGE_PCT = 0.002        # skip if opening range is tighter than 0.2% of pri
 MAX_RANGE_PCT = 0.03         # skip if opening range is wider than 3% of price
 DAILY_LOSS_LIMIT = 0.02      # down 2% on the day -> close everything, stop for the day
 
-# AI news filter (GitHub Models, free). Set repo variable AI_FILTER=off to disable.
+# AI news filter (Google Gemini free tier). Set repo variable AI_FILTER=off to disable.
 AI_FILTER = os.getenv("AI_FILTER", "on").lower() == "on"
-AI_MODEL = os.getenv("AI_MODEL", "openai/gpt-4o-mini")
+AI_MODEL = os.getenv("AI_MODEL", "auto")  # "auto" tries free Flash models in order
 NEWS_LOOKBACK_HOURS = 20

@@ -14,7 +14,6 @@ on:
 
 permissions:
   contents: write   # commit logs back to the repo
-  models: read      # free AI news filter via GitHub Models
 
 concurrency:
   group: paper-trader
@@ -38,9 +37,9 @@ jobs:
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           AI_FILTER: ${{ vars.AI_FILTER || 'on' }}
-          AI_MODEL: ${{ vars.AI_MODEL || 'openai/gpt-4o-mini' }}
+          AI_MODEL: ${{ vars.AI_MODEL || 'auto' }}
         run: python bot/trader.py "${{ github.event.inputs.mode || 'run' }}"
 
       - name: Save logs to repo
