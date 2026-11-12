@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-12T13:05:52-05:00",
+ "updated": "2026-11-12T13:10:56-05:00",
  "date": "2026-11-12",
  "market_open": true,
  "account": {
-  "equity": 99795.7,
+  "equity": 99596.76,
   "cash": 6935.1,
-  "buying_power": 262259.06,
+  "buying_power": 261790.48,
   "start_equity": 100000.0,
-  "day_pnl": -204.3000000000029,
-  "day_pnl_pct": -0.2043000000000017
+  "day_pnl": -403.24000000000524,
+  "day_pnl_pct": -0.4032400000000047
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -204.3000000000029,
-  "pct": -0.2043000000000017,
-  "spy_pct": -0.036138561816667636
+  "pnl": -403.24000000000524,
+  "pct": -0.4032400000000047,
+  "spy_pct": -0.13798359966359364
  },
  "regime": {
-  "spy": 760.685,
-  "spy_vwap": 759.3,
-  "spy_day_pct": 0.9,
+  "spy": 759.91,
+  "spy_vwap": 759.31,
+  "spy_day_pct": 0.79,
   "bias": "up",
-  "time": "2026-11-12T13:05-05:00"
+  "time": "2026-11-12T13:10-05:00"
  },
  "scan": {
   "scanned": 196,
@@ -65,10 +65,10 @@
    "side": "long",
    "qty": 258.0,
    "entry": 77.225581,
-   "price": 77.12,
-   "upl": -27.239898,
-   "upl_pct": -0.13699999999999998,
-   "value": 19896.96,
+   "price": 76.94,
+   "upl": -73.679898,
+   "upl_pct": -0.37,
+   "value": 19850.52,
    "stop": 75.97,
    "target": 79.96,
    "opened": "12:52"
@@ -78,10 +78,10 @@
    "side": "long",
    "qty": 239.0,
    "entry": 83.73,
-   "price": 83.29,
-   "upl": -105.16,
-   "upl_pct": -0.525,
-   "value": 19906.31,
+   "price": 83.06,
+   "upl": -160.13,
+   "upl_pct": -0.8,
+   "value": 19851.34,
    "stop": 81.8,
    "target": 87.53,
    "opened": "12:52"
@@ -91,10 +91,10 @@
    "side": "long",
    "qty": 37.0,
    "entry": 528.25,
-   "price": 528.61,
-   "upl": 13.32,
-   "upl_pct": 0.068,
-   "value": 19558.57,
+   "price": 527.9,
+   "upl": -12.95,
+   "upl_pct": -0.066,
+   "value": 19532.3,
    "stop": 523.19,
    "target": 538.04,
    "opened": "12:08"
@@ -104,10 +104,10 @@
    "side": "long",
    "qty": 28.0,
    "entry": 690.728571,
-   "price": 690.61,
-   "upl": -3.319988,
-   "upl_pct": -0.017,
-   "value": 19337.08,
+   "price": 689.82,
+   "upl": -25.439988,
+   "upl_pct": -0.132,
+   "value": 19314.96,
    "stop": 684.04,
    "target": 704.25,
    "opened": "12:08"
@@ -117,10 +117,10 @@
    "side": "long",
    "qty": 234.0,
    "entry": 60.87,
-   "price": 60.52,
-   "upl": -81.9,
-   "upl_pct": -0.575,
-   "value": 14161.68,
+   "price": 60.31,
+   "upl": -131.04,
+   "upl_pct": -0.9199999999999999,
+   "value": 14112.54,
    "stop": 58.78,
    "target": 65.17,
    "opened": "12:52"
@@ -137,7 +137,7 @@
    "range_pct": 2.95,
    "score": 12.387,
    "source": "core",
-   "price": 363.74,
+   "price": 363.05,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Rotation from Nvidia and ETF launches"
@@ -152,7 +152,7 @@
    "range_pct": 3.63,
    "score": 9.431,
    "source": "core",
-   "price": 26.975,
+   "price": 26.875,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "Sector weakness and AMD server launch"
@@ -167,7 +167,7 @@
    "range_pct": 2.33,
    "score": 7.945,
    "source": "core",
-   "price": 117.13,
+   "price": 116.855,
    "status": "ABOVE RANGE",
    "ai": "short",
    "catalyst": "MSCI index removal and Bitcoin drop"
@@ -182,7 +182,7 @@
    "range_pct": 3.83,
    "score": 7.125,
    "source": "core",
-   "price": 407.34,
+   "price": 406.87,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Frontier AI investment and sector drop"
@@ -197,7 +197,7 @@
    "range_pct": 0.96,
    "score": 6.937,
    "source": "core",
-   "price": 302.125,
+   "price": 301.2,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Gemini CarPlay launch and AlphaGenome update"
@@ -212,7 +212,7 @@
    "range_pct": 3.05,
    "score": 6.909,
    "source": "core",
-   "price": 83.3,
+   "price": 83.07,
    "status": "LONG",
    "ai": "both",
    "catalyst": "Executive departure and crypto decline"
@@ -227,7 +227,7 @@
    "range_pct": 3.63,
    "score": 5.89,
    "source": "scanner",
-   "price": 60.54,
+   "price": 60.28,
    "status": "LONG",
    "ai": "both",
    "catalyst": "Tech sector market pullback"
@@ -242,7 +242,7 @@
    "range_pct": 2.07,
    "score": 5.151,
    "source": "core",
-   "price": 77.12,
+   "price": 76.97,
    "status": "LONG",
    "ai": "both",
    "catalyst": "Defense purchases and growth selloff"
@@ -257,7 +257,7 @@
    "range_pct": 3.18,
    "score": 4.972,
    "source": "scanner",
-   "price": 43.57,
+   "price": 43.47,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "none"
@@ -272,7 +272,7 @@
    "range_pct": 3.54,
    "score": 4.937,
    "source": "scanner",
-   "price": 40.46,
+   "price": 40.66,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "none"
@@ -287,7 +287,7 @@
    "range_pct": 3.06,
    "score": 4.836,
    "source": "core",
-   "price": 325.41,
+   "price": 323.8,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Analyst price target reduction"
@@ -302,8 +302,8 @@
    "range_pct": 0.64,
    "score": 4.798,
    "source": "core",
-   "price": 280.625,
-   "status": "WATCH",
+   "price": 280.25,
+   "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "none"
   },
@@ -317,7 +317,7 @@
    "range_pct": 0.65,
    "score": 4.487,
    "source": "core",
-   "price": 64.615,
+   "price": 64.635,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Energy sector relative strength"
@@ -332,7 +332,7 @@
    "range_pct": 0.47,
    "score": 4.458,
    "source": "core",
-   "price": 355.26,
+   "price": 355.41,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "Gold price pullback"
@@ -347,7 +347,7 @@
    "range_pct": 0.44,
    "score": 4.336,
    "source": "core",
-   "price": 45.195,
+   "price": 45.21,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "none"
@@ -362,7 +362,7 @@
    "range_pct": 1.86,
    "score": 4.227,
    "source": "core",
-   "price": 172.21,
+   "price": 172.08,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "Military support commentary and German updates"
@@ -377,7 +377,7 @@
    "range_pct": 0.95,
    "score": 4.082,
    "source": "scanner",
-   "price": 40.63,
+   "price": 40.655,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Bitcoin decline below $73k"
@@ -392,8 +392,8 @@
    "range_pct": 2.17,
    "score": 3.951,
    "source": "core",
-   "price": 127.55,
-   "status": "ABOVE RANGE",
+   "price": 127.15,
+   "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "Java product vulnerability report"
   },
@@ -407,8 +407,8 @@
    "range_pct": 1.14,
    "score": 3.92,
    "source": "core",
-   "price": 152.625,
-   "status": "BELOW RANGE",
+   "price": 152.415,
+   "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "none"
   },
@@ -422,7 +422,7 @@
    "range_pct": 3.85,
    "score": 3.602,
    "source": "core",
-   "price": 793.355,
+   "price": 790.72,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Executive stock sale filing"
@@ -437,7 +437,7 @@
    "range_pct": 2.67,
    "score": 3.558,
    "source": "core",
-   "price": 101.79,
+   "price": 101.64,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Kyndryl partnership expansion"
@@ -452,7 +452,7 @@
    "range_pct": 1.69,
    "score": 3.523,
    "source": "core",
-   "price": 269.17,
+   "price": 268.815,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "none"
@@ -467,7 +467,7 @@
    "range_pct": 0.8,
    "score": 3.475,
    "source": "core",
-   "price": 355.585,
+   "price": 355.425,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "Gemini CarPlay integration and CEO rumors"
@@ -482,7 +482,7 @@
    "range_pct": 2.05,
    "score": 3.464,
    "source": "core",
-   "price": 148.31,
+   "price": 148.16,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "none"
@@ -497,7 +497,7 @@
    "range_pct": 3.14,
    "score": 3.458,
    "source": "core",
-   "price": 391.08,
+   "price": 390.86,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Earnings release expected today"
@@ -512,8 +512,8 @@
    "range_pct": 1.87,
    "score": 3.418,
    "source": "core",
-   "price": 133.53,
-   "status": "ABOVE RANGE",
+   "price": 133.24,
+   "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "Crypto weakness and price target cuts"
   },
@@ -527,7 +527,7 @@
    "range_pct": 2.12,
    "score": 3.374,
    "source": "core",
-   "price": 186.09,
+   "price": 185.81,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Executive appointment to outside board"
@@ -542,7 +542,7 @@
    "range_pct": 2.28,
    "score": 3.361,
    "source": "core",
-   "price": 218.455,
+   "price": 218.185,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Salesforce Ventures startup funding"
@@ -557,7 +557,7 @@
    "range_pct": 2.94,
    "score": 3.291,
    "source": "core",
-   "price": 233.92,
+   "price": 233.425,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "STEM education partnership"
@@ -572,7 +572,7 @@
    "range_pct": 1.35,
    "score": 3.131,
    "source": "core",
-   "price": 625.28,
+   "price": 624.42,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Regulatory fine and AI deal scrutiny"
@@ -587,7 +587,7 @@
    "range_pct": 3.59,
    "score": 3.1,
    "source": "core",
-   "price": 229.32,
+   "price": 228.46,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "none"
@@ -617,7 +617,7 @@
    "range_pct": 2.96,
    "score": 2.991,
    "source": "scanner",
-   "price": 155.01,
+   "price": 154.78,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "Semiconductor sector downturn"
@@ -632,7 +632,7 @@
    "range_pct": 0.89,
    "score": 2.97,
    "source": "core",
-   "price": 58.54,
+   "price": 58.49,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "none"
@@ -647,7 +647,7 @@
    "range_pct": 1.16,
    "score": 2.839,
    "source": "core",
-   "price": 296.23,
+   "price": 296.21,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "none"
@@ -662,7 +662,7 @@
    "range_pct": 1.7,
    "score": 2.828,
    "source": "core",
-   "price": 125.81,
+   "price": 125.87,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "none"
@@ -677,7 +677,7 @@
    "range_pct": 3.13,
    "score": 2.804,
    "source": "core",
-   "price": 243.165,
+   "price": 243.235,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "Analyst Day and revised sales guidance"
@@ -692,7 +692,7 @@
    "range_pct": 2.68,
    "score": 2.702,
    "source": "core",
-   "price": 391.49,
+   "price": 391.4,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Robotaxi updates and Musk commentary"
@@ -707,7 +707,7 @@
    "range_pct": 1.74,
    "score": 2.681,
    "source": "core",
-   "price": 158.92,
+   "price": 158.77,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "both",
    "catalyst": "none"
@@ -722,13 +722,69 @@
    "range_pct": 1.02,
    "score": 2.662,
    "source": "core",
-   "price": 37.88,
+   "price": 37.84,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "none"
   }
  ],
  "signals": [
+  {
+   "time": "2026-11-12T13:10-05:00",
+   "symbol": "COIN",
+   "side": "long",
+   "price": 133.24,
+   "stop": 130.84,
+   "target": 138.04,
+   "qty": 149,
+   "or_high": 132.055,
+   "or_low": 129.625,
+   "action": "skipped_max_positions",
+   "reason": "",
+   "market": "up"
+  },
+  {
+   "time": "2026-11-12T13:10-05:00",
+   "symbol": "XBI",
+   "side": "short",
+   "price": 152.415,
+   "stop": 153.53,
+   "target": 150.18,
+   "qty": 130,
+   "or_high": 154.4,
+   "or_low": 152.65,
+   "action": "skipped_max_positions",
+   "reason": "",
+   "market": "up"
+  },
+  {
+   "time": "2026-11-12T13:10-05:00",
+   "symbol": "ORCL",
+   "side": "long",
+   "price": 127.15,
+   "stop": 124.66,
+   "target": 132.13,
+   "qty": 156,
+   "or_high": 126.01,
+   "or_low": 123.305,
+   "action": "skipped_max_positions",
+   "reason": "",
+   "market": "up"
+  },
+  {
+   "time": "2026-11-12T13:10-05:00",
+   "symbol": "IWM",
+   "side": "short",
+   "price": 280.25,
+   "stop": 281.28,
+   "target": 278.19,
+   "qty": 71,
+   "or_high": 282.19,
+   "or_low": 280.38,
+   "action": "skipped_max_positions",
+   "reason": "",
+   "market": "up"
+  },
   {
    "time": "2026-11-12T13:05-05:00",
    "symbol": "XLF",
@@ -1045,6 +1101,10 @@
   {
    "t": "13:05",
    "v": 99803.89
+  },
+  {
+   "t": "13:10",
+   "v": 99591.58
   }
  ],
  "days": [],
