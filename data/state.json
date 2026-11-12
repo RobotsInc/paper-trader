@@ -1029,7 +1029,7 @@
     }
   ],
   "halted": false,
-  "eod_done": false,
+  "eod_done": true,
   "session_seen": true,
   "inception": {
     "date": "2026-11-12",

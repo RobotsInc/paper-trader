@@ -1,0 +1,30 @@
+{
+ "days": 1,
+ "start_equity": 100000.0,
+ "end_equity": 98944.66,
+ "return_pct": -1.055,
+ "spy_return_pct": -0.557,
+ "trades": 6,
+ "win_rate": 16.7,
+ "avg_win": 72.53,
+ "avg_loss": -225.57,
+ "profit_factor": 0.06,
+ "max_drawdown_pct": -1.06,
+ "best_day": -1055.34,
+ "worst_day": -1055.34,
+ "green_days": 0,
+ "by_side": {
+  "long": {
+   "trades": 5,
+   "pnl": -1127.87,
+   "win_rate": 0.0
+  },
+  "short": {
+   "trades": 1,
+   "pnl": 72.53,
+   "win_rate": 100.0
+  }
+ },
+ "ai_blocked": 3,
+ "ai_blocked_pnl": -365.45
+}

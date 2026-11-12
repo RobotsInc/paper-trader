@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-12T15:48:54-05:00",
+ "updated": "2026-11-12T15:52:59-05:00",
  "date": "2026-11-12",
  "market_open": true,
  "account": {
-  "equity": 98948.14,
-  "cash": 65802.14,
-  "buying_power": 283323.91,
+  "equity": 98944.66,
+  "cash": 98944.66,
+  "buying_power": 395778.64,
   "start_equity": 100000.0,
-  "day_pnl": -1051.8600000000006,
-  "day_pnl_pct": -1.0518600000000045
+  "day_pnl": -1055.3399999999965,
+  "day_pnl_pct": -1.0553399999999935
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,8 +16,8 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1051.8600000000006,
-  "pct": -1.0518600000000045,
+  "pnl": -1055.3399999999965,
+  "pct": -1.0553399999999935,
   "spy_pct": -0.28450904121111176
  },
  "regime": {
@@ -59,60 +59,7 @@
    }
   ]
  },
- "positions": [
-  {
-   "symbol": "ARKK",
-   "side": "long",
-   "qty": 258.0,
-   "entry": 77.225581,
-   "price": 76.48,
-   "upl": -192.359898,
-   "upl_pct": -0.9650000000000001,
-   "value": 19731.84,
-   "stop": 75.97,
-   "target": 79.96,
-   "opened": "12:52"
-  },
-  {
-   "symbol": "NKE",
-   "side": "short",
-   "qty": 524.0,
-   "entry": 37.948416,
-   "price": 37.805,
-   "upl": 75.149984,
-   "upl_pct": 0.378,
-   "value": 19809.82,
-   "stop": 38.34,
-   "target": 37.22,
-   "opened": "13:46"
-  },
-  {
-   "symbol": "QQQ",
-   "side": "long",
-   "qty": 28.0,
-   "entry": 690.728571,
-   "price": 687.565,
-   "upl": -88.579988,
-   "upl_pct": -0.45799999999999996,
-   "value": 19251.82,
-   "stop": 684.04,
-   "target": 704.25,
-   "opened": "12:08"
-  },
-  {
-   "symbol": "TQQQ",
-   "side": "long",
-   "qty": 234.0,
-   "entry": 60.87,
-   "price": 59.7101,
-   "upl": -271.4166,
-   "upl_pct": -1.9060000000000001,
-   "value": 13972.1634,
-   "stop": 58.78,
-   "target": 65.17,
-   "opened": "12:52"
-  }
- ],
+ "positions": [],
  "universe": [
   {
    "symbol": "AVGO",
@@ -215,7 +162,7 @@
    "score": 5.89,
    "source": "scanner",
    "price": 60.05,
-   "status": "LONG",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "Tech sector market pullback"
   },
@@ -230,7 +177,7 @@
    "score": 5.151,
    "source": "core",
    "price": 76.705,
-   "status": "LONG",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "Defense purchases and growth selloff"
   },
@@ -710,7 +657,7 @@
    "score": 2.662,
    "source": "core",
    "price": 37.795,
-   "status": "SHORT",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
   }
@@ -1248,9 +1195,121 @@
   {
    "t": "15:48",
    "v": 98948.12
+  },
+  {
+   "t": "15:52",
+   "v": 98944.66
   }
  ],
- "days": [],
- "trades": [],
- "summary": {}
+ "days": [
+  {
+   "date": "2026-11-12",
+   "start_equity": "100000.0",
+   "end_equity": "98944.66",
+   "pnl": "-1055.34",
+   "pnl_pct": "-1.055",
+   "trades": "6",
+   "wins": "1",
+   "signals": "26",
+   "ai_blocked": "3",
+   "ai_blocked_pnl": "-365.45",
+   "spy_open": "753.93",
+   "spy_close": "756.72",
+   "spy_pct": "0.37",
+   "longs": "5",
+   "shorts": "1"
+  }
+ ],
+ "trades": [
+  {
+   "date": "2026-11-12",
+   "symbol": "NKE",
+   "side": "short",
+   "qty": "524.0",
+   "entry": "37.95",
+   "exit": "37.81",
+   "pnl": "72.53",
+   "pnl_pct": "0.36"
+  },
+  {
+   "date": "2026-11-12",
+   "symbol": "TQQQ",
+   "side": "long",
+   "qty": "234.0",
+   "entry": "60.87",
+   "exit": "59.72",
+   "pnl": "-269.1",
+   "pnl_pct": "-1.89"
+  },
+  {
+   "date": "2026-11-12",
+   "symbol": "ARKK",
+   "side": "long",
+   "qty": "258.0",
+   "entry": "77.23",
+   "exit": "76.47",
+   "pnl": "-194.94",
+   "pnl_pct": "-0.98"
+  },
+  {
+   "date": "2026-11-12",
+   "symbol": "HOOD",
+   "side": "long",
+   "qty": "239.0",
+   "entry": "83.73",
+   "exit": "81.79",
+   "pnl": "-463.65",
+   "pnl_pct": "-2.32"
+  },
+  {
+   "date": "2026-11-12",
+   "symbol": "MSFT",
+   "side": "long",
+   "qty": "37.0",
+   "entry": "528.25",
+   "exit": "525.25",
+   "pnl": "-111.0",
+   "pnl_pct": "-0.57"
+  },
+  {
+   "date": "2026-11-12",
+   "symbol": "QQQ",
+   "side": "long",
+   "qty": "28.0",
+   "entry": "690.73",
+   "exit": "687.54",
+   "pnl": "-89.18",
+   "pnl_pct": "-0.46"
+  }
+ ],
+ "summary": {
+  "days": 1,
+  "start_equity": 100000.0,
+  "end_equity": 98944.66,
+  "return_pct": -1.055,
+  "spy_return_pct": -0.557,
+  "trades": 6,
+  "win_rate": 16.7,
+  "avg_win": 72.53,
+  "avg_loss": -225.57,
+  "profit_factor": 0.06,
+  "max_drawdown_pct": -1.06,
+  "best_day": -1055.34,
+  "worst_day": -1055.34,
+  "green_days": 0,
+  "by_side": {
+   "long": {
+    "trades": 5,
+    "pnl": -1127.87,
+    "win_rate": 0.0
+   },
+   "short": {
+    "trades": 1,
+    "pnl": 72.53,
+    "win_rate": 100.0
+   }
+  },
+  "ai_blocked": 3,
+  "ai_blocked_pnl": -365.45
+ }
 }

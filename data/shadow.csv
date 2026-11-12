@@ -1,0 +1,21 @@
+date,symbol,side,action,reason,entry,exit,exit_type,qty,pnl,r_multiple
+2026-11-12,DRAM,long,skipped_max_positions,,43.73,43.59,time_exit,457,-66.26,-0.2
+2026-11-12,PLTR,long,skipped_max_positions,,172.58,171.36,time_exit,115,-140.3,-0.46
+2026-11-12,SHOP,long,skipped_max_positions,,148.445,146.74,time_exit,134,-228.47,-0.87
+2026-11-12,AMAT,long,blocked_by_ai,AI block: Imminent earnings report introduces severe binary event risk today.,392.77,383.58,stop,50,-459.5,-1.0
+2026-11-12,LRCX,long,skipped_max_positions,,235.22,232.06,time_exit,85,-268.6,-0.76
+2026-11-12,CRWD,long,skipped_max_positions,,229.68,228.12,time_exit,66,-102.96,-0.21
+2026-11-12,PFE,short,blocked_by_ai,AI long: Major strategic funding deal for weight loss trials provides strong positive catalyst.,29.225,28.95,time_exit,684,188.1,0.93
+2026-11-12,SOXX,long,skipped_max_positions,,155.8,154.33,time_exit,128,-188.16,-0.42
+2026-11-12,MRNA,long,skipped_max_positions,,244.59,237.45,stop,70,-499.8,-1.0
+2026-11-12,KLAC,long,skipped_max_positions,,159.93,157.65,stop,125,-285.0,-1.0
+2026-11-12,SMCI,short,skipped_max_positions,,26.95,27.49,stop,741,-400.14,-1.0
+2026-11-12,SQQQ,short,skipped_max_positions,,40.4,41.1,time_exit,390,-273.0,-0.55
+2026-11-12,AAPL,short,skipped_max_positions,,355.48,355.08,time_exit,56,22.4,0.2
+2026-11-12,ABBV,short,skipped_max_positions,,296.08,295.48,time_exit,67,40.2,0.33
+2026-11-12,XLF,short,skipped_max_positions,,58.54,58.28,time_exit,340,88.4,0.93
+2026-11-12,IWM,short,skipped_max_positions,,280.25,278.57,time_exit,71,119.28,1.63
+2026-11-12,ORCL,long,skipped_max_positions,,127.15,126.43,time_exit,156,-112.32,-0.29
+2026-11-12,XBI,short,skipped_max_positions,,152.415,151.92,time_exit,130,64.35,0.44
+2026-11-12,COIN,long,skipped_max_positions,,133.24,130.84,stop,149,-357.6,-1.0
+2026-11-12,MSTR,long,blocked_by_ai,AI short: Official MSCI index removal creates severe structural selling pressure.,115.88,115.33,time_exit,171,-94.05,-0.25
