@@ -129,6 +129,16 @@ def main():
     if mode == "report":
         report.build()
         return
+    if mode == "scantest":  # dry run of the scanner on today's (or the last) session - no trading, no state
+        d = now_et().date().isoformat()
+        or_start = et_dt(d, C.MARKET_OPEN)
+        rows, stats = universe.build(or_start, or_start + timedelta(minutes=C.OPENING_RANGE_MIN), log)
+        log(f"Scan test {d}: {stats}")
+        for r in rows:
+            log(f"  {r['symbol']:6} relvol {r['relvol']:5.2f}x gap {r['gap_pct']:+5.2f}% dir {r['dir']:+d} "
+                f"range {r['low']:.2f}-{r['high']:.2f} ATR {r['atr']:.2f} -> stop distance "
+                f"{C.STOP_ATR * r['atr']:.2f} ({C.STOP_ATR * r['atr'] / r['high'] * 100:.2f}%)")
+        return
 
     state = load_state()
     now = now_et()

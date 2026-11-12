@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "run, flatten (close everything now), report (rebuild scorecard), ai (re-run AI desk), or rescan (re-run scanner + AI desk)"
+        description: "run, flatten (close everything now), report (rebuild scorecard), ai (re-run AI desk), rescan (re-run scanner + AI desk), or scantest (dry-run the scanner, no trades)"
         required: true
         default: run
 
