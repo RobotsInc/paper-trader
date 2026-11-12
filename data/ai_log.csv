@@ -1,11 +1,51 @@
-date,symbol,decision,reason
-2026-11-12,SPY,allow,Routine macroeconomic news and general market commentary.
-2026-11-12,QQQ,allow,General market sector commentary and routine news.
-2026-11-12,AAPL,block,Breaking news and high-profile leadership uncertainty regarding CEO Tim Cook.
-2026-11-12,MSFT,allow,Routine product announcements and business partnerships.
-2026-11-12,NVDA,block,Major leadership disruption following the resignation of CEO Jensen Huang.
-2026-11-12,AMZN,allow,Routine promotional release and general market news.
-2026-11-12,META,allow,Routine market commentary and financial analysis.
-2026-11-12,GOOGL,allow,No impactful headlines.
-2026-11-12,TSLA,block,Headlines involving potential M&A activity regarding SpaceX and Tesla.
-2026-11-12,AMD,allow,Routine analyst price target updates and partnership expansions.
+date,symbol,decision,reason,catalyst
+2026-11-12,SPY,allow,Routine macroeconomic news and general market commentary.,
+2026-11-12,QQQ,allow,General market sector commentary and routine news.,
+2026-11-12,AAPL,block,Breaking news and high-profile leadership uncertainty regarding CEO Tim Cook.,
+2026-11-12,MSFT,allow,Routine product announcements and business partnerships.,
+2026-11-12,NVDA,block,Major leadership disruption following the resignation of CEO Jensen Huang.,
+2026-11-12,AMZN,allow,Routine promotional release and general market news.,
+2026-11-12,META,allow,Routine market commentary and financial analysis.,
+2026-11-12,GOOGL,allow,No impactful headlines.,
+2026-11-12,TSLA,block,Headlines involving potential M&A activity regarding SpaceX and Tesla.,
+2026-11-12,AMD,allow,Routine analyst price target updates and partnership expansions.,
+2026-11-12,AVGO,both,Heavy volume driven by tech rotation creates strong two-way trading opportunities.,Rotation from Nvidia and ETF launches
+2026-11-12,SMCI,both,Tech weakness and product launch provide standard breakout conditions.,Sector weakness and AMD server launch
+2026-11-12,MSTR,short,Official MSCI index removal creates severe structural selling pressure.,MSCI index removal and Bitcoin drop
+2026-11-12,TSM,both,Semiconductor slump creates normal breakout opportunities in both directions.,Frontier AI investment and sector drop
+2026-11-12,GOOGL,both,Product updates are routine and do not restrict trading.,Gemini CarPlay launch and AlphaGenome update
+2026-11-12,HOOD,both,CFO transition and crypto weakness present standard breakout setups.,Executive departure and crypto decline
+2026-11-12,TQQQ,both,Index ETF pullback offers clean intraday breakout setups.,Tech sector market pullback
+2026-11-12,ARKK,both,Fund rebalancing news presents standard two-way trading conditions.,Defense purchases and growth selloff
+2026-11-12,DRAM,both,No catalyst to restrict trading.,none
+2026-11-12,SQQQ,both,Inverse tech ETF tracking market pullback normally.,none
+2026-11-12,PANW,both,Routine analyst price target revisions do not restrict trading.,Analyst price target reduction
+2026-11-12,IWM,both,Standard ETF movement reflecting broader market tone.,none
+2026-11-12,XLE,both,Sector strength creates normal intraday breakout opportunities.,Energy sector relative strength
+2026-11-12,GLD,both,Spot metal decline provides standard momentum setups.,Gold price pullback
+2026-11-12,SLV,both,No catalyst to restrict trading.,none
+2026-11-12,PLTR,both,Executive commentary and routine updates do not restrict trading.,Military support commentary and German updates
+2026-11-12,IBIT,both,Crypto weakness provides valid directional breakout setups.,Bitcoin decline below $73k
+2026-11-12,ORCL,both,Security vulnerability reports are routine and do not restrict trading.,Java product vulnerability report
+2026-11-12,XBI,both,No catalyst to restrict trading.,none
+2026-11-12,MU,both,Routine insider filing does not restrict trading.,Executive stock sale filing
+2026-11-12,NOW,both,Partnership news does not warrant trading restrictions.,Kyndryl partnership expansion
+2026-11-12,AMZN,both,No actionable news to restrict trading.,none
+2026-11-12,AAPL,both,Unsubstantiated speculation and routine app news do not restrict trading.,Gemini CarPlay integration and CEO rumors
+2026-11-12,SHOP,both,No catalyst to restrict trading.,none
+2026-11-12,AMAT,block,Imminent earnings report introduces severe binary event risk today.,Earnings release expected today
+2026-11-12,COIN,both,Crypto pullbacks and target adjustments present valid trading conditions.,Crypto weakness and price target cuts
+2026-11-12,DDOG,both,Routine executive news does not restrict trading.,Executive appointment to outside board
+2026-11-12,CRM,both,Venture funding news does not restrict trading.,Salesforce Ventures startup funding
+2026-11-12,LRCX,both,Corporate partnership news is routine and does not restrict trading.,STEM education partnership
+2026-11-12,META,both,Minor regulatory fine does not block range breakout trading.,Regulatory fine and AI deal scrutiny
+2026-11-12,CRWD,both,No catalyst to restrict trading.,none
+2026-11-12,PFE,long,Major strategic funding deal for weight loss trials provides strong positive catalyst.,Blackstone obesity drug trial funding
+2026-11-12,SOXX,both,Sector weakness offers standard two-way intraday setups.,Semiconductor sector downturn
+2026-11-12,XLF,both,No catalyst to restrict trading.,none
+2026-11-12,ABBV,both,No catalyst to restrict trading.,none
+2026-11-12,WMT,both,Routine earnings date announcement does not restrict trading.,none
+2026-11-12,MRNA,both,Analyst Day updates provide normal intraday volatility without binary risk.,Analyst Day and revised sales guidance
+2026-11-12,TSLA,both,Routine media coverage and comments do not restrict trading.,Robotaxi updates and Musk commentary
+2026-11-12,KLAC,both,No catalyst to restrict trading.,none
+2026-11-12,NKE,both,No catalyst to restrict trading.,none
