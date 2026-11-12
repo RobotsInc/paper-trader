@@ -131,6 +131,10 @@ def main():
         start_new_day(state, today, equity)
     for k, v in (("scan", {}), ("regime", {}), ("shortable", {}), ("last_prices", {})):
         state.setdefault(k, v)
+    if mode == "rescan":  # rebuild today's scanner list + AI desk now (keeps today's trades)
+        state["ranges"] = {}
+        state["ai"] = {"done": False, "decisions": {}, "briefing": ""}
+        mode = "run"
 
     is_open = False
     try:
