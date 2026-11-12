@@ -1,7 +1,8 @@
 """Paper day-trading bot v2: market scanner + opening-range breakouts (long & short)
 + AI news desk.
 
-GitHub Actions runs this every ~5 minutes on weekdays. Each run:
+GitHub Actions starts this every ~5 minutes on weekdays; each run then checks the market
+every 30 seconds for ~4 minutes. Each check:
   1. logs account equity,
   2. at ~9:46 ET, scans the market for the names most in play and asks the AI desk
      for a briefing and a long/short/block bias on each,
@@ -16,6 +17,7 @@ import csv
 import json
 import math
 import sys
+import time as _clock
 from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -39,6 +41,16 @@ def now_et():
 
 def log(msg):
     print(f"[{now_et():%Y-%m-%d %H:%M:%S} ET] {msg}", flush=True)
+
+
+_said = set()
+
+
+def log_once(msg):
+    """Log a status line only the first time this run (the run checks every 30s)."""
+    if msg not in _said:
+        _said.add(msg)
+        log(msg)
 
 
 def hm(s):
@@ -136,16 +148,38 @@ def main():
         state["ai"] = {"done": False, "decisions": {}, "briefing": ""}
         mode = "run"
 
+    # Each run watches the market for ~LOOP_SECONDS, checking every CHECK_EVERY seconds, so
+    # breakouts are caught within ~30s instead of waiting for the next 5-minute run.
+    deadline = _clock.monotonic() + (C.LOOP_SECONDS if mode == "run" else 0)
+    first = True
+    while True:
+        is_open = tick(state, mode, now, equity, acct, first)
+        first = False
+        if not is_open or _clock.monotonic() + C.CHECK_EVERY > deadline:
+            break
+        _clock.sleep(C.CHECK_EVERY)
+        now = now_et()
+        try:
+            acct = alpaca.account()
+            equity = float(acct["equity"])
+        except Exception as e:
+            log(f"Account check failed ({type(e).__name__}: {e}) - ending this run early")
+            break
+
+
+def tick(state, mode, now, equity, acct, first):
+    """One check of the market. Returns whether the market is open."""
     is_open = False
     try:
         if mode == "ai":  # re-run today's AI desk (e.g. after it failed)
             run_ai_filter(state, now)
-            return
+            return False
 
         is_open = alpaca.clock()["is_open"]
         if is_open:
-            append_csv("equity.csv", {"time": now.isoformat(timespec="minutes"),
-                                      "equity": round(equity, 2), "cash": acct["cash"]})
+            if first:  # one equity point per run is plenty for the chart
+                append_csv("equity.csv", {"time": now.isoformat(timespec="minutes"),
+                                          "equity": round(equity, 2), "cash": acct["cash"]})
             if not state["session_seen"]:
                 state["session_seen"] = True
                 state["start_equity"] = equity
@@ -160,18 +194,23 @@ def main():
         elif is_open:
             trade(state, now, equity)
         else:
-            log("Market closed - nothing to do")
+            log_once("Market closed - nothing to do")
+    except Exception as e:
+        if first:
+            raise
+        log(f"Check failed, will retry next check: {type(e).__name__}: {e}")  # keep the loop alive
     finally:
         save_state(state)
         try:
             dashboard.write(state, now, is_open)
         except Exception as e:
             log(f"Dashboard update failed: {type(e).__name__}: {e}")
+    return is_open and mode == "run"
 
 
 def trade(state, now, equity):
     if state["halted"]:
-        log("Halted for the day (daily loss limit)")
+        log_once("Halted for the day (daily loss limit)")
         return
     if equity <= state["start_equity"] * (1 - C.DAILY_LOSS_LIMIT):
         log("Daily loss limit hit - closing everything and stopping for today")
@@ -182,7 +221,7 @@ def trade(state, now, equity):
     or_start = et_dt(state["date"], C.MARKET_OPEN)
     or_end = or_start + timedelta(minutes=C.OPENING_RANGE_MIN)
     if now < or_end + timedelta(minutes=1):
-        log("Waiting for the opening range to form")
+        log_once("Waiting for the opening range to form")
         return
     if not state["ranges"]:
         rows, stats = universe.build(or_start, or_end, log)
@@ -195,7 +234,7 @@ def trade(state, now, equity):
     if not state["ai"]["done"]:
         run_ai_filter(state, now)
     if now.time() > hm(C.ENTRY_CUTOFF):
-        log("Past entry cutoff - managing open trades only")
+        log_once("Past entry cutoff - managing open trades only")
         return
     scan(state, now, equity)
 

@@ -1,6 +1,8 @@
 # Paper Trader v2
 
 An automated day-trading bot on an **Alpaca paper account (fake money)**, run free by GitHub Actions.
+A run starts every ~5 minutes and checks the market **every 30 seconds** while it's alive, so breakouts
+are caught within about half a minute.
 
 - **Live terminal:** https://robotsinc.github.io/paper-trader/
 - **Scorecard:** [SCORECARD.md](SCORECARD.md)
@@ -54,7 +56,7 @@ Optional repo variables: `AI_FILTER=off` to disable the AI desk; `AI_MODEL` to p
 Pause: **Actions -> paper-trader -> ... -> Disable workflow**.
 
 ## Caveats
-- GitHub's schedule can run 5-15 min late; stops/targets live at Alpaca, so exits aren't affected.
+- GitHub's schedule can run late or skip; stops/targets live at Alpaca, so exits aren't affected.
 - Paper fills are kinder than real ones (no slippage). Shorts assume easy-to-borrow shares.
 - Volume data is from the free IEX feed (a slice of total volume); fine for ranking, not exact.
 - Judge it after 20+ trading days.

@@ -23,6 +23,8 @@ OPENING_RANGE_MIN = 15       # opening range = first 15 minutes (9:30-9:45)
 MIN_RANGE_BARS = 5
 ENTRY_CUTOFF = "14:30"       # no new trades after this (ET)
 FLATTEN_AT = "15:45"         # close everything after this (ET) - never hold overnight
+CHECK_EVERY = 30             # seconds between checks within a run
+LOOP_SECONDS = 250           # each run keeps checking this long (~5 min per run incl. setup)
 
 # ---- Entries ----
 ALLOW_SHORTS = True          # short breakdowns below the opening range
