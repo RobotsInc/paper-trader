@@ -26,7 +26,8 @@ FLATTEN_AT = "15:45"         # close everything after this (ET) - never hold ove
 
 # ---- Entries ----
 ALLOW_SHORTS = True          # short breakdowns below the opening range
-MARKET_FILTER = True         # longs only when SPY > its VWAP, shorts only when SPY < its VWAP
+MARKET_FILTER = False        # True = longs only when SPY > its VWAP, shorts only when SPY < its VWAP.
+                             # Off: each stock is judged on its own range + VWAP; SPY trend is just logged.
 MAX_CHASE = 0.5              # skip if price is already > 0.5 range-widths past the breakout
 MIN_RANGE_PCT = 0.002        # skip if opening range is tighter than 0.2% of price
 MAX_RANGE_PCT = 0.04         # skip if opening range is wider than 4% of price

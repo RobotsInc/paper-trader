@@ -229,6 +229,10 @@ def is_shortable(state, s):
 
 
 def scan(state, now, equity):
+    if not C.MARKET_FILTER:  # signals skipped only for SPY trend get another chance
+        skipped = {x["symbol"] for x in state["signals"] if x["action"] == "skipped_market"}
+        state["traded"] = [s for s in state["traded"] if s not in skipped]
+        state["signals"] = [x for x in state["signals"] if x["action"] != "skipped_market"]
     cands = [s for s in state["ranges"] if s not in state["traded"]]
     prices = alpaca.latest_prices(sorted(set(state["ranges"]) | {"SPY"}))  # all names, for the dashboard
     day_bars = alpaca.bars(sorted(set(cands) | {"SPY"}), utc_iso(et_dt(state["date"], C.MARKET_OPEN)))
@@ -277,7 +281,7 @@ def scan(state, now, equity):
                   math.floor(room / px))
         sig = {"time": now.isoformat(timespec="minutes"), "symbol": s, "side": side, "price": px,
                "stop": stop, "target": target, "qty": qty, "or_high": r["high"], "or_low": r["low"],
-               "action": "", "reason": ""}
+               "action": "", "reason": "", "market": market}
         state["traded"].append(s)  # one signal per symbol per day
 
         ai = state["ai"]["decisions"].get(s, {})
