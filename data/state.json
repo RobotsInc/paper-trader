@@ -46,9 +46,49 @@
   "ai": {
     "done": true,
     "enabled": true,
-    "model": "auto",
-    "decisions": {},
-    "error": "while calling AI model: ReadTimeout: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=60)"
+    "model": "gemini-3.6-flash",
+    "decisions": {
+      "SPY": {
+        "decision": "allow",
+        "reason": "Routine macroeconomic news and general market commentary."
+      },
+      "QQQ": {
+        "decision": "allow",
+        "reason": "General market sector commentary and routine news."
+      },
+      "AAPL": {
+        "decision": "block",
+        "reason": "Breaking news and high-profile leadership uncertainty regarding CEO Tim Cook."
+      },
+      "MSFT": {
+        "decision": "allow",
+        "reason": "Routine product announcements and business partnerships."
+      },
+      "NVDA": {
+        "decision": "block",
+        "reason": "Major leadership disruption following the resignation of CEO Jensen Huang."
+      },
+      "AMZN": {
+        "decision": "allow",
+        "reason": "Routine promotional release and general market news."
+      },
+      "META": {
+        "decision": "allow",
+        "reason": "Routine market commentary and financial analysis."
+      },
+      "GOOGL": {
+        "decision": "allow",
+        "reason": "No impactful headlines."
+      },
+      "TSLA": {
+        "decision": "block",
+        "reason": "Headlines involving potential M&A activity regarding SpaceX and Tesla."
+      },
+      "AMD": {
+        "decision": "allow",
+        "reason": "Routine analyst price target updates and partnership expansions."
+      }
+    }
   },
   "traded": [
     "QQQ",

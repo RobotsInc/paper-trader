@@ -1,0 +1,11 @@
+date,symbol,decision,reason
+2026-11-12,SPY,allow,Routine macroeconomic news and general market commentary.
+2026-11-12,QQQ,allow,General market sector commentary and routine news.
+2026-11-12,AAPL,block,Breaking news and high-profile leadership uncertainty regarding CEO Tim Cook.
+2026-11-12,MSFT,allow,Routine product announcements and business partnerships.
+2026-11-12,NVDA,block,Major leadership disruption following the resignation of CEO Jensen Huang.
+2026-11-12,AMZN,allow,Routine promotional release and general market news.
+2026-11-12,META,allow,Routine market commentary and financial analysis.
+2026-11-12,GOOGL,allow,No impactful headlines.
+2026-11-12,TSLA,block,Headlines involving potential M&A activity regarding SpaceX and Tesla.
+2026-11-12,AMD,allow,Routine analyst price target updates and partnership expansions.
