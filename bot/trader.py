@@ -230,9 +230,8 @@ def is_shortable(state, s):
 
 def scan(state, now, equity):
     cands = [s for s in state["ranges"] if s not in state["traded"]]
-    syms = sorted(set(cands) | {"SPY"})
-    prices = alpaca.latest_prices(syms)
-    day_bars = alpaca.bars(syms, utc_iso(et_dt(state["date"], C.MARKET_OPEN)))
+    prices = alpaca.latest_prices(sorted(set(state["ranges"]) | {"SPY"}))  # all names, for the dashboard
+    day_bars = alpaca.bars(sorted(set(cands) | {"SPY"}), utc_iso(et_dt(state["date"], C.MARKET_OPEN)))
     state["last_prices"] = {s: prices[s] for s in prices}
 
     spy_px, spy_vw = prices.get("SPY"), vwap(day_bars.get("SPY", []))
