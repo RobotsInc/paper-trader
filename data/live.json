@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-12T15:31:11-05:00",
+ "updated": "2026-11-12T15:36:17-05:00",
  "date": "2026-11-12",
  "market_open": true,
  "account": {
-  "equity": 98943.02,
-  "cash": 46254.32,
-  "buying_power": 260104.22,
+  "equity": 98929.35,
+  "cash": 65802.14,
+  "buying_power": 283500.16,
   "start_equity": 100000.0,
-  "day_pnl": -1056.979999999996,
-  "day_pnl_pct": -1.0569799999999963
+  "day_pnl": -1070.6499999999942,
+  "day_pnl_pct": -1.0706499999999952
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,8 +16,8 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1056.979999999996,
-  "pct": -1.0569799999999963,
+  "pnl": -1070.6499999999942,
+  "pct": -1.0706499999999952,
   "spy_pct": -0.28450904121111176
  },
  "regime": {
@@ -65,25 +65,12 @@
    "side": "long",
    "qty": 258.0,
    "entry": 77.225581,
-   "price": 76.4,
-   "upl": -212.999898,
-   "upl_pct": -1.069,
-   "value": 19711.2,
+   "price": 76.41,
+   "upl": -210.419898,
+   "upl_pct": -1.056,
+   "value": 19713.78,
    "stop": 75.97,
    "target": 79.96,
-   "opened": "12:52"
-  },
-  {
-   "symbol": "HOOD",
-   "side": "long",
-   "qty": 239.0,
-   "entry": 83.73,
-   "price": 81.94,
-   "upl": -427.81,
-   "upl_pct": -2.138,
-   "value": 19583.66,
-   "stop": 81.8,
-   "target": 87.53,
    "opened": "12:52"
   },
   {
@@ -104,10 +91,10 @@
    "side": "long",
    "qty": 28.0,
    "entry": 690.728571,
-   "price": 686.6,
-   "upl": -115.599988,
-   "upl_pct": -0.598,
-   "value": 19224.8,
+   "price": 686.84,
+   "upl": -108.879988,
+   "upl_pct": -0.563,
+   "value": 19231.52,
    "stop": 684.04,
    "target": 704.25,
    "opened": "12:08"
@@ -117,10 +104,10 @@
    "side": "long",
    "qty": 234.0,
    "entry": 60.87,
-   "price": 59.47,
-   "upl": -327.6,
-   "upl_pct": -2.3,
-   "value": 13915.98,
+   "price": 59.525,
+   "upl": -314.73,
+   "upl_pct": -2.21,
+   "value": 13928.85,
    "stop": 58.78,
    "target": 65.17,
    "opened": "12:52"
@@ -213,7 +200,7 @@
    "score": 6.909,
    "source": "core",
    "price": 82.77,
-   "status": "LONG",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "Executive departure and crypto decline"
   },
@@ -1245,6 +1232,10 @@
   {
    "t": "15:31",
    "v": 98943.02
+  },
+  {
+   "t": "15:36",
+   "v": 98926.52
   }
  ],
  "days": [],
