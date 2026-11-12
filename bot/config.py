@@ -15,7 +15,7 @@ EXCLUDE = {
     "SOXL", "SOXS", "TECL", "TECS", "FAS", "FAZ", "LABU", "LABD", "NUGT", "DUST", "JNUG", "JDST", "BOIL", "KOLD",
     "UCO", "SCO", "UVXY", "SVXY", "VXX", "VIXY", "TSLL", "TSLZ", "TSLQ", "NVDL", "NVDU", "NVDD", "NVDQ", "NVDX",
     "MSTU", "MSTX", "MSTZ", "CONL", "AMDL", "AAPU", "GGLL", "METU", "AMZU", "BITX", "ETHU", "SH", "PSQ", "DOG",
-    "YINN", "YANG", "FNGU", "FNGD", "BULZ", "BERZ", "SMST", "PLTU", "HOOX", "DRAM",
+    "YINN", "YANG", "FNGU", "FNGD", "BULZ", "BERZ", "SMST", "PLTU", "HOOX",
 }
 
 MARKET_OPEN = "09:30"        # ET
