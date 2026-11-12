@@ -36,6 +36,20 @@ MAX_RANGE_PCT = 0.04         # skip if opening range is wider than 4% of price
 RISK_PER_TRADE = 0.005       # risk 0.5% of equity per trade (entry -> stop)
 MAX_POSITION_PCT = 0.20      # no single position larger than 20% of equity
 MAX_OPEN_POSITIONS = 5
+MAX_PER_SIDE = 3             # at most 3 longs and 3 shorts, so one direction can't fill every slot
+# Don't stack the same bet: skip a new trade if it moves almost in lockstep with a position already
+# held on the same side (5-min returns today, correlation >= MAX_CORRELATION), or shares a GROUP with one.
+MAX_CORRELATION = 0.75
+GROUPS = {
+    "us_index": {"SPY", "QQQ", "IWM", "DIA", "XLK", "ARKK", "RSP", "VOO", "IVV", "VTI", "QQQM", "MDY"},
+    "semis": {"SMH", "SOXX", "NVDA", "AMD", "AVGO", "MU", "TSM", "ARM", "SMCI", "MRVL", "QCOM", "TXN",
+              "AMAT", "LRCX", "KLAC", "INTC", "ON"},
+    "crypto": {"COIN", "MSTR", "HOOD", "IBIT", "FBTC", "BITO", "GBTC", "ETHA", "MARA", "RIOT", "CLSK"},
+    "big_banks": {"XLF", "JPM", "BAC", "WFC", "C", "GS", "MS"},
+    "energy": {"XLE", "XOM", "CVX", "OXY", "COP", "SLB", "USO"},
+    "biotech": {"XBI", "IBB", "MRNA"},
+    "metals": {"GLD", "SLV", "GDX", "IAU"},
+}
 MAX_GROSS_EXPOSURE = 1.5     # longs + shorts combined capped at 150% of equity
 REWARD_RISK = 2.0            # profit target = 2x the risk
 DAILY_LOSS_LIMIT = 0.025     # down 2.5% on the day -> close everything, stop for the day

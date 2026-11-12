@@ -234,8 +234,9 @@ def scan(state, now, equity):
         state["traded"] = [s for s in state["traded"] if s not in skipped]
         state["signals"] = [x for x in state["signals"] if x["action"] != "skipped_market"]
     cands = [s for s in state["ranges"] if s not in state["traded"]]
+    held = {p["symbol"]: p["side"] for p in alpaca.positions()}
     prices = alpaca.latest_prices(sorted(set(state["ranges"]) | {"SPY"}))  # all names, for the dashboard
-    day_bars = alpaca.bars(sorted(set(cands) | {"SPY"}), utc_iso(et_dt(state["date"], C.MARKET_OPEN)))
+    day_bars = alpaca.bars(sorted(set(cands) | set(held) | {"SPY"}), utc_iso(et_dt(state["date"], C.MARKET_OPEN)))
     state["last_prices"] = {s: prices[s] for s in prices}
 
     spy_px, spy_vw = prices.get("SPY"), vwap(day_bars.get("SPY", []))
@@ -265,6 +266,7 @@ def scan(state, now, equity):
 
     positions = alpaca.positions()
     open_count = len(positions)
+    held = {p["symbol"]: p["side"] for p in positions}
     gross = sum(abs(float(p["market_value"])) for p in positions)
     buying_power = float(alpaca.account()["buying_power"])
 
@@ -292,6 +294,10 @@ def scan(state, now, equity):
             sig.update(action="skipped_market", reason=f"SPY trend {market}")
         elif open_count >= C.MAX_OPEN_POSITIONS:
             sig["action"] = "skipped_max_positions"
+        elif sum(1 for v in held.values() if v == side) >= C.MAX_PER_SIDE:
+            sig.update(action="skipped_side_cap", reason=f"already {C.MAX_PER_SIDE} {side}s")
+        elif (twin := overlapping(s, side, held, day_bars)):
+            sig.update(action="skipped_correlated", reason=twin)
         elif qty < 1:
             sig["action"] = "skipped_size"
         elif side == "short" and not is_shortable(state, s):
@@ -301,6 +307,7 @@ def scan(state, now, equity):
                 alpaca.submit_bracket(s, qty, "buy" if side == "long" else "sell", target, stop,
                                       f"orb-{state['date']}-{s}-{side}")
                 sig["action"] = "entered"
+                held[s] = side
                 open_count += 1
                 gross += qty * px
                 buying_power -= qty * px
@@ -309,6 +316,36 @@ def scan(state, now, equity):
         state["signals"].append(sig)
         log(f"{side.upper()} {s} @ {px:.2f} (range {r['low']:.2f}-{r['high']:.2f}) -> {sig['action']} "
             f"qty {qty} stop {stop} target {target} {sig['reason']}")
+
+
+def _returns_5m(bars):
+    """5-minute returns keyed by bucket time, so two stocks line up even if IEX skipped some minutes."""
+    last = {}
+    for b in bars:
+        t = b["t"]  # e.g. 2026-11-12T14:37:00Z
+        last[t[:14] + f"{int(t[14:16]) // 5 * 5:02d}"] = b["c"]
+    keys = sorted(last)
+    return {k: last[k] / last[p] - 1 for p, k in zip(keys, keys[1:])}
+
+
+def overlapping(sym, side, held, day_bars):
+    """Name of a same-side position that is effectively the same bet as `sym`, else ''."""
+    group = next((g for g, names in C.GROUPS.items() if sym in names), None)
+    for h, h_side in held.items():
+        if h_side != side:
+            continue  # long A + short B is a hedge, not a duplicate
+        if group and h in C.GROUPS[group]:
+            return f"same group as {h} ({group})"
+        a, b = _returns_5m(day_bars.get(sym, [])), _returns_5m(day_bars.get(h, []))
+        keys = sorted(set(a) & set(b))
+        if len(keys) >= 8:
+            x, y = [a[k] for k in keys], [b[k] for k in keys]
+            mx, my = sum(x) / len(x), sum(y) / len(y)
+            cov = sum((i - mx) * (j - my) for i, j in zip(x, y))
+            vx, vy = sum((i - mx) ** 2 for i in x), sum((j - my) ** 2 for j in y)
+            if vx and vy and cov / math.sqrt(vx * vy) >= C.MAX_CORRELATION:
+                return f"moves with {h} (corr {cov / math.sqrt(vx * vy):.2f})"
+    return ""
 
 
 def wrap_up(state, is_open):

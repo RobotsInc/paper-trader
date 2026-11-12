@@ -20,8 +20,14 @@ An automated day-trading bot on an **Alpaca paper account (fake money)**, run fr
    after 2:30 PM; **everything closed by ~3:45 PM**. Never holds overnight.
 
 ## Risk limits
-0.5% of equity risked per trade - max **5** positions - max 20% of equity per position -
-longs + shorts capped at 150% of equity - down 2.5% on the day -> close all, stop for the day.
+0.5% of equity risked per trade - max **5** positions, **no more than 3 on one side** -
+max 20% of equity per position - longs + shorts capped at 150% of equity -
+down 2.5% on the day -> close all, stop for the day.
+
+**No doubling up:** a new trade is skipped if it's the same bet as a position already held on the
+same side - either in the same group (index ETFs, semis, crypto-linked, big banks, energy, biotech,
+metals) or moving in near-lockstep with it today (5-min return correlation >= 0.75).
+A long in one and a short in a related name is allowed - that's a hedge.
 All settings live in [`bot/config.py`](bot/config.py).
 
 ## Measuring what works
