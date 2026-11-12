@@ -7,19 +7,21 @@ are caught within about half a minute.
 - **Live terminal:** https://robotsinc.github.io/paper-trader/
 - **Scorecard:** [SCORECARD.md](SCORECARD.md)
 
-## How it trades
-1. **Scanner (~9:46 ET).** Scans ~110 liquid stocks/ETFs plus Alpaca's most-active and top-mover lists,
-   filters for price >= $10 and real liquidity, and ranks by **opening gap x relative volume**.
-   The top **40** names become today's trading list.
-2. **AI desk.** Google Gemini (free tier) reads the last ~20h of headlines for those 40 and writes a
+## How it trades (v3: "stocks in play" opening-range breakout)
+Rules follow Zarattini, Barbon & Aziz, *A Profitable Day Trading Strategy for the U.S. Equity Market*,
+picked over the old rules by a 12-month backtest ([`data/backtest/REPORT.md`](data/backtest/REPORT.md)).
+
+1. **Scanner (~9:36 ET).** Scans ~110 liquid stocks/ETFs plus Alpaca's most-active and top-mover lists.
+   Keeps names >= $5 with 14-day average volume >= 1M shares and a 14-day ATR >= $0.50, then ranks by
+   **relative volume**: the first 5 minutes' volume vs. the same 5 minutes averaged over the last 14 days.
+   The top **20** with relative volume >= 1 are today's "stocks in play".
+2. **AI desk.** Google Gemini (free tier) reads the last ~20h of headlines for those names and writes a
    market briefing plus, for each name, a catalyst and a bias: `both`, `long` only, `short` only, or
    `block` (event risk: earnings today, CEO crisis, M&A, regulatory...).
-3. **Opening-range breakouts, long and short.** The first 15 minutes set each stock's range.
-   Break **above** (and above VWAP) -> buy. Break **below** (and below VWAP) -> short.
-   Each stock is judged on its own price action; SPY's trend is logged with every signal
-   (optional SPY filter: `MARKET_FILTER` in `bot/config.py`).
-4. **Exits.** Stop at the middle of the range, target at 2x risk, both held by Alpaca. No new trades
-   after 2:30 PM; **everything closed by ~3:45 PM**. Never holds overnight.
+3. **Entries.** The first 5 minutes set each stock's range, and the first candle picks the direction:
+   closed green -> buy if price breaks **above** the range; closed red -> short if it breaks **below**.
+4. **Exits.** Stop at **10% of the stock's 14-day ATR** from entry, held by Alpaca. **No profit target** -
+   winners ride until ~3:45 PM, when everything is closed. No new trades after 2:30 PM. Never holds overnight.
 
 ## Risk limits
 0.5% of equity risked per trade - max **5** positions, **no more than 3 on one side** -
@@ -54,9 +56,12 @@ Optional repo variables: `AI_FILTER=off` to disable the AI desk; `AI_MODEL` to p
 **Actions -> paper-trader -> Run workflow** with a mode:
 `run` (normal check) - `flatten` (close everything now) - `report` (rebuild scorecard) - `ai` (re-run AI desk).
 Pause: **Actions -> paper-trader -> ... -> Disable workflow**.
+Backtest: **Actions -> backtest -> Run workflow** (months of history, slippage) -> results in `data/backtest/`.
 
 ## Caveats
-- GitHub's schedule can run late or skip; stops/targets live at Alpaca, so exits aren't affected.
-- Paper fills are kinder than real ones (no slippage). Shorts assume easy-to-borrow shares.
+- GitHub's schedule can run late or skip; stops live at Alpaca, so exits aren't affected.
+- **Paper fills are perfect.** The scorecard also shows P&L after an estimated 0.03% slippage per fill;
+  the backtest says this strategy's edge is about the size of real-world trading costs.
+- Shorts assume easy-to-borrow shares.
 - Volume data is from the free IEX feed (a slice of total volume); fine for ranking, not exact.
 - Judge it after 20+ trading days.

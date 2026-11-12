@@ -4,10 +4,11 @@
 GitHub Actions starts this every ~5 minutes on weekdays; each run then checks the market
 every 30 seconds for ~4 minutes. Each check:
   1. logs account equity,
-  2. at ~9:46 ET, scans the market for the names most in play and asks the AI desk
-     for a briefing and a long/short/block bias on each,
-  3. until 14:30 ET, buys breakouts above / shorts breakdowns below the 15-minute
-     opening range (stop + target held by Alpaca between runs),
+  2. at ~9:36 ET, scans the market for the 20 "stocks in play" (highest relative volume)
+     and asks the AI desk for a briefing and a long/short/block bias on each,
+  3. until 14:30 ET, trades breakouts of the 5-minute opening range in the direction of the
+     first candle, with a stop at 10% of the stock's daily ATR held by Alpaca; no profit
+     target - winners ride until the close,
   4. after 15:45 ET, closes everything and writes the day's results,
   5. writes data/live.json for the dashboard.
 
@@ -228,7 +229,7 @@ def trade(state, now, equity):
         state["ranges"] = {r["symbol"]: r for r in rows}
         state["scan"] = stats
         log(f"Scanner: {stats['scanned']} scanned, {stats['liquid']} liquid, "
-            f"{stats['qualified']} with clean ranges -> trading top {stats['selected']}: "
+            f"{stats['qualified']} in play -> trading top {stats['selected']}: "
             + ", ".join(f"{r['symbol']}({r['gap_pct']:+.1f}%,{r['relvol']:.1f}x)" for r in rows[:15])
             + (" ..." if len(rows) > 15 else ""))
     if not state["ai"]["done"]:
@@ -294,10 +295,13 @@ def scan(state, now, equity):
         if not px:
             continue
         w = hi - lo
-        vw = vwap(day_bars.get(s, []))
-        if hi < px <= hi + C.MAX_CHASE * w and (not vw or px > vw):
+        d = r.get("dir", 0)
+        vw = vwap(day_bars.get(s, [])) if C.VWAP_FILTER else None
+        go_long = C.DIRECTION == "both" or d > 0
+        go_short = C.ALLOW_SHORTS and (C.DIRECTION == "both" or d < 0)
+        if go_long and px > hi and (C.MAX_CHASE is None or px <= hi + C.MAX_CHASE * w) and (not vw or px > vw):
             signals.append((r.get("score", 0), s, "long", px))
-        elif C.ALLOW_SHORTS and lo - C.MAX_CHASE * w <= px < lo and (not vw or px < vw):
+        elif go_short and px < lo and (C.MAX_CHASE is None or px >= lo - C.MAX_CHASE * w) and (not vw or px < vw):
             signals.append((r.get("score", 0), s, "short", px))
     if not signals:
         return
@@ -311,11 +315,15 @@ def scan(state, now, equity):
 
     for score, s, side, px in signals:
         r = state["ranges"][s]
-        stop = round((r["high"] + r["low"]) / 2, 2)   # midpoint of the opening range
+        sgn = 1 if side == "long" else -1
+        if C.STOP_ATR and r.get("atr"):
+            stop = round(px - sgn * C.STOP_ATR * r["atr"], 2)   # a slice of the stock's normal daily move
+        else:
+            stop = round((r["high"] + r["low"]) / 2, 2)         # middle of the opening range
         risk = abs(px - stop)
-        if risk < 0.02:
+        if risk < max(0.01, px * C.MIN_STOP_PCT):
             continue
-        target = round(px + C.REWARD_RISK * risk if side == "long" else px - C.REWARD_RISK * risk, 2)
+        target = round(px + sgn * C.TARGET_R * risk, 2) if C.TARGET_R else None  # None = hold to the close
         room = max(0.0, min(buying_power, equity * C.MAX_GROSS_EXPOSURE - gross))
         qty = min(math.floor(equity * C.RISK_PER_TRADE / risk),
                   math.floor(equity * C.MAX_POSITION_PCT / px),
@@ -343,8 +351,17 @@ def scan(state, now, equity):
             sig["action"] = "skipped_not_shortable"
         else:
             try:
-                alpaca.submit_bracket(s, qty, "buy" if side == "long" else "sell", target, stop,
-                                      f"orb-{state['date']}-{s}-{side}")
+                try:
+                    alpaca.submit_bracket(s, qty, "buy" if side == "long" else "sell", target, stop,
+                                          f"orb-{state['date']}-{s}-{side}")
+                except RuntimeError as e:
+                    if target or not str(e).startswith("4"):
+                        raise
+                    # Stop-only order rejected: use a bracket whose target is far enough away
+                    # (10x risk) that in practice it still means "hold to the close".
+                    log(f"Stop-only order rejected for {s} ({str(e)[:80]}) - retrying as a bracket")
+                    alpaca.submit_bracket(s, qty, "buy" if side == "long" else "sell",
+                                          round(px + sgn * 10 * risk, 2), stop, f"orb-{state['date']}-{s}-{side}-b")
                 sig["action"] = "entered"
                 held[s] = side
                 open_count += 1
@@ -354,7 +371,7 @@ def scan(state, now, equity):
                 sig.update(action="order_error", reason=str(e)[:200])
         state["signals"].append(sig)
         log(f"{side.upper()} {s} @ {px:.2f} (range {r['low']:.2f}-{r['high']:.2f}) -> {sig['action']} "
-            f"qty {qty} stop {stop} target {target} {sig['reason']}")
+            f"qty {qty} stop {stop} target {target or 'close'} {sig['reason']}")
 
 
 def _returns_5m(bars):
@@ -438,8 +455,9 @@ def simulate(sig, bars, flatten_at):
     for b in after:
         if (b["h"] >= sig["stop"]) if short else (b["l"] <= sig["stop"]):
             return sig["stop"], "stop"
-        if (b["l"] <= sig["target"]) if short else (b["h"] >= sig["target"]):
-            return sig["target"], "target"
+        tgt = sig.get("target")
+        if tgt and ((b["l"] <= tgt) if short else (b["h"] >= tgt)):
+            return tgt, "target"
     return after[-1]["c"], "time_exit"
 
 

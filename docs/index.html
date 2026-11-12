@@ -166,7 +166,7 @@ function render() {
 
   const ai = D.ai || {};
   $("aiModel").textContent = ai.model || "";
-  $("brief").innerHTML = ai.error ? `<span class="err">AI desk offline: ${esc(ai.error)}</span>` : esc(ai.briefing || "Briefing arrives after the opening range (~9:46 ET).");
+  $("brief").innerHTML = ai.error ? `<span class="err">AI desk offline: ${esc(ai.error)}</span>` : esc(ai.briefing || "Briefing arrives after the opening range (~9:36 ET).");
   const fc = {block: "down", long: "up", short: "blu"};
   $("flags").innerHTML = (ai.flags || []).map(f =>
     `<div class="flag"><span class="sym">${esc(f.symbol)}</span> <span class="tag ${fc[f.decision] || "dim"}">${esc((f.decision || "").toUpperCase())}</span> <span class="amb">${esc(f.catalyst)}</span> <span class="dim">${esc(f.reason)}</span></div>`
@@ -176,7 +176,7 @@ function render() {
   $("posCount").textContent = `${P.length} open`;
   $("pos").innerHTML = P.map(p => `<tr><td class="sym">${esc(p.symbol)}</td>
     <td><span class="tag ${p.side === "short" ? "blu" : "up"}">${p.side.toUpperCase()}</span></td>
-    <td>${n(p.qty, 0)}</td><td>${n(p.entry)}</td><td>${n(p.price)}</td><td class="dim">${n(p.stop)}</td><td class="dim">${n(p.target)}</td>
+    <td>${n(p.qty, 0)}</td><td>${n(p.entry)}</td><td>${n(p.price)}</td><td class="dim">${n(p.stop)}</td><td class="dim">${p.target == null ? "CLOSE" : n(p.target)}</td>
     <td>${span(p.upl, money(p.upl))}</td><td>${span(p.upl_pct, sgn(p.upl_pct, 2, "%"))}</td><td class="dim">${esc(p.opened)}</td></tr>`).join("")
     || '<tr><td colspan="10" class="empty l">Flat - no open positions.</td></tr>';
 
@@ -209,7 +209,7 @@ function render() {
 
   const U = D.universe || [];
   const items = U.map(u => `<span><b>${esc(u.symbol)}</b> ${n(u.price)} ${span(u.gap_pct, sgn(u.gap_pct, 1, "%"))}</span>`).join("");
-  $("tape").innerHTML = items ? items + items : '<span class="dim">Scanner runs at ~9:46 ET</span>';
+  $("tape").innerHTML = items ? items + items : '<span class="dim">Scanner runs at ~9:36 ET</span>';
 }
 
 function universe() {
@@ -226,7 +226,7 @@ function universe() {
       <td class="l"><span class="bar"><b></b>${pos != null ? `<i style="left:${pos}%"></i>` : ""}</span></td>
       <td class="l ${({block: "down", long: "up", short: "blu"})[u.ai] || "dim"}">${esc((u.ai || "").toUpperCase())}</td>
       <td class="l ${stc(u.status)}">${esc(u.status)}</td><td class="l dim">${esc(u.catalyst)}</td></tr>`;
-  }).join("") || '<tr><td colspan="11" class="empty l">Scanner runs at ~9:46 ET. * = found by the scanner (not on the core list).</td></tr>';
+  }).join("") || '<tr><td colspan="11" class="empty l">Scanner runs at ~9:36 ET. * = found by the scanner (not on the core list).</td></tr>';
 }
 
 function spark(pts, base) {

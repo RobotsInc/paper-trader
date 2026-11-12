@@ -46,11 +46,14 @@ SLIP = float(os.getenv("BT_SLIPPAGE_BPS", "3")) / 1e4     # per side, fraction o
 FEED = os.getenv("BT_FEED", "sip")                         # free plan allows SIP history > 15 min old
 START_EQUITY = 100_000.0
 OPEN_MIN = 9 * 60 + 30
+# The bot's original (v2) rules, kept here so the backtest can still replay them.
+V2 = {"max_chase": 0.5, "min_price": 10.0, "min_range": 0.002, "max_range": 0.04, "universe": 40}
+REWARD_RISK = 2.0
 
 ENTRIES = {
     # name: (range minutes, direction rule, VWAP filter, max chase in range-widths, selection)
-    "15m": (15, "both", True, C.MAX_CHASE, "ours"),
-    "5m": (5, "both", True, C.MAX_CHASE, "ours"),
+    "15m": (15, "both", True, V2["max_chase"], "ours"),
+    "5m": (5, "both", True, V2["max_chase"], "ours"),
     "paper5m": (5, "candle", False, None, "paper"),
 }
 STOPS = {"mid": "range middle", 0.10: "10% ATR", 0.25: "25% ATR"}
@@ -62,7 +65,8 @@ def variant_name(e, s, t):
     return f"{tag} · {STOPS[s]} stop · {TARGETS[t]}"
 
 
-CURRENT = ("15m", "mid", "2R")
+CURRENT = ("paper5m", 0.10, "close")   # live since v3
+V2_RULES = ("15m", "mid", "2R")
 PAPER = ("paper5m", 0.10, "close")
 
 
@@ -164,7 +168,7 @@ def run_exit(bars, i, side, px, hi, lo, atr, stop_rule, target_rule, flat):
     risk = (px - stop) * side
     if risk <= max(0.01, px * 0.0005):  # stop too close to be real
         return None
-    target = px + side * C.REWARD_RISK * risk if target_rule == "2R" else None
+    target = px + side * REWARD_RISK * risk if target_rule == "2R" else None
     for j in range(i, len(bars)):
         m, o, h, l, c, v = bars[j]
         if m >= flat:
@@ -231,7 +235,7 @@ def select(day, hist, k, how):
         vol = sum(b[5] for b in orb)
         if how == "ours":  # same formula as bot/universe.py
             width = (hi - lo) / last
-            if prev_c < C.MIN_PRICE or not (C.MIN_RANGE_PCT <= width <= C.MAX_RANGE_PCT):
+            if prev_c < V2["min_price"] or not (V2["min_range"] <= width <= V2["max_range"]):
                 continue
             relvol = vol / max(prev_v * k / 390, 1)
             gap = orb[0][1] / prev_c - 1
@@ -246,7 +250,7 @@ def select(day, hist, k, how):
             if relvol >= 1:
                 rows.append((relvol, s))
     rows.sort(reverse=True)
-    n = C.MAX_UNIVERSE if how == "ours" else 20
+    n = V2["universe"] if how == "ours" else 20
     return [(s, sc) for sc, s in rows[:n]]
 
 
@@ -454,7 +458,7 @@ def write_report(trades, days, spy, feed):
          "|---|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(rows, 1):
         tr, te = r["train"], r["test"]
-        mark = " (current bot)" if r["key"] == CURRENT else " (paper)" if r["key"] == PAPER else ""
+        mark = " (current bot = paper recipe)" if r["key"] == CURRENT else " (old v2 rules)" if r["key"] == V2_RULES else ""
         tpd = r["all"]["net"].get("trades", 0) / max(len(days), 1)
         L.append(f"| {i} | {r['variant']}{mark} | {tr['port'].get('sharpe', 0):.2f} | "
                  f"{tr['port'].get('return%', 0):+.1f}% | **{te['port'].get('sharpe', 0):.2f}** | "
@@ -485,7 +489,7 @@ def plot(curves, rows, spy):
         return
     fig, ax = plt.subplots(figsize=(11, 5.5))
     show = [r["key"] for r in rows[:4]]
-    for k in (CURRENT, PAPER):
+    for k in (CURRENT, V2_RULES):
         if k not in show and k in curves:
             show.append(k)
     for k in show:

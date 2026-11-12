@@ -3,6 +3,8 @@ import csv
 import json
 from pathlib import Path
 
+import config as C
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
@@ -55,6 +57,10 @@ def build():
         by_side[side] = {"trades": len(ps), "pnl": round(sum(ps), 2),
                          "win_rate": round(sum(1 for x in ps if x > 0) / len(ps) * 100, 1) if ps else None}
     blocked_rows = [x for x in shadow if x["action"] == "blocked_by_ai"]
+    # Paper fills are perfect. Estimate real-money slippage on every entry and exit.
+    bps = getattr(C, "EST_SLIPPAGE_BPS", 3) / 1e4
+    est_cost = sum(abs(float(t["qty"])) * (float(t["entry"]) + float(t["exit"])) * bps for t in trades)
+    after_cost_ret = ((end_eq - est_cost) / start_eq - 1) * 100
     (DATA / "summary.json").write_text(json.dumps({
         "days": len(days), "start_equity": start_eq, "end_equity": end_eq,
         "return_pct": round(bot_ret, 3), "spy_return_pct": round(spy_ret, 3) if spy_ret is not None else None,
@@ -64,6 +70,7 @@ def build():
         "profit_factor": round(pf, 2) if pf else None, "max_drawdown_pct": round(max_dd, 2),
         "best_day": max(day_pnls), "worst_day": min(day_pnls),
         "green_days": sum(1 for x in day_pnls if x > 0), "by_side": by_side,
+        "est_slippage": round(est_cost, 2), "return_after_slippage_pct": round(after_cost_ret, 3),
         "ai_blocked": len(blocked_rows),
         "ai_blocked_pnl": round(sum(float(x["pnl"]) for x in blocked_rows), 2),
     }, indent=1))
@@ -83,6 +90,8 @@ def build():
         "", "## Stats", "",
         "| Metric | Value |", "|---|---|",
         f"| Total P&L | {_money(end_eq - start_eq)} |",
+        f"| P&L after est. slippage ({bps * 1e4:.0f} bps/side, what real money might see) | "
+        f"{_money(end_eq - start_eq - est_cost)} ({after_cost_ret:+.2f}%) |",
         f"| Trades | {len(pnls)} |",
         f"| Win rate | {len(wins) / len(pnls) * 100:.0f}% |" if pnls else "| Win rate | n/a |",
         f"| Avg win / avg loss | {_money(sum(wins) / len(wins)) if wins else 'n/a'} / {_money(sum(losses) / len(losses)) if losses else 'n/a'} |",

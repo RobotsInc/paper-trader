@@ -43,19 +43,20 @@ def asset(symbol):
 
 
 def submit_bracket(symbol, qty, side, take_profit, stop_loss, client_id):
-    """Market entry (side 'buy' = long, 'sell' = short) with an attached take-profit
-    and stop-loss that Alpaca manages between bot runs."""
+    """Market entry (side 'buy' = long, 'sell' = short) with an attached stop-loss (and
+    take-profit, if given) that Alpaca holds between bot runs."""
     body = {
         "symbol": symbol,
         "qty": str(int(qty)),
         "side": side,
         "type": "market",
         "time_in_force": "day",
-        "order_class": "bracket",
-        "take_profit": {"limit_price": f"{take_profit:.2f}"},
+        "order_class": "bracket" if take_profit else "oto",
         "stop_loss": {"stop_price": f"{stop_loss:.2f}"},
         "client_order_id": client_id,
     }
+    if take_profit:
+        body["take_profit"] = {"limit_price": f"{take_profit:.2f}"}
     r = requests.post(TRADE + "/v2/orders", headers=_headers(), json=body, timeout=30)
     if r.status_code >= 400:
         raise RuntimeError(f"{r.status_code} {r.text[:200]}")
@@ -69,13 +70,17 @@ def close_all():
     return r.json() if r.content else []
 
 
-def bars(symbols, start, end=None, timeframe="1Min"):
+def calendar(start, end):
+    return _get(TRADE, "/v2/calendar", start=start, end=end)
+
+
+def bars(symbols, start, end=None, timeframe="1Min", feed=FEED):
     out = {}
     for i in range(0, len(symbols), 100):
         chunk, token = symbols[i:i + 100], None
         while True:
             p = dict(symbols=",".join(chunk), timeframe=timeframe, start=start,
-                     feed=FEED, limit=10000, adjustment="raw")
+                     feed=feed, limit=10000, adjustment="raw" if timeframe == "1Min" else "split")
             if end:
                 p["end"] = end
             if token:

@@ -18,7 +18,7 @@ ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:gene
 FALLBACK_MODELS = ["gemini-3.6-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
 
 PROMPT = """You are the news desk for an intraday opening-range breakout bot. It goes
-LONG stocks breaking above their first-15-minute range and SHORT stocks breaking below
+LONG stocks breaking above their first-5-minute range and SHORT stocks breaking below
 it, and closes everything before the market close.
 
 You get today's scanned list: each symbol's opening gap %, relative volume, and recent
