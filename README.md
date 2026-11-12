@@ -14,7 +14,8 @@ An automated day-trading bot on an **Alpaca paper account (fake money)**, run fr
    `block` (event risk: earnings today, CEO crisis, M&A, regulatory...).
 3. **Opening-range breakouts, long and short.** The first 15 minutes set each stock's range.
    Break **above** (and above VWAP) -> buy. Break **below** (and below VWAP) -> short.
-   Market filter: longs only while SPY is above its VWAP, shorts only while it's below.
+   Each stock is judged on its own price action; SPY's trend is logged with every signal
+   (optional SPY filter: `MARKET_FILTER` in `bot/config.py`).
 4. **Exits.** Stop at the middle of the range, target at 2x risk, both held by Alpaca. No new trades
    after 2:30 PM; **everything closed by ~3:45 PM**. Never holds overnight.
 
