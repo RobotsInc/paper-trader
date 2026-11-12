@@ -13,7 +13,7 @@ import config as C
 
 ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 # Tried in order until one works (free-tier Flash models). Override with repo variable AI_MODEL.
-FALLBACK_MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
+FALLBACK_MODELS = ["gemini-3.5-flash-lite", "gemini-3.8-flash", "gemini-3.6-flash", "gemini-2.5-flash"]
 
 PROMPT = """You are a risk filter for an intraday long-only breakout trading bot.
 It buys stocks that break above their first-15-minute range and closes everything
@@ -72,8 +72,12 @@ def _ask_gemini(key, user, result):
     }
     errors = []
     for model in models:
-        r = requests.post(ENDPOINT.format(model=model), json=body, timeout=60,
-                          headers={"x-goog-api-key": key, "Content-Type": "application/json"})
+        try:
+            r = requests.post(ENDPOINT.format(model=model), json=body, timeout=75,
+                              headers={"x-goog-api-key": key, "Content-Type": "application/json"})
+        except requests.RequestException as e:
+            errors.append(f"{model}: {type(e).__name__}")
+            continue
         if r.status_code == 200:
             result["model"] = model
             return r.json()["candidates"][0]["content"]["parts"][0]["text"]

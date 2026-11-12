@@ -176,6 +176,8 @@ def run_ai_filter(state, now):
     state["ai"] = news_filter.run(C.WATCHLIST, now)
     if state["ai"].get("error"):
         log(f"AI filter failed, trading on rules only: {state['ai']['error']}")
+    else:
+        log(f"AI filter used model {state['ai'].get('model')}")
     for s, d in state["ai"]["decisions"].items():
         append_csv("ai_log.csv", {"date": state["date"], "symbol": s,
                                   "decision": d["decision"], "reason": d["reason"]})
