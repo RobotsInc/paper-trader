@@ -48,7 +48,7 @@
     "enabled": true,
     "model": "openai/gpt-4o-mini",
     "decisions": {},
-    "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+    "error": "while calling AI model: RuntimeError: HTTP 200: 'OK\\r\\n'"
   },
   "traded": [
     "QQQ",
