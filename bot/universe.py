@@ -7,8 +7,20 @@ relative volume = today's opening-range volume / the same window's average over 
 last 14 sessions. The MAX_UNIVERSE names with the highest relative volume are traded."""
 from datetime import timedelta, timezone
 
+import re
+
 import alpaca
 import config as C
+
+# Fund names that mark a leveraged or inverse ETF (catches ones EXCLUDE doesn't list by ticker).
+LEVERAGED = re.compile(r"\b(\d(\.\d+)?X|2x|3x|ultra|ultrapro|leveraged|inverse|daily target)\b", re.I)
+
+
+def is_leveraged(symbol):
+    try:
+        return bool(LEVERAGED.search(alpaca.asset(symbol).get("name", "")))
+    except Exception:
+        return False
 
 CORE = [
     # Index / sector ETFs
@@ -89,7 +101,9 @@ def build(or_start, or_end, log):
         t0 = or_start.replace(year=int(c["date"][:4]), month=int(c["date"][5:7]), day=int(c["date"][8:10]))
         past = alpaca.bars(sorted(liquid), _utc(t0), _utc(t0 + timedelta(minutes=k, seconds=-1)))
         for s in liquid:
-            hist[s].append(sum(x["v"] for x in past.get(s, [])))
+            v = sum(x["v"] for x in past.get(s, []))
+            if v > 0:  # days with no trades on the free feed would make relative volume meaningless
+                hist[s].append(v)
 
     bars = alpaca.bars(sorted(liquid), _utc(or_start), _utc(or_end - timedelta(seconds=1)))
     rows = []
@@ -112,5 +126,13 @@ def build(or_start, or_end, log):
             "source": "core" if s in CORE else "scanner",
         })
     rows.sort(key=lambda r: r["score"], reverse=True)
-    return rows[:C.MAX_UNIVERSE], {"scanned": len(cands), "liquid": len(liquid),
-                                   "qualified": len(rows), "selected": min(len(rows), C.MAX_UNIVERSE)}
+    picked = []
+    for r in rows:
+        if len(picked) >= C.MAX_UNIVERSE:
+            break
+        if r["source"] == "scanner" and is_leveraged(r["symbol"]):
+            continue
+        picked.append(r)
+    rows = picked + [r for r in rows if r not in picked]  # keep the qualified count honest
+    return picked, {"scanned": len(cands), "liquid": len(liquid),
+                                   "qualified": len(rows), "selected": len(picked)}

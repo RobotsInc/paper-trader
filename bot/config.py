@@ -9,7 +9,7 @@ import os
 SCAN_MOST_ACTIVES = 50
 SCAN_MOVERS = 25              # top gainers + top losers each
 MAX_UNIVERSE = 20             # trade the 20 names with the highest relative volume
-MIN_PRICE = 5.0
+MIN_PRICE = 10.0             # paper uses $5; our backtest only covered ~$10+ names, so stay there
 MIN_AVG_VOLUME = 1_000_000    # 14-day average daily volume (all exchanges)
 MIN_ATR = 0.50                # 14-day average true range, in dollars
 MIN_RELVOL = 1.0              # first-5-min volume vs the same 5 minutes averaged over the last 14 days
