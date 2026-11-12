@@ -41,7 +41,8 @@ MAX_CHASE = None             # skip if price is more than this many range-widths
 # ---- Exits ----
 STOP_ATR = 0.10              # stop = 10% of the stock's 14-day ATR from entry (None = middle of the range)
 TARGET_R = None              # profit target as a multiple of risk; None = no target, hold until FLATTEN_AT
-MIN_STOP_PCT = 0.0005        # skip if the stop would be closer than 0.05% of price
+MIN_STOP_PCT = 0.0025        # skip calm names whose stop would be < 0.25% away: trading costs eat
+                             # tight stops (backtest: no edge even before costs below ~0.25%)
 EST_SLIPPAGE_BPS = 3         # paper fills are perfect; the scorecard also shows P&L after this much
                              # slippage per side (0.03%) to estimate real-money results
 
