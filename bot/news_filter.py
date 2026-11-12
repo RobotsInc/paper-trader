@@ -1,0 +1,69 @@
+"""AI news filter: once a day, an LLM (free via GitHub Models) reads recent
+headlines and can veto symbols whose price action is likely to be headline-driven.
+If anything fails, it fails open: the bot trades on its rules alone."""
+import json
+import os
+import re
+from datetime import timedelta, timezone
+
+import requests
+
+import alpaca
+import config as C
+
+ENDPOINT = "https://models.github.ai/inference/chat/completions"
+
+PROMPT = """You are a risk filter for an intraday long-only breakout trading bot.
+It buys stocks that break above their first-15-minute range and closes everything
+before the market close. Breakouts work best when price moves on normal flows, and
+fail more often when a stock is whipsawed by news.
+
+For each symbol, read the recent headlines and decide:
+- "block" only if there is a specific, current event likely to make today's price
+  action unusually erratic or headline-driven: earnings released today or due after
+  today's close, a CEO/leadership crisis, a major lawsuit/regulatory/export action,
+  an M&A announcement, a trading halt risk, or a big gap on breaking news.
+- "allow" otherwise. Routine news, analyst notes, and general market commentary
+  are NOT reasons to block. Default to allow.
+
+Reply with JSON only, no prose, in exactly this form:
+{"AAPL": {"decision": "allow", "reason": "short reason"}, ...}"""
+
+
+def run(symbols, now):
+    result = {"done": True, "enabled": True, "model": C.AI_MODEL, "decisions": {}}
+    try:
+        since = (now - timedelta(hours=C.NEWS_LOOKBACK_HOURS)).astimezone(timezone.utc)
+        items = alpaca.news(symbols, since.strftime("%Y-%m-%dT%H:%M:%SZ"))
+        headlines = {s: [] for s in symbols}
+        for n in items:
+            for s in n.get("symbols", []):
+                if s in headlines and len(headlines[s]) < 8:
+                    headlines[s].append(n.get("headline", "").strip())
+        lines = [f"{s}: " + (" | ".join(h) if h else "(no recent news)")
+                 for s, h in headlines.items()]
+        body = {
+            "model": C.AI_MODEL,
+            "temperature": 0,
+            "messages": [
+                {"role": "system", "content": PROMPT},
+                {"role": "user", "content": f"Today is {now:%A, %B %d, %Y}.\n\n" + "\n".join(lines)},
+            ],
+        }
+        r = requests.post(
+            ENDPOINT,
+            headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+                     "Content-Type": "application/json"},
+            json=body, timeout=60,
+        )
+        r.raise_for_status()
+        text = r.json()["choices"][0]["message"]["content"]
+        data = json.loads(re.search(r"\{.*\}", text, re.S).group(0))
+        for s in symbols:
+            d = data.get(s) or {}
+            decision = "block" if str(d.get("decision", "allow")).lower() == "block" else "allow"
+            result["decisions"][s] = {"decision": decision, "reason": str(d.get("reason", ""))[:200]}
+    except Exception as e:  # fail open
+        result["error"] = f"{type(e).__name__}: {e}"[:300]
+        result["decisions"] = {}
+    return result
