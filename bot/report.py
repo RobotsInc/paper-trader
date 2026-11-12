@@ -25,7 +25,7 @@ def build():
     inc = state.get("inception", {})
 
     out = ["# Paper Trader Scorecard", "",
-           "_Simulated money only. Updated automatically after each trading day._", ""]
+           "_Simulated money only. Updated automatically after each trading day. Live view: the dashboard link in the README._", ""]
     if not days or not inc:
         out.append("No completed trading days yet. Check back after the first market close.")
         (ROOT / "SCORECARD.md").write_text("\n".join(out) + "\n")
@@ -48,6 +48,25 @@ def build():
     losses = [p for p in pnls if p <= 0]
     pf = (sum(wins) / abs(sum(losses))) if losses and sum(losses) else None
     day_pnls = [float(d["pnl"]) for d in days]
+    side_of = lambda t: t.get("side") or "long"
+    by_side = {}
+    for side in ("long", "short"):
+        ps = [float(t["pnl"]) for t in trades if side_of(t) == side]
+        by_side[side] = {"trades": len(ps), "pnl": round(sum(ps), 2),
+                         "win_rate": round(sum(1 for x in ps if x > 0) / len(ps) * 100, 1) if ps else None}
+    blocked_rows = [x for x in shadow if x["action"] == "blocked_by_ai"]
+    (DATA / "summary.json").write_text(json.dumps({
+        "days": len(days), "start_equity": start_eq, "end_equity": end_eq,
+        "return_pct": round(bot_ret, 3), "spy_return_pct": round(spy_ret, 3) if spy_ret is not None else None,
+        "trades": len(pnls), "win_rate": round(len(wins) / len(pnls) * 100, 1) if pnls else None,
+        "avg_win": round(sum(wins) / len(wins), 2) if wins else None,
+        "avg_loss": round(sum(losses) / len(losses), 2) if losses else None,
+        "profit_factor": round(pf, 2) if pf else None, "max_drawdown_pct": round(max_dd, 2),
+        "best_day": max(day_pnls), "worst_day": min(day_pnls),
+        "green_days": sum(1 for x in day_pnls if x > 0), "by_side": by_side,
+        "ai_blocked": len(blocked_rows),
+        "ai_blocked_pnl": round(sum(float(x["pnl"]) for x in blocked_rows), 2),
+    }, indent=1))
 
     verdict = ""
     if spy_ret is not None:
@@ -71,6 +90,8 @@ def build():
         f"| Max drawdown | {max_dd:.2f}% |",
         f"| Best / worst day | {_money(max(day_pnls))} / {_money(min(day_pnls))} |",
         f"| Green days | {sum(1 for p in day_pnls if p > 0)} of {len(day_pnls)} |",
+        f"| Longs | {by_side['long']['trades']} trades, {_money(by_side['long']['pnl'])} |",
+        f"| Shorts | {by_side['short']['trades']} trades, {_money(by_side['short']['pnl'])} |",
     ]
 
     blocked = [s for s in shadow if s["action"] == "blocked_by_ai"]
@@ -93,10 +114,10 @@ def build():
                    f"{(float(d['spy_pct']) if d['spy_pct'] else 0):+.2f}% | {d['trades']} | {d['ai_blocked']} |")
 
     if trades:
-        out += ["", "## Recent trades", "", "| Date | Symbol | Qty | Entry | Exit | P&L |",
-                "|---|---|---|---|---|---|"]
+        out += ["", "## Recent trades", "", "| Date | Symbol | Side | Qty | Entry | Exit | P&L |",
+                "|---|---|---|---|---|---|---|"]
         for t in reversed(trades[-15:]):
-            out.append(f"| {t['date']} | {t['symbol']} | {float(t['qty']):g} | {t['entry']} | "
+            out.append(f"| {t['date']} | {t['symbol']} | {side_of(t)} | {float(t['qty']):g} | {t['entry']} | "
                        f"{t['exit']} | {_money(float(t['pnl']))} |")
 
     (ROOT / "SCORECARD.md").write_text("\n".join(out) + "\n")

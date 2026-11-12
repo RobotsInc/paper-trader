@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PTRD Terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000; --panel: #07090c; --line: #1f2630; --amber: #ffa028; --amber-dim: #a8681a;
+    --text: #e8e8e8; --dim: #7d8794; --up: #22d36b; --down: #ff4b4b; --blue: #5ab0ff; --key: #f5c400;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text);
+    font: 12px/1.45 "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
+  .top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 8px 12px;
+    border-bottom: 1px solid var(--amber-dim); background: #050505; position: sticky; top: 0; z-index: 5; }
+  .key { background: var(--key); color: #000; font-weight: 700; padding: 1px 6px; letter-spacing: .5px; }
+  .go { color: var(--key); font-weight: 700; }
+  .top .title { color: var(--amber); font-weight: 700; letter-spacing: 1px; }
+  .top .sp { flex: 1; }
+  .pill { padding: 1px 7px; border: 1px solid currentColor; font-weight: 700; }
+  .tape { overflow: hidden; white-space: nowrap; border-bottom: 1px solid var(--line); background: #030303; }
+  .tape-inner { display: inline-block; padding: 4px 0; animation: scroll 60s linear infinite; }
+  .tape span { margin-right: 22px; }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .tape-inner { animation: none; } }
+  .grid { display: grid; gap: 8px; padding: 8px; grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .p { background: var(--panel); border: 1px solid var(--line); min-width: 0; display: flex; flex-direction: column; }
+  .p h2 { margin: 0; padding: 4px 8px; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--amber);
+    border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; text-transform: uppercase; }
+  .p h2 small { color: var(--dim); font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .body { padding: 6px 8px; overflow: auto; }
+  .c3 { grid-column: span 3; } .c4 { grid-column: span 4; } .c5 { grid-column: span 5; }
+  .c6 { grid-column: span 6; } .c7 { grid-column: span 7; } .c8 { grid-column: span 8; } .c12 { grid-column: span 12; }
+  @media (max-width: 1100px) { .c3, .c4, .c5 { grid-column: span 6; } .c6, .c7, .c8 { grid-column: span 12; } }
+  @media (max-width: 700px) { .grid { padding: 6px; gap: 6px; } .p { grid-column: span 12 !important; } }
+  .kv { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; }
+  .kv dt { color: var(--dim); } .kv dd { margin: 0; text-align: right; font-weight: 500; }
+  .big { font-size: 22px; font-weight: 700; letter-spacing: .5px; }
+  .up { color: var(--up); } .down { color: var(--down); } .dim { color: var(--dim); } .amb { color: var(--amber); } .blu { color: var(--blue); }
+  table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+  th { color: var(--amber-dim); font-weight: 500; text-align: right; padding: 2px 6px; border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; background: var(--panel); cursor: pointer; user-select: none; }
+  td { text-align: right; padding: 2px 6px; border-bottom: 1px solid #0f141a; }
+  th:first-child, td:first-child, .l { text-align: left; }
+  tr:hover td { background: #0d1218; }
+  .sym { color: var(--text); font-weight: 700; }
+  .tag { font-size: 10px; padding: 0 4px; border: 1px solid currentColor; }
+  .bar { position: relative; height: 8px; width: 90px; background: #10161d; display: inline-block; vertical-align: middle; }
+  .bar i { position: absolute; top: -2px; width: 2px; height: 12px; background: var(--text); }
+  .bar b { position: absolute; top: 0; bottom: 0; left: 25%; right: 25%; background: #26313d; }
+  .brief { color: var(--text); margin: 0 0 8px; }
+  .flag { padding: 3px 0; border-bottom: 1px dashed #18202a; }
+  .scroll { max-height: 360px; }
+  .empty { color: var(--dim); padding: 6px 0; }
+  svg { display: block; width: 100%; height: 150px; }
+  .foot { color: var(--dim); padding: 6px 12px 14px; font-size: 11px; }
+  .err { color: var(--down); }
+</style>
+</head>
+<body>
+<div class="top">
+  <span class="key">PTRD</span><span class="go">&lt;GO&gt;</span>
+  <span class="title">PAPER TRADER TERMINAL</span>
+  <span id="mkt" class="pill dim">--</span>
+  <span class="sp"></span>
+  <span class="dim">EQUITY</span> <span id="eqTop" class="amb" style="font-weight:700">--</span>
+  <span id="dayTop">--</span>
+  <span class="dim">NY</span> <span id="clock">--:--:--</span>
+  <span class="dim">UPD</span> <span id="upd">--</span>
+</div>
+<div class="tape"><div class="tape-inner" id="tape"></div></div>
+
+<div class="grid">
+  <section class="p c3"><h2>Account <small>paper</small></h2><div class="body">
+    <div class="big" id="eq">--</div>
+    <dl class="kv" id="acct"></dl></div></section>
+
+  <section class="p c3"><h2>Market <small id="regTime"></small></h2><div class="body">
+    <div class="big" id="bias">--</div>
+    <dl class="kv" id="market"></dl></div></section>
+
+  <section class="p c6"><h2>AI Desk <small id="aiModel"></small></h2><div class="body scroll" style="max-height:220px">
+    <p class="brief" id="brief"></p><div id="flags"></div></div></section>
+
+  <section class="p c8"><h2>Positions <small id="posCount"></small></h2><div class="body">
+    <table><thead><tr><th>SYM</th><th>SIDE</th><th>QTY</th><th>ENTRY</th><th>LAST</th><th>STOP</th><th>TGT</th><th>P&amp;L</th><th>%</th><th>OPEN</th></tr></thead>
+    <tbody id="pos"></tbody></table></div></section>
+
+  <section class="p c4"><h2>Intraday Equity <small id="eqRange"></small></h2><div class="body"><svg id="spark" viewBox="0 0 400 150" preserveAspectRatio="none"></svg></div></section>
+
+  <section class="p c8"><h2>Monitor <small id="scanStats"></small></h2><div class="body scroll" style="max-height:480px">
+    <table><thead><tr>
+      <th data-k="symbol">SYM</th><th data-k="gap_pct">GAP%</th><th data-k="relvol">RVOL</th><th data-k="range_pct">RNG%</th>
+      <th data-k="low">OR LOW</th><th data-k="high">OR HIGH</th><th data-k="price">LAST</th><th class="l">VS RANGE</th>
+      <th data-k="ai" class="l">AI</th><th data-k="status" class="l">STATUS</th><th class="l">CATALYST</th></tr></thead>
+    <tbody id="uni"></tbody></table></div></section>
+
+  <section class="p c4"><h2>Signal Log <small>today</small></h2><div class="body scroll" style="max-height:480px">
+    <table><thead><tr><th>TIME</th><th>SYM</th><th>SIDE</th><th>PX</th><th class="l">ACTION</th></tr></thead>
+    <tbody id="sigs"></tbody></table></div></section>
+
+  <section class="p c4"><h2>Performance <small id="perfDays"></small></h2><div class="body"><dl class="kv" id="perf"></dl></div></section>
+
+  <section class="p c4"><h2>Daily <small>last 30</small></h2><div class="body scroll">
+    <table><thead><tr><th>DATE</th><th>P&amp;L</th><th>BOT%</th><th>SPY%</th><th>TRD</th></tr></thead><tbody id="days"></tbody></table></div></section>
+
+  <section class="p c4"><h2>Blotter <small>closed trades</small></h2><div class="body scroll">
+    <table><thead><tr><th>DATE</th><th>SYM</th><th>SIDE</th><th>ENTRY</th><th>EXIT</th><th>P&amp;L</th></tr></thead><tbody id="trades"></tbody></table></div></section>
+</div>
+<div class="foot">Simulated trading on an Alpaca paper account. Prices from the free IEX feed. Refreshes every 60s; the bot updates about every 5 minutes. <span id="err" class="err"></span></div>
+
+<script>
+const SRC = "https://raw.githubusercontent.com/RobotsInc/paper-trader/main/data/live.json";
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const n = (x, d=2) => x == null || x === "" || isNaN(x) ? "--" : Number(x).toLocaleString("en-US", {minimumFractionDigits: d, maximumFractionDigits: d});
+const money = x => x == null || isNaN(x) ? "--" : (x < 0 ? "-$" : "$") + n(Math.abs(x));
+const sgn = (x, d=2, suf="") => x == null || x === "" || isNaN(x) ? "--" : (x > 0 ? "+" : "") + n(x, d) + suf;
+const cls = x => x > 0 ? "up" : x < 0 ? "down" : "dim";
+const span = (x, txt) => `<span class="${cls(x)}">${txt}</span>`;
+let D = null, sortKey = "score", sortDir = -1;
+
+function clock() {
+  $("clock").textContent = new Date().toLocaleTimeString("en-US", {timeZone: "America/New_York", hour12: false});
+}
+setInterval(clock, 1000); clock();
+
+async function load() {
+  try {
+    const r = await fetch(SRC + "?t=" + Date.now(), {cache: "no-store"});
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    D = await r.json(); $("err").textContent = ""; render();
+  } catch (e) { $("err").textContent = "Data unavailable: " + e.message; }
+}
+
+function render() {
+  const a = D.account || {}, t = D.total || {}, g = D.regime || {}, s = D.summary || {};
+  $("upd").textContent = (D.updated || "").slice(11, 19);
+  const m = $("mkt"); m.textContent = D.halted ? "HALTED" : D.market_open ? "MKT OPEN" : "MKT CLOSED";
+  m.className = "pill " + (D.halted ? "down" : D.market_open ? "up" : "dim");
+  $("eqTop").textContent = money(a.equity); $("eq").textContent = money(a.equity);
+  $("dayTop").innerHTML = span(a.day_pnl, sgn(a.day_pnl) + " (" + sgn(a.day_pnl_pct, 2, "%") + ")");
+  $("acct").innerHTML = [
+    ["Day P&L", span(a.day_pnl, money(a.day_pnl) + " " + sgn(a.day_pnl_pct, 2, "%"))],
+    ["Total P&L", span(t.pnl, money(t.pnl) + " " + sgn(t.pct, 2, "%"))],
+    ["SPY since start", span(t.spy_pct, sgn(t.spy_pct, 2, "%"))],
+    ["Edge vs SPY", t.pct != null && t.spy_pct != null ? span(t.pct - t.spy_pct, sgn(t.pct - t.spy_pct, 2, " pts")) : "--"],
+    ["Cash", money(a.cash)], ["Buying power", money(a.buying_power)],
+    ["Started", esc((D.inception || {}).date || "--")],
+  ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+
+  const bias = g.bias === "up" ? ["LONG BIAS", "up"] : g.bias === "down" ? ["SHORT BIAS", "down"] : ["NO READ", "dim"];
+  $("bias").innerHTML = `<span class="${bias[1]}">${bias[0]}</span>`;
+  $("regTime").textContent = (g.time || "").slice(11, 16);
+  const sc = D.scan || {};
+  $("market").innerHTML = [
+    ["SPY", n(g.spy)], ["SPY VWAP", n(g.spy_vwap)],
+    ["SPY vs VWAP", g.spy && g.spy_vwap ? span(g.spy - g.spy_vwap, sgn((g.spy / g.spy_vwap - 1) * 100, 2, "%")) : "--"],
+    ["SPY today", span(g.spy_day_pct, sgn(g.spy_day_pct, 2, "%"))],
+    ["Scanned", sc.scanned ?? "--"], ["Liquid", sc.liquid ?? "--"], ["Trading", sc.selected ?? "--"],
+  ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+  $("scanStats").textContent = sc.selected ? `${sc.selected} names from ${sc.scanned} scanned` : "";
+
+  const ai = D.ai || {};
+  $("aiModel").textContent = ai.model || "";
+  $("brief").innerHTML = ai.error ? `<span class="err">AI desk offline: ${esc(ai.error)}</span>` : esc(ai.briefing || "Briefing arrives after the opening range (~9:46 ET).");
+  const fc = {block: "down", long: "up", short: "blu"};
+  $("flags").innerHTML = (ai.flags || []).map(f =>
+    `<div class="flag"><span class="sym">${esc(f.symbol)}</span> <span class="tag ${fc[f.decision] || "dim"}">${esc((f.decision || "").toUpperCase())}</span> <span class="amb">${esc(f.catalyst)}</span> <span class="dim">${esc(f.reason)}</span></div>`
+  ).join("") || '<div class="empty">No restrictions - all names tradeable both ways.</div>';
+
+  const P = D.positions || [];
+  $("posCount").textContent = `${P.length} open`;
+  $("pos").innerHTML = P.map(p => `<tr><td class="sym">${esc(p.symbol)}</td>
+    <td><span class="tag ${p.side === "short" ? "blu" : "up"}">${p.side.toUpperCase()}</span></td>
+    <td>${n(p.qty, 0)}</td><td>${n(p.entry)}</td><td>${n(p.price)}</td><td class="dim">${n(p.stop)}</td><td class="dim">${n(p.target)}</td>
+    <td>${span(p.upl, money(p.upl))}</td><td>${span(p.upl_pct, sgn(p.upl_pct, 2, "%"))}</td><td class="dim">${esc(p.opened)}</td></tr>`).join("")
+    || '<tr><td colspan="10" class="empty l">Flat - no open positions.</td></tr>';
+
+  spark(D.equity_today || [], a.start_equity);
+  universe();
+
+  $("sigs").innerHTML = (D.signals || []).map(x => `<tr><td class="dim">${esc((x.time || "").slice(11, 16))}</td>
+    <td class="sym">${esc(x.symbol)}</td><td class="${(x.side || "long") === "short" ? "blu" : "up"}">${esc((x.side || "long").toUpperCase())}</td>
+    <td>${n(x.price)}</td><td class="l ${x.action === "entered" ? "amb" : "dim"}" title="${esc(x.reason)}">${esc((x.action || "").replace(/_/g, " ").toUpperCase())}</td></tr>`).join("")
+    || '<tr><td colspan="5" class="empty l">No breakouts yet today.</td></tr>';
+
+  $("perfDays").textContent = s.days ? `${s.days} day(s)` : "";
+  const bs = s.by_side || {};
+  $("perf").innerHTML = s.days ? [
+    ["Return", span(s.return_pct, sgn(s.return_pct, 2, "%"))], ["SPY", span(s.spy_return_pct, sgn(s.spy_return_pct, 2, "%"))],
+    ["Trades", s.trades], ["Win rate", s.win_rate != null ? n(s.win_rate, 0) + "%" : "--"],
+    ["Avg win / loss", `${money(s.avg_win)} / ${money(s.avg_loss)}`], ["Profit factor", n(s.profit_factor)],
+    ["Max drawdown", span(s.max_drawdown_pct, n(s.max_drawdown_pct) + "%")],
+    ["Longs", bs.long ? `${bs.long.trades} / ${money(bs.long.pnl)}` : "--"],
+    ["Shorts", bs.short ? `${bs.short.trades} / ${money(bs.short.pnl)}` : "--"],
+    ["AI blocked", `${s.ai_blocked ?? 0} (${money(s.ai_blocked_pnl)} sim)`],
+  ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("") : '<div class="empty">Stats start after the first full day.</div>';
+
+  $("days").innerHTML = [...(D.days || [])].reverse().map(d => `<tr><td class="dim">${esc(d.date)}</td>
+    <td>${span(+d.pnl, money(+d.pnl))}</td><td>${span(+d.pnl_pct, sgn(+d.pnl_pct, 2))}</td>
+    <td>${span(+d.spy_pct, sgn(+d.spy_pct, 2))}</td><td>${esc(d.trades)}</td></tr>`).join("") || '<tr><td colspan="5" class="empty l">--</td></tr>';
+  $("trades").innerHTML = (D.trades || []).map(x => `<tr><td class="dim">${esc((x.date || "").slice(5))}</td>
+    <td class="sym">${esc(x.symbol)}</td><td class="${(x.side || "long") === "short" ? "blu" : "up"}">${esc((x.side || "long").toUpperCase())}</td>
+    <td>${n(+x.entry)}</td><td>${n(+x.exit)}</td><td>${span(+x.pnl, money(+x.pnl))}</td></tr>`).join("") || '<tr><td colspan="6" class="empty l">--</td></tr>';
+
+  const U = D.universe || [];
+  const items = U.map(u => `<span><b>${esc(u.symbol)}</b> ${n(u.price)} ${span(u.gap_pct, sgn(u.gap_pct, 1, "%"))}</span>`).join("");
+  $("tape").innerHTML = items ? items + items : '<span class="dim">Scanner runs at ~9:46 ET</span>';
+}
+
+function universe() {
+  const U = [...(D.universe || [])].sort((a, b) => {
+    const x = a[sortKey], y = b[sortKey];
+    return (typeof x === "string" ? String(x).localeCompare(y) : (x ?? -1e9) - (y ?? -1e9)) * sortDir;
+  });
+  const stc = s => /LONG|ENTERED/.test(s) ? "up" : /SHORT/.test(s) ? "blu" : /BLOCK/.test(s) ? "down" : /ABOVE|BELOW/.test(s) ? "amb" : "dim";
+  $("uni").innerHTML = U.map(u => {
+    const w = u.high - u.low, pos = u.price ? Math.max(0, Math.min(100, 25 + 50 * (u.price - u.low) / (w || 1))) : null;
+    return `<tr><td class="sym">${esc(u.symbol)}${u.source === "scanner" ? ' <span class="amb">*</span>' : ""}</td>
+      <td>${span(u.gap_pct, sgn(u.gap_pct, 2))}</td><td class="${u.relvol >= 2 ? "amb" : ""}">${n(u.relvol, 1)}x</td><td>${n(u.range_pct)}</td>
+      <td class="dim">${n(u.low)}</td><td class="dim">${n(u.high)}</td><td>${n(u.price)}</td>
+      <td class="l"><span class="bar"><b></b>${pos != null ? `<i style="left:${pos}%"></i>` : ""}</span></td>
+      <td class="l ${({block: "down", long: "up", short: "blu"})[u.ai] || "dim"}">${esc((u.ai || "").toUpperCase())}</td>
+      <td class="l ${stc(u.status)}">${esc(u.status)}</td><td class="l dim">${esc(u.catalyst)}</td></tr>`;
+  }).join("") || '<tr><td colspan="11" class="empty l">Scanner runs at ~9:46 ET. * = found by the scanner (not on the core list).</td></tr>';
+}
+
+function spark(pts, base) {
+  const svg = $("spark");
+  if (pts.length < 2) { svg.innerHTML = '<text x="8" y="80" fill="#7d8794" font-size="12">Waiting for intraday data</text>'; $("eqRange").textContent = ""; return; }
+  const vs = pts.map(p => p.v).concat(base ? [base] : []);
+  const lo = Math.min(...vs), hi = Math.max(...vs), span_ = hi - lo || 1;
+  const X = i => i / (pts.length - 1) * 400, Y = v => 140 - (v - lo) / span_ * 130;
+  const d = pts.map((p, i) => `${i ? "L" : "M"}${X(i).toFixed(1)},${Y(p.v).toFixed(1)}`).join(" ");
+  const last = pts[pts.length - 1].v, col = base && last < base ? "#ff4b4b" : "#22d36b";
+  svg.innerHTML = (base ? `<line x1="0" x2="400" y1="${Y(base)}" y2="${Y(base)}" stroke="#2a3440" stroke-dasharray="3 3"/>` : "")
+    + `<path d="${d} L400,150 L0,150 Z" fill="${col}" opacity=".08"/><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" vector-effect="non-scaling-stroke"/>`;
+  $("eqRange").textContent = `${pts[0].t}-${pts[pts.length - 1].t}  L ${money(lo)}  H ${money(hi)}`;
+}
+
+document.querySelectorAll("th[data-k]").forEach(th => th.addEventListener("click", () => {
+  const k = th.dataset.k; sortDir = sortKey === k ? -sortDir : -1; sortKey = k; if (D) universe();
+}));
+load(); setInterval(load, 60000);
+</script>
+</body>
+</html>

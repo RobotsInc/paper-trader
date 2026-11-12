@@ -38,13 +38,17 @@ def orders(status="open"):
     return _get(TRADE, "/v2/orders", status=status, limit=500)
 
 
-def submit_bracket(symbol, qty, take_profit, stop_loss, client_id):
-    """Market buy with an attached take-profit and stop-loss, managed by Alpaca
-    between bot runs."""
+def asset(symbol):
+    return _get(TRADE, f"/v2/assets/{symbol}")
+
+
+def submit_bracket(symbol, qty, side, take_profit, stop_loss, client_id):
+    """Market entry (side 'buy' = long, 'sell' = short) with an attached take-profit
+    and stop-loss that Alpaca manages between bot runs."""
     body = {
         "symbol": symbol,
         "qty": str(int(qty)),
-        "side": "buy",
+        "side": side,
         "type": "market",
         "time_in_force": "day",
         "order_class": "bracket",
@@ -66,31 +70,63 @@ def close_all():
 
 
 def bars(symbols, start, end=None, timeframe="1Min"):
-    out, token = {}, None
-    while True:
-        p = dict(symbols=",".join(symbols), timeframe=timeframe, start=start,
-                 feed=FEED, limit=10000, adjustment="raw")
-        if end:
-            p["end"] = end
-        if token:
-            p["page_token"] = token
-        j = _get(DATA, "/v2/stocks/bars", **p)
-        for sym, b in (j.get("bars") or {}).items():
-            out.setdefault(sym, []).extend(b)
-        token = j.get("next_page_token")
-        if not token:
-            return out
+    out = {}
+    for i in range(0, len(symbols), 100):
+        chunk, token = symbols[i:i + 100], None
+        while True:
+            p = dict(symbols=",".join(chunk), timeframe=timeframe, start=start,
+                     feed=FEED, limit=10000, adjustment="raw")
+            if end:
+                p["end"] = end
+            if token:
+                p["page_token"] = token
+            j = _get(DATA, "/v2/stocks/bars", **p)
+            for sym, b in (j.get("bars") or {}).items():
+                out.setdefault(sym, []).extend(b)
+            token = j.get("next_page_token")
+            if not token:
+                break
+    return out
 
 
 def latest_prices(symbols):
-    j = _get(DATA, "/v2/stocks/trades/latest", symbols=",".join(symbols), feed=FEED)
-    return {s: float(t["p"]) for s, t in (j.get("trades") or {}).items()}
+    out = {}
+    for i in range(0, len(symbols), 100):
+        j = _get(DATA, "/v2/stocks/trades/latest", symbols=",".join(symbols[i:i + 100]), feed=FEED)
+        out.update({s: float(t["p"]) for s, t in (j.get("trades") or {}).items()})
+    return out
 
 
-def news(symbols, start, limit=50):
-    j = _get(DATA, "/v1beta1/news", symbols=",".join(symbols), start=start,
-             limit=limit, sort="desc")
-    return j.get("news", [])
+def snapshots(symbols):
+    out = {}
+    for i in range(0, len(symbols), 100):
+        j = _get(DATA, "/v2/stocks/snapshots", symbols=",".join(symbols[i:i + 100]), feed=FEED)
+        out.update(j or {})
+    return out
+
+
+def most_actives(top=50):
+    j = _get(DATA, "/v1beta1/screener/stocks/most-actives", by="volume", top=top)
+    return [x["symbol"] for x in j.get("most_actives", [])]
+
+
+def movers(top=25):
+    j = _get(DATA, "/v1beta1/screener/stocks/movers", top=top)
+    return [x["symbol"] for x in (j.get("gainers") or []) + (j.get("losers") or [])]
+
+
+def news(symbols, start, max_items=200):
+    out, token = [], None
+    while len(out) < max_items:
+        p = dict(symbols=",".join(symbols), start=start, limit=50, sort="desc")
+        if token:
+            p["page_token"] = token
+        j = _get(DATA, "/v1beta1/news", **p)
+        out.extend(j.get("news", []))
+        token = j.get("next_page_token")
+        if not token:
+            break
+    return out
 
 
 def fills(after, until):
