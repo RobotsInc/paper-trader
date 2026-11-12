@@ -49,7 +49,7 @@ def build(or_start, or_end, log):
             log(f"Scanner: {len(found)} names from {name}")
         except Exception as e:
             log(f"Scanner: {name} unavailable ({e}) - using core list")
-    cands = sorted(s for s in cands if s.isalpha())  # skip warrants, units, class shares
+    cands = sorted(s for s in cands if s.isalpha() and s not in C.EXCLUDE)  # skip warrants, units, leveraged ETFs
 
     snaps = alpaca.snapshots(cands)
     liquid = []

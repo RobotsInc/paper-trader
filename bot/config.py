@@ -9,6 +9,14 @@ SCAN_MOVERS = 25              # top gainers + top losers each
 MAX_UNIVERSE = 40
 MIN_PRICE = 10.0
 MIN_PREV_DOLLAR_VOL = 3_000_000   # prior-day dollar volume on the IEX feed (~2-3% of all volume)
+# Leveraged / inverse ETFs: they just duplicate index bets at 2-3x, so the scanner skips them.
+EXCLUDE = {
+    "TQQQ", "SQQQ", "SPXL", "SPXS", "SPXU", "UPRO", "SSO", "SDS", "QLD", "QID", "TNA", "TZA", "UDOW", "SDOW",
+    "SOXL", "SOXS", "TECL", "TECS", "FAS", "FAZ", "LABU", "LABD", "NUGT", "DUST", "JNUG", "JDST", "BOIL", "KOLD",
+    "UCO", "SCO", "UVXY", "SVXY", "VXX", "VIXY", "TSLL", "TSLZ", "TSLQ", "NVDL", "NVDU", "NVDD", "NVDQ", "NVDX",
+    "MSTU", "MSTX", "MSTZ", "CONL", "AMDL", "AAPU", "GGLL", "METU", "AMZU", "BITX", "ETHU", "SH", "PSQ", "DOG",
+    "YINN", "YANG", "FNGU", "FNGD", "BULZ", "BERZ", "SMST", "PLTU", "HOOX", "DRAM",
+}
 
 MARKET_OPEN = "09:30"        # ET
 OPENING_RANGE_MIN = 15       # opening range = first 15 minutes (9:30-9:45)
