@@ -17,7 +17,8 @@ def _headers():
 
 def _get(base, path, **params):
     r = requests.get(base + path, headers=_headers(), params=params, timeout=30)
-    r.raise_for_status()
+    if r.status_code >= 400:
+        raise RuntimeError(f"Alpaca {path} HTTP {r.status_code}: {r.text[:200]!r}")
     return r.json()
 
 

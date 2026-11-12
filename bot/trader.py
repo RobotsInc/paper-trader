@@ -113,6 +113,12 @@ def main():
     if state.get("date") != today:
         start_new_day(state, today, equity)
 
+    if mode == "ai":  # re-run today's AI news filter (e.g. after it failed)
+        state["ai"] = {"done": False, "decisions": {}}
+        run_ai_filter(state, now)
+        save_state(state)
+        return
+
     is_open = alpaca.clock()["is_open"]
     try:
         if is_open:
@@ -148,17 +154,7 @@ def trade(state, now, equity):
         return
 
     if not state["ai"]["done"]:
-        if C.AI_FILTER:
-            state["ai"] = news_filter.run(C.WATCHLIST, now)
-            if state["ai"].get("error"):
-                log(f"AI filter failed, trading on rules only: {state['ai']['error']}")
-            for s, d in state["ai"]["decisions"].items():
-                append_csv("ai_log.csv", {"date": state["date"], "symbol": s,
-                                          "decision": d["decision"], "reason": d["reason"]})
-                if d["decision"] == "block":
-                    log(f"AI blocks {s}: {d['reason']}")
-        else:
-            state["ai"] = {"done": True, "enabled": False, "decisions": {}}
+        run_ai_filter(state, now)
 
     or_end = et_dt(state["date"], C.MARKET_OPEN) + timedelta(minutes=C.OPENING_RANGE_MIN)
     if now < or_end + timedelta(minutes=1):
@@ -170,6 +166,20 @@ def trade(state, now, equity):
         log("Past entry cutoff - managing open trades only")
         return
     scan(state, now, equity)
+
+
+def run_ai_filter(state, now):
+    if not C.AI_FILTER:
+        state["ai"] = {"done": True, "enabled": False, "decisions": {}}
+        log("AI filter is off")
+        return
+    state["ai"] = news_filter.run(C.WATCHLIST, now)
+    if state["ai"].get("error"):
+        log(f"AI filter failed, trading on rules only: {state['ai']['error']}")
+    for s, d in state["ai"]["decisions"].items():
+        append_csv("ai_log.csv", {"date": state["date"], "symbol": s,
+                                  "decision": d["decision"], "reason": d["reason"]})
+        log(f"AI {d['decision']}s {s}: {d['reason']}")
 
 
 def compute_ranges(d, or_end):

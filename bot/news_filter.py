@@ -32,9 +32,11 @@ Reply with JSON only, no prose, in exactly this form:
 
 def run(symbols, now):
     result = {"done": True, "enabled": True, "model": C.AI_MODEL, "decisions": {}}
+    step = "fetching news"
     try:
         since = (now - timedelta(hours=C.NEWS_LOOKBACK_HOURS)).astimezone(timezone.utc)
         items = alpaca.news(symbols, since.strftime("%Y-%m-%dT%H:%M:%SZ"))
+        step = "calling AI model"
         headlines = {s: [] for s in symbols}
         for n in items:
             for s in n.get("symbols", []):
@@ -56,7 +58,9 @@ def run(symbols, now):
                      "Content-Type": "application/json"},
             json=body, timeout=60,
         )
-        r.raise_for_status()
+        if r.status_code >= 400 or not r.text.strip().startswith("{"):
+            raise RuntimeError(f"HTTP {r.status_code}: {r.text[:200]!r}")
+        step = "reading AI reply"
         text = r.json()["choices"][0]["message"]["content"]
         data = json.loads(re.search(r"\{.*\}", text, re.S).group(0))
         for s in symbols:
@@ -64,6 +68,6 @@ def run(symbols, now):
             decision = "block" if str(d.get("decision", "allow")).lower() == "block" else "allow"
             result["decisions"][s] = {"decision": decision, "reason": str(d.get("reason", ""))[:200]}
     except Exception as e:  # fail open
-        result["error"] = f"{type(e).__name__}: {e}"[:300]
+        result["error"] = f"while {step}: {type(e).__name__}: {e}"[:400]
         result["decisions"] = {}
     return result

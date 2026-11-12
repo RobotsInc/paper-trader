@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "run, flatten (close everything now), or report (rebuild scorecard)"
+        description: "run, flatten (close everything now), report (rebuild scorecard), or ai (re-run today's AI news filter)"
         required: true
         default: run
 
