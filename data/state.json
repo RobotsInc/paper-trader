@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-12",
+  "start_equity": 100000.0,
+  "ranges": {
+    "SPY": {
+      "high": 757.81,
+      "low": 753.735
+    },
+    "QQQ": {
+      "high": 688.07,
+      "low": 680
+    },
+    "AAPL": {
+      "high": 358.88,
+      "low": 356.02
+    },
+    "MSFT": {
+      "high": 525.8,
+      "low": 520.59
+    },
+    "NVDA": {
+      "high": 162.32,
+      "low": 148.8
+    },
+    "AMZN": {
+      "high": 272.45,
+      "low": 267.86
+    },
+    "META": {
+      "high": 630.32,
+      "low": 621.845
+    },
+    "GOOGL": {
+      "high": 296.78,
+      "low": 293.935
+    },
+    "TSLA": {
+      "high": 395.935,
+      "low": 385.41
+    },
+    "AMD": {
+      "high": 578.4,
+      "low": 555.05
+    }
+  },
+  "ai": {
+    "done": true,
+    "enabled": true,
+    "model": "openai/gpt-4o-mini",
+    "decisions": {},
+    "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+  },
+  "traded": [
+    "QQQ",
+    "MSFT"
+  ],
+  "signals": [
+    {
+      "time": "2026-11-12T12:08-05:00",
+      "symbol": "QQQ",
+      "price": 690.775,
+      "stop": 684.04,
+      "target": 704.25,
+      "qty": 28,
+      "or_high": 688.07,
+      "or_low": 680,
+      "action": "entered",
+      "reason": ""
+    },
+    {
+      "time": "2026-11-12T12:08-05:00",
+      "symbol": "MSFT",
+      "price": 528.14,
+      "stop": 523.19,
+      "target": 538.04,
+      "qty": 37,
+      "or_high": 525.8,
+      "or_low": 520.59,
+      "action": "entered",
+      "reason": ""
+    }
+  ],
+  "halted": false,
+  "eod_done": false,
+  "session_seen": true,
+  "inception": {
+    "date": "2026-11-12",
+    "equity": 100000.0,
+    "spy": 760.96
+  }
+}
