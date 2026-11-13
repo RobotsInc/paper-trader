@@ -235,11 +235,11 @@
     "small_tracked": 1
   },
   "regime": {
-    "spy": 749.31,
-    "spy_vwap": 752.29,
-    "spy_day_pct": -1.41,
+    "spy": 748.66,
+    "spy_vwap": 752.23,
+    "spy_day_pct": -1.49,
     "bias": "down",
-    "time": "2026-11-13T11:17-05:00"
+    "time": "2026-11-13T11:22-05:00"
   },
   "ai": {
     "done": true,
@@ -379,24 +379,24 @@
     "IBIT": true
   },
   "last_prices": {
-    "SPY": 749.31,
-    "CSCO": 96.235,
-    "MSTR": 109.3,
-    "ABBV": 295.175,
-    "SCHW": 92.12,
-    "CBRS": 103.7,
-    "TLT": 79.6,
-    "KDP": 36.615,
-    "TSM": 392.5,
-    "NU": 13.06,
-    "COIN": 126.62,
-    "GLD": 355.29,
-    "NFLX": 62.645,
-    "CADL": 6.1,
-    "IBIT": 38.71,
-    "XBI": 148.47,
-    "MOD": 134.0,
-    "AMAT": 354.0
+    "CBRS": 103.815,
+    "ABBV": 294.85,
+    "SCHW": 91.87,
+    "CADL": 6.22,
+    "NFLX": 62.195,
+    "MOD": 133.79,
+    "IBIT": 38.68,
+    "XBI": 148.7,
+    "NU": 13.055,
+    "MSTR": 108.84,
+    "CSCO": 96.04,
+    "TSM": 393.36,
+    "SPY": 748.66,
+    "AMAT": 355.31,
+    "KDP": 36.555,
+    "COIN": 126.18,
+    "GLD": 355.25,
+    "TLT": 79.56
   },
   "halted": false,
   "eod_done": false,
