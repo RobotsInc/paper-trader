@@ -33,8 +33,14 @@ The AI blocked 3 trade(s) the rules wanted. Simulated outcome of those trades: -
 
 ## Small-cap experiment ($5-$10 stocks: tracked, not traded)
 
-Real bid-ask spread at signal time, main list: median **0.034%** over 26 signals (the backtest assumed 0.06% round trip).
+Real bid-ask spread at signal time, main list: median **0.034%** over 34 signals (the backtest assumed 0.06% round trip).
+Real spread, small caps: median **0.169%**.
 
+| | Signals | Avg R before costs | Avg R after the spread | Won (after spread) |
+|---|---|---|---|---|
+| $5-$10 stocks | 1 | -1.000 | -1.117 | 0/1 |
+
+R = profit as a multiple of the risk to the stop. Positive after the spread over 50+ signals would justify trading this tier; until then it's just watched.
 
 ![Equity vs SPY](data/equity.png)
 

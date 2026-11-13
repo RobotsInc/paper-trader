@@ -1,0 +1,2 @@
+date,time,symbol,side,entry,stop,risk_pct,exit,exit_type,spread_pct,iex_spread_pct,r_gross,r_after_spread,relvol,gap_pct
+2026-11-13,10:02,CADL,long,5.935,5.849,1.449,5.849,stop,0.1693,18.31,-1.0,-1.117,11.78,-11.54
