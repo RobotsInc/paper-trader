@@ -23,6 +23,13 @@ picked over the old rules by a 12-month backtest ([`data/backtest/REPORT.md`](da
 4. **Exits.** Stop at **10% of the stock's 14-day ATR** from entry, held by Alpaca. **No profit target** -
    winners ride until ~3:45 PM, when everything is closed. No new trades after 2:30 PM. Never holds overnight.
 
+## Small-cap experiment ($5-$10, tracked - not traded)
+The scanner also picks up to 15 in-play stocks priced $5-$10 and logs every breakout they give - but never
+trades them, because paper fills on cheap stocks are unrealistic. After the close the bot pulls the real
+all-exchange bid-ask spread at each signal and scores how the trade would have ended, before and after
+paying that spread (`data/smallcap.csv`, summary in the scorecard). It also logs the real spread on the main
+list's signals (`data/spreads.csv`) to check the backtest's 0.03%-per-side cost assumption.
+
 ## Risk limits
 0.5% of equity risked per trade - max **5** positions, **no more than 3 on one side** -
 max 20% of equity per position - longs + shorts capped at 150% of equity -

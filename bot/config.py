@@ -67,6 +67,14 @@ GROUPS = {
 MAX_GROSS_EXPOSURE = 1.5     # longs + shorts combined capped at 150% of equity
 DAILY_LOSS_LIMIT = 0.025     # down 2.5% on the day -> close everything, stop for the day
 
+# ---- Small-cap experiment: $5-10 "stocks in play" are TRACKED, NOT TRADED ----
+# Paper fills on cheap stocks are unrealistic, so instead the bot logs every signal these names give,
+# the real bid-ask spread at that moment (all-exchange quotes, fetched after the close), and how the
+# trade would have ended. data/smallcap.csv + the scorecard show whether the edge survives the spread.
+SMALLCAP_TRACK = True
+SMALLCAP_MIN_PRICE = 5.0
+SMALLCAP_MAX = 15
+
 # ---- AI desk (Google Gemini free tier). Set repo variable AI_FILTER=off to disable. ----
 AI_FILTER = os.getenv("AI_FILTER", "on").lower() == "on"
 AI_MODEL = os.getenv("AI_MODEL", "auto")  # "auto" tries free Flash models in order

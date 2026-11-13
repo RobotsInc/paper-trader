@@ -88,9 +88,10 @@ def build(or_start, or_end, log):
         if a is None:
             continue
         avg_vol = sum(b["v"] for b in d[-14:]) / 14
-        if d[-1]["c"] < C.MIN_PRICE or avg_vol < C.MIN_AVG_VOLUME or a < C.MIN_ATR:
+        floor = min(C.MIN_PRICE, C.SMALLCAP_MIN_PRICE) if C.SMALLCAP_TRACK else C.MIN_PRICE
+        if d[-1]["c"] < floor or avg_vol < C.MIN_AVG_VOLUME or a < C.MIN_ATR:
             continue
-        liquid[s] = {"prev_close": d[-1]["c"], "atr": a}
+        liquid[s] = {"prev_close": d[-1]["c"], "atr": a, "tier": "main" if d[-1]["c"] >= C.MIN_PRICE else "small"}
 
     # Opening-range volume over the last 14 sessions, same window, same (IEX) feed as today.
     k = C.OPENING_RANGE_MIN
@@ -122,17 +123,19 @@ def build(or_start, or_end, log):
             "symbol": s, "high": hi, "low": lo, "prev_close": info["prev_close"],
             "gap_pct": round((o / info["prev_close"] - 1) * 100, 2), "relvol": round(relvol, 2),
             "range_pct": round((hi - lo) / c * 100, 2), "atr": round(info["atr"], 4),
-            "dir": direction, "score": round(relvol, 3),
+            "dir": direction, "score": round(relvol, 3), "tier": info["tier"],
             "source": "core" if s in CORE else "scanner",
         })
     rows.sort(key=lambda r: r["score"], reverse=True)
-    picked = []
+    picked, small = [], []
     for r in rows:
-        if len(picked) >= C.MAX_UNIVERSE:
-            break
+        if r["tier"] == "main" and len(picked) >= C.MAX_UNIVERSE:
+            continue
+        if r["tier"] == "small" and len(small) >= C.SMALLCAP_MAX:
+            continue
         if r["source"] == "scanner" and is_leveraged(r["symbol"]):
             continue
-        picked.append(r)
-    rows = picked + [r for r in rows if r not in picked]  # keep the qualified count honest
-    return picked, {"scanned": len(cands), "liquid": len(liquid),
-                                   "qualified": len(rows), "selected": len(picked)}
+        (picked if r["tier"] == "main" else small).append(r)
+    main_rows = [r for r in rows if r["tier"] == "main"]
+    return picked, {"scanned": len(cands), "liquid": len(liquid), "qualified": len(main_rows),
+                    "selected": len(picked), "small_tracked": len(small)}, small

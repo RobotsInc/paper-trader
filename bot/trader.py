@@ -116,11 +116,14 @@ def start_new_day(state, today, equity):
     if prev and state.get("session_seen") and not state.get("eod_done"):
         log(f"Finishing missed end-of-day summary for {prev}")
         end_of_day(state, prev)
+    if prev and state.get("eod_done") and not state.get("small_scored"):
+        score_spreads_and_smallcaps(state, prev)
     keep = {k: state[k] for k in ("inception",) if k in state}
     state.clear()
     state.update(date=today, start_equity=equity, ranges={}, scan={}, regime={},
                  ai={"done": False, "decisions": {}, "briefing": ""}, traded=[], signals=[],
-                 shortable={}, last_prices={}, halted=False, eod_done=False, session_seen=False)
+                 shortable={}, last_prices={}, halted=False, eod_done=False, session_seen=False,
+                 small={}, small_signals=[], small_scored=False)
     state.update(keep)
 
 
@@ -132,12 +135,13 @@ def main():
     if mode == "scantest":  # dry run of the scanner on today's (or the last) session - no trading, no state
         d = now_et().date().isoformat()
         or_start = et_dt(d, C.MARKET_OPEN)
-        rows, stats = universe.build(or_start, or_start + timedelta(minutes=C.OPENING_RANGE_MIN), log)
+        rows, stats, small = universe.build(or_start, or_start + timedelta(minutes=C.OPENING_RANGE_MIN), log)
         log(f"Scan test {d}: {stats}")
-        for r in rows:
+        for r in rows + [dict(x, symbol=x["symbol"] + "*") for x in small]:
             log(f"  {r['symbol']:6} relvol {r['relvol']:5.2f}x gap {r['gap_pct']:+5.2f}% dir {r['dir']:+d} "
                 f"range {r['low']:.2f}-{r['high']:.2f} ATR {r['atr']:.2f} -> stop distance "
                 f"{C.STOP_ATR * r['atr']:.2f} ({C.STOP_ATR * r['atr'] / r['high'] * 100:.2f}%)")
+        log("(* = $5-10 small-cap experiment: tracked, not traded)")
         return
 
     state = load_state()
@@ -152,7 +156,8 @@ def main():
         log(f"First run. Starting equity ${equity:,.2f}; SPY benchmark ${spy:.2f}")
     if state.get("date") != today:
         start_new_day(state, today, equity)
-    for k, v in (("scan", {}), ("regime", {}), ("shortable", {}), ("last_prices", {})):
+    for k, v in (("scan", {}), ("regime", {}), ("shortable", {}), ("last_prices", {}), ("small", {}),
+                 ("small_signals", [])):
         state.setdefault(k, v)
     if mode == "rescan":  # rebuild today's scanner list + AI desk now (keeps today's trades)
         state["ranges"] = {}
@@ -235,13 +240,16 @@ def trade(state, now, equity):
         log_once("Waiting for the opening range to form")
         return
     if not state["ranges"]:
-        rows, stats = universe.build(or_start, or_end, log)
+        rows, stats, small = universe.build(or_start, or_end, log)
         state["ranges"] = {r["symbol"]: r for r in rows}
+        state["small"] = {r["symbol"]: r for r in small}
         state["scan"] = stats
         log(f"Scanner: {stats['scanned']} scanned, {stats['liquid']} liquid, "
             f"{stats['qualified']} in play -> trading top {stats['selected']}: "
             + ", ".join(f"{r['symbol']}({r['gap_pct']:+.1f}%,{r['relvol']:.1f}x)" for r in rows[:15])
             + (" ..." if len(rows) > 15 else ""))
+        if small:
+            log(f"Small-cap experiment (tracked, not traded): " + ", ".join(r["symbol"] for r in small))
     if not state["ai"]["done"]:
         run_ai_filter(state, now)
     if now.time() > hm(C.ENTRY_CUTOFF):
@@ -285,7 +293,7 @@ def scan(state, now, equity):
         state["signals"] = [x for x in state["signals"] if x["action"] != "skipped_market"]
     cands = [s for s in state["ranges"] if s not in state["traded"]]
     held = {p["symbol"]: p["side"] for p in alpaca.positions()}
-    prices = alpaca.latest_prices(sorted(set(state["ranges"]) | {"SPY"}))  # all names, for the dashboard
+    prices = alpaca.latest_prices(sorted(set(state["ranges"]) | set(state["small"]) | {"SPY"}))  # all names
     day_bars = alpaca.bars(sorted(set(cands) | set(held) | {"SPY"}), utc_iso(et_dt(state["date"], C.MARKET_OPEN)))
     state["last_prices"] = {s: prices[s] for s in prices}
 
@@ -295,6 +303,7 @@ def scan(state, now, equity):
     state["regime"] = {"spy": spy_px, "spy_vwap": round(spy_vw, 2) if spy_vw else None,
                        "spy_day_pct": round((spy_px / spy_open - 1) * 100, 2) if spy_px and spy_open else None,
                        "bias": market, "time": now.isoformat(timespec="minutes")}
+    track_small(state, now, prices)
     if not cands:
         return
 
@@ -425,6 +434,13 @@ def wrap_up(state, is_open):
         return
     if state["session_seen"] and not state["eod_done"]:
         end_of_day(state, state["date"])
+    if (state["eod_done"] and not state.get("small_scored")
+            and now_et() >= et_dt(state["date"], C.FLATTEN_AT) + timedelta(minutes=16)):
+        try:
+            score_spreads_and_smallcaps(state, state["date"])
+        except Exception as e:
+            log(f"Spread / small-cap scoring failed: {type(e).__name__}: {e}")
+            state["small_scored"] = True
 
 
 # ---------- end-of-day accounting ----------
@@ -454,6 +470,53 @@ def round_trips(d, fills):
     return trips
 
 
+def breakout(r, px):
+    """'long' / 'short' if px breaks the opening range in the allowed direction, else None."""
+    d = r.get("dir", 0)
+    if (C.DIRECTION == "both" or d > 0) and px > r["high"]:
+        return "long"
+    if C.ALLOW_SHORTS and (C.DIRECTION == "both" or d < 0) and px < r["low"]:
+        return "short"
+    return None
+
+
+def track_small(state, now, prices):
+    """Small-cap experiment: log $5-10 breakouts (never traded) with the IEX quote at that moment."""
+    done = {x["symbol"] for x in state["small_signals"]}
+    hits = []
+    for s, r in state["small"].items():
+        px = prices.get(s)
+        side = breakout(r, px) if px and s not in done else None
+        if side and r.get("atr"):
+            sgn = 1 if side == "long" else -1
+            hits.append({"time": now.isoformat(timespec="seconds"), "symbol": s, "side": side, "price": px,
+                         "stop": round(px - sgn * C.STOP_ATR * r["atr"], 4), "atr": r["atr"],
+                         "relvol": r.get("relvol"), "gap_pct": r.get("gap_pct")})
+    if not hits:
+        return
+    try:
+        q = alpaca.latest_quotes([h["symbol"] for h in hits])
+    except Exception:
+        q = {}
+    for h in hits:
+        bid, ask = q.get(h["symbol"], (0, 0))
+        h["iex_spread_pct"] = round((ask - bid) / ((ask + bid) / 2) * 100, 3) if bid > 0 and ask > bid else None
+        state["small_signals"].append(h)
+        log(f"[small-cap, not traded] {h['side'].upper()} {h['symbol']} @ {h['price']:.2f} stop {h['stop']:.2f} "
+            f"IEX spread {h['iex_spread_pct']}%")
+
+
+def market_spread_pct(symbol, at):
+    """Median all-exchange bid-ask spread (% of mid) in the minute after `at`. Needs data 15+ min old."""
+    try:
+        qs = alpaca.quotes(symbol, utc_iso(at), utc_iso(at + timedelta(minutes=1)))
+    except Exception:
+        return None
+    sp = sorted((q["ap"] - q["bp"]) / ((q["ap"] + q["bp"]) / 2) * 100 for q in qs
+                if q.get("bp", 0) > 0 and q.get("ap", 0) > q.get("bp", 0))
+    return round(sp[len(sp) // 2], 4) if sp else None
+
+
 def simulate(sig, bars, flatten_at):
     """What a skipped/blocked signal would have done: stop or target, whichever hit
     first (stop assumed first if both in one bar), else exit at flatten time."""
@@ -469,6 +532,48 @@ def simulate(sig, bars, flatten_at):
         if tgt and ((b["l"] <= tgt) if short else (b["h"] >= tgt)):
             return tgt, "target"
     return after[-1]["c"], "time_exit"
+
+
+def score_spreads_and_smallcaps(state, d):
+    """Runs once 15+ minutes after the flatten, when all-exchange (SIP) data is free to query:
+    real bid-ask spreads at each signal, and the small-cap experiment's outcomes."""
+    open_dt, flat_dt = et_dt(d, C.MARKET_OPEN), et_dt(d, C.FLATTEN_AT)
+    # Real spreads at signal time for the main list, to check the 3 bps/side cost assumption.
+    for sig in state["signals"]:
+        sp = market_spread_pct(sig["symbol"], datetime.fromisoformat(sig["time"]))
+        if sp is not None:
+            append_csv("spreads.csv", {"date": d, "symbol": sig["symbol"], "tier": "main",
+                                       "price": sig["price"], "spread_pct": sp})
+
+    # Small-cap experiment: how each tracked $5-10 signal would have ended, before and after the spread.
+    smalls = state.get("small_signals", [])
+    if smalls:
+        try:
+            sbars = alpaca.bars(sorted({x["symbol"] for x in smalls}), utc_iso(open_dt), utc_iso(flat_dt), feed="sip")
+        except Exception:
+            sbars = alpaca.bars(sorted({x["symbol"] for x in smalls}), utc_iso(open_dt), utc_iso(flat_dt))
+        for sig in smalls:
+            exit_, how = simulate(sig, sbars.get(sig["symbol"], []), flat_dt)
+            sgn = -1 if sig["side"] == "short" else 1
+            risk = abs(sig["price"] - sig["stop"])
+            per_share = (exit_ - sig["price"]) * sgn
+            sp = market_spread_pct(sig["symbol"], datetime.fromisoformat(sig["time"]))
+            spread = sp if sp is not None else sig.get("iex_spread_pct")
+            cost = sig["price"] * spread / 100 if spread is not None else None  # half spread in + half out
+            append_csv("smallcap.csv", {
+                "date": d, "time": sig["time"][11:16], "symbol": sig["symbol"], "side": sig["side"],
+                "entry": round(sig["price"], 4), "stop": sig["stop"], "risk_pct": round(risk / sig["price"] * 100, 3),
+                "exit": round(exit_, 4), "exit_type": how, "spread_pct": sp, "iex_spread_pct": sig.get("iex_spread_pct"),
+                "r_gross": round(per_share / risk, 3) if risk else "",
+                "r_after_spread": round((per_share - cost) / risk, 3) if risk and cost is not None else "",
+                "relvol": sig.get("relvol"), "gap_pct": sig.get("gap_pct")})
+            if sp is not None:
+                append_csv("spreads.csv", {"date": d, "symbol": sig["symbol"], "tier": "small",
+                                           "price": sig["price"], "spread_pct": sp})
+
+    state["small_scored"] = True
+    log(f"Logged spreads and {len(smalls)} small-cap experiment signal(s)")
+    report.build()
 
 
 def end_of_day(state, d):

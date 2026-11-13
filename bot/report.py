@@ -21,6 +21,38 @@ def _money(x):
     return f"-${abs(x):,.2f}" if x < 0 else f"${x:,.2f}"
 
 
+def _median(xs):
+    xs = sorted(xs)
+    return xs[len(xs) // 2] if xs else None
+
+
+def _smallcap_section():
+    """Small-cap experiment ($5-10 names, tracked not traded) + real spreads vs our cost assumption."""
+    small, spreads = _read("smallcap.csv"), _read("spreads.csv")
+    out = ["", "## Small-cap experiment ($5-$10 stocks: tracked, not traded)", ""]
+    main_sp = [float(x["spread_pct"]) for x in spreads if x["tier"] == "main" and x["spread_pct"]]
+    small_sp = [float(x["spread_pct"]) for x in spreads if x["tier"] == "small" and x["spread_pct"]]
+    assumed = 2 * getattr(C, "EST_SLIPPAGE_BPS", 3) / 100
+    if main_sp:
+        out.append(f"Real bid-ask spread at signal time, main list: median **{_median(main_sp):.3f}%** over "
+                   f"{len(main_sp)} signals (the backtest assumed {assumed:.2f}% round trip).")
+    if not small:
+        out.append("No small-cap signals logged yet." if not main_sp else "")
+        return out
+    g = [float(x["r_gross"]) for x in small if x["r_gross"] != ""]
+    n = [float(x["r_after_spread"]) for x in small if x["r_after_spread"] != ""]
+    out += [f"Real spread, small caps: median **{_median(small_sp):.3f}%**." if small_sp else "",
+            "",
+            "| | Signals | Avg R before costs | Avg R after the spread | Won (after spread) |",
+            "|---|---|---|---|---|",
+            f"| $5-$10 stocks | {len(small)} | {sum(g) / len(g):+.3f} | "
+            + (f"{sum(n) / len(n):+.3f} | {sum(1 for x in n if x > 0)}/{len(n)} |" if n else "- | - |"),
+            "",
+            "R = profit as a multiple of the risk to the stop. Positive after the spread over 50+ signals "
+            "would justify trading this tier; until then it's just watched."]
+    return out
+
+
 def build():
     days, trades, shadow = _read("daily.csv"), _read("trades.csv"), _read("shadow.csv")
     state = json.loads((DATA / "state.json").read_text()) if (DATA / "state.json").exists() else {}
@@ -112,6 +144,8 @@ def build():
                    f"Simulated outcome of those trades: {_money(bp)} -> the filter has **{effect}**.")
     else:
         out.append("No trades blocked by the AI yet.")
+
+    out += _smallcap_section()
 
     if _chart(days, inc, start_eq) or (DATA / "equity.png").exists():
         out += ["", "![Equity vs SPY](data/equity.png)"]

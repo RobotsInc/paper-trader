@@ -102,6 +102,21 @@ def latest_prices(symbols):
     return out
 
 
+def latest_quotes(symbols):
+    """{symbol: (bid, ask)} from the free IEX feed (IEX's own quote, often wider than the market's)."""
+    out = {}
+    for i in range(0, len(symbols), 100):
+        j = _get(DATA, "/v2/stocks/quotes/latest", symbols=",".join(symbols[i:i + 100]), feed=FEED)
+        out.update({s: (float(q.get("bp") or 0), float(q.get("ap") or 0)) for s, q in (j.get("quotes") or {}).items()})
+    return out
+
+
+def quotes(symbol, start, end, feed="sip"):
+    """Historical quotes (all exchanges; free once they're 15+ minutes old)."""
+    j = _get(DATA, "/v2/stocks/quotes", symbols=symbol, start=start, end=end, feed=feed, limit=1000)
+    return (j.get("quotes") or {}).get(symbol, [])
+
+
 def snapshots(symbols):
     out = {}
     for i in range(0, len(symbols), 100):
