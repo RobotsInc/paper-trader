@@ -37,6 +37,8 @@ ALLOW_SHORTS = True
 MARKET_FILTER = False        # True = longs only when SPY > its VWAP, shorts only when SPY < its VWAP.
 VWAP_FILTER = False          # True = longs only above the stock's VWAP, shorts only below
 MAX_CHASE = None             # skip if price is more than this many range-widths past the breakout (None = off)
+MAX_CHASE_ATR = 0.2          # skip if price is already > 0.2 x ATR past the range edge (2 stop-widths): the
+                             # backtest entered at the edge, so a late, stretched entry isn't the tested trade
 
 # ---- Exits ----
 STOP_ATR = 0.10              # stop = 10% of the stock's 14-day ATR from entry (None = middle of the range)

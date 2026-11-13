@@ -316,6 +316,8 @@ def scan(state, now, equity):
         w = hi - lo
         d = r.get("dir", 0)
         vw = vwap(day_bars.get(s, [])) if C.VWAP_FILTER else None
+        if C.MAX_CHASE_ATR and r.get("atr") and (px - hi > C.MAX_CHASE_ATR * r["atr"] or lo - px > C.MAX_CHASE_ATR * r["atr"]):
+            continue  # already ran too far past the range - don't chase
         go_long = C.DIRECTION == "both" or d > 0
         go_short = C.ALLOW_SHORTS and (C.DIRECTION == "both" or d < 0)
         if go_long and px > hi and (C.MAX_CHASE is None or px <= hi + C.MAX_CHASE * w) and (not vw or px > vw):
