@@ -399,7 +399,7 @@
     "CSCO": 95.935
   },
   "halted": false,
-  "eod_done": false,
+  "eod_done": true,
   "session_seen": true,
   "small": {
     "CADL": {

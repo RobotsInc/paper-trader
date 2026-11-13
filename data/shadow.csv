@@ -19,3 +19,6 @@ date,symbol,side,action,reason,entry,exit,exit_type,qty,pnl,r_multiple
 2026-11-12,XBI,short,skipped_max_positions,,152.415,151.92,time_exit,130,64.35,0.44
 2026-11-12,COIN,long,skipped_max_positions,,133.24,130.84,stop,149,-357.6,-1.0
 2026-11-12,MSTR,long,blocked_by_ai,AI short: Official MSCI index removal creates severe structural selling pressure.,115.88,115.33,time_exit,171,-94.05,-0.25
+2026-11-13,TSM,short,skipped_correlated,same group as AMAT (semis),396.985,398.85,stop,49,-91.39,-1.0
+2026-11-13,MSTR,short,skipped_max_positions,,110.21,111.05,stop,179,-150.36,-1.0
+2026-11-13,XBI,short,skipped_max_positions,,148.73,149.27,stop,133,-71.82,-1.0
