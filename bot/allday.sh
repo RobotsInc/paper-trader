@@ -68,6 +68,6 @@ while :; do
   timeout 600 python bot/trader.py run || log "bot run exited with an error (continuing)"
   commit
   # Market closed (pre-open / after close) makes runs return instantly: idle a bit between checks.
-  [ $(( $(date +%s) - t0 )) -lt 60 ] && sleep 30
+  [ $(( $(date +%s) - t0 )) -lt 60 ] && sleep 120
 done
 commit
