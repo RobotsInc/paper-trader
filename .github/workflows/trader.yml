@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write   # commit logs back to the repo
+  actions: read     # see whether the all-day job is already running
 
 concurrency:
   group: paper-trader
@@ -24,16 +25,31 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
+      - name: Skip if the all-day job is running
+        id: guard
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/allday.yml/runs?status=in_progress" --jq .total_count 2>/dev/null || echo 0)
+          if [ "${{ github.event.inputs.mode || 'run' }}" = run ] && [ "$n" != "0" ]; then
+            echo "All-day job is running - this 5-minute run is not needed."
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.guard.outputs.skip != '1'
 
       - uses: actions/setup-python@v5
+        if: steps.guard.outputs.skip != '1'
         with:
           python-version: "3.12"
           cache: pip
 
       - run: pip install -q -r requirements.txt
+        if: steps.guard.outputs.skip != '1'
 
       - name: Run bot
+        if: steps.guard.outputs.skip != '1'
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
@@ -43,7 +59,7 @@ jobs:
         run: python bot/trader.py "${{ github.event.inputs.mode || 'run' }}"
 
       - name: Save logs to repo
-        if: always()
+        if: always() && steps.guard.outputs.skip != '1'
         run: |
           git config user.name "paper-trader-bot"
           git config user.email "paper-trader-bot@users.noreply.github.com"

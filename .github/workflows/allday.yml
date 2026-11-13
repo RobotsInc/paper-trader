@@ -1,0 +1,42 @@
+name: paper-trader-allday
+
+# One job that runs the bot continuously through the trading day.
+# Several independent starts; extra copies just queue and exit or act as the relay.
+on:
+  schedule:
+    - cron: "5 13 * * 1-5"    # 8:05 ET (EST) / 9:05 ET (EDT)
+    - cron: "10 14 * * 1-5"   # 9:10 ET (EST) / 10:10 ET (EDT) backup
+    - cron: "40 14 * * 1-5"   # 9:40 ET (EST) late backup
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commit logs/dashboard data
+  actions: write    # see other runs; relay to a fresh job near the 6h limit
+
+concurrency:
+  group: paper-trader-allday
+  cancel-in-progress: false
+
+jobs:
+  day:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -q -r requirements.txt
+
+      - name: Run bot all day
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AI_FILTER: ${{ vars.AI_FILTER || 'on' }}
+          AI_MODEL: ${{ vars.AI_MODEL || 'auto' }}
+          GH_TOKEN: ${{ github.token }}
+        run: bash bot/allday.sh
