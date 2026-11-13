@@ -19,7 +19,13 @@ commit() {
   git add -A data SCORECARD.md
   git diff --cached --quiet && return 0
   git commit -q -m "bot: $(TZ=America/New_York date '+%Y-%m-%d %H:%M ET')"
-  for i in 1 2 3; do git pull -q --rebase && git push -q && return 0; sleep 5; done
+  # This job is the only writer while it runs, so on a conflict keep our (newer) data.
+  # (During a rebase, "-X theirs" means the commit being replayed = ours.)
+  for i in 1 2 3; do
+    git pull -q --rebase -X theirs && git push -q && return 0
+    git rebase --abort 2>/dev/null
+    sleep 5
+  done
   log "push failed (will retry next round)"
 }
 
@@ -47,6 +53,8 @@ for i in $(seq 1 40); do
   sleep 15
 done
 
+# Start from the latest data (a 5-minute run may have just committed).
+git pull -q --rebase || { git rebase --abort 2>/dev/null; git fetch -q && git reset -q --hard origin/HEAD; }
 log "All-day bot started."
 while :; do
   if [ "$(hm)" -ge "$STOP_HM" ]; then log "Day finished."; break; fi
