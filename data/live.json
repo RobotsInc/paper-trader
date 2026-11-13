@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T11:46:58-05:00",
+ "updated": "2026-11-13T11:52:04-05:00",
  "date": "2026-11-13",
  "market_open": true,
  "account": {
@@ -18,14 +18,14 @@
  "total": {
   "pnl": -1544.1699999999983,
   "pct": -1.5441700000000003,
-  "spy_pct": -1.5296467619848597
+  "spy_pct": -1.5493587047939572
  },
  "regime": {
-  "spy": 749.32,
-  "spy_vwap": 752.05,
-  "spy_day_pct": -1.4,
+  "spy": 749.17,
+  "spy_vwap": 751.99,
+  "spy_day_pct": -1.42,
   "bias": "down",
-  "time": "2026-11-13T11:46-05:00"
+  "time": "2026-11-13T11:52-05:00"
  },
  "scan": {
   "scanned": 192,
@@ -56,7 +56,7 @@
    "score": 10.01,
    "tier": "main",
    "source": "scanner",
-   "price": 135.36,
+   "price": 136.525,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -74,7 +74,7 @@
    "score": 7.873,
    "tier": "main",
    "source": "scanner",
-   "price": 36.345,
+   "price": 36.325,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -92,7 +92,7 @@
    "score": 5.253,
    "tier": "main",
    "source": "scanner",
-   "price": 104.91,
+   "price": 104.215,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -110,7 +110,7 @@
    "score": 3.01,
    "tier": "main",
    "source": "core",
-   "price": 92.105,
+   "price": 91.935,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -128,7 +128,7 @@
    "score": 2.972,
    "tier": "main",
    "source": "core",
-   "price": 95.97,
+   "price": 95.78,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -146,7 +146,7 @@
    "score": 2.517,
    "tier": "main",
    "source": "core",
-   "price": 79.55,
+   "price": 79.49,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -164,7 +164,7 @@
    "score": 1.886,
    "tier": "main",
    "source": "core",
-   "price": 357.39,
+   "price": 357.98,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -182,7 +182,7 @@
    "score": 1.764,
    "tier": "main",
    "source": "core",
-   "price": 393.31,
+   "price": 393.62,
    "status": "SKIPPED CORRELATED",
    "ai": "",
    "catalyst": ""
@@ -218,7 +218,7 @@
    "score": 1.605,
    "tier": "main",
    "source": "scanner",
-   "price": 38.785,
+   "price": 38.775,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -236,7 +236,7 @@
    "score": 1.306,
    "tier": "main",
    "source": "core",
-   "price": 62.305,
+   "price": 62.165,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -254,7 +254,7 @@
    "score": 1.206,
    "tier": "main",
    "source": "core",
-   "price": 109.1,
+   "price": 108.92,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "",
    "catalyst": ""
@@ -272,7 +272,7 @@
    "score": 1.176,
    "tier": "main",
    "source": "core",
-   "price": 294.2,
+   "price": 294.15,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -290,7 +290,7 @@
    "score": 1.147,
    "tier": "main",
    "source": "core",
-   "price": 355.7,
+   "price": 355.49,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -308,7 +308,7 @@
    "score": 1.111,
    "tier": "main",
    "source": "core",
-   "price": 149.35,
+   "price": 149.17,
    "status": "SKIPPED MAX POSITIONS",
    "ai": "",
    "catalyst": ""
@@ -326,8 +326,8 @@
    "score": 1.045,
    "tier": "main",
    "source": "core",
-   "price": 126.93,
-   "status": "BELOW RANGE",
+   "price": 127.1,
+   "status": "WATCH",
    "ai": "",
    "catalyst": ""
   }
@@ -529,6 +529,10 @@
   },
   {
    "t": "11:43",
+   "v": 98455.83
+  },
+  {
+   "t": "11:48",
    "v": 98455.83
   }
  ],
