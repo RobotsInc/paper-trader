@@ -16,6 +16,7 @@ Since 2026-11-12 - 1 trading day(s)
 | Metric | Value |
 |---|---|
 | Total P&L | -$1,055.34 |
+| P&L after est. slippage (3 bps/side, what real money might see) | -$1,122.75 (-1.12%) |
 | Trades | 6 |
 | Win rate | 17% |
 | Avg win / avg loss | $72.53 / -$225.57 |
@@ -29,6 +30,11 @@ Since 2026-11-12 - 1 trading day(s)
 ## Is the AI news filter helping?
 
 The AI blocked 3 trade(s) the rules wanted. Simulated outcome of those trades: -$365.45 -> the filter has **saved $365.45**.
+
+## Small-cap experiment ($5-$10 stocks: tracked, not traded)
+
+Real bid-ask spread at signal time, main list: median **0.034%** over 26 signals (the backtest assumed 0.06% round trip).
+
 
 ![Equity vs SPY](data/equity.png)
 

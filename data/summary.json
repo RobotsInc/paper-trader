@@ -25,6 +25,8 @@
    "win_rate": 100.0
   }
  },
+ "est_slippage": 67.41,
+ "return_after_slippage_pct": -1.123,
  "ai_blocked": 3,
  "ai_blocked_pnl": -365.45
 }
