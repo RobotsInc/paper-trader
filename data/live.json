@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-16T12:41:32-05:00",
+ "updated": "2026-11-16T12:45:21-05:00",
  "date": "2026-11-16",
  "market_open": true,
  "account": {
-  "equity": 98162.13,
+  "equity": 98156.27,
   "cash": 117157.93,
-  "buying_power": 323055.43,
+  "buying_power": 323067.52,
   "start_equity": 98453.79,
-  "day_pnl": -291.65999999998894,
-  "day_pnl_pct": -0.2962405002387314
+  "day_pnl": -297.5199999999895,
+  "day_pnl_pct": -0.3021925311356588
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1837.8699999999953,
-  "pct": -1.837869999999997,
-  "spy_pct": -2.283957106812451
+  "pnl": -1843.729999999996,
+  "pct": -1.843729999999999,
+  "spy_pct": -2.328637510513043
  },
  "regime": {
-  "spy": 743.58,
-  "spy_vwap": 746.03,
-  "spy_day_pct": -0.81,
+  "spy": 743.24,
+  "spy_vwap": 746.0,
+  "spy_day_pct": -0.86,
   "bias": "down",
-  "time": "2026-11-16T12:41-05:00"
+  "time": "2026-11-16T12:45-05:00"
  },
  "scan": {
   "scanned": 189,
@@ -84,10 +84,10 @@
    "side": "long",
    "qty": 78.0,
    "entry": 249.97,
-   "price": 249.99,
-   "upl": 1.56,
-   "upl_pct": 0.008,
-   "value": 19499.22,
+   "price": 249.7625,
+   "upl": -16.185,
+   "upl_pct": -0.083,
+   "value": 19481.475,
    "stop": 249.16,
    "target": null,
    "opened": "10:56"
@@ -97,10 +97,10 @@
    "side": "short",
    "qty": 29.0,
    "entry": 668.84,
-   "price": 664.01,
-   "upl": 140.07,
-   "upl_pct": 0.722,
-   "value": 19256.29,
+   "price": 664.04,
+   "upl": 139.2,
+   "upl_pct": 0.718,
+   "value": 19257.16,
    "stop": 671.2,
    "target": null,
    "opened": "09:36"
@@ -110,10 +110,10 @@
    "side": "short",
    "qty": 51.0,
    "entry": 378.216863,
-   "price": 377.23,
-   "upl": 50.330013,
-   "upl_pct": 0.261,
-   "value": 19238.73,
+   "price": 376.98,
+   "upl": 63.080013,
+   "upl_pct": 0.327,
+   "value": 19225.98,
    "stop": 380.16,
    "target": null,
    "opened": "09:59"
@@ -133,7 +133,7 @@
    "score": 7.604,
    "tier": "main",
    "source": "core",
-   "price": 664.13,
+   "price": 664.0,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "none"
@@ -151,7 +151,7 @@
    "score": 3.621,
    "tier": "main",
    "source": "core",
-   "price": 1110.63,
+   "price": 1110.905,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Analyst price target changes and driver fine"
@@ -169,7 +169,7 @@
    "score": 3.504,
    "tier": "main",
    "source": "scanner",
-   "price": 36.82,
+   "price": 36.73,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -187,7 +187,7 @@
    "score": 2.68,
    "tier": "main",
    "source": "core",
-   "price": 165.86,
+   "price": 165.7,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -205,7 +205,7 @@
    "score": 2.188,
    "tier": "main",
    "source": "core",
-   "price": 103.09,
+   "price": 103.15,
    "status": "BELOW RANGE",
    "ai": "short",
    "catalyst": "Bitcoin slump and potential MSCI index exclusion"
@@ -259,7 +259,7 @@
    "score": 1.78,
    "tier": "main",
    "source": "core",
-   "price": 250.025,
+   "price": 249.825,
    "status": "LONG",
    "ai": "both",
    "catalyst": "C2PA standards highlighted at annual MAX conference"
@@ -277,7 +277,7 @@
    "score": 1.73,
    "tier": "main",
    "source": "core",
-   "price": 355.41,
+   "price": 355.39,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Participation in upcoming investor conferences"
@@ -295,7 +295,7 @@
    "score": 1.713,
    "tier": "main",
    "source": "core",
-   "price": 118.87,
+   "price": 118.825,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "Jefferies price target increase"
@@ -313,7 +313,7 @@
    "score": 1.629,
    "tier": "main",
    "source": "core",
-   "price": 61.225,
+   "price": 61.17,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Clarification of regional extra member pricing"
@@ -331,7 +331,7 @@
    "score": 1.575,
    "tier": "main",
    "source": "core",
-   "price": 217.48,
+   "price": 217.51,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Third-party partner integration service announcement"
@@ -349,7 +349,7 @@
    "score": 1.516,
    "tier": "main",
    "source": "core",
-   "price": 160.77,
+   "price": 160.82,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Q3 earnings report"
@@ -367,7 +367,7 @@
    "score": 1.489,
    "tier": "main",
    "source": "core",
-   "price": 377.26,
+   "price": 376.9,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "Semiconductor industry commentary surrounding Nvidia"
@@ -385,7 +385,7 @@
    "score": 1.481,
    "tier": "main",
    "source": "core",
-   "price": 186.59,
+   "price": 186.515,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Upgraded to Neutral by Phillip Securities"
@@ -403,7 +403,7 @@
    "score": 1.393,
    "tier": "main",
    "source": "core",
-   "price": 379.225,
+   "price": 379.395,
    "status": "BLOCKED BY AI",
    "ai": "long",
    "catalyst": "Planning \u20ac3B Gigafactory expansion in Germany"
@@ -421,7 +421,7 @@
    "score": 1.343,
    "tier": "main",
    "source": "core",
-   "price": 72.44,
+   "price": 72.475,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Louisiana court issues temporary restraining order"
@@ -439,7 +439,7 @@
    "score": 1.319,
    "tier": "main",
    "source": "core",
-   "price": 348.105,
+   "price": 348.05,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Q3 earnings report and earnings call"
@@ -457,7 +457,7 @@
    "score": 1.316,
    "tier": "main",
    "source": "core",
-   "price": 743.58,
+   "price": 743.24,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "Broad market macroeconomic news"
@@ -475,7 +475,7 @@
    "score": 1.292,
    "tier": "main",
    "source": "core",
-   "price": 156.91,
+   "price": 156.92,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "CEO leadership crisis and upcoming Q3 earnings"
@@ -865,6 +865,10 @@
   {
    "t": "12:37",
    "v": 98191.38
+  },
+  {
+   "t": "12:41",
+   "v": 98162.82
   }
  ],
  "days": [
