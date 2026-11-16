@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-16T11:13:32-05:00",
+ "updated": "2026-11-16T11:17:21-05:00",
  "date": "2026-11-16",
  "market_open": true,
  "account": {
-  "equity": 98227.24,
+  "equity": 98175.98,
   "cash": 117157.93,
-  "buying_power": 323369.67,
+  "buying_power": 323093.74,
   "start_equity": 98453.79,
-  "day_pnl": -226.54999999998836,
-  "day_pnl_pct": -0.23010795216719115
+  "day_pnl": -277.8099999999977,
+  "day_pnl_pct": -0.2821729869413869
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1772.7599999999948,
-  "pct": -1.7727599999999955,
-  "spy_pct": -2.0191600084104255
+  "pnl": -1824.020000000004,
+  "pct": -1.824020000000004,
+  "spy_pct": -1.9994480656013502
  },
  "regime": {
-  "spy": 745.595,
-  "spy_vwap": 746.45,
-  "spy_day_pct": -0.54,
+  "spy": 745.745,
+  "spy_vwap": 746.42,
+  "spy_day_pct": -0.52,
   "bias": "down",
-  "time": "2026-11-16T11:13-05:00"
+  "time": "2026-11-16T11:17-05:00"
  },
  "scan": {
   "scanned": 189,
@@ -84,10 +84,10 @@
    "side": "long",
    "qty": 78.0,
    "entry": 249.97,
-   "price": 250.12,
-   "upl": 11.7,
-   "upl_pct": 0.06,
-   "value": 19509.36,
+   "price": 250.17,
+   "upl": 15.6,
+   "upl_pct": 0.08,
+   "value": 19513.26,
    "stop": 249.16,
    "target": null,
    "opened": "10:56"
@@ -97,10 +97,10 @@
    "side": "short",
    "qty": 29.0,
    "entry": 668.84,
-   "price": 663.75,
-   "upl": 147.61,
-   "upl_pct": 0.761,
-   "value": 19248.75,
+   "price": 663.6825,
+   "upl": 149.5675,
+   "upl_pct": 0.771,
+   "value": 19246.7925,
    "stop": 671.2,
    "target": null,
    "opened": "09:36"
@@ -110,10 +110,10 @@
    "side": "short",
    "qty": 51.0,
    "entry": 378.216863,
-   "price": 376.3,
-   "upl": 97.760013,
-   "upl_pct": 0.507,
-   "value": 19191.3,
+   "price": 377.42,
+   "upl": 40.640013,
+   "upl_pct": 0.211,
+   "value": 19248.42,
    "stop": 380.16,
    "target": null,
    "opened": "09:59"
@@ -133,7 +133,7 @@
    "score": 7.604,
    "tier": "main",
    "source": "core",
-   "price": 664.21,
+   "price": 663.86,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "none"
@@ -151,7 +151,7 @@
    "score": 3.621,
    "tier": "main",
    "source": "core",
-   "price": 1110.88,
+   "price": 1112.01,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Analyst price target changes and driver fine"
@@ -169,7 +169,7 @@
    "score": 3.504,
    "tier": "main",
    "source": "scanner",
-   "price": 36.34,
+   "price": 36.5,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -187,7 +187,7 @@
    "score": 2.68,
    "tier": "main",
    "source": "core",
-   "price": 166.21,
+   "price": 166.3,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -205,8 +205,8 @@
    "score": 2.188,
    "tier": "main",
    "source": "core",
-   "price": 102.81,
-   "status": "BELOW RANGE",
+   "price": 103.45,
+   "status": "WATCH",
    "ai": "short",
    "catalyst": "Bitcoin slump and potential MSCI index exclusion"
   },
@@ -223,7 +223,7 @@
    "score": 1.881,
    "tier": "main",
    "source": "core",
-   "price": 142.06,
+   "price": 142.01,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Falling diesel prices easing inflationary pressures"
@@ -241,7 +241,7 @@
    "score": 1.865,
    "tier": "main",
    "source": "core",
-   "price": 118.84,
+   "price": 119.12,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Analyst target adjustment and corporate partnership announcements"
@@ -259,7 +259,7 @@
    "score": 1.78,
    "tier": "main",
    "source": "core",
-   "price": 250.11,
+   "price": 250.095,
    "status": "LONG",
    "ai": "both",
    "catalyst": "C2PA standards highlighted at annual MAX conference"
@@ -277,7 +277,7 @@
    "score": 1.73,
    "tier": "main",
    "source": "core",
-   "price": 355.39,
+   "price": 355.69,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Participation in upcoming investor conferences"
@@ -295,7 +295,7 @@
    "score": 1.713,
    "tier": "main",
    "source": "core",
-   "price": 118.62,
+   "price": 118.665,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "Jefferies price target increase"
@@ -313,7 +313,7 @@
    "score": 1.629,
    "tier": "main",
    "source": "core",
-   "price": 61.475,
+   "price": 61.445,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Clarification of regional extra member pricing"
@@ -367,7 +367,7 @@
    "score": 1.489,
    "tier": "main",
    "source": "core",
-   "price": 376.34,
+   "price": 377.41,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "Semiconductor industry commentary surrounding Nvidia"
@@ -385,7 +385,7 @@
    "score": 1.481,
    "tier": "main",
    "source": "core",
-   "price": 186.86,
+   "price": 187.14,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Upgraded to Neutral by Phillip Securities"
@@ -403,7 +403,7 @@
    "score": 1.393,
    "tier": "main",
    "source": "core",
-   "price": 380.645,
+   "price": 381.295,
    "status": "BLOCKED BY AI",
    "ai": "long",
    "catalyst": "Planning \u20ac3B Gigafactory expansion in Germany"
@@ -421,7 +421,7 @@
    "score": 1.343,
    "tier": "main",
    "source": "core",
-   "price": 73.26,
+   "price": 73.42,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Louisiana court issues temporary restraining order"
@@ -439,7 +439,7 @@
    "score": 1.319,
    "tier": "main",
    "source": "core",
-   "price": 347.31,
+   "price": 347.52,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Q3 earnings report and earnings call"
@@ -457,7 +457,7 @@
    "score": 1.316,
    "tier": "main",
    "source": "core",
-   "price": 745.595,
+   "price": 745.745,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "Broad market macroeconomic news"
@@ -475,7 +475,7 @@
    "score": 1.292,
    "tier": "main",
    "source": "core",
-   "price": 158.775,
+   "price": 159.26,
    "status": "AI BLOCK",
    "ai": "block",
    "catalyst": "CEO leadership crisis and upcoming Q3 earnings"
@@ -759,6 +759,10 @@
   {
    "t": "11:09",
    "v": 98158.68
+  },
+  {
+   "t": "11:13",
+   "v": 98229.58
   }
  ],
  "days": [
