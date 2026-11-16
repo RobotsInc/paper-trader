@@ -49,3 +49,23 @@ date,symbol,decision,reason,catalyst
 2026-11-12,TSLA,both,Routine media coverage and comments do not restrict trading.,Robotaxi updates and Musk commentary
 2026-11-12,KLAC,both,No catalyst to restrict trading.,none
 2026-11-12,NKE,both,No catalyst to restrict trading.,none
+2026-11-16,DE,both,No catalyst driving relative volume.,none
+2026-11-16,COST,both,Analyst rating changes and minor regulatory fines do not restrict trading.,Analyst price target changes and driver fine
+2026-11-16,IBIT,both,Crypto ETF moving without single-stock catalyst.,none
+2026-11-16,XLK,both,Broad tech ETF moving on general market sentiment.,none
+2026-11-16,MSTR,short,Sharp decline in Bitcoin and index removal risk create clear downside pressure.,Bitcoin slump and potential MSCI index exclusion
+2026-11-16,USO,both,Routine commodity pricing news does not restrict intraday breakouts.,Falling diesel prices easing inflationary pressures
+2026-11-16,COIN,both,Routine partnership news and analyst notes do not restrict trading.,Analyst target adjustment and corporate partnership announcements
+2026-11-16,ADBE,both,Routine conference presentations do not restrict trading.,C2PA standards highlighted at annual MAX conference
+2026-11-16,AMAT,both,Routine conference attendance presents no trading restrictions.,Participation in upcoming investor conferences
+2026-11-16,DIS,both,Routine analyst price target revision does not warrant restrictions.,Jefferies price target increase
+2026-11-16,NFLX,both,Minor regional pricing details do not restrict trading.,Clarification of regional extra member pricing
+2026-11-16,CRM,both,Routine software partner announcement presents no restrictions.,Third-party partner integration service announcement
+2026-11-16,TGT,block,Earnings report today creates severe binary event risk.,Q3 earnings report
+2026-11-16,TSM,both,General industry commentary does not restrict trading.,Semiconductor industry commentary surrounding Nvidia
+2026-11-16,ABNB,both,Routine analyst upgrade does not restrict trading.,Upgraded to Neutral by Phillip Securities
+2026-11-16,TSLA,long,Major capital investment in factory expansion provides a positive catalyst.,Planning €3B Gigafactory expansion in Germany
+2026-11-16,HOOD,block,Court injunction creates immediate legal and regulatory event risk.,Louisiana court issues temporary restraining order
+2026-11-16,HD,block,Earnings release today poses high binary event risk.,Q3 earnings report and earnings call
+2026-11-16,SPY,both,Market ETF tracking general market sentiment.,Broad market macroeconomic news
+2026-11-16,NVDA,block,Executive transition fallout and upcoming earnings pose severe event risk.,CEO leadership crisis and upcoming Q3 earnings
