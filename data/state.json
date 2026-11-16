@@ -291,11 +291,11 @@
     "small_tracked": 1
   },
   "regime": {
-    "spy": 748.48,
+    "spy": 748.09,
     "spy_vwap": 748.27,
-    "spy_day_pct": -0.16,
-    "bias": "up",
-    "time": "2026-11-16T09:49-05:00"
+    "spy_day_pct": -0.21,
+    "bias": "down",
+    "time": "2026-11-16T09:53-05:00"
   },
   "ai": {
     "done": true,
@@ -412,7 +412,9 @@
     "TGT",
     "HOOD",
     "USO",
-    "TSLA"
+    "TSLA",
+    "COIN",
+    "HD"
   ],
   "signals": [
     {
@@ -512,6 +514,34 @@
       "action": "blocked_by_ai",
       "reason": "AI long: Major capital investment in factory expansion provides a positive catalyst.",
       "market": "up"
+    },
+    {
+      "time": "2026-11-16T09:50-05:00",
+      "symbol": "COIN",
+      "side": "long",
+      "price": 121.72,
+      "stop": 120.74,
+      "target": null,
+      "qty": 161,
+      "or_high": 121.59,
+      "or_low": 118.915,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-16T09:51-05:00",
+      "symbol": "HD",
+      "side": "long",
+      "price": 348.99,
+      "stop": 348.0,
+      "target": null,
+      "qty": 56,
+      "or_high": 348.89,
+      "or_low": 347.295,
+      "action": "blocked_by_ai",
+      "reason": "AI block: Earnings release today poses high binary event risk.",
+      "market": "down"
     }
   ],
   "shortable": {
@@ -520,27 +550,27 @@
     "USO": true
   },
   "last_prices": {
-    "IBIT": 36.88,
-    "HD": 348.15,
-    "ABNB": 183.9,
-    "DIS": 119.17,
-    "NVDA": 161.22,
-    "AMAT": 354.64,
-    "TGT": 159.57,
-    "ADBE": 246.1,
-    "TSM": 381.22,
-    "MSTR": 105.05,
-    "CRM": 217.75,
-    "DE": 666.435,
-    "USO": 142.48,
-    "TSLA": 382.68,
-    "HOOD": 75.025,
-    "XLK": 167.01,
-    "NFLX": 61.97,
-    "HELP": 8.01,
-    "COST": 1110.655,
-    "COIN": 121.01,
-    "SPY": 748.48
+    "IBIT": 36.93,
+    "TSLA": 381.57,
+    "NVDA": 160.87,
+    "DE": 667.425,
+    "TGT": 160.08,
+    "NFLX": 61.88,
+    "TSM": 380.52,
+    "SPY": 748.09,
+    "HD": 348.34,
+    "HELP": 7.83,
+    "ADBE": 247.35,
+    "USO": 142.38,
+    "CRM": 216.995,
+    "XLK": 167.16,
+    "HOOD": 74.99,
+    "DIS": 119.055,
+    "MSTR": 105.26,
+    "COST": 1106.955,
+    "AMAT": 356.0,
+    "COIN": 121.75,
+    "ABNB": 184.63
   },
   "halted": false,
   "eod_done": false,
