@@ -291,11 +291,11 @@
     "small_tracked": 1
   },
   "regime": {
-    "spy": 748.93,
-    "spy_vwap": 748.16,
-    "spy_day_pct": -0.1,
+    "spy": 748.48,
+    "spy_vwap": 748.27,
+    "spy_day_pct": -0.16,
     "bias": "up",
-    "time": "2026-11-16T09:45-05:00"
+    "time": "2026-11-16T09:49-05:00"
   },
   "ai": {
     "done": true,
@@ -411,7 +411,8 @@
     "NFLX",
     "TGT",
     "HOOD",
-    "USO"
+    "USO",
+    "TSLA"
   ],
   "signals": [
     {
@@ -497,6 +498,20 @@
       "action": "entered",
       "reason": "",
       "market": "down"
+    },
+    {
+      "time": "2026-11-16T09:46-05:00",
+      "symbol": "TSLA",
+      "side": "short",
+      "price": 382.65,
+      "stop": 384.4,
+      "target": null,
+      "qty": 51,
+      "or_high": 389.665,
+      "or_low": 383.06,
+      "action": "blocked_by_ai",
+      "reason": "AI long: Major capital investment in factory expansion provides a positive catalyst.",
+      "market": "up"
     }
   ],
   "shortable": {
@@ -505,27 +520,27 @@
     "USO": true
   },
   "last_prices": {
-    "MSTR": 105.46,
-    "DE": 668.25,
-    "COST": 1110.04,
-    "NVDA": 161.505,
-    "TSLA": 383.79,
-    "COIN": 120.87,
-    "ADBE": 245.4,
-    "USO": 142.335,
-    "SPY": 748.93,
-    "ABNB": 183.69,
-    "HELP": 7.905,
-    "DIS": 119.21,
-    "TSM": 382.46,
-    "AMAT": 356.5,
-    "NFLX": 62.08,
-    "TGT": 159.67,
-    "HD": 347.605,
-    "HOOD": 75.1,
-    "CRM": 217.44,
-    "IBIT": 36.845,
-    "XLK": 167.31
+    "IBIT": 36.88,
+    "HD": 348.15,
+    "ABNB": 183.9,
+    "DIS": 119.17,
+    "NVDA": 161.22,
+    "AMAT": 354.64,
+    "TGT": 159.57,
+    "ADBE": 246.1,
+    "TSM": 381.22,
+    "MSTR": 105.05,
+    "CRM": 217.75,
+    "DE": 666.435,
+    "USO": 142.48,
+    "TSLA": 382.68,
+    "HOOD": 75.025,
+    "XLK": 167.01,
+    "NFLX": 61.97,
+    "HELP": 8.01,
+    "COST": 1110.655,
+    "COIN": 121.01,
+    "SPY": 748.48
   },
   "halted": false,
   "eod_done": false,
