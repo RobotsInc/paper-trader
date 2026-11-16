@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-16T11:02:04-05:00",
+ "updated": "2026-11-16T11:05:53-05:00",
  "date": "2026-11-16",
  "market_open": true,
  "account": {
-  "equity": 98201.16,
+  "equity": 98246.25,
   "cash": 117157.93,
-  "buying_power": 323161.98,
+  "buying_power": 323388.79,
   "start_equity": 98453.79,
-  "day_pnl": -252.6299999999901,
-  "day_pnl_pct": -0.25659753677332864
+  "day_pnl": -207.5399999999936,
+  "day_pnl_pct": -0.21079940142476605
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1798.8399999999965,
-  "pct": -1.7988400000000015,
-  "spy_pct": -1.8778910849453379
+  "pnl": -1753.75,
+  "pct": -1.7537499999999984,
+  "spy_pct": -1.9554247266610592
  },
  "regime": {
-  "spy": 746.67,
+  "spy": 746.08,
   "spy_vwap": 746.47,
-  "spy_day_pct": -0.4,
-  "bias": "up",
-  "time": "2026-11-16T11:02-05:00"
+  "spy_day_pct": -0.48,
+  "bias": "down",
+  "time": "2026-11-16T11:05-05:00"
  },
  "scan": {
   "scanned": 189,
@@ -84,10 +84,10 @@
    "side": "long",
    "qty": 78.0,
    "entry": 249.97,
-   "price": 250.524,
-   "upl": 43.212,
-   "upl_pct": 0.22200000000000003,
-   "value": 19540.872,
+   "price": 250.546,
+   "upl": 44.928,
+   "upl_pct": 0.22999999999999998,
+   "value": 19542.588,
    "stop": 249.16,
    "target": null,
    "opened": "10:56"
@@ -97,10 +97,10 @@
    "side": "short",
    "qty": 29.0,
    "entry": 668.84,
-   "price": 664.7,
-   "upl": 120.06,
-   "upl_pct": 0.619,
-   "value": 19276.3,
+   "price": 664.33,
+   "upl": 130.79,
+   "upl_pct": 0.674,
+   "value": 19265.57,
    "stop": 671.2,
    "target": null,
    "opened": "09:36"
@@ -110,10 +110,10 @@
    "side": "short",
    "qty": 51.0,
    "entry": 378.216863,
-   "price": 376.95,
-   "upl": 64.610013,
-   "upl_pct": 0.335,
-   "value": 19224.45,
+   "price": 376.2489,
+   "upl": 100.366113,
+   "upl_pct": 0.52,
+   "value": 19188.6939,
    "stop": 380.16,
    "target": null,
    "opened": "09:59"
@@ -133,7 +133,7 @@
    "score": 7.604,
    "tier": "main",
    "source": "core",
-   "price": 664.96,
+   "price": 663.87,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "none"
@@ -151,7 +151,7 @@
    "score": 3.621,
    "tier": "main",
    "source": "core",
-   "price": 1111.38,
+   "price": 1111.23,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Analyst price target changes and driver fine"
@@ -169,7 +169,7 @@
    "score": 3.504,
    "tier": "main",
    "source": "scanner",
-   "price": 36.51,
+   "price": 36.4,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -187,7 +187,7 @@
    "score": 2.68,
    "tier": "main",
    "source": "core",
-   "price": 166.68,
+   "price": 166.33,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -205,7 +205,7 @@
    "score": 2.188,
    "tier": "main",
    "source": "core",
-   "price": 103.95,
+   "price": 103.64,
    "status": "WATCH",
    "ai": "short",
    "catalyst": "Bitcoin slump and potential MSCI index exclusion"
@@ -223,7 +223,7 @@
    "score": 1.881,
    "tier": "main",
    "source": "core",
-   "price": 142.38,
+   "price": 142.05,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Falling diesel prices easing inflationary pressures"
@@ -241,7 +241,7 @@
    "score": 1.865,
    "tier": "main",
    "source": "core",
-   "price": 119.88,
+   "price": 119.48,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Analyst target adjustment and corporate partnership announcements"
@@ -259,7 +259,7 @@
    "score": 1.78,
    "tier": "main",
    "source": "core",
-   "price": 250.7,
+   "price": 250.31,
    "status": "LONG",
    "ai": "both",
    "catalyst": "C2PA standards highlighted at annual MAX conference"
@@ -277,7 +277,7 @@
    "score": 1.73,
    "tier": "main",
    "source": "core",
-   "price": 357.24,
+   "price": 354.65,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Participation in upcoming investor conferences"
@@ -295,7 +295,7 @@
    "score": 1.713,
    "tier": "main",
    "source": "core",
-   "price": 118.61,
+   "price": 118.55,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "Jefferies price target increase"
@@ -313,7 +313,7 @@
    "score": 1.629,
    "tier": "main",
    "source": "core",
-   "price": 61.515,
+   "price": 61.485,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Clarification of regional extra member pricing"
@@ -331,7 +331,7 @@
    "score": 1.575,
    "tier": "main",
    "source": "core",
-   "price": 218.035,
+   "price": 217.74,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Third-party partner integration service announcement"
@@ -349,7 +349,7 @@
    "score": 1.516,
    "tier": "main",
    "source": "core",
-   "price": 161.105,
+   "price": 161.01,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Q3 earnings report"
@@ -367,7 +367,7 @@
    "score": 1.489,
    "tier": "main",
    "source": "core",
-   "price": 376.79,
+   "price": 376.17,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "Semiconductor industry commentary surrounding Nvidia"
@@ -385,7 +385,7 @@
    "score": 1.481,
    "tier": "main",
    "source": "core",
-   "price": 188.455,
+   "price": 188.35,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Upgraded to Neutral by Phillip Securities"
@@ -403,7 +403,7 @@
    "score": 1.393,
    "tier": "main",
    "source": "core",
-   "price": 382.055,
+   "price": 381.98,
    "status": "BLOCKED BY AI",
    "ai": "long",
    "catalyst": "Planning \u20ac3B Gigafactory expansion in Germany"
@@ -421,7 +421,7 @@
    "score": 1.343,
    "tier": "main",
    "source": "core",
-   "price": 73.83,
+   "price": 73.49,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Louisiana court issues temporary restraining order"
@@ -439,7 +439,7 @@
    "score": 1.319,
    "tier": "main",
    "source": "core",
-   "price": 347.855,
+   "price": 347.67,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Q3 earnings report and earnings call"
@@ -457,7 +457,7 @@
    "score": 1.316,
    "tier": "main",
    "source": "core",
-   "price": 746.67,
+   "price": 746.08,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "Broad market macroeconomic news"
@@ -475,7 +475,7 @@
    "score": 1.292,
    "tier": "main",
    "source": "core",
-   "price": 159.06,
+   "price": 159.05,
    "status": "AI BLOCK",
    "ai": "block",
    "catalyst": "CEO leadership crisis and upcoming Q3 earnings"
@@ -747,6 +747,10 @@
   {
    "t": "10:58",
    "v": 98144.66
+  },
+  {
+   "t": "11:02",
+   "v": 98205.95
   }
  ],
  "days": [
