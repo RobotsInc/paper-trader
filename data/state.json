@@ -666,7 +666,7 @@
       "iex_spread_pct": 29.647
     }
   ],
-  "small_scored": false,
+  "small_scored": true,
   "inception": {
     "date": "2026-11-12",
     "equity": 100000.0,
