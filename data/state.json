@@ -291,11 +291,11 @@
     "small_tracked": 1
   },
   "regime": {
-    "spy": 744.44,
-    "spy_vwap": 746.3,
-    "spy_day_pct": -0.7,
+    "spy": 744.385,
+    "spy_vwap": 746.28,
+    "spy_day_pct": -0.71,
     "bias": "down",
-    "time": "2026-11-16T12:14-05:00"
+    "time": "2026-11-16T12:18-05:00"
   },
   "ai": {
     "done": true,
@@ -417,7 +417,8 @@
     "HD",
     "TSM",
     "XLK",
-    "ADBE"
+    "ADBE",
+    "NVDA"
   ],
   "signals": [
     {
@@ -587,6 +588,20 @@
       "action": "entered",
       "reason": "",
       "market": "up"
+    },
+    {
+      "time": "2026-11-16T12:15-05:00",
+      "symbol": "NVDA",
+      "side": "short",
+      "price": 158.055,
+      "stop": 159.16,
+      "target": null,
+      "qty": 124,
+      "or_high": 159.7,
+      "or_low": 158.16,
+      "action": "blocked_by_ai",
+      "reason": "AI block: Executive transition fallout and upcoming earnings pose severe event risk.",
+      "market": "down"
     }
   ],
   "shortable": {
@@ -597,27 +612,27 @@
     "XLK": true
   },
   "last_prices": {
-    "SPY": 744.44,
-    "MSTR": 103.41,
-    "DIS": 118.9,
-    "TSLA": 380.1,
-    "HELP": 7.89,
-    "ADBE": 250.38,
-    "ABNB": 187.04,
-    "TSM": 378.18,
-    "USO": 141.55,
-    "DE": 664.0,
-    "IBIT": 36.71,
-    "HOOD": 72.775,
-    "AMAT": 356.745,
-    "NVDA": 158.185,
-    "XLK": 166.17,
-    "HD": 347.57,
-    "COST": 1111.84,
-    "NFLX": 61.55,
-    "COIN": 119.95,
+    "SPY": 744.385,
+    "COIN": 120.085,
+    "AMAT": 356.28,
+    "IBIT": 36.82,
+    "XLK": 166.09,
+    "ABNB": 186.99,
+    "NFLX": 61.485,
+    "TSM": 377.49,
+    "ADBE": 250.075,
+    "TGT": 161.05,
+    "MSTR": 103.695,
+    "TSLA": 379.85,
     "CRM": 217.56,
-    "TGT": 160.82
+    "NVDA": 157.99,
+    "COST": 1112.36,
+    "DE": 664.88,
+    "DIS": 118.79,
+    "HELP": 7.89,
+    "USO": 141.55,
+    "HD": 347.92,
+    "HOOD": 72.715
   },
   "halted": false,
   "eod_done": false,
