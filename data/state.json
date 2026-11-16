@@ -291,11 +291,11 @@
     "small_tracked": 1
   },
   "regime": {
-    "spy": 745.22,
-    "spy_vwap": 747.81,
-    "spy_day_pct": -0.59,
+    "spy": 744.82,
+    "spy_vwap": 747.47,
+    "spy_day_pct": -0.65,
     "bias": "down",
-    "time": "2026-11-16T10:04-05:00"
+    "time": "2026-11-16T10:08-05:00"
   },
   "ai": {
     "done": true,
@@ -415,7 +415,8 @@
     "TSLA",
     "COIN",
     "HD",
-    "TSM"
+    "TSM",
+    "XLK"
   ],
   "signals": [
     {
@@ -557,36 +558,51 @@
       "action": "entered",
       "reason": "",
       "market": "down"
+    },
+    {
+      "time": "2026-11-16T10:06-05:00",
+      "symbol": "XLK",
+      "side": "short",
+      "price": 165.38,
+      "stop": 166.01,
+      "target": null,
+      "qty": 118,
+      "or_high": 166.83,
+      "or_low": 165.515,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
     }
   ],
   "shortable": {
     "DE": true,
     "NFLX": true,
     "USO": true,
-    "TSM": true
+    "TSM": true,
+    "XLK": true
   },
   "last_prices": {
-    "IBIT": 36.68,
-    "HELP": 7.0,
-    "SPY": 745.22,
-    "NVDA": 159.41,
-    "AMAT": 352.92,
-    "COST": 1108.44,
-    "TSM": 375.76,
-    "MSTR": 104.13,
-    "HOOD": 74.66,
-    "HD": 348.67,
-    "ABNB": 185.155,
-    "CRM": 215.8,
-    "TSLA": 377.96,
-    "COIN": 120.355,
-    "XLK": 165.67,
-    "DIS": 118.59,
-    "TGT": 160.37,
-    "ADBE": 247.17,
-    "DE": 666.48,
-    "USO": 142.055,
-    "NFLX": 61.63
+    "TGT": 160.73,
+    "DE": 666.26,
+    "SPY": 744.82,
+    "ADBE": 247.78,
+    "NFLX": 61.705,
+    "AMAT": 352.285,
+    "TSM": 375.1,
+    "CRM": 216.11,
+    "TSLA": 377.07,
+    "XLK": 165.49,
+    "NVDA": 158.78,
+    "COIN": 119.78,
+    "MSTR": 103.36,
+    "HELP": 7.35,
+    "HOOD": 74.375,
+    "COST": 1108.66,
+    "USO": 141.9,
+    "IBIT": 36.56,
+    "ABNB": 186.1,
+    "HD": 348.71,
+    "DIS": 118.8
   },
   "halted": false,
   "eod_done": false,
