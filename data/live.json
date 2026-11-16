@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-16T15:43:35-05:00",
+ "updated": "2026-11-16T15:47:18-05:00",
  "date": "2026-11-16",
  "market_open": true,
  "account": {
-  "equity": 98568.0,
-  "cash": 136579.93,
-  "buying_power": 348657.7,
+  "equity": 98553.79,
+  "cash": 98553.79,
+  "buying_power": 394215.16,
   "start_equity": 98453.79,
-  "day_pnl": 114.2100000000064,
-  "day_pnl_pct": 0.11600366019428598
+  "day_pnl": 100.0,
+  "day_pnl_pct": 0.1015704931216943
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,8 +16,8 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1432.0,
-  "pct": -1.432,
+  "pnl": -1446.2100000000064,
+  "pct": -1.4462100000000033,
   "spy_pct": -2.734703532380156
  },
  "regime": {
@@ -78,34 +78,7 @@
    }
   ]
  },
- "positions": [
-  {
-   "symbol": "DE",
-   "side": "short",
-   "qty": 29.0,
-   "entry": 668.84,
-   "price": 654.03,
-   "upl": 429.49,
-   "upl_pct": 2.214,
-   "value": 18966.87,
-   "stop": 671.2,
-   "target": null,
-   "opened": "09:36"
-  },
-  {
-   "symbol": "TSM",
-   "side": "short",
-   "qty": 51.0,
-   "entry": 378.216863,
-   "price": 373.4,
-   "upl": 245.660013,
-   "upl_pct": 1.274,
-   "value": 19043.4,
-   "stop": 380.16,
-   "target": null,
-   "opened": "09:59"
-  }
- ],
+ "positions": [],
  "universe": [
   {
    "symbol": "DE",
@@ -121,7 +94,7 @@
    "tier": "main",
    "source": "core",
    "price": 656.95,
-   "status": "SHORT",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
   },
@@ -355,7 +328,7 @@
    "tier": "main",
    "source": "core",
    "price": 377.015,
-   "status": "SHORT",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "Semiconductor industry commentary surrounding Nvidia"
   },
@@ -1036,6 +1009,10 @@
   {
    "t": "15:39",
    "v": 98571.1
+  },
+  {
+   "t": "15:43",
+   "v": 98569.66
   }
  ],
  "days": [
@@ -1072,9 +1049,106 @@
    "spy_pct": "-0.974",
    "longs": "2",
    "shorts": "3"
+  },
+  {
+   "date": "2026-11-16",
+   "start_equity": "98453.79",
+   "end_equity": "98553.79",
+   "pnl": "100.0",
+   "pnl_pct": "0.102",
+   "trades": "8",
+   "wins": "2",
+   "signals": "13",
+   "ai_blocked": "5",
+   "ai_blocked_pnl": "317.07",
+   "spy_open": "749.68",
+   "spy_close": "738.965",
+   "spy_pct": "-1.429",
+   "longs": "3",
+   "shorts": "5"
   }
  ],
  "trades": [
+  {
+   "date": "2026-11-16",
+   "symbol": "ADBE",
+   "side": "long",
+   "qty": "78.0",
+   "entry": "249.97",
+   "exit": "249.0",
+   "pnl": "-75.66",
+   "pnl_pct": "-0.39"
+  },
+  {
+   "date": "2026-11-16",
+   "symbol": "XLK",
+   "side": "short",
+   "qty": "118.0",
+   "entry": "165.37",
+   "exit": "166.01",
+   "pnl": "-76.35",
+   "pnl_pct": "-0.39"
+  },
+  {
+   "date": "2026-11-16",
+   "symbol": "TSM",
+   "side": "short",
+   "qty": "51.0",
+   "entry": "378.22",
+   "exit": "373.66",
+   "pnl": "232.4",
+   "pnl_pct": "1.2"
+  },
+  {
+   "date": "2026-11-16",
+   "symbol": "COIN",
+   "side": "long",
+   "qty": "161.0",
+   "entry": "121.8",
+   "exit": "120.61",
+   "pnl": "-191.39",
+   "pnl_pct": "-0.98"
+  },
+  {
+   "date": "2026-11-16",
+   "symbol": "USO",
+   "side": "short",
+   "qty": "138.0",
+   "entry": "142.03",
+   "exit": "142.65",
+   "pnl": "-85.53",
+   "pnl_pct": "-0.44"
+  },
+  {
+   "date": "2026-11-16",
+   "symbol": "NFLX",
+   "side": "short",
+   "qty": "319.0",
+   "entry": "61.67",
+   "exit": "61.88",
+   "pnl": "-66.04",
+   "pnl_pct": "-0.34"
+  },
+  {
+   "date": "2026-11-16",
+   "symbol": "IBIT",
+   "side": "long",
+   "qty": "530.0",
+   "entry": "37.07",
+   "exit": "36.95",
+   "pnl": "-64.31",
+   "pnl_pct": "-0.33"
+  },
+  {
+   "date": "2026-11-16",
+   "symbol": "DE",
+   "side": "short",
+   "qty": "29.0",
+   "entry": "668.84",
+   "exit": "654.12",
+   "pnl": "426.88",
+   "pnl_pct": "2.2"
+  },
   {
    "date": "2026-11-13",
    "symbol": "NFLX",
@@ -1187,35 +1261,35 @@
   }
  ],
  "summary": {
-  "days": 2,
+  "days": 3,
   "start_equity": 100000.0,
-  "end_equity": 98455.83,
-  "return_pct": -1.544,
-  "spy_return_pct": -1.1,
-  "trades": 11,
-  "win_rate": 9.1,
-  "avg_win": 72.53,
-  "avg_loss": -161.44,
-  "profit_factor": 0.04,
+  "end_equity": 98553.79,
+  "return_pct": -1.446,
+  "spy_return_pct": -2.89,
+  "trades": 19,
+  "win_rate": 15.8,
+  "avg_win": 243.94,
+  "avg_loss": -135.85,
+  "profit_factor": 0.34,
   "max_drawdown_pct": -1.54,
-  "best_day": -486.51,
+  "best_day": 100.0,
   "worst_day": -1055.34,
-  "green_days": 0,
+  "green_days": 1,
   "by_side": {
    "long": {
-    "trades": 7,
-    "pnl": -1262.84,
+    "trades": 10,
+    "pnl": -1594.2,
     "win_rate": 0.0
    },
    "short": {
-    "trades": 4,
-    "pnl": -279.01,
-    "win_rate": 25.0
+    "trades": 9,
+    "pnl": 152.35,
+    "win_rate": 33.3
    }
   },
-  "est_slippage": 126.56,
-  "return_after_slippage_pct": -1.671,
-  "ai_blocked": 3,
-  "ai_blocked_pnl": -365.45
+  "est_slippage": 220.07,
+  "return_after_slippage_pct": -1.666,
+  "ai_blocked": 8,
+  "ai_blocked_pnl": -48.38
  }
 }

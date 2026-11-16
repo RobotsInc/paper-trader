@@ -22,3 +22,8 @@ date,symbol,side,action,reason,entry,exit,exit_type,qty,pnl,r_multiple
 2026-11-13,TSM,short,skipped_correlated,same group as AMAT (semis),396.985,398.85,stop,49,-91.39,-1.0
 2026-11-13,MSTR,short,skipped_max_positions,,110.21,111.05,stop,179,-150.36,-1.0
 2026-11-13,XBI,short,skipped_max_positions,,148.73,149.27,stop,133,-71.82,-1.0
+2026-11-16,TGT,short,blocked_by_ai,AI block: Earnings report today creates severe binary event risk.,159.42,159.96,stop,123,-66.42,-1.0
+2026-11-16,HOOD,long,blocked_by_ai,AI block: Court injunction creates immediate legal and regulatory event risk.,75.365,74.86,stop,261,-131.8,-1.0
+2026-11-16,TSLA,short,blocked_by_ai,AI long: Major capital investment in factory expansion provides a positive catalyst.,382.65,377.72,time_exit,51,251.43,2.82
+2026-11-16,HD,long,blocked_by_ai,AI block: Earnings release today poses high binary event risk.,348.99,348.0,stop,56,-55.44,-1.0
+2026-11-16,NVDA,short,blocked_by_ai,AI block: Executive transition fallout and upcoming earnings pose severe event risk.,158.055,155.48,time_exit,124,319.3,2.33
