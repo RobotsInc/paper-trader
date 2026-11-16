@@ -291,11 +291,11 @@
     "small_tracked": 1
   },
   "regime": {
-    "spy": 748.86,
-    "spy_vwap": 748.05,
-    "spy_day_pct": -0.11,
-    "bias": "up",
-    "time": "2026-11-16T09:38-05:00"
+    "spy": 746.78,
+    "spy_vwap": 748.11,
+    "spy_day_pct": -0.39,
+    "bias": "down",
+    "time": "2026-11-16T09:42-05:00"
   },
   "ai": {
     "done": true,
@@ -410,7 +410,8 @@
     "IBIT",
     "NFLX",
     "TGT",
-    "HOOD"
+    "HOOD",
+    "USO"
   ],
   "signals": [
     {
@@ -482,34 +483,49 @@
       "action": "blocked_by_ai",
       "reason": "AI block: Court injunction creates immediate legal and regulatory event risk.",
       "market": "up"
+    },
+    {
+      "time": "2026-11-16T09:41-05:00",
+      "symbol": "USO",
+      "side": "short",
+      "price": 142.06,
+      "stop": 142.62,
+      "target": null,
+      "qty": 138,
+      "or_high": 142.62,
+      "or_low": 142.205,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
     }
   ],
   "shortable": {
     "DE": true,
-    "NFLX": true
+    "NFLX": true,
+    "USO": true
   },
   "last_prices": {
-    "ADBE": 243.34,
-    "TSLA": 388.39,
-    "NVDA": 160.69,
-    "SPY": 748.86,
-    "HELP": 7.99,
-    "NFLX": 61.74,
-    "AMAT": 354.84,
-    "HOOD": 75.03,
-    "DE": 669.25,
-    "TGT": 159.265,
-    "XLK": 166.68,
-    "TSM": 382.96,
-    "HD": 347.15,
-    "IBIT": 37.005,
-    "ABNB": 182.88,
-    "COIN": 120.46,
-    "CRM": 214.28,
-    "MSTR": 104.79,
-    "USO": 142.29,
-    "COST": 1113.54,
-    "DIS": 118.925
+    "TSLA": 384.38,
+    "MSTR": 103.98,
+    "NVDA": 160.615,
+    "TGT": 159.705,
+    "CRM": 215.97,
+    "XLK": 166.31,
+    "COST": 1112.49,
+    "TSM": 381.94,
+    "ADBE": 245.405,
+    "USO": 142.075,
+    "HOOD": 74.215,
+    "DE": 670.01,
+    "COIN": 119.37,
+    "ABNB": 182.7,
+    "IBIT": 36.84,
+    "HELP": 7.61,
+    "NFLX": 62.02,
+    "DIS": 118.935,
+    "HD": 347.645,
+    "SPY": 746.78,
+    "AMAT": 354.33
   },
   "halted": false,
   "eod_done": false,
