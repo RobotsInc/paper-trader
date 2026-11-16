@@ -291,11 +291,11 @@
     "small_tracked": 1
   },
   "regime": {
-    "spy": 747.88,
-    "spy_vwap": 748.2,
-    "spy_day_pct": -0.24,
+    "spy": 745.33,
+    "spy_vwap": 748.17,
+    "spy_day_pct": -0.58,
     "bias": "down",
-    "time": "2026-11-16T09:57-05:00"
+    "time": "2026-11-16T10:00-05:00"
   },
   "ai": {
     "done": true,
@@ -414,7 +414,8 @@
     "USO",
     "TSLA",
     "COIN",
-    "HD"
+    "HD",
+    "TSM"
   ],
   "signals": [
     {
@@ -542,35 +543,50 @@
       "action": "blocked_by_ai",
       "reason": "AI block: Earnings release today poses high binary event risk.",
       "market": "down"
+    },
+    {
+      "time": "2026-11-16T09:59-05:00",
+      "symbol": "TSM",
+      "side": "short",
+      "price": 378.21,
+      "stop": 380.16,
+      "target": null,
+      "qty": 51,
+      "or_high": 381.61,
+      "or_low": 378.62,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
     }
   ],
   "shortable": {
     "DE": true,
     "NFLX": true,
-    "USO": true
+    "USO": true,
+    "TSM": true
   },
   "last_prices": {
-    "TGT": 160.33,
-    "HELP": 7.48,
-    "IBIT": 36.935,
-    "XLK": 166.905,
-    "HOOD": 75.1,
-    "COIN": 122.51,
-    "NFLX": 61.84,
-    "NVDA": 160.7,
-    "MSTR": 105.11,
-    "DIS": 118.995,
-    "ADBE": 247.12,
-    "ABNB": 184.96,
-    "TSLA": 380.5,
-    "AMAT": 354.75,
-    "DE": 667.2,
-    "CRM": 216.94,
-    "HD": 348.05,
-    "USO": 142.41,
-    "TSM": 379.2,
-    "COST": 1107.875,
-    "SPY": 747.88
+    "XLK": 165.84,
+    "HD": 348.68,
+    "AMAT": 352.17,
+    "SPY": 745.33,
+    "NVDA": 159.49,
+    "COIN": 120.99,
+    "DE": 667.58,
+    "TGT": 159.97,
+    "TSM": 376.51,
+    "TSLA": 377.25,
+    "CRM": 216.0,
+    "ADBE": 246.61,
+    "HELP": 7.29,
+    "MSTR": 104.285,
+    "NFLX": 61.66,
+    "IBIT": 36.75,
+    "COST": 1107.19,
+    "USO": 142.27,
+    "ABNB": 184.16,
+    "HOOD": 74.61,
+    "DIS": 118.69
   },
   "halted": false,
   "eod_done": false,
