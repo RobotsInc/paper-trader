@@ -1,27 +1,27 @@
 # Small-stock ($5-10) backtest
 
-2026-10-16 -> 2026-11-15. Paper recipe: top 15 by opening relative volume, 5-min range, first-candle direction, 10% ATR stop, hold to 15:45. Costs: real median SIP bid-ask spread at entry (charged in and out) + 3 bps slippage per side.
+2025-11-15 -> 2026-11-15. Paper recipe: top 15 by opening relative volume, 5-min range, first-candle direction, 10% ATR stop, hold to 15:45. Costs: real median SIP bid-ask spread at entry (charged in and out) + 3 bps slippage per side.
 
 ## Per trade (R = profit / initial risk)
 
 | Set | Before costs | After spread + slippage |
 |---|---|---|
-| All (no ATR floor) | 247 trades · win 20% · avg +1.172R · t = +2.7 | 247 trades · win 19% · avg +0.293R · t = +0.7 |
-| Live rules (ATR ≥ $0.50) | 63 trades · win 19% · avg +0.336R · t = +0.7 | 63 trades · win 14% · avg -0.451R · t = -0.9 |
-| Train (first 2/3) | 167 trades · win 20% · avg +0.877R · t = +2.3 | 167 trades · win 19% · avg -0.047R · t = -0.1 |
-| Test (last 1/3) | 80 trades · win 20% · avg +1.786R · t = +1.7 | 80 trades · win 18% · avg +1.001R · t = +1.0 |
-| Longs | 119 trades · win 21% · avg +1.287R · t = +2.3 | 119 trades · win 20% · avg +0.382R · t = +0.7 |
-| Shorts | 128 trades · win 19% · avg +1.064R · t = +1.6 | 128 trades · win 17% · avg +0.209R · t = +0.3 |
+| All (no ATR floor) | 2854 trades · win 16% · avg +0.317R · t = +4.1 | 2854 trades · win 15% · avg -0.447R · t = -5.7 |
+| Live rules (ATR ≥ $0.50) | 793 trades · win 17% · avg +0.377R · t = +2.6 | 793 trades · win 16% · avg -0.218R · t = -1.5 |
+| Train (first 2/3) | 1908 trades · win 15% · avg +0.297R · t = +3.2 | 1908 trades · win 15% · avg -0.458R · t = -4.9 |
+| Test (last 1/3) | 946 trades · win 17% · avg +0.359R · t = +2.5 | 946 trades · win 16% · avg -0.426R · t = -3.0 |
+| Longs | 1492 trades · win 14% · avg +0.266R · t = +2.5 | 1492 trades · win 14% · avg -0.519R · t = -4.9 |
+| Shorts | 1362 trades · win 17% · avg +0.374R · t = +3.3 | 1362 trades · win 17% · avg -0.369R · t = -3.2 |
 
 ## By opening spread
 
 | Spread at entry | After costs |
 |---|---|
-| 0–0.1% | 5 trades · win 0% · avg -1.192R · t = -5.3 |
-| 0.1–0.25% | 140 trades · win 21% · avg +0.169R · t = +0.5 |
-| 0.25–0.5% | 48 trades · win 17% · avg +0.417R · t = +0.5 |
-| 0.5–1% | 38 trades · win 13% · avg +0.620R · t = +0.3 |
-| 1–∞% | 16 trades · win 19% · avg +0.692R · t = +0.2 |
+| 0–0.1% | 61 trades · win 15% · avg +0.304R · t = +0.5 |
+| 0.1–0.25% | 1606 trades · win 15% · avg -0.415R · t = -4.9 |
+| 0.25–0.5% | 674 trades · win 16% · avg -0.351R · t = -2.2 |
+| 0.5–1% | 358 trades · win 15% · avg -0.371R · t = -1.1 |
+| 1–∞% | 155 trades · win 14% · avg -1.675R · t = -3.9 |
 
 Median entry spread: 0.20%
 
@@ -29,13 +29,13 @@ Median entry spread: 0.20%
 
 | Rules | Size cap | Return | Max drawdown | Trades taken |
 |---|---|---|---|---|
-| All | 10% | -1.4% | -2.9% | 49 |
-| All | 20% | -2.8% | -5.7% | 49 |
-| Live rules (ATR ≥ $0.50) | 10% | -3.7% | -3.9% | 26 |
-| Live rules (ATR ≥ $0.50) | 20% | -7.4% | -7.6% | 26 |
-| Skip if spread > 0.25% | 10% | -0.0% | -0.9% | 45 |
-| Skip if spread > 0.25% | 20% | -0.0% | -1.9% | 45 |
-| ATR ≥ $0.50 and spread ≤ 0.25% | 10% | +1.1% | -0.8% | 16 |
-| ATR ≥ $0.50 and spread ≤ 0.25% | 20% | +2.3% | -1.6% | 16 |
+| All | 10% | -18.7% | -21.6% | 710 |
+| All | 20% | -33.5% | -38.1% | 710 |
+| Live rules (ATR ≥ $0.50) | 10% | -11.2% | -14.1% | 427 |
+| Live rules (ATR ≥ $0.50) | 20% | -21.0% | -26.0% | 427 |
+| Skip if spread > 0.25% | 10% | -7.0% | -10.8% | 629 |
+| Skip if spread > 0.25% | 20% | -13.6% | -20.4% | 629 |
+| ATR ≥ $0.50 and spread ≤ 0.25% | 10% | +6.7% | -3.7% | 258 |
+| ATR ≥ $0.50 and spread ≤ 0.25% | 20% | +13.6% | -7.2% | 258 |
 
 Caveats: stocks delisted during the year are missing; 1-minute bars; the spread is measured, but the fill could be worse on size in a thin stock; halts aren't modelled.
