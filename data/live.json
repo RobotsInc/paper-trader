@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-17T13:05:22-05:00",
+ "updated": "2026-11-17T13:09:29-05:00",
  "date": "2026-11-17",
  "market_open": true,
  "account": {
-  "equity": 99428.43,
+  "equity": 99228.15,
   "cash": 137338.87,
-  "buying_power": 305875.38,
+  "buying_power": 304842.13,
   "start_equity": 98550.56,
-  "day_pnl": 877.8699999999953,
-  "day_pnl_pct": 0.8907813410699905
+  "day_pnl": 677.5899999999965,
+  "day_pnl_pct": 0.6875557074460081
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -571.570000000007,
-  "pct": -0.5715700000000101,
-  "spy_pct": -3.8228027754415472
+  "pnl": -771.8500000000058,
+  "pct": -0.7718500000000073,
+  "spy_pct": -3.806376156433977
  },
  "regime": {
-  "spy": 731.87,
+  "spy": 731.995,
   "spy_vwap": 732.79,
-  "spy_day_pct": -0.9,
+  "spy_day_pct": -0.88,
   "bias": "down",
-  "time": "2026-11-17T13:05-05:00"
+  "time": "2026-11-17T13:09-05:00"
  },
  "scan": {
   "scanned": 183,
@@ -47,10 +47,10 @@
    "side": "short",
    "qty": 95.0,
    "entry": 205.32,
-   "price": 194.57,
-   "upl": 1021.25,
-   "upl_pct": 5.236,
-   "value": 18484.15,
+   "price": 195.49,
+   "upl": 933.85,
+   "upl_pct": 4.788,
+   "value": 18571.55,
    "stop": 206.15,
    "target": null,
    "opened": "09:40"
@@ -60,10 +60,10 @@
    "side": "long",
    "qty": 57.0,
    "entry": 342.453333,
-   "price": 338.785,
-   "upl": -209.094981,
-   "upl_pct": -1.0710000000000002,
-   "value": 19310.745,
+   "price": 338.725,
+   "upl": -212.514981,
+   "upl_pct": -1.089,
+   "value": 19307.325,
    "stop": 341.75,
    "target": null,
    "opened": "09:48"
@@ -73,10 +73,10 @@
    "side": "short",
    "qty": 396.0,
    "entry": 49.95,
-   "price": 49.21,
-   "upl": 293.04,
-   "upl_pct": 1.481,
-   "value": 19487.16,
+   "price": 49.275,
+   "upl": 267.3,
+   "upl_pct": 1.351,
+   "value": 19512.9,
    "stop": 50.08,
    "target": null,
    "opened": "10:04"
@@ -86,10 +86,10 @@
    "side": "short",
    "qty": 104.0,
    "entry": 188.05,
-   "price": 185.095,
-   "upl": 307.32,
-   "upl_pct": 1.5709999999999997,
-   "value": 19249.88,
+   "price": 185.9,
+   "upl": 223.6,
+   "upl_pct": 1.143,
+   "value": 19333.6,
    "stop": 190.22,
    "target": null,
    "opened": "09:38"
@@ -109,7 +109,7 @@
    "score": 51.517,
    "tier": "main",
    "source": "scanner",
-   "price": 19.9,
+   "price": 19.95,
    "status": "SKIPPED NOT SHORTABLE",
    "ai": "",
    "catalyst": ""
@@ -127,7 +127,7 @@
    "score": 25.019,
    "tier": "main",
    "source": "scanner",
-   "price": 13.84,
+   "price": 13.725,
    "status": "SKIPPED SIDE CAP",
    "ai": "",
    "catalyst": ""
@@ -145,7 +145,7 @@
    "score": 6.037,
    "tier": "main",
    "source": "core",
-   "price": 119.365,
+   "price": 119.2,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -163,7 +163,7 @@
    "score": 3.223,
    "tier": "main",
    "source": "core",
-   "price": 37.345,
+   "price": 37.275,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -181,7 +181,7 @@
    "score": 3.121,
    "tier": "main",
    "source": "core",
-   "price": 330.115,
+   "price": 330.34,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -199,7 +199,7 @@
    "score": 3.109,
    "tier": "main",
    "source": "core",
-   "price": 49.21,
+   "price": 49.275,
    "status": "SHORT",
    "ai": "",
    "catalyst": ""
@@ -217,7 +217,7 @@
    "score": 2.964,
    "tier": "main",
    "source": "core",
-   "price": 185.09,
+   "price": 185.9,
    "status": "SHORT",
    "ai": "",
    "catalyst": ""
@@ -235,7 +235,7 @@
    "score": 2.796,
    "tier": "main",
    "source": "core",
-   "price": 395.99,
+   "price": 396.085,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -253,7 +253,7 @@
    "score": 2.212,
    "tier": "main",
    "source": "core",
-   "price": 338.78,
+   "price": 338.725,
    "status": "LONG",
    "ai": "",
    "catalyst": ""
@@ -271,7 +271,7 @@
    "score": 2.207,
    "tier": "main",
    "source": "core",
-   "price": 70.63,
+   "price": 70.67,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -289,7 +289,7 @@
    "score": 1.83,
    "tier": "main",
    "source": "core",
-   "price": 91.24,
+   "price": 91.28,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -307,7 +307,7 @@
    "score": 1.759,
    "tier": "main",
    "source": "core",
-   "price": 205.15,
+   "price": 205.52,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -325,7 +325,7 @@
    "score": 1.477,
    "tier": "main",
    "source": "core",
-   "price": 108.17,
+   "price": 108.16,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -343,7 +343,7 @@
    "score": 1.406,
    "tier": "main",
    "source": "core",
-   "price": 1116.42,
+   "price": 1115.58,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -361,7 +361,7 @@
    "score": 1.403,
    "tier": "main",
    "source": "core",
-   "price": 194.5,
+   "price": 195.45,
    "status": "SHORT",
    "ai": "",
    "catalyst": ""
@@ -379,7 +379,7 @@
    "score": 1.265,
    "tier": "main",
    "source": "core",
-   "price": 731.87,
+   "price": 731.995,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -415,7 +415,7 @@
    "score": 1.251,
    "tier": "main",
    "source": "core",
-   "price": 454.38,
+   "price": 455.295,
    "status": "SKIPPED SIDE CAP",
    "ai": "",
    "catalyst": ""
@@ -433,7 +433,7 @@
    "score": 1.242,
    "tier": "main",
    "source": "core",
-   "price": 82.83,
+   "price": 82.845,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -451,7 +451,7 @@
    "score": 1.188,
    "tier": "main",
    "source": "scanner",
-   "price": 38.42,
+   "price": 38.43,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -821,6 +821,10 @@
   {
    "t": "13:01",
    "v": 99536.53
+  },
+  {
+   "t": "13:05",
+   "v": 99428.43
   }
  ],
  "days": [
