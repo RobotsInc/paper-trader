@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-17T09:51:19-05:00",
+ "updated": "2026-11-17T09:55:27-05:00",
  "date": "2026-11-17",
  "market_open": true,
  "account": {
-  "equity": 98694.74,
+  "equity": 99039.72,
   "cash": 98164.72,
-  "buying_power": 301327.91,
+  "buying_power": 302890.02,
   "start_equity": 98550.56,
-  "day_pnl": 144.18000000000757,
-  "day_pnl_pct": 0.1463005385256233
+  "day_pnl": 489.1600000000035,
+  "day_pnl_pct": 0.496354358615525
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1305.2599999999948,
-  "pct": -1.305259999999997,
-  "spy_pct": -2.935765349032804
+  "pnl": -960.2799999999988,
+  "pct": -0.9602800000000022,
+  "spy_pct": -2.833920311185878
  },
  "regime": {
-  "spy": 738.62,
-  "spy_vwap": 738.33,
-  "spy_day_pct": 0.01,
+  "spy": 739.395,
+  "spy_vwap": 738.39,
+  "spy_day_pct": 0.12,
   "bias": "up",
-  "time": "2026-11-17T09:51-05:00"
+  "time": "2026-11-17T09:55-05:00"
  },
  "scan": {
   "scanned": 183,
@@ -47,10 +47,10 @@
    "side": "short",
    "qty": 95.0,
    "entry": 205.32,
-   "price": 202.51,
-   "upl": 266.95,
-   "upl_pct": 1.369,
-   "value": 19238.45,
+   "price": 201.28,
+   "upl": 383.8,
+   "upl_pct": 1.968,
+   "value": 19121.6,
    "stop": 206.15,
    "target": null,
    "opened": "09:40"
@@ -60,10 +60,10 @@
    "side": "long",
    "qty": 57.0,
    "entry": 342.453333,
-   "price": 343.3845,
-   "upl": 53.076519,
-   "upl_pct": 0.272,
-   "value": 19572.9165,
+   "price": 345.11,
+   "upl": 151.430019,
+   "upl_pct": 0.776,
+   "value": 19671.27,
    "stop": 341.75,
    "target": null,
    "opened": "09:48"
@@ -73,10 +73,10 @@
    "side": "long",
    "qty": 179.0,
    "entry": 109.8,
-   "price": 109.665,
-   "upl": -24.165,
-   "upl_pct": -0.123,
-   "value": 19630.035,
+   "price": 109.655,
+   "upl": -25.955,
+   "upl_pct": -0.132,
+   "value": 19628.245,
    "stop": 109.43,
    "target": null,
    "opened": "09:46"
@@ -86,10 +86,10 @@
    "side": "short",
    "qty": 104.0,
    "entry": 188.05,
-   "price": 186.87,
-   "upl": 122.72,
-   "upl_pct": 0.627,
-   "value": 19434.48,
+   "price": 185.15,
+   "upl": 301.6,
+   "upl_pct": 1.542,
+   "value": 19255.6,
    "stop": 190.22,
    "target": null,
    "opened": "09:38"
@@ -109,7 +109,7 @@
    "score": 51.517,
    "tier": "main",
    "source": "scanner",
-   "price": 17.93,
+   "price": 17.34,
    "status": "SKIPPED NOT SHORTABLE",
    "ai": "",
    "catalyst": ""
@@ -127,7 +127,7 @@
    "score": 25.019,
    "tier": "main",
    "source": "scanner",
-   "price": 13.45,
+   "price": 13.3,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -145,7 +145,7 @@
    "score": 6.037,
    "tier": "main",
    "source": "core",
-   "price": 120.78,
+   "price": 122.68,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -163,7 +163,7 @@
    "score": 3.223,
    "tier": "main",
    "source": "core",
-   "price": 39.24,
+   "price": 39.64,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -181,7 +181,7 @@
    "score": 3.121,
    "tier": "main",
    "source": "core",
-   "price": 334.95,
+   "price": 335.73,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -199,7 +199,7 @@
    "score": 3.109,
    "tier": "main",
    "source": "core",
-   "price": 50.38,
+   "price": 50.48,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -217,7 +217,7 @@
    "score": 2.964,
    "tier": "main",
    "source": "core",
-   "price": 186.35,
+   "price": 185.155,
    "status": "SHORT",
    "ai": "",
    "catalyst": ""
@@ -235,7 +235,7 @@
    "score": 2.796,
    "tier": "main",
    "source": "core",
-   "price": 393.03,
+   "price": 391.02,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -253,7 +253,7 @@
    "score": 2.212,
    "tier": "main",
    "source": "core",
-   "price": 343.62,
+   "price": 345.09,
    "status": "LONG",
    "ai": "",
    "catalyst": ""
@@ -271,7 +271,7 @@
    "score": 2.207,
    "tier": "main",
    "source": "core",
-   "price": 71.76,
+   "price": 71.49,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -289,7 +289,7 @@
    "score": 1.83,
    "tier": "main",
    "source": "core",
-   "price": 92.56,
+   "price": 92.855,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -307,7 +307,7 @@
    "score": 1.759,
    "tier": "main",
    "source": "core",
-   "price": 209.17,
+   "price": 207.38,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -325,7 +325,7 @@
    "score": 1.477,
    "tier": "main",
    "source": "core",
-   "price": 109.93,
+   "price": 109.655,
    "status": "LONG",
    "ai": "",
    "catalyst": ""
@@ -343,8 +343,8 @@
    "score": 1.406,
    "tier": "main",
    "source": "core",
-   "price": 1120.02,
-   "status": "WATCH",
+   "price": 1121.18,
+   "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
   },
@@ -361,7 +361,7 @@
    "score": 1.403,
    "tier": "main",
    "source": "core",
-   "price": 202.37,
+   "price": 201.55,
    "status": "SHORT",
    "ai": "",
    "catalyst": ""
@@ -379,8 +379,8 @@
    "score": 1.265,
    "tier": "main",
    "source": "core",
-   "price": 738.62,
-   "status": "WATCH",
+   "price": 739.395,
+   "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
   },
@@ -397,7 +397,7 @@
    "score": 1.26,
    "tier": "main",
    "source": "core",
-   "price": 513.41,
+   "price": 514.12,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -415,7 +415,7 @@
    "score": 1.251,
    "tier": "main",
    "source": "core",
-   "price": 461.75,
+   "price": 461.9,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -433,7 +433,7 @@
    "score": 1.242,
    "tier": "main",
    "source": "core",
-   "price": 84.535,
+   "price": 84.665,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -451,7 +451,7 @@
    "score": 1.188,
    "tier": "main",
    "source": "scanner",
-   "price": 38.96,
+   "price": 38.86,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -577,6 +577,10 @@
   {
    "t": "09:47",
    "v": 98619.19
+  },
+  {
+   "t": "09:51",
+   "v": 98708.89
   }
  ],
  "days": [
