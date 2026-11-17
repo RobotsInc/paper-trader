@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-17T09:59:35-05:00",
+ "updated": "2026-11-17T10:03:44-05:00",
  "date": "2026-11-17",
  "market_open": true,
  "account": {
-  "equity": 98709.39,
-  "cash": 137533.24,
-  "buying_power": 301257.43,
+  "equity": 98892.91,
+  "cash": 117558.67,
+  "buying_power": 326212.02,
   "start_equity": 98550.56,
-  "day_pnl": 158.83000000000175,
-  "day_pnl_pct": 0.1611660045361507
+  "day_pnl": 342.3500000000058,
+  "day_pnl_pct": 0.3473851391610605
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1290.6100000000006,
-  "pct": -1.2906100000000031,
-  "spy_pct": -2.8753153910849427
+  "pnl": -1107.0899999999965,
+  "pct": -1.1070899999999995,
+  "spy_pct": -3.0001576955424825
  },
  "regime": {
-  "spy": 739.08,
-  "spy_vwap": 738.46,
-  "spy_day_pct": 0.08,
-  "bias": "up",
-  "time": "2026-11-17T09:59-05:00"
+  "spy": 738.13,
+  "spy_vwap": 738.47,
+  "spy_day_pct": -0.05,
+  "bias": "down",
+  "time": "2026-11-17T10:03-05:00"
  },
  "scan": {
   "scanned": 183,
@@ -47,36 +47,23 @@
    "side": "short",
    "qty": 95.0,
    "entry": 205.32,
-   "price": 201.175,
-   "upl": 393.775,
-   "upl_pct": 2.019,
-   "value": 19111.625,
+   "price": 200.4899,
+   "upl": 458.8595,
+   "upl_pct": 2.352,
+   "value": 19046.5405,
    "stop": 206.15,
    "target": null,
    "opened": "09:40"
-  },
-  {
-   "symbol": "DRAM",
-   "side": "short",
-   "qty": 511.0,
-   "entry": 38.72,
-   "price": 39.025,
-   "upl": -155.855,
-   "upl_pct": -0.788,
-   "value": 19941.775,
-   "stop": 39.09,
-   "target": null,
-   "opened": "09:56"
   },
   {
    "symbol": "HD",
    "side": "long",
    "qty": 57.0,
    "entry": 342.453333,
-   "price": 343.505,
-   "upl": 59.945019,
-   "upl_pct": 0.307,
-   "value": 19579.785,
+   "price": 343.28,
+   "upl": 47.120019,
+   "upl_pct": 0.241,
+   "value": 19566.96,
    "stop": 341.75,
    "target": null,
    "opened": "09:48"
@@ -86,10 +73,10 @@
    "side": "short",
    "qty": 104.0,
    "entry": 188.05,
-   "price": 186.06,
-   "upl": 206.96,
-   "upl_pct": 1.058,
-   "value": 19350.24,
+   "price": 184.4825,
+   "upl": 371.02,
+   "upl_pct": 1.897,
+   "value": 19186.18,
    "stop": 190.22,
    "target": null,
    "opened": "09:38"
@@ -109,7 +96,7 @@
    "score": 51.517,
    "tier": "main",
    "source": "scanner",
-   "price": 18.135,
+   "price": 19.37,
    "status": "SKIPPED NOT SHORTABLE",
    "ai": "",
    "catalyst": ""
@@ -127,7 +114,7 @@
    "score": 25.019,
    "tier": "main",
    "source": "scanner",
-   "price": 13.49,
+   "price": 13.395,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -145,7 +132,7 @@
    "score": 6.037,
    "tier": "main",
    "source": "core",
-   "price": 121.765,
+   "price": 121.62,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -163,7 +150,7 @@
    "score": 3.223,
    "tier": "main",
    "source": "core",
-   "price": 39.255,
+   "price": 39.31,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -181,7 +168,7 @@
    "score": 3.121,
    "tier": "main",
    "source": "core",
-   "price": 335.95,
+   "price": 335.04,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -199,8 +186,8 @@
    "score": 3.109,
    "tier": "main",
    "source": "core",
-   "price": 50.235,
-   "status": "ABOVE RANGE",
+   "price": 49.98,
+   "status": "WATCH",
    "ai": "",
    "catalyst": ""
   },
@@ -217,7 +204,7 @@
    "score": 2.964,
    "tier": "main",
    "source": "core",
-   "price": 186.21,
+   "price": 183.69,
    "status": "SHORT",
    "ai": "",
    "catalyst": ""
@@ -235,7 +222,7 @@
    "score": 2.796,
    "tier": "main",
    "source": "core",
-   "price": 390.76,
+   "price": 389.595,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -253,7 +240,7 @@
    "score": 2.212,
    "tier": "main",
    "source": "core",
-   "price": 343.57,
+   "price": 343.29,
    "status": "LONG",
    "ai": "",
    "catalyst": ""
@@ -271,7 +258,7 @@
    "score": 2.207,
    "tier": "main",
    "source": "core",
-   "price": 71.69,
+   "price": 71.67,
    "status": "BELOW RANGE",
    "ai": "",
    "catalyst": ""
@@ -289,7 +276,7 @@
    "score": 1.83,
    "tier": "main",
    "source": "core",
-   "price": 92.65,
+   "price": 92.6,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -307,7 +294,7 @@
    "score": 1.759,
    "tier": "main",
    "source": "core",
-   "price": 208.41,
+   "price": 208.14,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -325,7 +312,7 @@
    "score": 1.477,
    "tier": "main",
    "source": "core",
-   "price": 108.94,
+   "price": 108.99,
    "status": "ENTERED",
    "ai": "",
    "catalyst": ""
@@ -343,7 +330,7 @@
    "score": 1.406,
    "tier": "main",
    "source": "core",
-   "price": 1119.84,
+   "price": 1118.64,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -361,7 +348,7 @@
    "score": 1.403,
    "tier": "main",
    "source": "core",
-   "price": 201.085,
+   "price": 200.195,
    "status": "SHORT",
    "ai": "",
    "catalyst": ""
@@ -379,8 +366,8 @@
    "score": 1.265,
    "tier": "main",
    "source": "core",
-   "price": 739.08,
-   "status": "ABOVE RANGE",
+   "price": 738.13,
+   "status": "WATCH",
    "ai": "",
    "catalyst": ""
   },
@@ -397,8 +384,8 @@
    "score": 1.26,
    "tier": "main",
    "source": "core",
-   "price": 513.75,
-   "status": "ABOVE RANGE",
+   "price": 512.52,
+   "status": "WATCH",
    "ai": "",
    "catalyst": ""
   },
@@ -415,7 +402,7 @@
    "score": 1.251,
    "tier": "main",
    "source": "core",
-   "price": 463.22,
+   "price": 461.695,
    "status": "SKIPPED SIDE CAP",
    "ai": "",
    "catalyst": ""
@@ -433,7 +420,7 @@
    "score": 1.242,
    "tier": "main",
    "source": "core",
-   "price": 84.5,
+   "price": 84.42,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -451,8 +438,8 @@
    "score": 1.188,
    "tier": "main",
    "source": "scanner",
-   "price": 39.0,
-   "status": "SHORT",
+   "price": 38.875,
+   "status": "ENTERED",
    "ai": "",
    "catalyst": ""
   }
@@ -613,6 +600,10 @@
   {
    "t": "09:55",
    "v": 99064.59
+  },
+  {
+   "t": "09:59",
+   "v": 98665.95
   }
  ],
  "days": [
