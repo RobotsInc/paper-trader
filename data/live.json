@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-17T09:28:42-05:00",
+ "updated": "2026-11-17T09:34:47-05:00",
  "date": "2026-11-17",
- "market_open": false,
+ "market_open": true,
  "account": {
   "equity": 98550.56,
   "cash": 98550.56,
@@ -32,7 +32,12 @@
  "positions": [],
  "universe": [],
  "signals": [],
- "equity_today": [],
+ "equity_today": [
+  {
+   "t": "09:30",
+   "v": 98550.56
+  }
+ ],
  "days": [
   {
    "date": "2026-11-12",
