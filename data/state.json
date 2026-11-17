@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 737.85,
-    "spy_vwap": 738.21,
-    "spy_day_pct": -0.09,
-    "bias": "down",
-    "time": "2026-11-17T09:38-05:00"
+    "spy": 739.03,
+    "spy_vwap": 738.31,
+    "spy_day_pct": 0.07,
+    "bias": "up",
+    "time": "2026-11-17T09:43-05:00"
   },
   "ai": {
     "done": true,
@@ -307,7 +307,10 @@
   },
   "traded": [
     "SLS",
-    "ZS"
+    "ZS",
+    "MRNA",
+    "UNH",
+    "CRM"
   ],
   "signals": [
     {
@@ -337,33 +340,78 @@
       "action": "entered",
       "reason": "",
       "market": "down"
+    },
+    {
+      "time": "2026-11-17T09:38-05:00",
+      "symbol": "MRNA",
+      "side": "short",
+      "price": 208.495,
+      "stop": 210.27,
+      "target": null,
+      "qty": 94,
+      "or_high": 222.18,
+      "or_low": 208.525,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-17T09:39-05:00",
+      "symbol": "UNH",
+      "side": "short",
+      "price": 390.49,
+      "stop": 391.66,
+      "target": null,
+      "qty": 50,
+      "or_high": 398.3,
+      "or_low": 391.33,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-17T09:40-05:00",
+      "symbol": "CRM",
+      "side": "short",
+      "price": 205.32,
+      "stop": 206.15,
+      "target": null,
+      "qty": 95,
+      "or_high": 210.21,
+      "or_low": 205.6,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
     }
   ],
   "shortable": {
     "SLS": false,
-    "ZS": true
+    "ZS": true,
+    "MRNA": true,
+    "UNH": true,
+    "CRM": true
   },
   "last_prices": {
-    "DRAM": 38.85,
-    "NKE": 39.91,
+    "ARKK": 71.97,
     "SLS": 20.68,
-    "WFC": 84.245,
-    "ARKK": 71.835,
-    "HD": 339.45,
-    "SCHW": 92.495,
-    "CRM": 205.955,
-    "UNH": 392.735,
-    "COST": 1119.21,
-    "SBUX": 109.435,
-    "SPY": 737.85,
-    "SLB": 50.26,
-    "OMER": 13.82,
-    "SMH": 461.485,
-    "ZS": 189.01,
-    "JPM": 332.8,
-    "MRNA": 209.1,
-    "DIS": 119.09,
-    "DIA": 512.57
+    "SPY": 739.03,
+    "DIS": 119.36,
+    "WFC": 84.4,
+    "ZS": 189.41,
+    "UNH": 392.79,
+    "DRAM": 39.17,
+    "JPM": 334.35,
+    "SMH": 464.34,
+    "CRM": 205.08,
+    "NKE": 39.91,
+    "COST": 1115.46,
+    "MRNA": 209.75,
+    "SBUX": 109.08,
+    "SCHW": 92.67,
+    "SLB": 50.49,
+    "DIA": 512.91,
+    "HD": 338.575,
+    "OMER": 13.78
   },
   "halted": false,
   "eod_done": false,

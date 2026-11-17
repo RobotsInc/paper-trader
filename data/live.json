@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-17T09:38:53-05:00",
+ "updated": "2026-11-17T09:43:01-05:00",
  "date": "2026-11-17",
  "market_open": true,
  "account": {
-  "equity": 98550.56,
-  "cash": 98550.56,
-  "buying_power": 369890.7,
+  "equity": 98143.7,
+  "cash": 137338.76,
+  "buying_power": 345540.73,
   "start_equity": 98550.56,
-  "day_pnl": 0.0,
-  "day_pnl_pct": 0.0
+  "day_pnl": -406.8600000000006,
+  "day_pnl_pct": -0.41284392498631695
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1449.4400000000023,
-  "pct": -1.4494400000000018,
-  "spy_pct": -3.036953322119429
+  "pnl": -1856.300000000003,
+  "pct": -1.8562999999999996,
+  "spy_pct": -2.8818860386879863
  },
  "regime": {
-  "spy": 737.85,
-  "spy_vwap": 738.21,
-  "spy_day_pct": -0.09,
-  "bias": "down",
-  "time": "2026-11-17T09:38-05:00"
+  "spy": 739.03,
+  "spy_vwap": 738.31,
+  "spy_day_pct": 0.07,
+  "bias": "up",
+  "time": "2026-11-17T09:43-05:00"
  },
  "scan": {
   "scanned": 183,
@@ -41,7 +41,34 @@
   "error": "while calling AI model: RuntimeError: gemini-3.6-flash: ReadTimeout; gemini-3.8-flash: HTTP 503 '{\\n  \"error\": {\\n    \"code\": 503,\\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are u'; gemini-3.5-flash-lite: HTTP 503 '{\\n  \"error\": {\\n    \"code\": 503,\\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are u'; gemini-2.5-flash: ",
   "flags": []
  },
- "positions": [],
+ "positions": [
+  {
+   "symbol": "CRM",
+   "side": "short",
+   "qty": 95.0,
+   "entry": 205.32,
+   "price": 205.22,
+   "upl": 9.5,
+   "upl_pct": 0.049,
+   "value": 19495.9,
+   "stop": 206.15,
+   "target": null,
+   "opened": "09:40"
+  },
+  {
+   "symbol": "ZS",
+   "side": "short",
+   "qty": 104.0,
+   "entry": 188.05,
+   "price": 189.415,
+   "upl": -141.96,
+   "upl_pct": -0.726,
+   "value": 19699.16,
+   "stop": 190.22,
+   "target": null,
+   "opened": "09:38"
+  }
+ ],
  "universe": [
   {
    "symbol": "SLS",
@@ -74,7 +101,7 @@
    "score": 25.019,
    "tier": "main",
    "source": "scanner",
-   "price": 13.82,
+   "price": 13.78,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -92,7 +119,7 @@
    "score": 6.037,
    "tier": "main",
    "source": "core",
-   "price": 119.09,
+   "price": 119.36,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -128,7 +155,7 @@
    "score": 3.121,
    "tier": "main",
    "source": "core",
-   "price": 332.8,
+   "price": 334.35,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -146,7 +173,7 @@
    "score": 3.109,
    "tier": "main",
    "source": "core",
-   "price": 50.26,
+   "price": 50.49,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -164,8 +191,8 @@
    "score": 2.964,
    "tier": "main",
    "source": "core",
-   "price": 189.01,
-   "status": "ENTERED",
+   "price": 189.41,
+   "status": "SHORT",
    "ai": "",
    "catalyst": ""
   },
@@ -182,8 +209,8 @@
    "score": 2.796,
    "tier": "main",
    "source": "core",
-   "price": 392.735,
-   "status": "WATCH",
+   "price": 392.79,
+   "status": "ENTERED",
    "ai": "",
    "catalyst": ""
   },
@@ -200,7 +227,7 @@
    "score": 2.212,
    "tier": "main",
    "source": "core",
-   "price": 339.45,
+   "price": 338.575,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -218,7 +245,7 @@
    "score": 2.207,
    "tier": "main",
    "source": "core",
-   "price": 71.835,
+   "price": 71.97,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -236,7 +263,7 @@
    "score": 1.83,
    "tier": "main",
    "source": "core",
-   "price": 92.495,
+   "price": 92.67,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -254,8 +281,8 @@
    "score": 1.759,
    "tier": "main",
    "source": "core",
-   "price": 209.1,
-   "status": "WATCH",
+   "price": 209.75,
+   "status": "ENTERED",
    "ai": "",
    "catalyst": ""
   },
@@ -272,7 +299,7 @@
    "score": 1.477,
    "tier": "main",
    "source": "core",
-   "price": 109.435,
+   "price": 109.08,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -290,7 +317,7 @@
    "score": 1.406,
    "tier": "main",
    "source": "core",
-   "price": 1119.21,
+   "price": 1115.46,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -308,8 +335,8 @@
    "score": 1.403,
    "tier": "main",
    "source": "core",
-   "price": 205.955,
-   "status": "WATCH",
+   "price": 205.08,
+   "status": "SHORT",
    "ai": "",
    "catalyst": ""
   },
@@ -326,8 +353,8 @@
    "score": 1.265,
    "tier": "main",
    "source": "core",
-   "price": 737.85,
-   "status": "WATCH",
+   "price": 739.03,
+   "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
   },
@@ -344,7 +371,7 @@
    "score": 1.26,
    "tier": "main",
    "source": "core",
-   "price": 512.57,
+   "price": 512.91,
    "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
@@ -362,7 +389,7 @@
    "score": 1.251,
    "tier": "main",
    "source": "core",
-   "price": 461.485,
+   "price": 464.34,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
@@ -380,8 +407,8 @@
    "score": 1.242,
    "tier": "main",
    "source": "core",
-   "price": 84.245,
-   "status": "WATCH",
+   "price": 84.4,
+   "status": "ABOVE RANGE",
    "ai": "",
    "catalyst": ""
   },
@@ -398,13 +425,55 @@
    "score": 1.188,
    "tier": "main",
    "source": "scanner",
-   "price": 38.85,
+   "price": 39.17,
    "status": "WATCH",
    "ai": "",
    "catalyst": ""
   }
  ],
  "signals": [
+  {
+   "time": "2026-11-17T09:40-05:00",
+   "symbol": "CRM",
+   "side": "short",
+   "price": 205.32,
+   "stop": 206.15,
+   "target": null,
+   "qty": 95,
+   "or_high": 210.21,
+   "or_low": 205.6,
+   "action": "entered",
+   "reason": "",
+   "market": "up"
+  },
+  {
+   "time": "2026-11-17T09:39-05:00",
+   "symbol": "UNH",
+   "side": "short",
+   "price": 390.49,
+   "stop": 391.66,
+   "target": null,
+   "qty": 50,
+   "or_high": 398.3,
+   "or_low": 391.33,
+   "action": "entered",
+   "reason": "",
+   "market": "down"
+  },
+  {
+   "time": "2026-11-17T09:38-05:00",
+   "symbol": "MRNA",
+   "side": "short",
+   "price": 208.495,
+   "stop": 210.27,
+   "target": null,
+   "qty": 94,
+   "or_high": 222.18,
+   "or_low": 208.525,
+   "action": "entered",
+   "reason": "",
+   "market": "down"
+  },
   {
    "time": "2026-11-17T09:38-05:00",
    "symbol": "ZS",
@@ -442,6 +511,10 @@
   {
    "t": "09:34",
    "v": 98550.56
+  },
+  {
+   "t": "09:38",
+   "v": 98515.14
   }
  ],
  "days": [
