@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 739.395,
-    "spy_vwap": 738.39,
-    "spy_day_pct": 0.12,
+    "spy": 739.08,
+    "spy_vwap": 738.46,
+    "spy_day_pct": 0.08,
     "bias": "up",
-    "time": "2026-11-17T09:55-05:00"
+    "time": "2026-11-17T09:59-05:00"
   },
   "ai": {
     "done": true,
@@ -312,7 +312,9 @@
     "UNH",
     "CRM",
     "SBUX",
-    "HD"
+    "HD",
+    "DRAM",
+    "SMH"
   ],
   "signals": [
     {
@@ -412,6 +414,34 @@
       "action": "entered",
       "reason": "",
       "market": "up"
+    },
+    {
+      "time": "2026-11-17T09:56-05:00",
+      "symbol": "DRAM",
+      "side": "short",
+      "price": 38.745,
+      "stop": 39.09,
+      "target": null,
+      "qty": 511,
+      "or_high": 39.47,
+      "or_low": 38.78,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-17T09:57-05:00",
+      "symbol": "SMH",
+      "side": "short",
+      "price": 460.49,
+      "stop": 463.22,
+      "target": null,
+      "qty": 42,
+      "or_high": 466,
+      "or_low": 460.74,
+      "action": "skipped_side_cap",
+      "reason": "already 3 shorts",
+      "market": "up"
     }
   ],
   "shortable": {
@@ -419,29 +449,30 @@
     "ZS": true,
     "MRNA": true,
     "UNH": true,
-    "CRM": true
+    "CRM": true,
+    "DRAM": true
   },
   "last_prices": {
-    "SCHW": 92.855,
-    "SPY": 739.395,
-    "SLB": 50.48,
-    "SMH": 461.9,
-    "ZS": 185.155,
-    "SBUX": 109.655,
-    "CRM": 201.55,
-    "UNH": 391.02,
-    "COST": 1121.18,
-    "SLS": 17.34,
-    "MRNA": 207.38,
-    "HD": 345.09,
-    "NKE": 39.64,
-    "JPM": 335.73,
-    "ARKK": 71.49,
-    "DIA": 514.12,
-    "DRAM": 38.86,
-    "OMER": 13.3,
-    "DIS": 122.68,
-    "WFC": 84.665
+    "OMER": 13.49,
+    "SLB": 50.235,
+    "DIS": 121.765,
+    "NKE": 39.255,
+    "JPM": 335.95,
+    "SMH": 463.22,
+    "CRM": 201.085,
+    "SBUX": 108.94,
+    "WFC": 84.5,
+    "SCHW": 92.65,
+    "ZS": 186.21,
+    "HD": 343.57,
+    "MRNA": 208.41,
+    "SPY": 739.08,
+    "UNH": 390.76,
+    "DRAM": 39.0,
+    "ARKK": 71.69,
+    "DIA": 513.75,
+    "SLS": 18.135,
+    "COST": 1119.84
   },
   "halted": false,
   "eod_done": false,
