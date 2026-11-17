@@ -506,7 +506,7 @@
     "SLS": 19.765
   },
   "halted": false,
-  "eod_done": false,
+  "eod_done": true,
   "session_seen": true,
   "small": {},
   "small_signals": [],

@@ -27,3 +27,6 @@ date,symbol,side,action,reason,entry,exit,exit_type,qty,pnl,r_multiple
 2026-11-16,TSLA,short,blocked_by_ai,AI long: Major capital investment in factory expansion provides a positive catalyst.,382.65,377.72,time_exit,51,251.43,2.82
 2026-11-16,HD,long,blocked_by_ai,AI block: Earnings release today poses high binary event risk.,348.99,348.0,stop,56,-55.44,-1.0
 2026-11-16,NVDA,short,blocked_by_ai,AI block: Executive transition fallout and upcoming earnings pose severe event risk.,158.055,155.48,time_exit,124,319.3,2.33
+2026-11-17,SLS,short,skipped_not_shortable,,20.68,20.89,stop,953,-200.13,-1.0
+2026-11-17,SMH,short,skipped_side_cap,already 3 shorts,460.49,463.22,stop,42,-114.66,-1.0
+2026-11-17,OMER,short,skipped_side_cap,already 3 shorts,12.98,13.1,stop,1539,-184.68,-1.0
