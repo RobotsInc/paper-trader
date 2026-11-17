@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 739.03,
+    "spy": 738.745,
     "spy_vwap": 738.31,
-    "spy_day_pct": 0.07,
+    "spy_day_pct": 0.03,
     "bias": "up",
-    "time": "2026-11-17T09:43-05:00"
+    "time": "2026-11-17T09:47-05:00"
   },
   "ai": {
     "done": true,
@@ -310,7 +310,8 @@
     "ZS",
     "MRNA",
     "UNH",
-    "CRM"
+    "CRM",
+    "SBUX"
   ],
   "signals": [
     {
@@ -382,6 +383,20 @@
       "action": "entered",
       "reason": "",
       "market": "up"
+    },
+    {
+      "time": "2026-11-17T09:46-05:00",
+      "symbol": "SBUX",
+      "side": "long",
+      "price": 109.755,
+      "stop": 109.43,
+      "target": null,
+      "qty": 179,
+      "or_high": 109.57,
+      "or_low": 107.68,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
     }
   ],
   "shortable": {
@@ -392,26 +407,26 @@
     "CRM": true
   },
   "last_prices": {
-    "ARKK": 71.97,
-    "SLS": 20.68,
-    "SPY": 739.03,
-    "DIS": 119.36,
-    "WFC": 84.4,
-    "ZS": 189.41,
-    "UNH": 392.79,
-    "DRAM": 39.17,
-    "JPM": 334.35,
-    "SMH": 464.34,
-    "CRM": 205.08,
-    "NKE": 39.91,
-    "COST": 1115.46,
-    "MRNA": 209.75,
-    "SBUX": 109.08,
-    "SCHW": 92.67,
-    "SLB": 50.49,
+    "HD": 341.375,
+    "WFC": 84.53,
+    "MRNA": 209.56,
+    "CRM": 203.045,
+    "OMER": 13.805,
+    "COST": 1116.6,
+    "SCHW": 92.45,
+    "ZS": 187.0,
+    "SMH": 462.8,
+    "UNH": 392.69,
+    "DRAM": 38.895,
+    "NKE": 39.82,
+    "DIS": 119.885,
+    "ARKK": 71.94,
+    "JPM": 334.96,
+    "SBUX": 109.805,
+    "SLS": 20.06,
     "DIA": 512.91,
-    "HD": 338.575,
-    "OMER": 13.78
+    "SLB": 50.48,
+    "SPY": 738.745
   },
   "halted": false,
   "eod_done": false,
