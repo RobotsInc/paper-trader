@@ -33,7 +33,7 @@ The AI blocked 8 trade(s) the rules wanted. Simulated outcome of those trades: -
 
 ## Small-cap experiment ($5-$10 stocks: tracked, not traded)
 
-Real bid-ask spread at signal time, main list: median **0.040%** over 57 signals (the backtest assumed 0.06% round trip).
+Real bid-ask spread at signal time, main list: median **0.055%** over 74 signals (the backtest assumed 0.06% round trip).
 Real spread, small caps: median **0.714%**.
 
 | | Signals | Avg R before costs | Avg R after the spread | Won (after spread) |

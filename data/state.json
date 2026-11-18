@@ -599,7 +599,7 @@
   "session_seen": true,
   "small": {},
   "small_signals": [],
-  "small_scored": false,
+  "small_scored": true,
   "inception": {
     "date": "2026-11-12",
     "equity": 100000.0,
