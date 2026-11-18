@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 732.78,
-    "spy_vwap": 732.02,
-    "spy_day_pct": -0.09,
-    "bias": "up",
-    "time": "2026-11-18T10:06-05:00"
+    "spy": 731.735,
+    "spy_vwap": 732.04,
+    "spy_day_pct": -0.23,
+    "bias": "down",
+    "time": "2026-11-18T10:10-05:00"
   },
   "ai": {
     "done": true,
@@ -321,7 +321,8 @@
     "TGT",
     "XLE",
     "CRM",
-    "UNH"
+    "UNH",
+    "BRBR"
   ],
   "signals": [
     {
@@ -547,36 +548,51 @@
       "action": "skipped_max_positions",
       "reason": "",
       "market": "down"
+    },
+    {
+      "time": "2026-11-18T10:06-05:00",
+      "symbol": "BRBR",
+      "side": "short",
+      "price": 12.88,
+      "stop": 12.96,
+      "target": null,
+      "qty": 1554,
+      "or_high": 14.015,
+      "or_low": 12.94,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
     }
   ],
   "shortable": {
     "SLV": true,
     "MSTR": true,
     "XLE": true,
-    "CRM": true
+    "CRM": true,
+    "BRBR": true
   },
   "last_prices": {
-    "SCHW": 91.94,
-    "UNH": 373.84,
-    "CRM": 188.56,
-    "MDLN": 38.705,
-    "TGT": 169.19,
-    "DASH": 168.95,
-    "LULU": 106.54,
-    "ARKK": 71.755,
-    "HD": 336.21,
-    "NKE": 36.045,
-    "DIS": 119.655,
-    "SPY": 732.78,
-    "XLE": 62.37,
-    "GLD": 344.43,
-    "MSTR": 94.45,
-    "BRBR": 12.99,
-    "TSM": 362.93,
-    "SLV": 40.75,
-    "IBIT": 35.94,
-    "GM": 83.95,
-    "PRMB": 22.885
+    "PRMB": 22.78,
+    "ARKK": 71.38,
+    "DIS": 119.405,
+    "SCHW": 91.86,
+    "GM": 83.15,
+    "TSM": 363.27,
+    "MDLN": 38.63,
+    "GLD": 344.0,
+    "XLE": 62.38,
+    "TGT": 168.565,
+    "CRM": 188.85,
+    "NKE": 35.985,
+    "SLV": 40.74,
+    "LULU": 106.335,
+    "HD": 335.705,
+    "UNH": 371.9,
+    "BRBR": 13.09,
+    "DASH": 167.7,
+    "SPY": 731.735,
+    "IBIT": 35.89,
+    "MSTR": 93.76
   },
   "halted": false,
   "eod_done": false,
