@@ -30,3 +30,12 @@ date,symbol,side,action,reason,entry,exit,exit_type,qty,pnl,r_multiple
 2026-11-17,SLS,short,skipped_not_shortable,,20.68,20.89,stop,953,-200.13,-1.0
 2026-11-17,SMH,short,skipped_side_cap,already 3 shorts,460.49,463.22,stop,42,-114.66,-1.0
 2026-11-17,OMER,short,skipped_side_cap,already 3 shorts,12.98,13.1,stop,1539,-184.68,-1.0
+2026-11-18,NKE,long,skipped_side_cap,already 3 longs,35.86,36.34,time_exit,554,268.69,3.23
+2026-11-18,GM,long,skipped_side_cap,already 3 longs,84.61,84.33,stop,235,-65.8,-1.0
+2026-11-18,LULU,long,skipped_side_cap,already 3 longs,105.37,104.95,stop,188,-78.96,-1.0
+2026-11-18,TSM,short,skipped_max_positions,,360.68,362.77,stop,55,-114.95,-1.0
+2026-11-18,IBIT,short,skipped_max_positions,,35.81,35.96,stop,555,-83.25,-1.0
+2026-11-18,HD,long,skipped_max_positions,,337.49,336.46,stop,58,-59.74,-1.0
+2026-11-18,ARKK,short,skipped_max_positions,,71.25,71.6,stop,279,-97.65,-1.0
+2026-11-18,TGT,long,skipped_max_positions,,166.62,166.04,stop,119,-69.02,-1.0
+2026-11-18,UNH,short,skipped_max_positions,,383.38,348.17,time_exit,52,1830.92,30.09

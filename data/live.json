@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-18T15:42:57-05:00",
+ "updated": "2026-11-18T15:47:01-05:00",
  "date": "2026-11-18",
  "market_open": true,
  "account": {
-  "equity": 99247.15,
-  "cash": 78602.35,
-  "buying_power": 372214.84,
+  "equity": 99231.31,
+  "cash": 99231.31,
+  "buying_power": 396925.24,
   "start_equity": 99430.11,
-  "day_pnl": -182.9600000000064,
-  "day_pnl_pct": -0.18400864687769802
+  "day_pnl": -198.8000000000029,
+  "day_pnl_pct": -0.19993943484524213
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,8 +16,8 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -752.8500000000058,
-  "pct": -0.7528500000000049,
+  "pnl": -768.6900000000023,
+  "pct": -0.7686900000000052,
   "spy_pct": -3.931218460891517
  },
  "regime": {
@@ -41,21 +41,7 @@
   "error": "while calling AI model: RuntimeError: gemini-3.6-flash: HTTP 503 '{\\n  \"error\": {\\n    \"code\": 503,\\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are u'; gemini-3.8-flash: HTTP 503 '{\\n  \"error\": {\\n    \"code\": 503,\\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are u'; gemini-3.5-flash-lite: HTTP 503 '{\\n  \"error\": {\\n    ",
   "flags": []
  },
- "positions": [
-  {
-   "symbol": "MDLN",
-   "side": "long",
-   "qty": 528.0,
-   "entry": 37.66483,
-   "price": 39.1,
-   "upl": 757.76976,
-   "upl_pct": 3.81,
-   "value": 20644.8,
-   "stop": 37.45,
-   "target": null,
-   "opened": "09:36"
-  }
- ],
+ "positions": [],
  "universe": [
   {
    "symbol": "PRMB",
@@ -89,7 +75,7 @@
    "tier": "main",
    "source": "scanner",
    "price": 38.905,
-   "status": "LONG",
+   "status": "ENTERED",
    "ai": "",
    "catalyst": ""
   },
@@ -1022,6 +1008,10 @@
   {
    "t": "15:38",
    "v": 99249.79
+  },
+  {
+   "t": "15:42",
+   "v": 99252.43
   }
  ],
  "days": [
@@ -1092,9 +1082,106 @@
    "spy_pct": "-1.032",
    "longs": "2",
    "shorts": "6"
+  },
+  {
+   "date": "2026-11-18",
+   "start_equity": "99430.11",
+   "end_equity": "99231.31",
+   "pnl": "-198.8",
+   "pnl_pct": "-0.2",
+   "trades": "8",
+   "wins": "1",
+   "signals": "17",
+   "ai_blocked": "0",
+   "ai_blocked_pnl": "0.0",
+   "spy_open": "733.415",
+   "spy_close": "730.64",
+   "spy_pct": "-0.378",
+   "longs": "3",
+   "shorts": "5"
   }
  ],
  "trades": [
+  {
+   "date": "2026-11-18",
+   "symbol": "BRBR",
+   "side": "short",
+   "qty": "1554.0",
+   "entry": "12.83",
+   "exit": "12.96",
+   "pnl": "-202.02",
+   "pnl_pct": "-1.01"
+  },
+  {
+   "date": "2026-11-18",
+   "symbol": "CRM",
+   "side": "short",
+   "qty": "105.0",
+   "entry": "188.8",
+   "exit": "189.91",
+   "pnl": "-116.21",
+   "pnl_pct": "-0.59"
+  },
+  {
+   "date": "2026-11-18",
+   "symbol": "XLE",
+   "side": "short",
+   "qty": "320.0",
+   "entry": "62.22",
+   "exit": "62.39",
+   "pnl": "-55.82",
+   "pnl_pct": "-0.28"
+  },
+  {
+   "date": "2026-11-18",
+   "symbol": "MSTR",
+   "side": "short",
+   "qty": "214.0",
+   "entry": "92.74",
+   "exit": "93.6",
+   "pnl": "-184.76",
+   "pnl_pct": "-0.93"
+  },
+  {
+   "date": "2026-11-18",
+   "symbol": "DASH",
+   "side": "long",
+   "qty": "119.0",
+   "entry": "167.16",
+   "exit": "165.57",
+   "pnl": "-189.21",
+   "pnl_pct": "-0.95"
+  },
+  {
+   "date": "2026-11-18",
+   "symbol": "SLV",
+   "side": "short",
+   "qty": "487.0",
+   "entry": "40.79",
+   "exit": "40.95",
+   "pnl": "-77.92",
+   "pnl_pct": "-0.39"
+  },
+  {
+   "date": "2026-11-18",
+   "symbol": "PRMB",
+   "side": "long",
+   "qty": "883.0",
+   "entry": "22.5",
+   "exit": "22.37",
+   "pnl": "-114.79",
+   "pnl_pct": "-0.58"
+  },
+  {
+   "date": "2026-11-18",
+   "symbol": "MDLN",
+   "side": "long",
+   "qty": "528.0",
+   "entry": "37.66",
+   "exit": "39.07",
+   "pnl": "741.93",
+   "pnl_pct": "3.73"
+  },
   {
    "date": "2026-11-17",
    "symbol": "SLB",
@@ -1314,87 +1401,37 @@
    "exit": "37.81",
    "pnl": "72.53",
    "pnl_pct": "0.36"
-  },
-  {
-   "date": "2026-11-12",
-   "symbol": "TQQQ",
-   "side": "long",
-   "qty": "234.0",
-   "entry": "60.87",
-   "exit": "59.72",
-   "pnl": "-269.1",
-   "pnl_pct": "-1.89"
-  },
-  {
-   "date": "2026-11-12",
-   "symbol": "ARKK",
-   "side": "long",
-   "qty": "258.0",
-   "entry": "77.23",
-   "exit": "76.47",
-   "pnl": "-194.94",
-   "pnl_pct": "-0.98"
-  },
-  {
-   "date": "2026-11-12",
-   "symbol": "HOOD",
-   "side": "long",
-   "qty": "239.0",
-   "entry": "83.73",
-   "exit": "81.79",
-   "pnl": "-463.65",
-   "pnl_pct": "-2.32"
-  },
-  {
-   "date": "2026-11-12",
-   "symbol": "MSFT",
-   "side": "long",
-   "qty": "37.0",
-   "entry": "528.25",
-   "exit": "525.25",
-   "pnl": "-111.0",
-   "pnl_pct": "-0.57"
-  },
-  {
-   "date": "2026-11-12",
-   "symbol": "QQQ",
-   "side": "long",
-   "qty": "28.0",
-   "entry": "690.73",
-   "exit": "687.54",
-   "pnl": "-89.18",
-   "pnl_pct": "-0.46"
   }
  ],
  "summary": {
-  "days": 4,
+  "days": 5,
   "start_equity": 100000.0,
-  "end_equity": 99433.35,
-  "return_pct": -0.567,
-  "spy_return_pct": -3.952,
-  "trades": 27,
-  "win_rate": 22.2,
-  "avg_win": 387.03,
-  "avg_loss": -137.2,
-  "profit_factor": 0.81,
+  "end_equity": 99231.31,
+  "return_pct": -0.769,
+  "spy_return_pct": -3.984,
+  "trades": 35,
+  "win_rate": 20.0,
+  "avg_win": 437.73,
+  "avg_loss": -136.5,
+  "profit_factor": 0.8,
   "max_drawdown_pct": -1.54,
   "best_day": 882.79,
   "worst_day": -1055.34,
   "green_days": 2,
   "by_side": {
    "long": {
-    "trades": 12,
-    "pnl": -1838.7,
-    "win_rate": 0.0
+    "trades": 15,
+    "pnl": -1400.77,
+    "win_rate": 6.7
    },
    "short": {
-    "trades": 15,
-    "pnl": 1279.64,
-    "win_rate": 40.0
+    "trades": 20,
+    "pnl": 642.91,
+    "win_rate": 30.0
    }
   },
-  "est_slippage": 313.8,
-  "return_after_slippage_pct": -0.88,
+  "est_slippage": 409.54,
+  "return_after_slippage_pct": -1.178,
   "ai_blocked": 8,
   "ai_blocked_pnl": -48.38
  }
