@@ -15,7 +15,7 @@
   "last_prices": {},
   "halted": false,
   "eod_done": false,
-  "session_seen": false,
+  "session_seen": true,
   "small": {},
   "small_signals": [],
   "small_scored": false,
