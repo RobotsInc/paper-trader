@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 737.465,
-    "spy_vwap": 738.33,
+    "spy": 737.44,
+    "spy_vwap": 738.25,
     "spy_day_pct": -0.01,
     "bias": "down",
-    "time": "2026-11-19T09:42-05:00"
+    "time": "2026-11-19T09:46-05:00"
   },
   "ai": {
     "done": true,
@@ -414,7 +414,11 @@
     "MCD",
     "DIS",
     "BA",
-    "NU"
+    "NU",
+    "IREN",
+    "CRWD",
+    "SNOW",
+    "COIN"
   ],
   "signals": [
     {
@@ -542,6 +546,62 @@
       "action": "skipped_side_cap",
       "reason": "already 3 shorts",
       "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:42-05:00",
+      "symbol": "IREN",
+      "side": "long",
+      "price": 16.34,
+      "stop": 16.09,
+      "target": null,
+      "qty": 1216,
+      "or_high": 16.33,
+      "or_low": 15.93,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:43-05:00",
+      "symbol": "CRWD",
+      "side": "long",
+      "price": 255.75,
+      "stop": 254.25,
+      "target": null,
+      "qty": 77,
+      "or_high": 253.55,
+      "or_low": 245.145,
+      "action": "skipped_max_positions",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:43-05:00",
+      "symbol": "SNOW",
+      "side": "long",
+      "price": 296.35,
+      "stop": 294.82,
+      "target": null,
+      "qty": 67,
+      "or_high": 295.41,
+      "or_low": 288.22,
+      "action": "skipped_max_positions",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:45-05:00",
+      "symbol": "COIN",
+      "side": "long",
+      "price": 115.19,
+      "stop": 114.33,
+      "target": null,
+      "qty": 172,
+      "or_high": 115.17,
+      "or_low": 113.73,
+      "action": "skipped_max_positions",
+      "reason": "",
+      "market": "down"
     }
   ],
   "shortable": {
@@ -550,26 +610,26 @@
     "MCD": true
   },
   "last_prices": {
-    "ABBV": 282.24,
-    "IREN": 16.33,
-    "MSTR": 93.11,
-    "SNOW": 294.42,
-    "BA": 163.92,
-    "WMT": 124.84,
-    "AMGN": 438.44,
-    "MCD": 268.26,
-    "SLS": 15.955,
-    "SPY": 737.465,
-    "MRK": 135.46,
-    "DDOG": 180.1,
-    "CRWD": 253.46,
-    "SPOT": 596.85,
-    "COIN": 114.85,
-    "PANW": 364.85,
-    "ARKK": 72.67,
-    "ZS": 215.475,
-    "NU": 12.145,
-    "DIS": 121.16
+    "DIS": 121.165,
+    "SPY": 737.44,
+    "SPOT": 598.44,
+    "BA": 163.865,
+    "AMGN": 437.69,
+    "ARKK": 72.53,
+    "MCD": 268.265,
+    "CRWD": 252.41,
+    "SNOW": 293.59,
+    "ZS": 215.17,
+    "IREN": 16.465,
+    "MSTR": 93.4,
+    "SLS": 15.36,
+    "WMT": 124.785,
+    "PANW": 363.32,
+    "ABBV": 281.45,
+    "DDOG": 179.12,
+    "NU": 12.23,
+    "COIN": 115.15,
+    "MRK": 135.34
   },
   "halted": false,
   "eod_done": false,
