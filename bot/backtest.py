@@ -41,6 +41,8 @@ import universe
 
 ET = ZoneInfo("America/New_York")
 OUT = Path(__file__).resolve().parent.parent / "data" / "backtest"
+if os.getenv("BT_END", "").strip():  # past-window runs get their own folder so they don't overwrite each other
+    OUT = OUT / f"end-{os.getenv('BT_END').strip()}"
 MONTHS = int(os.getenv("BT_MONTHS", "12"))
 SLIP = float(os.getenv("BT_SLIPPAGE_BPS", "3")) / 1e4     # per side, fraction of price
 FEED = os.getenv("BT_FEED", "sip")                         # free plan allows SIP history > 15 min old
@@ -55,17 +57,23 @@ ENTRIES = {
     "15m": (15, "both", True, V2["max_chase"], "ours"),
     "5m": (5, "both", True, V2["max_chase"], "ours"),
     "paper5m": (5, "candle", False, None, "paper"),
+    # The live bot: paper recipe + its extra filters ($10 floor, don't-chase, min stop distance)
+    # and, in the portfolio replay, its daily loss limit. Only run with its own stop/exit.
+    "live": (5, "candle", False, None, "paper"),
 }
+LIVE_EXIT = (C.STOP_ATR, "close" if C.TARGET_R is None else "2R")
 STOPS = {"mid": "range middle", 0.10: "10% ATR", 0.25: "25% ATR"}
 TARGETS = {"2R": "2R target", "close": "hold to close"}
 
 
 def variant_name(e, s, t):
+    if e == "live":
+        return "LIVE BOT RULES (paper recipe + $10 floor, don't-chase, 0.25% min stop, 2.5% daily loss limit)"
     tag = {"15m": "15-min range", "5m": "5-min range", "paper5m": "Paper recipe (5-min)"}[e]
     return f"{tag} · {STOPS[s]} stop · {TARGETS[t]}"
 
 
-CURRENT = ("paper5m", 0.10, "close")   # live since v3
+CURRENT = ("live",) + LIVE_EXIT          # live since v3 + filters
 V2_RULES = ("15m", "mid", "2R")
 PAPER = ("paper5m", 0.10, "close")
 
@@ -259,15 +267,19 @@ def group_of(s):
     return next((g for g, names in C.GROUPS.items() if s in names), None)
 
 
-def portfolio(trades, days, slipped):
-    """Replay trades with the bot's limits. Returns list of (date, equity, day_pnl)."""
+def portfolio(trades, days, slipped, loss_limit=False):
+    """Replay trades with the bot's limits. Returns list of (date, equity, day_pnl).
+    loss_limit: no new entries once trades already closed today are down DAILY_LOSS_LIMIT
+    (approximation: open positions aren't marked to market)."""
     by_day = defaultdict(list)
     for t in trades:
         by_day[t["date"]].append(t)
     eq, curve = START_EQUITY, []
     for d in days:
-        pnl, open_ = 0.0, []
+        pnl, open_, taken = 0.0, [], []
         for t in sorted(by_day.get(d, []), key=lambda t: (t["t_in"], -t["score"])):
+            if loss_limit and sum(p for out, p in taken if out <= t["t_in"]) <= -C.DAILY_LOSS_LIMIT * eq:
+                continue
             open_ = [o for o in open_ if o[0] > t["t_in"]]
             if len(open_) >= C.MAX_OPEN_POSITIONS:
                 continue
@@ -281,7 +293,9 @@ def portfolio(trades, days, slipped):
                                  room / t["entry"]))
             if qty < 1:
                 continue
-            pnl += qty * (t["pnl_net"] if slipped else t["pnl_gross"])
+            tp = qty * (t["pnl_net"] if slipped else t["pnl_gross"])
+            pnl += tp
+            taken.append((t["t_out"], tp))
             open_.append((t["t_out"], t["side"], g, qty * t["entry"]))
         eq += pnl
         curve.append((d, eq, pnl))
@@ -361,12 +375,20 @@ def main():
                         continue
                     i, side, px, hi, lo = ent
                     atr = hist.atr(s)
+                    live = ename == "live"
+                    if live and (px < C.MIN_PRICE or (C.MAX_CHASE_ATR and atr and
+                                 (px - hi > C.MAX_CHASE_ATR * atr or lo - px > C.MAX_CHASE_ATR * atr))):
+                        continue
                     for stop_rule in STOPS:
                         for tgt in TARGETS:
+                            if live and (stop_rule, tgt) != LIVE_EXIT:
+                                continue
                             r = run_exit(bars[s], i, side, px, hi, lo, atr, stop_rule, tgt, flat)
                             if not r:
                                 continue
                             stop, risk, exit_, how_out, m_out = r
+                            if live and risk < max(0.01, px * C.MIN_STOP_PCT):
+                                continue
                             g = net_pnl(side, px, exit_, how_out, 0.0)
                             nt = net_pnl(side, px, exit_, how_out, SLIP)
                             trades[(ename, stop_rule, tgt)].append({
@@ -403,7 +425,7 @@ def write_report(trades, days, spy, feed):
         for label, subset, dd in (("all", ts, days), ("train", tr, train_days), ("test", te, test_days)):
             st_n = trade_stats(subset, "r_net")
             st_g = trade_stats(subset, "r_gross")
-            cv = portfolio(subset, dd, slipped=True)
+            cv = portfolio(subset, dd, slipped=True, loss_limit=v[0] == "live")
             cs = curve_stats(cv)
             if label == "all":
                 curves[v] = cv
@@ -459,7 +481,7 @@ def write_report(trades, days, spy, feed):
          "|---|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(rows, 1):
         tr, te = r["train"], r["test"]
-        mark = " (current bot = paper recipe)" if r["key"] == CURRENT else " (old v2 rules)" if r["key"] == V2_RULES else ""
+        mark = " (current bot)" if r["key"] == CURRENT else " (paper recipe, no filters)" if r["key"] == PAPER else " (old v2 rules)" if r["key"] == V2_RULES else ""
         tpd = r["all"]["net"].get("trades", 0) / max(len(days), 1)
         L.append(f"| {i} | {r['variant']}{mark} | {tr['port'].get('sharpe', 0):.2f} | "
                  f"{tr['port'].get('return%', 0):+.1f}% | **{te['port'].get('sharpe', 0):.2f}** | "
