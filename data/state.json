@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 737.33,
-    "spy_vwap": 738.22,
-    "spy_day_pct": -0.03,
+    "spy": 736.2,
+    "spy_vwap": 738.02,
+    "spy_day_pct": -0.18,
     "bias": "down",
-    "time": "2026-11-19T09:53-05:00"
+    "time": "2026-11-19T09:57-05:00"
   },
   "ai": {
     "done": true,
@@ -418,7 +418,9 @@
     "IREN",
     "CRWD",
     "SNOW",
-    "COIN"
+    "COIN",
+    "MSTR",
+    "WMT"
   ],
   "signals": [
     {
@@ -602,34 +604,63 @@
       "action": "skipped_max_positions",
       "reason": "",
       "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:54-05:00",
+      "symbol": "MSTR",
+      "side": "short",
+      "price": 92.52,
+      "stop": 93.32,
+      "target": null,
+      "qty": 215,
+      "or_high": 93.63,
+      "or_low": 92.54,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:57-05:00",
+      "symbol": "WMT",
+      "side": "long",
+      "price": 125.455,
+      "stop": 125.14,
+      "target": null,
+      "qty": 157,
+      "or_high": 125.3,
+      "or_low": 123.3,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
     }
   ],
   "shortable": {
     "MRK": true,
     "AMGN": true,
-    "MCD": true
+    "MCD": true,
+    "MSTR": true
   },
   "last_prices": {
-    "COIN": 114.33,
-    "NU": 12.07,
-    "AMGN": 437.15,
-    "IREN": 16.405,
-    "SPOT": 599.64,
-    "MSTR": 93.11,
-    "WMT": 124.5,
-    "DDOG": 181.37,
-    "SPY": 737.33,
-    "MCD": 270.69,
-    "SNOW": 293.8,
-    "ARKK": 72.58,
-    "SLS": 15.615,
-    "ABBV": 281.48,
-    "DIS": 121.475,
-    "BA": 163.97,
-    "ZS": 217.16,
-    "MRK": 135.03,
-    "PANW": 365.32,
-    "CRWD": 254.18
+    "MCD": 271.17,
+    "NU": 12.1,
+    "WMT": 125.455,
+    "DDOG": 179.495,
+    "BA": 163.62,
+    "ABBV": 282.32,
+    "ARKK": 72.17,
+    "MRK": 134.91,
+    "COIN": 113.36,
+    "CRWD": 252.3,
+    "MSTR": 91.74,
+    "IREN": 16.05,
+    "SLS": 15.58,
+    "SPY": 736.2,
+    "DIS": 121.52,
+    "SPOT": 595.24,
+    "AMGN": 438.055,
+    "ZS": 214.18,
+    "SNOW": 292.18,
+    "PANW": 364.04
   },
   "halted": false,
   "eod_done": false,
