@@ -1,18 +1,546 @@
 {
   "date": "2026-11-19",
   "start_equity": 99227.99,
-  "ranges": {},
-  "scan": {},
-  "regime": {},
-  "ai": {
-    "done": false,
-    "decisions": {},
-    "briefing": ""
+  "ranges": {
+    "SNOW": {
+      "symbol": "SNOW",
+      "high": 295.41,
+      "low": 288.22,
+      "prev_close": 295.73,
+      "gap_pct": -2.54,
+      "relvol": 4.47,
+      "range_pct": 2.44,
+      "atr": 15.3495,
+      "dir": 1,
+      "score": 4.47,
+      "tier": "main",
+      "source": "core"
+    },
+    "SLS": {
+      "symbol": "SLS",
+      "high": 16.15,
+      "low": 14.61,
+      "prev_close": 16.36,
+      "gap_pct": -6.17,
+      "relvol": 3.6,
+      "range_pct": 9.57,
+      "atr": 2.5201,
+      "dir": 1,
+      "score": 3.601,
+      "tier": "main",
+      "source": "scanner"
+    },
+    "WMT": {
+      "symbol": "WMT",
+      "high": 125.3,
+      "low": 123.3,
+      "prev_close": 124.18,
+      "gap_pct": -0.33,
+      "relvol": 3.56,
+      "range_pct": 1.61,
+      "atr": 3.1444,
+      "dir": 1,
+      "score": 3.557,
+      "tier": "main",
+      "source": "core"
+    },
+    "ZS": {
+      "symbol": "ZS",
+      "high": 213.46,
+      "low": 201.98,
+      "prev_close": 214.375,
+      "gap_pct": -5.78,
+      "relvol": 3.39,
+      "range_pct": 5.38,
+      "atr": 12.3499,
+      "dir": 1,
+      "score": 3.387,
+      "tier": "main",
+      "source": "core"
+    },
+    "PANW": {
+      "symbol": "PANW",
+      "high": 370,
+      "low": 354.2,
+      "prev_close": 367.47,
+      "gap_pct": -3.22,
+      "relvol": 3.14,
+      "range_pct": 4.29,
+      "atr": 20.1867,
+      "dir": 1,
+      "score": 3.144,
+      "tier": "main",
+      "source": "core"
+    },
+    "MRK": {
+      "symbol": "MRK",
+      "high": 137.9,
+      "low": 137.185,
+      "prev_close": 137.575,
+      "gap_pct": 0.11,
+      "relvol": 2.97,
+      "range_pct": 0.52,
+      "atr": 3.9525,
+      "dir": -1,
+      "score": 2.969,
+      "tier": "main",
+      "source": "core"
+    },
+    "MCD": {
+      "symbol": "MCD",
+      "high": 269.325,
+      "low": 268,
+      "prev_close": 268.49,
+      "gap_pct": 0.11,
+      "relvol": 2.79,
+      "range_pct": 0.49,
+      "atr": 7.3743,
+      "dir": -1,
+      "score": 2.793,
+      "tier": "main",
+      "source": "core"
+    },
+    "DIS": {
+      "symbol": "DIS",
+      "high": 122.13,
+      "low": 121.2,
+      "prev_close": 121.28,
+      "gap_pct": 0.56,
+      "relvol": 2.45,
+      "range_pct": 0.77,
+      "atr": 3.2584,
+      "dir": -1,
+      "score": 2.447,
+      "tier": "main",
+      "source": "core"
+    },
+    "CRWD": {
+      "symbol": "CRWD",
+      "high": 253.55,
+      "low": 245.145,
+      "prev_close": 253.9,
+      "gap_pct": -3.45,
+      "relvol": 2.43,
+      "range_pct": 3.31,
+      "atr": 14.9571,
+      "dir": 1,
+      "score": 2.426,
+      "tier": "main",
+      "source": "core"
+    },
+    "SPOT": {
+      "symbol": "SPOT",
+      "high": 600.645,
+      "low": 583.695,
+      "prev_close": 591.86,
+      "gap_pct": 0.67,
+      "relvol": 2.34,
+      "range_pct": 2.87,
+      "atr": 19.9781,
+      "dir": -1,
+      "score": 2.339,
+      "tier": "main",
+      "source": "core"
+    },
+    "AMGN": {
+      "symbol": "AMGN",
+      "high": 443.8,
+      "low": 441.22,
+      "prev_close": 443.19,
+      "gap_pct": 0.03,
+      "relvol": 2.26,
+      "range_pct": 0.58,
+      "atr": 11.6135,
+      "dir": -1,
+      "score": 2.257,
+      "tier": "main",
+      "source": "core"
+    },
+    "IREN": {
+      "symbol": "IREN",
+      "high": 16.33,
+      "low": 15.93,
+      "prev_close": 16.23,
+      "gap_pct": -1.42,
+      "relvol": 2.26,
+      "range_pct": 2.45,
+      "atr": 2.4951,
+      "dir": 1,
+      "score": 2.256,
+      "tier": "main",
+      "source": "scanner"
+    },
+    "DDOG": {
+      "symbol": "DDOG",
+      "high": 178.88,
+      "low": 174.02,
+      "prev_close": 179.69,
+      "gap_pct": -3.16,
+      "relvol": 2.18,
+      "range_pct": 2.72,
+      "atr": 13.1311,
+      "dir": 1,
+      "score": 2.182,
+      "tier": "main",
+      "source": "core"
+    },
+    "MSTR": {
+      "symbol": "MSTR",
+      "high": 93.63,
+      "low": 92.54,
+      "prev_close": 93.25,
+      "gap_pct": -0.14,
+      "relvol": 2.15,
+      "range_pct": 1.17,
+      "atr": 7.9789,
+      "dir": -1,
+      "score": 2.146,
+      "tier": "main",
+      "source": "core"
+    },
+    "ABBV": {
+      "symbol": "ABBV",
+      "high": 285.48,
+      "low": 283.65,
+      "prev_close": 284.9,
+      "gap_pct": 0.12,
+      "relvol": 2.12,
+      "range_pct": 0.64,
+      "atr": 7.0476,
+      "dir": -1,
+      "score": 2.124,
+      "tier": "main",
+      "source": "core"
+    },
+    "BA": {
+      "symbol": "BA",
+      "high": 164.04,
+      "low": 163.11,
+      "prev_close": 163.9093,
+      "gap_pct": -0.25,
+      "relvol": 1.78,
+      "range_pct": 0.57,
+      "atr": 4.5809,
+      "dir": 1,
+      "score": 1.785,
+      "tier": "main",
+      "source": "core"
+    },
+    "NU": {
+      "symbol": "NU",
+      "high": 12.39,
+      "low": 12.18,
+      "prev_close": 12.191,
+      "gap_pct": 0.11,
+      "relvol": 1.67,
+      "range_pct": 1.72,
+      "atr": 0.5511,
+      "dir": -1,
+      "score": 1.672,
+      "tier": "main",
+      "source": "scanner"
+    },
+    "SPY": {
+      "symbol": "SPY",
+      "high": 739.77,
+      "low": 737.37,
+      "prev_close": 738.65,
+      "gap_pct": -0.15,
+      "relvol": 1.65,
+      "range_pct": 0.32,
+      "atr": 13.6575,
+      "dir": 1,
+      "score": 1.647,
+      "tier": "main",
+      "source": "core"
+    },
+    "ARKK": {
+      "symbol": "ARKK",
+      "high": 73.16,
+      "low": 72.32,
+      "prev_close": 73.01,
+      "gap_pct": -0.74,
+      "relvol": 1.63,
+      "range_pct": 1.15,
+      "atr": 3.2789,
+      "dir": 1,
+      "score": 1.631,
+      "tier": "main",
+      "source": "core"
+    },
+    "COIN": {
+      "symbol": "COIN",
+      "high": 115.17,
+      "low": 113.73,
+      "prev_close": 114.915,
+      "gap_pct": -0.31,
+      "relvol": 1.51,
+      "range_pct": 1.26,
+      "atr": 8.6304,
+      "dir": 1,
+      "score": 1.512,
+      "tier": "main",
+      "source": "core"
+    }
   },
-  "traded": [],
-  "signals": [],
-  "shortable": {},
-  "last_prices": {},
+  "scan": {
+    "scanned": 188,
+    "liquid": 119,
+    "qualified": 41,
+    "selected": 20,
+    "small_tracked": 0
+  },
+  "regime": {
+    "spy": 737.385,
+    "spy_vwap": 738.71,
+    "spy_day_pct": -0.02,
+    "bias": "down",
+    "time": "2026-11-19T09:38-05:00"
+  },
+  "ai": {
+    "done": true,
+    "enabled": true,
+    "model": "gemini-3.5-flash-lite",
+    "decisions": {
+      "SNOW": {
+        "decision": "long",
+        "catalyst": "positive analyst outlooks",
+        "reason": "Positive product revenue outlooks from analysts."
+      },
+      "SLS": {
+        "decision": "short",
+        "catalyst": "massive share dilution",
+        "reason": "Priced a massive $150 million public offering."
+      },
+      "WMT": {
+        "decision": "long",
+        "catalyst": "earnings beat and guidance raise",
+        "reason": "Reported 3Q earnings beat and raised fiscal guidance."
+      },
+      "ZS": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No recent news driving price action."
+      },
+      "PANW": {
+        "decision": "block",
+        "catalyst": "earnings and acquisition",
+        "reason": "Reported Q1 earnings and announced a corporate acquisition."
+      },
+      "MRK": {
+        "decision": "both",
+        "catalyst": "strategic research collaboration",
+        "reason": "Entered strategic research collaboration with Isomorphic Labs."
+      },
+      "MCD": {
+        "decision": "both",
+        "catalyst": "promotional campaigns",
+        "reason": "Routine marketing campaigns and holiday promotions."
+      },
+      "DIS": {
+        "decision": "both",
+        "catalyst": "executive share sale",
+        "reason": "Executive filed intent to sell shares and routine updates."
+      },
+      "CRWD": {
+        "decision": "both",
+        "catalyst": "security product integration",
+        "reason": "Apple device management integration announced."
+      },
+      "SPOT": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No recent news available."
+      },
+      "AMGN": {
+        "decision": "both",
+        "catalyst": "research presentation",
+        "reason": "Presented cardiovascular health research data."
+      },
+      "IREN": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No recent news."
+      },
+      "DDOG": {
+        "decision": "both",
+        "catalyst": "strategic partnership",
+        "reason": "Announced partnership with MinIO for observability."
+      },
+      "MSTR": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No recent news."
+      },
+      "ABBV": {
+        "decision": "both",
+        "catalyst": "strategic collaboration",
+        "reason": "Announced oncology collaboration with DISCO Pharmaceuticals."
+      },
+      "BA": {
+        "decision": "both",
+        "catalyst": "routine deliveries and minor incident",
+        "reason": "Standard aircraft delivery paired with minor ground incident."
+      },
+      "NU": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No news catalysts reported."
+      },
+      "SPY": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "Broad market ETF with no specific catalyst."
+      },
+      "ARKK": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "Broad thematic ETF with no specific catalyst."
+      },
+      "COIN": {
+        "decision": "both",
+        "catalyst": "loan service expansion",
+        "reason": "Expanded Bitcoin-backed loan availability across all states."
+      }
+    },
+    "briefing": "Markets show mild opening pressure this Thursday as investors digest a mix of earnings reports, guidance raises, and secondary offerings. Key movers include Walmart with a strong earnings beat and raised guidance, alongside major public offering dilution at Sellas Life Sciences. Traders should remain nimble while monitoring tech and retail volatility."
+  },
+  "traded": [
+    "SLS",
+    "ZS",
+    "MRK",
+    "AMGN",
+    "DDOG",
+    "MCD",
+    "DIS"
+  ],
+  "signals": [
+    {
+      "time": "2026-11-19T09:36-05:00",
+      "symbol": "SLS",
+      "side": "long",
+      "price": 16.505,
+      "stop": 16.25,
+      "target": null,
+      "qty": 1202,
+      "or_high": 16.15,
+      "or_low": 14.61,
+      "action": "blocked_by_ai",
+      "reason": "AI short: Priced a massive $150 million public offering.",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:36-05:00",
+      "symbol": "ZS",
+      "side": "long",
+      "price": 214.53,
+      "stop": 213.3,
+      "target": null,
+      "qty": 92,
+      "or_high": 213.46,
+      "or_low": 201.98,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:36-05:00",
+      "symbol": "MRK",
+      "side": "short",
+      "price": 136.59,
+      "stop": 136.99,
+      "target": null,
+      "qty": 145,
+      "or_high": 137.9,
+      "or_low": 137.185,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:36-05:00",
+      "symbol": "AMGN",
+      "side": "short",
+      "price": 440.64,
+      "stop": 441.8,
+      "target": null,
+      "qty": 45,
+      "or_high": 443.8,
+      "or_low": 441.22,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:36-05:00",
+      "symbol": "DDOG",
+      "side": "long",
+      "price": 179.22,
+      "stop": 177.91,
+      "target": null,
+      "qty": 110,
+      "or_high": 178.88,
+      "or_low": 174.02,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:38-05:00",
+      "symbol": "MCD",
+      "side": "short",
+      "price": 267.89,
+      "stop": 268.63,
+      "target": null,
+      "qty": 74,
+      "or_high": 269.325,
+      "or_low": 268,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:38-05:00",
+      "symbol": "DIS",
+      "side": "short",
+      "price": 121.18,
+      "stop": 121.51,
+      "target": null,
+      "qty": 163,
+      "or_high": 122.13,
+      "or_low": 121.2,
+      "action": "skipped_max_positions",
+      "reason": "",
+      "market": "down"
+    }
+  ],
+  "shortable": {
+    "MRK": true,
+    "AMGN": true,
+    "MCD": true
+  },
+  "last_prices": {
+    "MRK": 136.27,
+    "SLS": 16.05,
+    "SPOT": 591.96,
+    "MSTR": 92.67,
+    "NU": 12.21,
+    "SPY": 737.385,
+    "ZS": 214.24,
+    "COIN": 114.405,
+    "BA": 163.88,
+    "CRWD": 251.085,
+    "IREN": 16.24,
+    "ABBV": 283.62,
+    "SNOW": 293.98,
+    "WMT": 124.71,
+    "ARKK": 72.88,
+    "DIS": 121.18,
+    "DDOG": 178.79,
+    "PANW": 361.54,
+    "MCD": 267.89,
+    "AMGN": 440.64
+  },
   "halted": false,
   "eod_done": false,
   "session_seen": true,
