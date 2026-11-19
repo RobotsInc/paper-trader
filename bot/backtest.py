@@ -323,7 +323,8 @@ def curve_stats(curve):
 
 # ---------------- main ----------------
 def main():
-    end = date.today() - timedelta(days=1)
+    end_env = os.getenv("BT_END", "").strip()  # optional YYYY-MM-DD to replay a past window
+    end = date.fromisoformat(end_env) if end_env else date.today() - timedelta(days=1)
     start = end - timedelta(days=round(MONTHS * 30.44))
     warm = start - timedelta(days=40)  # ~25 trading days to fill ATR / relative-volume history
     cal = calendar(warm, end)

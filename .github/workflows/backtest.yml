@@ -15,6 +15,10 @@ on:
         description: "sip (all exchanges, free for history) or iex"
         required: true
         default: sip
+      end_date:
+        description: "Last day to replay, YYYY-MM-DD (blank = yesterday)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -44,6 +48,7 @@ jobs:
           BT_MONTHS: ${{ github.event.inputs.months }}
           BT_SLIPPAGE_BPS: ${{ github.event.inputs.slippage_bps }}
           BT_FEED: ${{ github.event.inputs.feed }}
+          BT_END: ${{ github.event.inputs.end_date }}
         run: python bot/backtest.py
 
       - name: Save results to repo
