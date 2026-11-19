@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 737.385,
-    "spy_vwap": 738.71,
-    "spy_day_pct": -0.02,
+    "spy": 737.465,
+    "spy_vwap": 738.33,
+    "spy_day_pct": -0.01,
     "bias": "down",
-    "time": "2026-11-19T09:38-05:00"
+    "time": "2026-11-19T09:42-05:00"
   },
   "ai": {
     "done": true,
@@ -412,7 +412,9 @@
     "AMGN",
     "DDOG",
     "MCD",
-    "DIS"
+    "DIS",
+    "BA",
+    "NU"
   ],
   "signals": [
     {
@@ -512,6 +514,34 @@
       "action": "skipped_max_positions",
       "reason": "",
       "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:39-05:00",
+      "symbol": "BA",
+      "side": "long",
+      "price": 164.09,
+      "stop": 163.63,
+      "target": null,
+      "qty": 120,
+      "or_high": 164.04,
+      "or_low": 163.11,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-19T09:40-05:00",
+      "symbol": "NU",
+      "side": "short",
+      "price": 12.12,
+      "stop": 12.18,
+      "target": null,
+      "qty": 1634,
+      "or_high": 12.39,
+      "or_low": 12.18,
+      "action": "skipped_side_cap",
+      "reason": "already 3 shorts",
+      "market": "down"
     }
   ],
   "shortable": {
@@ -520,26 +550,26 @@
     "MCD": true
   },
   "last_prices": {
-    "MRK": 136.27,
-    "SLS": 16.05,
-    "SPOT": 591.96,
-    "MSTR": 92.67,
-    "NU": 12.21,
-    "SPY": 737.385,
-    "ZS": 214.24,
-    "COIN": 114.405,
-    "BA": 163.88,
-    "CRWD": 251.085,
-    "IREN": 16.24,
-    "ABBV": 283.62,
-    "SNOW": 293.98,
-    "WMT": 124.71,
-    "ARKK": 72.88,
-    "DIS": 121.18,
-    "DDOG": 178.79,
-    "PANW": 361.54,
-    "MCD": 267.89,
-    "AMGN": 440.64
+    "ABBV": 282.24,
+    "IREN": 16.33,
+    "MSTR": 93.11,
+    "SNOW": 294.42,
+    "BA": 163.92,
+    "WMT": 124.84,
+    "AMGN": 438.44,
+    "MCD": 268.26,
+    "SLS": 15.955,
+    "SPY": 737.465,
+    "MRK": 135.46,
+    "DDOG": 180.1,
+    "CRWD": 253.46,
+    "SPOT": 596.85,
+    "COIN": 114.85,
+    "PANW": 364.85,
+    "ARKK": 72.67,
+    "ZS": 215.475,
+    "NU": 12.145,
+    "DIS": 121.16
   },
   "halted": false,
   "eod_done": false,
