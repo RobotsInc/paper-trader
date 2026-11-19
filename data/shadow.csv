@@ -39,3 +39,9 @@ date,symbol,side,action,reason,entry,exit,exit_type,qty,pnl,r_multiple
 2026-11-18,ARKK,short,skipped_max_positions,,71.25,71.6,stop,279,-97.65,-1.0
 2026-11-18,TGT,long,skipped_max_positions,,166.62,166.04,stop,119,-69.02,-1.0
 2026-11-18,UNH,short,skipped_max_positions,,383.38,348.17,time_exit,52,1830.92,30.09
+2026-11-19,SLS,long,blocked_by_ai,AI short: Priced a massive $150 million public offering.,16.505,16.25,stop,1202,-306.51,-1.0
+2026-11-19,DIS,short,skipped_max_positions,,121.18,121.51,stop,163,-53.79,-1.0
+2026-11-19,NU,short,skipped_side_cap,already 3 shorts,12.12,12.18,stop,1634,-98.04,-1.0
+2026-11-19,CRWD,long,skipped_max_positions,,255.75,254.25,stop,77,-115.5,-1.0
+2026-11-19,SNOW,long,skipped_max_positions,,296.35,294.82,stop,67,-102.51,-1.0
+2026-11-19,COIN,long,skipped_max_positions,,115.19,114.33,stop,172,-147.92,-1.0

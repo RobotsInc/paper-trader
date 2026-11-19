@@ -2,34 +2,34 @@
 
 _Simulated money only. Updated automatically after each trading day. Live view: the dashboard link in the README._
 
-Since 2026-11-12 - 5 trading day(s)
+Since 2026-11-12 - 6 trading day(s)
 
-**Beating buy-and-hold SPY by 3.22 points.** Only 5 trading day(s) so far - too early to judge (wait for 20+).
+**Beating buy-and-hold SPY by 5.93 points.** Only 6 trading day(s) so far - too early to judge (wait for 20+).
 
 | | Bot | Buy & hold SPY |
 |---|---|---|
-| Return | -0.77% | -3.98% |
-| Equity | $99,231.31 | $96,015.56 |
+| Return | +0.14% | -5.79% |
+| Equity | $100,144.83 | $94,211.26 |
 
 ## Stats
 
 | Metric | Value |
 |---|---|
-| Total P&L | -$768.69 |
-| P&L after est. slippage (3 bps/side, what real money might see) | -$1,178.23 (-1.18%) |
-| Trades | 35 |
+| Total P&L | $144.83 |
+| P&L after est. slippage (3 bps/side, what real money might see) | -$370.76 (-0.37%) |
+| Trades | 44 |
 | Win rate | 20% |
-| Avg win / avg loss | $437.73 / -$136.50 |
-| Profit factor | 0.80 |
+| Avg win / avg loss | $542.62 / -$134.99 |
+| Profit factor | 1.03 |
 | Max drawdown | -1.54% |
-| Best / worst day | $882.79 / -$1,055.34 |
-| Green days | 2 of 5 |
-| Longs | 15 trades, -$1,400.77 |
-| Shorts | 20 trades, $642.91 |
+| Best / worst day | $916.84 / -$1,055.34 |
+| Green days | 3 of 6 |
+| Longs | 20 trades, -$2,170.71 |
+| Shorts | 24 trades, $2,329.69 |
 
 ## Is the AI news filter helping?
 
-The AI blocked 8 trade(s) the rules wanted. Simulated outcome of those trades: -$48.38 -> the filter has **saved $48.38**.
+The AI blocked 9 trade(s) the rules wanted. Simulated outcome of those trades: -$354.89 -> the filter has **saved $354.89**.
 
 ## Small-cap experiment ($5-$10 stocks: tracked, not traded)
 
@@ -48,6 +48,7 @@ R = profit as a multiple of the risk to the stop. Positive after the spread over
 
 | Date | P&L | Bot % | SPY % | Trades | AI blocked |
 |---|---|---|---|---|---|
+| 2026-11-19 | $916.84 | +0.92% | -2.80% | 9 | 1 |
 | 2026-11-18 | -$198.80 | -0.20% | -0.38% | 8 | 0 |
 | 2026-11-17 | $882.79 | +0.90% | -1.03% | 8 | 0 |
 | 2026-11-16 | $100.00 | +0.10% | -1.43% | 8 | 5 |
@@ -58,18 +59,18 @@ R = profit as a multiple of the risk to the stop. Positive after the spread over
 
 | Date | Symbol | Side | Qty | Entry | Exit | P&L |
 |---|---|---|---|---|---|---|
+| 2026-11-19 | WMT | long | 157 | 125.37 | 125.11 | -$40.82 |
+| 2026-11-19 | MSTR | short | 215 | 92.38 | 86.88 | $1,183.17 |
+| 2026-11-19 | IREN | long | 1216 | 16.28 | 16.05 | -$274.69 |
+| 2026-11-19 | BA | long | 120 | 164.15 | 163.51 | -$76.75 |
+| 2026-11-19 | MCD | short | 74 | 267.78 | 268.88 | -$81.41 |
+| 2026-11-19 | AMGN | short | 45 | 440.53 | 441.67 | -$51.33 |
+| 2026-11-19 | MRK | short | 145 | 136.57 | 132.18 | $636.35 |
+| 2026-11-19 | DDOG | long | 110 | 179.77 | 177.75 | -$222.20 |
+| 2026-11-19 | ZS | long | 92 | 214.38 | 212.69 | -$155.48 |
 | 2026-11-18 | BRBR | short | 1554 | 12.83 | 12.96 | -$202.02 |
 | 2026-11-18 | CRM | short | 105 | 188.8 | 189.91 | -$116.21 |
 | 2026-11-18 | XLE | short | 320 | 62.22 | 62.39 | -$55.82 |
 | 2026-11-18 | MSTR | short | 214 | 92.74 | 93.6 | -$184.76 |
 | 2026-11-18 | DASH | long | 119 | 167.16 | 165.57 | -$189.21 |
 | 2026-11-18 | SLV | short | 487 | 40.79 | 40.95 | -$77.92 |
-| 2026-11-18 | PRMB | long | 883 | 22.5 | 22.37 | -$114.79 |
-| 2026-11-18 | MDLN | long | 528 | 37.66 | 39.07 | $741.93 |
-| 2026-11-17 | SLB | short | 396 | 49.95 | 49.04 | $360.36 |
-| 2026-11-17 | DRAM | short | 511 | 38.72 | 39.09 | -$188.65 |
-| 2026-11-17 | HD | long | 57 | 342.45 | 339.42 | -$172.90 |
-| 2026-11-17 | SBUX | long | 179 | 109.8 | 109.4 | -$71.60 |
-| 2026-11-17 | CRM | short | 95 | 205.32 | 194.42 | $1,035.50 |
-| 2026-11-17 | UNH | short | 50 | 390.36 | 391.96 | -$80.32 |
-| 2026-11-17 | MRNA | short | 94 | 208.32 | 210.38 | -$194.08 |

@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-19T15:45:22-05:00",
+ "updated": "2026-11-19T15:49:28-05:00",
  "date": "2026-11-19",
  "market_open": true,
  "account": {
-  "equity": 100135.56,
-  "cash": 137990.13,
-  "buying_power": 321470.95,
+  "equity": 100144.83,
+  "cash": 100144.83,
+  "buying_power": 400579.32,
   "start_equity": 99227.99,
-  "day_pnl": 907.5699999999924,
-  "day_pnl_pct": 0.9146310431159543
+  "day_pnl": 916.8399999999965,
+  "day_pnl_pct": 0.9239731652329164
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,8 +16,8 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": 135.55999999999767,
-  "pct": 0.13555999999999013,
+  "pnl": 144.83000000000175,
+  "pct": 0.1448300000000069,
   "spy_pct": -5.2644028595458465
  },
  "regime": {
@@ -66,34 +66,7 @@
    }
   ]
  },
- "positions": [
-  {
-   "symbol": "MRK",
-   "side": "short",
-   "qty": 145.0,
-   "entry": 136.568621,
-   "price": 132.155,
-   "upl": 639.975045,
-   "upl_pct": 3.232,
-   "value": 19162.475,
-   "stop": 136.99,
-   "target": null,
-   "opened": "09:36"
-  },
-  {
-   "symbol": "MSTR",
-   "side": "short",
-   "qty": 215.0,
-   "entry": 92.383116,
-   "price": 86.94,
-   "upl": 1170.26994,
-   "upl_pct": 5.892,
-   "value": 18692.1,
-   "stop": 93.32,
-   "target": null,
-   "opened": "09:54"
-  }
- ],
+ "positions": [],
  "universe": [
   {
    "symbol": "SNOW",
@@ -199,7 +172,7 @@
    "tier": "main",
    "source": "core",
    "price": 132.58,
-   "status": "SHORT",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "strategic research collaboration"
   },
@@ -343,7 +316,7 @@
    "tier": "main",
    "source": "core",
    "price": 88.15,
-   "status": "SHORT",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
   },
@@ -1056,6 +1029,10 @@
   {
    "t": "15:41",
    "v": 100192.03
+  },
+  {
+   "t": "15:45",
+   "v": 100148.46
   }
  ],
  "days": [
@@ -1143,9 +1120,116 @@
    "spy_pct": "-0.378",
    "longs": "3",
    "shorts": "5"
+  },
+  {
+   "date": "2026-11-19",
+   "start_equity": "99227.99",
+   "end_equity": "100144.83",
+   "pnl": "916.84",
+   "pnl_pct": "0.924",
+   "trades": "9",
+   "wins": "2",
+   "signals": "15",
+   "ai_blocked": "1",
+   "ai_blocked_pnl": "-306.51",
+   "spy_open": "737.54",
+   "spy_close": "716.91",
+   "spy_pct": "-2.797",
+   "longs": "5",
+   "shorts": "4"
   }
  ],
  "trades": [
+  {
+   "date": "2026-11-19",
+   "symbol": "WMT",
+   "side": "long",
+   "qty": "157.0",
+   "entry": "125.37",
+   "exit": "125.11",
+   "pnl": "-40.82",
+   "pnl_pct": "-0.21"
+  },
+  {
+   "date": "2026-11-19",
+   "symbol": "MSTR",
+   "side": "short",
+   "qty": "215.0",
+   "entry": "92.38",
+   "exit": "86.88",
+   "pnl": "1183.17",
+   "pnl_pct": "5.96"
+  },
+  {
+   "date": "2026-11-19",
+   "symbol": "IREN",
+   "side": "long",
+   "qty": "1216.0",
+   "entry": "16.28",
+   "exit": "16.05",
+   "pnl": "-274.69",
+   "pnl_pct": "-1.39"
+  },
+  {
+   "date": "2026-11-19",
+   "symbol": "BA",
+   "side": "long",
+   "qty": "120.0",
+   "entry": "164.15",
+   "exit": "163.51",
+   "pnl": "-76.75",
+   "pnl_pct": "-0.39"
+  },
+  {
+   "date": "2026-11-19",
+   "symbol": "MCD",
+   "side": "short",
+   "qty": "74.0",
+   "entry": "267.78",
+   "exit": "268.88",
+   "pnl": "-81.41",
+   "pnl_pct": "-0.41"
+  },
+  {
+   "date": "2026-11-19",
+   "symbol": "AMGN",
+   "side": "short",
+   "qty": "45.0",
+   "entry": "440.53",
+   "exit": "441.67",
+   "pnl": "-51.33",
+   "pnl_pct": "-0.26"
+  },
+  {
+   "date": "2026-11-19",
+   "symbol": "MRK",
+   "side": "short",
+   "qty": "145.0",
+   "entry": "136.57",
+   "exit": "132.18",
+   "pnl": "636.35",
+   "pnl_pct": "3.21"
+  },
+  {
+   "date": "2026-11-19",
+   "symbol": "DDOG",
+   "side": "long",
+   "qty": "110.0",
+   "entry": "179.77",
+   "exit": "177.75",
+   "pnl": "-222.2",
+   "pnl_pct": "-1.12"
+  },
+  {
+   "date": "2026-11-19",
+   "symbol": "ZS",
+   "side": "long",
+   "qty": "92.0",
+   "entry": "214.38",
+   "exit": "212.69",
+   "pnl": "-155.48",
+   "pnl_pct": "-0.79"
+  },
   {
    "date": "2026-11-18",
    "symbol": "BRBR",
@@ -1355,128 +1439,38 @@
    "exit": "142.65",
    "pnl": "-85.53",
    "pnl_pct": "-0.44"
-  },
-  {
-   "date": "2026-11-16",
-   "symbol": "NFLX",
-   "side": "short",
-   "qty": "319.0",
-   "entry": "61.67",
-   "exit": "61.88",
-   "pnl": "-66.04",
-   "pnl_pct": "-0.34"
-  },
-  {
-   "date": "2026-11-16",
-   "symbol": "IBIT",
-   "side": "long",
-   "qty": "530.0",
-   "entry": "37.07",
-   "exit": "36.95",
-   "pnl": "-64.31",
-   "pnl_pct": "-0.33"
-  },
-  {
-   "date": "2026-11-16",
-   "symbol": "DE",
-   "side": "short",
-   "qty": "29.0",
-   "entry": "668.84",
-   "exit": "654.12",
-   "pnl": "426.88",
-   "pnl_pct": "2.2"
-  },
-  {
-   "date": "2026-11-13",
-   "symbol": "NFLX",
-   "side": "long",
-   "qty": "310.0",
-   "entry": "63.78",
-   "exit": "63.61",
-   "pnl": "-53.56",
-   "pnl_pct": "-0.27"
-  },
-  {
-   "date": "2026-11-13",
-   "symbol": "CSCO",
-   "side": "short",
-   "qty": "205.0",
-   "entry": "96.18",
-   "exit": "96.63",
-   "pnl": "-92.25",
-   "pnl_pct": "-0.47"
-  },
-  {
-   "date": "2026-11-13",
-   "symbol": "AMAT",
-   "side": "short",
-   "qty": "54.0",
-   "entry": "360.46",
-   "exit": "363.82",
-   "pnl": "-181.23",
-   "pnl_pct": "-0.93"
-  },
-  {
-   "date": "2026-11-13",
-   "symbol": "IBIT",
-   "side": "short",
-   "qty": "508.0",
-   "entry": "38.88",
-   "exit": "39.03",
-   "pnl": "-78.06",
-   "pnl_pct": "-0.4"
-  },
-  {
-   "date": "2026-11-13",
-   "symbol": "KDP",
-   "side": "long",
-   "qty": "544.0",
-   "entry": "36.35",
-   "exit": "36.2",
-   "pnl": "-81.41",
-   "pnl_pct": "-0.41"
-  },
-  {
-   "date": "2026-11-12",
-   "symbol": "NKE",
-   "side": "short",
-   "qty": "524.0",
-   "entry": "37.95",
-   "exit": "37.81",
-   "pnl": "72.53",
-   "pnl_pct": "0.36"
   }
  ],
  "summary": {
-  "days": 5,
+  "days": 6,
   "start_equity": 100000.0,
-  "end_equity": 99231.31,
-  "return_pct": -0.769,
-  "spy_return_pct": -3.984,
-  "trades": 35,
-  "win_rate": 20.0,
-  "avg_win": 437.73,
-  "avg_loss": -136.5,
-  "profit_factor": 0.8,
+  "end_equity": 100144.83,
+  "return_pct": 0.145,
+  "spy_return_pct": -5.789,
+  "trades": 44,
+  "win_rate": 20.5,
+  "avg_win": 542.62,
+  "avg_loss": -134.99,
+  "profit_factor": 1.03,
   "max_drawdown_pct": -1.54,
-  "best_day": 882.79,
+  "best_day": 916.84,
   "worst_day": -1055.34,
-  "green_days": 2,
+  "green_days": 3,
   "by_side": {
    "long": {
-    "trades": 15,
-    "pnl": -1400.77,
-    "win_rate": 6.7
+    "trades": 20,
+    "pnl": -2170.71,
+    "win_rate": 5.0
    },
    "short": {
-    "trades": 20,
-    "pnl": 642.91,
-    "win_rate": 30.0
+    "trades": 24,
+    "pnl": 2329.69,
+    "win_rate": 33.3
    }
   },
-  "est_slippage": 409.54,
-  "return_after_slippage_pct": -1.178,
-  "ai_blocked": 8,
-  "ai_blocked_pnl": -48.38
+  "est_slippage": 515.59,
+  "return_after_slippage_pct": -0.371,
+  "ai_blocked": 9,
+  "ai_blocked_pnl": -354.89
  }
 }
