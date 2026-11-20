@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-20T09:50:29-05:00",
+ "updated": "2026-11-20T09:54:15-05:00",
  "date": "2026-11-20",
  "market_open": true,
  "account": {
-  "equity": 99060.37,
-  "cash": 98835.18,
-  "buying_power": 324521.81,
+  "equity": 98719.6,
+  "cash": 98878.05,
+  "buying_power": 347377.66,
   "start_equity": 100141.15,
-  "day_pnl": -1080.7799999999988,
-  "day_pnl_pct": -1.0792566292677885
+  "day_pnl": -1421.5499999999884,
+  "day_pnl_pct": -1.4195463103828798
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -939.6300000000047,
-  "pct": -0.9396300000000024,
-  "spy_pct": -6.3511879730866365
+  "pnl": -1280.3999999999942,
+  "pct": -1.2803999999999927,
+  "spy_pct": -6.0633936080740085
  },
  "regime": {
-  "spy": 712.63,
-  "spy_vwap": 713.04,
-  "spy_day_pct": -0.13,
-  "bias": "down",
-  "time": "2026-11-20T09:50-05:00"
+  "spy": 714.82,
+  "spy_vwap": 713.09,
+  "spy_day_pct": 0.18,
+  "bias": "up",
+  "time": "2026-11-20T09:54-05:00"
  },
  "scan": {
   "scanned": 190,
@@ -43,30 +43,30 @@
  },
  "positions": [
   {
+   "symbol": "COP",
+   "side": "long",
+   "qty": 145.0,
+   "entry": 135.87,
+   "price": 135.95,
+   "upl": 11.6,
+   "upl_pct": 0.059000000000000004,
+   "value": 19712.75,
+   "stop": 135.5,
+   "target": null,
+   "opened": "09:51"
+  },
+  {
    "symbol": "HOOD",
    "side": "short",
    "qty": 295.0,
    "entry": 67.25,
-   "price": 66.745,
-   "upl": 148.975,
-   "upl_pct": 0.751,
-   "value": 19689.775,
+   "price": 67.36,
+   "upl": -32.45,
+   "upl_pct": -0.164,
+   "value": 19871.2,
    "stop": 67.87,
    "target": null,
    "opened": "09:40"
-  },
-  {
-   "symbol": "NFLX",
-   "side": "long",
-   "qty": 338.0,
-   "entry": 59.0,
-   "price": 58.92,
-   "upl": -27.04,
-   "upl_pct": -0.136,
-   "value": 19914.96,
-   "stop": 58.8,
-   "target": null,
-   "opened": "09:37"
   }
  ],
  "universe": [
@@ -83,7 +83,7 @@
    "score": 6.569,
    "tier": "main",
    "source": "core",
-   "price": 171.38,
+   "price": 171.34,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Underwriting Anthropic IPO and routine disclosures"
@@ -101,8 +101,8 @@
    "score": 4.158,
    "tier": "main",
    "source": "core",
-   "price": 135.695,
-   "status": "WATCH",
+   "price": 135.95,
+   "status": "LONG",
    "ai": "both",
    "catalyst": "Analyst price target update"
   },
@@ -119,7 +119,7 @@
    "score": 4.06,
    "tier": "main",
    "source": "scanner",
-   "price": 86.82,
+   "price": 88.25,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Leveraged single-stock ETF launch"
@@ -137,7 +137,7 @@
    "score": 3.503,
    "tier": "main",
    "source": "core",
-   "price": 120.88,
+   "price": 120.73,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "Passing on World Cup broadcast rights"
@@ -155,7 +155,7 @@
    "score": 3.481,
    "tier": "main",
    "source": "core",
-   "price": 113.54,
+   "price": 113.395,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Capital injection after trade recording error"
@@ -173,7 +173,7 @@
    "score": 3.394,
    "tier": "main",
    "source": "core",
-   "price": 66.84,
+   "price": 67.28,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "Director share sale disclosure"
@@ -191,8 +191,8 @@
    "score": 3.203,
    "tier": "main",
    "source": "core",
-   "price": 58.91,
-   "status": "LONG",
+   "price": 58.86,
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "Viewing time study and content announcement"
   },
@@ -209,7 +209,7 @@
    "score": 3.197,
    "tier": "main",
    "source": "core",
-   "price": 815.18,
+   "price": 815.51,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "M&A advisory and routine disclosures"
@@ -227,7 +227,7 @@
    "score": 3.144,
    "tier": "main",
    "source": "core",
-   "price": 443.41,
+   "price": 441.715,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Summit sponsorship and competitor analyst note"
@@ -245,7 +245,7 @@
    "score": 2.997,
    "tier": "main",
    "source": "core",
-   "price": 1107.43,
+   "price": 1107.58,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Localized cheese recall in Ontario"
@@ -263,7 +263,7 @@
    "score": 2.909,
    "tier": "main",
    "source": "core",
-   "price": 340.955,
+   "price": 342.11,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "Analyst rating and target adjustment"
@@ -281,7 +281,7 @@
    "score": 2.868,
    "tier": "main",
    "source": "core",
-   "price": 17.45,
+   "price": 17.455,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "none"
@@ -299,7 +299,7 @@
    "score": 2.843,
    "tier": "main",
    "source": "core",
-   "price": 54.72,
+   "price": 54.65,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "Executive leadership and board appointments"
@@ -317,7 +317,7 @@
    "score": 2.768,
    "tier": "main",
    "source": "core",
-   "price": 13.295,
+   "price": 13.355,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Market report and survey releases"
@@ -335,7 +335,7 @@
    "score": 2.764,
    "tier": "main",
    "source": "core",
-   "price": 179.465,
+   "price": 179.25,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "none"
@@ -353,7 +353,7 @@
    "score": 2.583,
    "tier": "main",
    "source": "core",
-   "price": 595.15,
+   "price": 594.76,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -371,7 +371,7 @@
    "score": 2.518,
    "tier": "main",
    "source": "core",
-   "price": 199.69,
+   "price": 198.85,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -389,7 +389,7 @@
    "score": 2.478,
    "tier": "main",
    "source": "core",
-   "price": 38.03,
+   "price": 38.17,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Q3 financial results released"
@@ -407,7 +407,7 @@
    "score": 2.277,
    "tier": "main",
    "source": "core",
-   "price": 81.17,
+   "price": 81.385,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "none"
@@ -425,13 +425,27 @@
    "score": 2.103,
    "tier": "main",
    "source": "core",
-   "price": 635.975,
+   "price": 638.88,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
   }
  ],
  "signals": [
+  {
+   "time": "2026-11-20T09:51-05:00",
+   "symbol": "COP",
+   "side": "long",
+   "price": 135.905,
+   "stop": 135.5,
+   "target": null,
+   "qty": 145,
+   "or_high": 135.78,
+   "or_low": 134.705,
+   "action": "entered",
+   "reason": "",
+   "market": "down"
+  },
   {
    "time": "2026-11-20T09:50-05:00",
    "symbol": "GS",
@@ -621,6 +635,10 @@
   {
    "t": "09:46",
    "v": 99465.72
+  },
+  {
+   "t": "09:50",
+   "v": 99044.29
   }
  ],
  "days": [
