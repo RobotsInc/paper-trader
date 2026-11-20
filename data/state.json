@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 713.08,
-    "spy_vwap": 712.85,
-    "spy_day_pct": -0.07,
+    "spy": 713.19,
+    "spy_vwap": 712.86,
+    "spy_day_pct": -0.05,
     "bias": "up",
-    "time": "2026-11-20T09:39-05:00"
+    "time": "2026-11-20T09:43-05:00"
   },
   "ai": {
     "done": true,
@@ -411,7 +411,11 @@
     "ZS",
     "NFLX",
     "AMGN",
-    "PYPL"
+    "PYPL",
+    "DIS",
+    "SNDK",
+    "HOOD",
+    "QQQ"
   ],
   "signals": [
     {
@@ -497,33 +501,92 @@
       "action": "skipped_side_cap",
       "reason": "already 3 longs",
       "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:39-05:00",
+      "symbol": "DIS",
+      "side": "long",
+      "price": 121.96,
+      "stop": 121.63,
+      "target": null,
+      "qty": 163,
+      "or_high": 121.94,
+      "or_low": 120.7,
+      "action": "skipped_side_cap",
+      "reason": "already 3 longs",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:40-05:00",
+      "symbol": "SNDK",
+      "side": "short",
+      "price": 86.5,
+      "stop": 87.77,
+      "target": null,
+      "qty": 230,
+      "or_high": 90.625,
+      "or_low": 86.66,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:40-05:00",
+      "symbol": "HOOD",
+      "side": "short",
+      "price": 67.4,
+      "stop": 67.87,
+      "target": null,
+      "qty": 295,
+      "or_high": 68.57,
+      "or_low": 67.47,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:40-05:00",
+      "symbol": "QQQ",
+      "side": "short",
+      "price": 634.14,
+      "stop": 636.05,
+      "target": null,
+      "qty": 31,
+      "or_high": 638.57,
+      "or_low": 635,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
     }
   ],
   "shortable": {
-    "AMGN": true
+    "AMGN": true,
+    "SNDK": true,
+    "HOOD": true,
+    "QQQ": true
   },
   "last_prices": {
-    "HOOD": 67.79,
-    "AMGN": 440.89,
-    "GM": 81.31,
-    "SPOT": 590.88,
-    "XLV": 179.49,
-    "C": 113.69,
-    "ZS": 199.37,
-    "PYPL": 54.475,
-    "NFLX": 59.035,
-    "QQQ": 635.715,
-    "SPY": 713.08,
-    "MS": 171.46,
-    "DIS": 121.8,
-    "PINS": 17.385,
-    "COP": 135.45,
-    "SLV": 38.115,
-    "UNH": 341.965,
-    "SOFI": 13.39,
-    "GS": 823.76,
-    "SNDK": 87.9,
-    "COST": 1100.43
+    "DIS": 121.67,
+    "SPOT": 591.635,
+    "SNDK": 86.535,
+    "COST": 1104.6,
+    "ZS": 199.345,
+    "MS": 172.62,
+    "COP": 135.295,
+    "XLV": 179.685,
+    "NFLX": 59.21,
+    "C": 113.94,
+    "SOFI": 13.425,
+    "GM": 81.33,
+    "GS": 826.39,
+    "PINS": 17.465,
+    "HOOD": 67.2,
+    "SLV": 37.95,
+    "PYPL": 54.165,
+    "SPY": 713.19,
+    "QQQ": 635.93,
+    "UNH": 340.91,
+    "AMGN": 442.39
   },
   "halted": false,
   "eod_done": false,
