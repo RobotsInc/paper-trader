@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 714.01,
-    "spy_vwap": 712.85,
-    "spy_day_pct": 0.06,
-    "bias": "up",
-    "time": "2026-11-20T09:46-05:00"
+    "spy": 712.63,
+    "spy_vwap": 713.04,
+    "spy_day_pct": -0.13,
+    "bias": "down",
+    "time": "2026-11-20T09:50-05:00"
   },
   "ai": {
     "done": true,
@@ -415,7 +415,9 @@
     "DIS",
     "SNDK",
     "HOOD",
-    "QQQ"
+    "QQQ",
+    "SLV",
+    "GS"
   ],
   "signals": [
     {
@@ -557,36 +559,65 @@
       "action": "entered",
       "reason": "",
       "market": "down"
+    },
+    {
+      "time": "2026-11-20T09:48-05:00",
+      "symbol": "SLV",
+      "side": "long",
+      "price": 38.21,
+      "stop": 38.06,
+      "target": null,
+      "qty": 519,
+      "or_high": 38.16,
+      "or_low": 37.94,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:50-05:00",
+      "symbol": "GS",
+      "side": "short",
+      "price": 815.18,
+      "stop": 818.31,
+      "target": null,
+      "qty": 24,
+      "or_high": 826.67,
+      "or_low": 815.27,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
     }
   ],
   "shortable": {
     "AMGN": true,
     "SNDK": true,
     "HOOD": true,
-    "QQQ": true
+    "QQQ": true,
+    "GS": true
   },
   "last_prices": {
-    "PINS": 17.47,
-    "GM": 81.105,
-    "ZS": 199.38,
-    "COST": 1106.94,
-    "MS": 171.75,
-    "UNH": 339.995,
-    "SPOT": 595.36,
-    "C": 113.86,
-    "PYPL": 54.565,
-    "XLV": 179.82,
-    "SOFI": 13.385,
-    "DIS": 121.23,
-    "SNDK": 86.53,
-    "SLV": 38.01,
-    "GS": 820.12,
-    "SPY": 714.01,
-    "QQQ": 636.91,
-    "HOOD": 67.19,
-    "COP": 135.31,
-    "AMGN": 444.505,
-    "NFLX": 59.085
+    "SNDK": 86.82,
+    "COST": 1107.43,
+    "MS": 171.38,
+    "COP": 135.695,
+    "QQQ": 635.975,
+    "NFLX": 58.91,
+    "GM": 81.17,
+    "C": 113.54,
+    "HOOD": 66.84,
+    "SPOT": 595.15,
+    "SLV": 38.03,
+    "DIS": 120.88,
+    "XLV": 179.465,
+    "PYPL": 54.72,
+    "SPY": 712.63,
+    "UNH": 340.955,
+    "SOFI": 13.295,
+    "PINS": 17.45,
+    "AMGN": 443.41,
+    "ZS": 199.69,
+    "GS": 815.18
   },
   "halted": false,
   "eod_done": false,
