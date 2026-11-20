@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 709.33,
-    "spy_vwap": 713.12,
+    "spy": 709.38,
+    "spy_vwap": 712.98,
     "spy_day_pct": -0.59,
     "bias": "down",
-    "time": "2026-11-20T10:31-05:00"
+    "time": "2026-11-20T10:35-05:00"
   },
   "ai": {
     "done": true,
@@ -419,7 +419,8 @@
     "SLV",
     "GS",
     "COP",
-    "UNH"
+    "UNH",
+    "PINS"
   ],
   "signals": [
     {
@@ -617,6 +618,20 @@
       "action": "entered",
       "reason": "",
       "market": "up"
+    },
+    {
+      "time": "2026-11-20T10:35-05:00",
+      "symbol": "PINS",
+      "side": "long",
+      "price": 17.26,
+      "stop": 17.18,
+      "target": null,
+      "qty": 1141,
+      "or_high": 17.12,
+      "or_low": 16.835,
+      "action": "entered",
+      "reason": "",
+      "market": "down"
     }
   ],
   "shortable": {
@@ -627,27 +642,27 @@
     "GS": true
   },
   "last_prices": {
-    "SOFI": 13.175,
-    "C": 113.155,
-    "ZS": 198.725,
-    "XLV": 179.43,
-    "UNH": 343.78,
-    "AMGN": 441.44,
-    "SPY": 709.33,
-    "SPOT": 591.0,
-    "NFLX": 58.78,
-    "SNDK": 82.09,
-    "COP": 136.69,
-    "GM": 81.37,
-    "PINS": 17.3,
-    "HOOD": 65.98,
-    "DIS": 119.73,
-    "MS": 170.37,
-    "SLV": 37.51,
-    "GS": 811.78,
-    "PYPL": 55.0,
-    "QQQ": 630.55,
-    "COST": 1117.49
+    "PYPL": 55.085,
+    "DIS": 119.76,
+    "MS": 170.1,
+    "C": 112.655,
+    "GS": 809.835,
+    "SLV": 37.76,
+    "SPOT": 592.74,
+    "XLV": 179.3,
+    "SOFI": 13.17,
+    "GM": 81.35,
+    "QQQ": 630.39,
+    "HOOD": 65.88,
+    "COST": 1118.845,
+    "ZS": 198.825,
+    "UNH": 343.04,
+    "SNDK": 81.76,
+    "SPY": 709.38,
+    "NFLX": 58.88,
+    "COP": 136.45,
+    "PINS": 17.26,
+    "AMGN": 440.56
   },
   "halted": false,
   "eod_done": false,
