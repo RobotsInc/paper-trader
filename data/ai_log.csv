@@ -89,3 +89,23 @@ date,symbol,decision,reason,catalyst
 2026-11-19,SPY,both,Broad market ETF with no specific catalyst.,none
 2026-11-19,ARKK,both,Broad thematic ETF with no specific catalyst.,none
 2026-11-19,COIN,both,Expanded Bitcoin-backed loan availability across all states.,loan service expansion
+2026-11-20,MS,both,Routine underwriting and filings do not restrict trading directions.,Underwriting Anthropic IPO and routine disclosures
+2026-11-20,COP,both,Routine analyst price target adjustments do not restrict trading.,Analyst price target update
+2026-11-20,SNDK,both,New ETF product launch is routine and does not restrict trading.,Leveraged single-stock ETF launch
+2026-11-20,DIS,both,Strategic decision on sports rights is routine business news.,Passing on World Cup broadcast rights
+2026-11-20,C,both,Internal capital adjustment following recording error presents no binary risk.,Capital injection after trade recording error
+2026-11-20,HOOD,both,Routine insider share sales do not restrict trading directions.,Director share sale disclosure
+2026-11-20,NFLX,both,Routine media data and content updates do not restrict trading.,Viewing time study and content announcement
+2026-11-20,GS,both,Routine advisory roles and regulatory filings present no trade restrictions.,M&A advisory and routine disclosures
+2026-11-20,AMGN,both,Routine event sponsorship and analyst comments do not restrict trading.,Summit sponsorship and competitor analyst note
+2026-11-20,COST,both,Minor regional product recall does not pose binary risk.,Localized cheese recall in Ontario
+2026-11-20,UNH,both,Routine analyst updates do not restrict opening range breakout trades.,Analyst rating and target adjustment
+2026-11-20,PINS,both,No news catalyst present; unrestricted trading allowed.,none
+2026-11-20,PYPL,both,Standard executive appointments do not present binary trading risks.,Executive leadership and board appointments
+2026-11-20,SOFI,both,Routine market research reports do not restrict trading.,Market report and survey releases
+2026-11-20,XLV,both,No news catalyst present; unrestricted trading allowed.,none
+2026-11-20,SPOT,both,No news catalyst present; unrestricted trading allowed.,none
+2026-11-20,ZS,both,No news catalyst present; unrestricted trading allowed.,none
+2026-11-20,SLV,both,Reported earnings present no pending binary event today.,Q3 financial results released
+2026-11-20,GM,both,No news catalyst present; unrestricted trading allowed.,none
+2026-11-20,QQQ,both,No news catalyst present; unrestricted trading allowed.,none

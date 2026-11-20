@@ -1,18 +1,530 @@
 {
   "date": "2026-11-20",
   "start_equity": 100141.15,
-  "ranges": {},
-  "scan": {},
-  "regime": {},
-  "ai": {
-    "done": false,
-    "decisions": {},
-    "briefing": ""
+  "ranges": {
+    "MS": {
+      "symbol": "MS",
+      "high": 173.35,
+      "low": 169.745,
+      "prev_close": 169.985,
+      "gap_pct": 1.6,
+      "relvol": 6.57,
+      "range_pct": 2.12,
+      "atr": 6.126,
+      "dir": -1,
+      "score": 6.569,
+      "tier": "main",
+      "source": "core"
+    },
+    "COP": {
+      "symbol": "COP",
+      "high": 135.78,
+      "low": 134.705,
+      "prev_close": 135.56,
+      "gap_pct": -0.58,
+      "relvol": 4.16,
+      "range_pct": 0.79,
+      "atr": 4.0878,
+      "dir": 1,
+      "score": 4.158,
+      "tier": "main",
+      "source": "core"
+    },
+    "SNDK": {
+      "symbol": "SNDK",
+      "high": 90.625,
+      "low": 86.66,
+      "prev_close": 86.64,
+      "gap_pct": 3.88,
+      "relvol": 4.06,
+      "range_pct": 4.56,
+      "atr": 12.6536,
+      "dir": -1,
+      "score": 4.06,
+      "tier": "main",
+      "source": "scanner"
+    },
+    "DIS": {
+      "symbol": "DIS",
+      "high": 121.94,
+      "low": 120.7,
+      "prev_close": 121.885,
+      "gap_pct": -0.82,
+      "relvol": 3.5,
+      "range_pct": 1.02,
+      "atr": 3.2626,
+      "dir": 1,
+      "score": 3.503,
+      "tier": "main",
+      "source": "core"
+    },
+    "C": {
+      "symbol": "C",
+      "high": 114.18,
+      "low": 112.22,
+      "prev_close": 113.13,
+      "gap_pct": 0.93,
+      "relvol": 3.48,
+      "range_pct": 1.74,
+      "atr": 3.7475,
+      "dir": -1,
+      "score": 3.481,
+      "tier": "main",
+      "source": "core"
+    },
+    "HOOD": {
+      "symbol": "HOOD",
+      "high": 68.57,
+      "low": 67.47,
+      "prev_close": 67.85,
+      "gap_pct": 0.0,
+      "relvol": 3.39,
+      "range_pct": 1.63,
+      "atr": 4.6888,
+      "dir": -1,
+      "score": 3.394,
+      "tier": "main",
+      "source": "core"
+    },
+    "NFLX": {
+      "symbol": "NFLX",
+      "high": 58.97,
+      "low": 58.32,
+      "prev_close": 59.005,
+      "gap_pct": -1.13,
+      "relvol": 3.2,
+      "range_pct": 1.1,
+      "atr": 1.8833,
+      "dir": 1,
+      "score": 3.203,
+      "tier": "main",
+      "source": "core"
+    },
+    "GS": {
+      "symbol": "GS",
+      "high": 826.67,
+      "low": 815.27,
+      "prev_close": 817.125,
+      "gap_pct": 1.06,
+      "relvol": 3.2,
+      "range_pct": 1.4,
+      "atr": 31.2801,
+      "dir": -1,
+      "score": 3.197,
+      "tier": "main",
+      "source": "core"
+    },
+    "AMGN": {
+      "symbol": "AMGN",
+      "high": 443.59,
+      "low": 440.83,
+      "prev_close": 443.04,
+      "gap_pct": 0.0,
+      "relvol": 3.14,
+      "range_pct": 0.62,
+      "atr": 11.7974,
+      "dir": -1,
+      "score": 3.144,
+      "tier": "main",
+      "source": "core"
+    },
+    "COST": {
+      "symbol": "COST",
+      "high": 1108.91,
+      "low": 1103.66,
+      "prev_close": 1102.6104,
+      "gap_pct": 0.2,
+      "relvol": 3.0,
+      "range_pct": 0.48,
+      "atr": 19.9438,
+      "dir": -1,
+      "score": 2.997,
+      "tier": "main",
+      "source": "core"
+    },
+    "UNH": {
+      "symbol": "UNH",
+      "high": 344.98,
+      "low": 338.79,
+      "prev_close": 343.37,
+      "gap_pct": -1.01,
+      "relvol": 2.91,
+      "range_pct": 1.8,
+      "atr": 15.9389,
+      "dir": 1,
+      "score": 2.909,
+      "tier": "main",
+      "source": "core"
+    },
+    "PINS": {
+      "symbol": "PINS",
+      "high": 17.12,
+      "low": 16.835,
+      "prev_close": 17.25,
+      "gap_pct": -2.26,
+      "relvol": 2.87,
+      "range_pct": 1.66,
+      "atr": 0.7582,
+      "dir": 1,
+      "score": 2.868,
+      "tier": "main",
+      "source": "core"
+    },
+    "PYPL": {
+      "symbol": "PYPL",
+      "high": 54.44,
+      "low": 53.33,
+      "prev_close": 54.305,
+      "gap_pct": -1.63,
+      "relvol": 2.84,
+      "range_pct": 2.05,
+      "atr": 1.6961,
+      "dir": 1,
+      "score": 2.843,
+      "tier": "main",
+      "source": "core"
+    },
+    "SOFI": {
+      "symbol": "SOFI",
+      "high": 13.36,
+      "low": 13.155,
+      "prev_close": 13.31,
+      "gap_pct": -0.49,
+      "relvol": 2.77,
+      "range_pct": 1.54,
+      "atr": 0.7744,
+      "dir": 1,
+      "score": 2.768,
+      "tier": "main",
+      "source": "core"
+    },
+    "XLV": {
+      "symbol": "XLV",
+      "high": 179.89,
+      "low": 178.85,
+      "prev_close": 179.94,
+      "gap_pct": -0.55,
+      "relvol": 2.76,
+      "range_pct": 0.58,
+      "atr": 3.7799,
+      "dir": 1,
+      "score": 2.764,
+      "tier": "main",
+      "source": "core"
+    },
+    "SPOT": {
+      "symbol": "SPOT",
+      "high": 589.93,
+      "low": 580.42,
+      "prev_close": 591.51,
+      "gap_pct": -1.53,
+      "relvol": 2.58,
+      "range_pct": 1.61,
+      "atr": 19.7977,
+      "dir": 1,
+      "score": 2.583,
+      "tier": "main",
+      "source": "core"
+    },
+    "ZS": {
+      "symbol": "ZS",
+      "high": 204.24,
+      "low": 201.96,
+      "prev_close": 204.47,
+      "gap_pct": -1.23,
+      "relvol": 2.52,
+      "range_pct": 1.12,
+      "atr": 11.8678,
+      "dir": 1,
+      "score": 2.518,
+      "tier": "main",
+      "source": "core"
+    },
+    "SLV": {
+      "symbol": "SLV",
+      "high": 38.16,
+      "low": 37.94,
+      "prev_close": 37.975,
+      "gap_pct": -0.04,
+      "relvol": 2.48,
+      "range_pct": 0.58,
+      "atr": 1.5414,
+      "dir": 1,
+      "score": 2.478,
+      "tier": "main",
+      "source": "core"
+    },
+    "GM": {
+      "symbol": "GM",
+      "high": 81.835,
+      "low": 80.86,
+      "prev_close": 81.1,
+      "gap_pct": 0.91,
+      "relvol": 2.28,
+      "range_pct": 1.2,
+      "atr": 2.8536,
+      "dir": -1,
+      "score": 2.277,
+      "tier": "main",
+      "source": "core"
+    },
+    "QQQ": {
+      "symbol": "QQQ",
+      "high": 638.57,
+      "low": 635,
+      "prev_close": 635.81,
+      "gap_pct": 0.42,
+      "relvol": 2.1,
+      "range_pct": 0.56,
+      "atr": 19.0862,
+      "dir": -1,
+      "score": 2.103,
+      "tier": "main",
+      "source": "core"
+    }
   },
-  "traded": [],
-  "signals": [],
-  "shortable": {},
-  "last_prices": {},
+  "scan": {
+    "scanned": 190,
+    "liquid": 124,
+    "qualified": 55,
+    "selected": 20,
+    "small_tracked": 0
+  },
+  "regime": {
+    "spy": 713.08,
+    "spy_vwap": 712.85,
+    "spy_day_pct": -0.07,
+    "bias": "up",
+    "time": "2026-11-20T09:39-05:00"
+  },
+  "ai": {
+    "done": true,
+    "enabled": true,
+    "model": "gemini-3.6-flash",
+    "decisions": {
+      "MS": {
+        "decision": "both",
+        "catalyst": "Underwriting Anthropic IPO and routine disclosures",
+        "reason": "Routine underwriting and filings do not restrict trading directions."
+      },
+      "COP": {
+        "decision": "both",
+        "catalyst": "Analyst price target update",
+        "reason": "Routine analyst price target adjustments do not restrict trading."
+      },
+      "SNDK": {
+        "decision": "both",
+        "catalyst": "Leveraged single-stock ETF launch",
+        "reason": "New ETF product launch is routine and does not restrict trading."
+      },
+      "DIS": {
+        "decision": "both",
+        "catalyst": "Passing on World Cup broadcast rights",
+        "reason": "Strategic decision on sports rights is routine business news."
+      },
+      "C": {
+        "decision": "both",
+        "catalyst": "Capital injection after trade recording error",
+        "reason": "Internal capital adjustment following recording error presents no binary risk."
+      },
+      "HOOD": {
+        "decision": "both",
+        "catalyst": "Director share sale disclosure",
+        "reason": "Routine insider share sales do not restrict trading directions."
+      },
+      "NFLX": {
+        "decision": "both",
+        "catalyst": "Viewing time study and content announcement",
+        "reason": "Routine media data and content updates do not restrict trading."
+      },
+      "GS": {
+        "decision": "both",
+        "catalyst": "M&A advisory and routine disclosures",
+        "reason": "Routine advisory roles and regulatory filings present no trade restrictions."
+      },
+      "AMGN": {
+        "decision": "both",
+        "catalyst": "Summit sponsorship and competitor analyst note",
+        "reason": "Routine event sponsorship and analyst comments do not restrict trading."
+      },
+      "COST": {
+        "decision": "both",
+        "catalyst": "Localized cheese recall in Ontario",
+        "reason": "Minor regional product recall does not pose binary risk."
+      },
+      "UNH": {
+        "decision": "both",
+        "catalyst": "Analyst rating and target adjustment",
+        "reason": "Routine analyst updates do not restrict opening range breakout trades."
+      },
+      "PINS": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No news catalyst present; unrestricted trading allowed."
+      },
+      "PYPL": {
+        "decision": "both",
+        "catalyst": "Executive leadership and board appointments",
+        "reason": "Standard executive appointments do not present binary trading risks."
+      },
+      "SOFI": {
+        "decision": "both",
+        "catalyst": "Market report and survey releases",
+        "reason": "Routine market research reports do not restrict trading."
+      },
+      "XLV": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No news catalyst present; unrestricted trading allowed."
+      },
+      "SPOT": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No news catalyst present; unrestricted trading allowed."
+      },
+      "ZS": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No news catalyst present; unrestricted trading allowed."
+      },
+      "SLV": {
+        "decision": "both",
+        "catalyst": "Q3 financial results released",
+        "reason": "Reported earnings present no pending binary event today."
+      },
+      "GM": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No news catalyst present; unrestricted trading allowed."
+      },
+      "QQQ": {
+        "decision": "both",
+        "catalyst": "none",
+        "reason": "No news catalyst present; unrestricted trading allowed."
+      }
+    },
+    "briefing": "Markets are opening relatively flat to modestly positive this morning with QQQ showing a small gap up. Headlines are dominated by routine broker disclosures, executive appointments, and strategic content decisions. Overall market tone is balanced with no major macroeconomic or broad binary catalyst driving systemic risk."
+  },
+  "traded": [
+    "SOFI",
+    "SPOT",
+    "ZS",
+    "NFLX",
+    "AMGN",
+    "PYPL"
+  ],
+  "signals": [
+    {
+      "time": "2026-11-20T09:36-05:00",
+      "symbol": "SOFI",
+      "side": "long",
+      "price": 13.385,
+      "stop": 13.31,
+      "target": null,
+      "qty": 1496,
+      "or_high": 13.36,
+      "or_low": 13.155,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:36-05:00",
+      "symbol": "SPOT",
+      "side": "long",
+      "price": 592.59,
+      "stop": 590.61,
+      "target": null,
+      "qty": 33,
+      "or_high": 589.93,
+      "or_low": 580.42,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:36-05:00",
+      "symbol": "ZS",
+      "side": "long",
+      "price": 205.265,
+      "stop": 204.08,
+      "target": null,
+      "qty": 97,
+      "or_high": 204.24,
+      "or_low": 201.96,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:37-05:00",
+      "symbol": "NFLX",
+      "side": "long",
+      "price": 58.99,
+      "stop": 58.8,
+      "target": null,
+      "qty": 338,
+      "or_high": 58.97,
+      "or_low": 58.32,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:38-05:00",
+      "symbol": "AMGN",
+      "side": "short",
+      "price": 440.53,
+      "stop": 441.71,
+      "target": null,
+      "qty": 45,
+      "or_high": 443.59,
+      "or_low": 440.83,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
+    },
+    {
+      "time": "2026-11-20T09:39-05:00",
+      "symbol": "PYPL",
+      "side": "long",
+      "price": 54.475,
+      "stop": 54.31,
+      "target": null,
+      "qty": 366,
+      "or_high": 54.44,
+      "or_low": 53.33,
+      "action": "skipped_side_cap",
+      "reason": "already 3 longs",
+      "market": "up"
+    }
+  ],
+  "shortable": {
+    "AMGN": true
+  },
+  "last_prices": {
+    "HOOD": 67.79,
+    "AMGN": 440.89,
+    "GM": 81.31,
+    "SPOT": 590.88,
+    "XLV": 179.49,
+    "C": 113.69,
+    "ZS": 199.37,
+    "PYPL": 54.475,
+    "NFLX": 59.035,
+    "QQQ": 635.715,
+    "SPY": 713.08,
+    "MS": 171.46,
+    "DIS": 121.8,
+    "PINS": 17.385,
+    "COP": 135.45,
+    "SLV": 38.115,
+    "UNH": 341.965,
+    "SOFI": 13.39,
+    "GS": 823.76,
+    "SNDK": 87.9,
+    "COST": 1100.43
+  },
   "halted": false,
   "eod_done": false,
   "session_seen": true,
