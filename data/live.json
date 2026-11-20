@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-20T14:08:47-05:00",
+ "updated": "2026-11-20T14:12:32-05:00",
  "date": "2026-11-20",
  "market_open": true,
  "account": {
-  "equity": 98461.35,
+  "equity": 98519.24,
   "cash": 98095.65,
-  "buying_power": 346604.76,
+  "buying_power": 346930.15,
   "start_equity": 100141.15,
-  "day_pnl": -1679.7999999999884,
-  "day_pnl_pct": -1.677432304302462
+  "day_pnl": -1621.909999999989,
+  "day_pnl_pct": -1.6196239008639202
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1538.6499999999942,
-  "pct": -1.538649999999997,
-  "spy_pct": -7.865065180824226
+  "pnl": -1480.7599999999948,
+  "pct": -1.480759999999992,
+  "spy_pct": -8.143660639192607
  },
  "regime": {
-  "spy": 701.11,
-  "spy_vwap": 706.8,
-  "spy_day_pct": -1.74,
+  "spy": 698.99,
+  "spy_vwap": 706.76,
+  "spy_day_pct": -2.04,
   "bias": "down",
-  "time": "2026-11-20T14:08-05:00"
+  "time": "2026-11-20T14:12-05:00"
  },
  "scan": {
   "scanned": 190,
@@ -47,10 +47,10 @@
    "side": "long",
    "qty": 145.0,
    "entry": 135.87,
-   "price": 137.01,
-   "upl": 165.3,
-   "upl_pct": 0.839,
-   "value": 19866.45,
+   "price": 136.94,
+   "upl": 155.15,
+   "upl_pct": 0.788,
+   "value": 19856.3,
    "stop": 135.5,
    "target": null,
    "opened": "09:51"
@@ -60,10 +60,10 @@
    "side": "short",
    "qty": 243.0,
    "entry": 80.74,
-   "price": 80.25,
-   "upl": 119.07,
-   "upl_pct": 0.607,
-   "value": 19500.75,
+   "price": 79.97,
+   "upl": 187.11,
+   "upl_pct": 0.954,
+   "value": 19432.71,
    "stop": 81.08,
    "target": null,
    "opened": "11:01"
@@ -83,7 +83,7 @@
    "score": 6.569,
    "tier": "main",
    "source": "core",
-   "price": 168.765,
+   "price": 168.26,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Underwriting Anthropic IPO and routine disclosures"
@@ -101,7 +101,7 @@
    "score": 4.158,
    "tier": "main",
    "source": "core",
-   "price": 136.96,
+   "price": 136.905,
    "status": "LONG",
    "ai": "both",
    "catalyst": "Analyst price target update"
@@ -119,7 +119,7 @@
    "score": 4.06,
    "tier": "main",
    "source": "scanner",
-   "price": 80.97,
+   "price": 80.09,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Leveraged single-stock ETF launch"
@@ -137,7 +137,7 @@
    "score": 3.503,
    "tier": "main",
    "source": "core",
-   "price": 118.43,
+   "price": 118.42,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "Passing on World Cup broadcast rights"
@@ -155,7 +155,7 @@
    "score": 3.481,
    "tier": "main",
    "source": "core",
-   "price": 111.83,
+   "price": 111.56,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Capital injection after trade recording error"
@@ -173,7 +173,7 @@
    "score": 3.394,
    "tier": "main",
    "source": "core",
-   "price": 63.89,
+   "price": 63.6,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Director share sale disclosure"
@@ -191,7 +191,7 @@
    "score": 3.203,
    "tier": "main",
    "source": "core",
-   "price": 57.39,
+   "price": 57.46,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Viewing time study and content announcement"
@@ -209,7 +209,7 @@
    "score": 3.197,
    "tier": "main",
    "source": "core",
-   "price": 804.6,
+   "price": 802.5,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "M&A advisory and routine disclosures"
@@ -227,7 +227,7 @@
    "score": 3.144,
    "tier": "main",
    "source": "core",
-   "price": 437.96,
+   "price": 437.65,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Summit sponsorship and competitor analyst note"
@@ -245,7 +245,7 @@
    "score": 2.997,
    "tier": "main",
    "source": "core",
-   "price": 1112.05,
+   "price": 1110.85,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "Localized cheese recall in Ontario"
@@ -263,7 +263,7 @@
    "score": 2.909,
    "tier": "main",
    "source": "core",
-   "price": 345.85,
+   "price": 345.55,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Analyst rating and target adjustment"
@@ -281,7 +281,7 @@
    "score": 2.868,
    "tier": "main",
    "source": "core",
-   "price": 16.8,
+   "price": 16.78,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -299,7 +299,7 @@
    "score": 2.843,
    "tier": "main",
    "source": "core",
-   "price": 54.455,
+   "price": 54.44,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "Executive leadership and board appointments"
@@ -317,7 +317,7 @@
    "score": 2.768,
    "tier": "main",
    "source": "core",
-   "price": 12.84,
+   "price": 12.8,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Market report and survey releases"
@@ -335,7 +335,7 @@
    "score": 2.764,
    "tier": "main",
    "source": "core",
-   "price": 178.73,
+   "price": 178.65,
    "status": "BELOW RANGE",
    "ai": "both",
    "catalyst": "none"
@@ -353,7 +353,7 @@
    "score": 2.583,
    "tier": "main",
    "source": "core",
-   "price": 589.285,
+   "price": 589.49,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -389,7 +389,7 @@
    "score": 2.478,
    "tier": "main",
    "source": "core",
-   "price": 37.39,
+   "price": 37.26,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "Q3 financial results released"
@@ -407,7 +407,7 @@
    "score": 2.277,
    "tier": "main",
    "source": "core",
-   "price": 80.23,
+   "price": 80.02,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "none"
@@ -425,7 +425,7 @@
    "score": 2.103,
    "tier": "main",
    "source": "core",
-   "price": 621.35,
+   "price": 618.92,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -981,6 +981,10 @@
   {
    "t": "14:05",
    "v": 98474.48
+  },
+  {
+   "t": "14:08",
+   "v": 98461.35
   }
  ],
  "days": [
