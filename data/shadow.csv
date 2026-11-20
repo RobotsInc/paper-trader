@@ -45,3 +45,5 @@ date,symbol,side,action,reason,entry,exit,exit_type,qty,pnl,r_multiple
 2026-11-19,CRWD,long,skipped_max_positions,,255.75,254.25,stop,77,-115.5,-1.0
 2026-11-19,SNOW,long,skipped_max_positions,,296.35,294.82,stop,67,-102.51,-1.0
 2026-11-19,COIN,long,skipped_max_positions,,115.19,114.33,stop,172,-147.92,-1.0
+2026-11-20,PYPL,long,skipped_side_cap,already 3 longs,54.475,54.31,stop,366,-60.39,-1.0
+2026-11-20,DIS,long,skipped_side_cap,already 3 longs,121.96,121.63,stop,163,-53.79,-1.0

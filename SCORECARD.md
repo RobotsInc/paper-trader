@@ -2,30 +2,30 @@
 
 _Simulated money only. Updated automatically after each trading day. Live view: the dashboard link in the README._
 
-Since 2026-11-12 - 6 trading day(s)
+Since 2026-11-12 - 7 trading day(s)
 
-**Beating buy-and-hold SPY by 5.93 points.** Only 6 trading day(s) so far - too early to judge (wait for 20+).
+**Beating buy-and-hold SPY by 7.56 points.** Only 7 trading day(s) so far - too early to judge (wait for 20+).
 
 | | Bot | Buy & hold SPY |
 |---|---|---|
-| Return | +0.14% | -5.79% |
-| Equity | $100,144.83 | $94,211.26 |
+| Return | -1.30% | -8.87% |
+| Equity | $98,698.12 | $91,134.88 |
 
 ## Stats
 
 | Metric | Value |
 |---|---|
-| Total P&L | $144.83 |
-| P&L after est. slippage (3 bps/side, what real money might see) | -$370.76 (-0.37%) |
-| Trades | 44 |
-| Win rate | 20% |
-| Avg win / avg loss | $542.62 / -$134.99 |
-| Profit factor | 1.03 |
+| Total P&L | -$1,301.88 |
+| P&L after est. slippage (3 bps/side, what real money might see) | -$2,007.07 (-2.01%) |
+| Trades | 60 |
+| Win rate | 18% |
+| Avg win / avg loss | $491.34 / -$136.51 |
+| Profit factor | 0.81 |
 | Max drawdown | -1.54% |
-| Best / worst day | $916.84 / -$1,055.34 |
-| Green days | 3 of 6 |
-| Longs | 20 trades, -$2,170.71 |
-| Shorts | 24 trades, $2,329.69 |
+| Best / worst day | $916.84 / -$1,443.03 |
+| Green days | 3 of 7 |
+| Longs | 28 trades, -$2,969.79 |
+| Shorts | 32 trades, $1,685.74 |
 
 ## Is the AI news filter helping?
 
@@ -48,6 +48,7 @@ R = profit as a multiple of the risk to the stop. Positive after the spread over
 
 | Date | P&L | Bot % | SPY % | Trades | AI blocked |
 |---|---|---|---|---|---|
+| 2026-11-20 | -$1,443.03 | -1.44% | -2.81% | 16 | 0 |
 | 2026-11-19 | $916.84 | +0.92% | -2.80% | 9 | 1 |
 | 2026-11-18 | -$198.80 | -0.20% | -0.38% | 8 | 0 |
 | 2026-11-17 | $882.79 | +0.90% | -1.03% | 8 | 0 |
@@ -59,18 +60,18 @@ R = profit as a multiple of the risk to the stop. Positive after the spread over
 
 | Date | Symbol | Side | Qty | Entry | Exit | P&L |
 |---|---|---|---|---|---|---|
-| 2026-11-19 | WMT | long | 157 | 125.37 | 125.11 | -$40.82 |
-| 2026-11-19 | MSTR | short | 215 | 92.38 | 86.88 | $1,183.17 |
-| 2026-11-19 | IREN | long | 1216 | 16.28 | 16.05 | -$274.69 |
-| 2026-11-19 | BA | long | 120 | 164.15 | 163.51 | -$76.75 |
-| 2026-11-19 | MCD | short | 74 | 267.78 | 268.88 | -$81.41 |
-| 2026-11-19 | AMGN | short | 45 | 440.53 | 441.67 | -$51.33 |
-| 2026-11-19 | MRK | short | 145 | 136.57 | 132.18 | $636.35 |
-| 2026-11-19 | DDOG | long | 110 | 179.77 | 177.75 | -$222.20 |
-| 2026-11-19 | ZS | long | 92 | 214.38 | 212.69 | -$155.48 |
-| 2026-11-18 | BRBR | short | 1554 | 12.83 | 12.96 | -$202.02 |
-| 2026-11-18 | CRM | short | 105 | 188.8 | 189.91 | -$116.21 |
-| 2026-11-18 | XLE | short | 320 | 62.22 | 62.39 | -$55.82 |
-| 2026-11-18 | MSTR | short | 214 | 92.74 | 93.6 | -$184.76 |
-| 2026-11-18 | DASH | long | 119 | 167.16 | 165.57 | -$189.21 |
-| 2026-11-18 | SLV | short | 487 | 40.79 | 40.95 | -$77.92 |
+| 2026-11-20 | GM | short | 243 | 80.74 | 79.3 | $350.43 |
+| 2026-11-20 | C | short | 175 | 112.07 | 112.58 | -$89.11 |
+| 2026-11-20 | MS | short | 116 | 169.47 | 170.17 | -$81.20 |
+| 2026-11-20 | PINS | long | 1141 | 17.25 | 17.17 | -$86.75 |
+| 2026-11-20 | UNH | long | 57 | 345.92 | 343.8 | -$120.56 |
+| 2026-11-20 | COP | long | 145 | 135.87 | 137.05 | $170.71 |
+| 2026-11-20 | GS | short | 24 | 814.37 | 819.38 | -$120.24 |
+| 2026-11-20 | SLV | long | 519 | 38.22 | 38.03 | -$98.96 |
+| 2026-11-20 | QQQ | short | 31 | 633.98 | 636.07 | -$64.87 |
+| 2026-11-20 | SNDK | short | 230 | 86.19 | 87.83 | -$377.06 |
+| 2026-11-20 | HOOD | short | 295 | 67.25 | 67.88 | -$185.85 |
+| 2026-11-20 | AMGN | short | 45 | 440.18 | 441.87 | -$76.05 |
+| 2026-11-20 | NFLX | long | 338 | 59.0 | 58.77 | -$77.74 |
+| 2026-11-20 | ZS | long | 97 | 206.23 | 203.33 | -$281.30 |
+| 2026-11-20 | SPOT | long | 33 | 594.39 | 588.79 | -$184.80 |

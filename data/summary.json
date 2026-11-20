@@ -1,32 +1,32 @@
 {
- "days": 6,
+ "days": 7,
  "start_equity": 100000.0,
- "end_equity": 100144.83,
- "return_pct": 0.145,
- "spy_return_pct": -5.789,
- "trades": 44,
- "win_rate": 20.5,
- "avg_win": 542.62,
- "avg_loss": -134.99,
- "profit_factor": 1.03,
+ "end_equity": 98698.12,
+ "return_pct": -1.302,
+ "spy_return_pct": -8.865,
+ "trades": 60,
+ "win_rate": 18.3,
+ "avg_win": 491.34,
+ "avg_loss": -136.51,
+ "profit_factor": 0.81,
  "max_drawdown_pct": -1.54,
  "best_day": 916.84,
- "worst_day": -1055.34,
+ "worst_day": -1443.03,
  "green_days": 3,
  "by_side": {
   "long": {
-   "trades": 20,
-   "pnl": -2170.71,
-   "win_rate": 5.0
+   "trades": 28,
+   "pnl": -2969.79,
+   "win_rate": 7.1
   },
   "short": {
-   "trades": 24,
-   "pnl": 2329.69,
-   "win_rate": 33.3
+   "trades": 32,
+   "pnl": 1685.74,
+   "win_rate": 28.1
   }
  },
- "est_slippage": 515.59,
- "return_after_slippage_pct": -0.371,
+ "est_slippage": 705.19,
+ "return_after_slippage_pct": -2.007,
  "ai_blocked": 9,
  "ai_blocked_pnl": -354.89
 }

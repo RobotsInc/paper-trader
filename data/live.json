@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-20T15:42:23-05:00",
+ "updated": "2026-11-20T15:46:04-05:00",
  "date": "2026-11-20",
  "market_open": true,
  "account": {
-  "equity": 98701.06,
-  "cash": 98095.65,
-  "buying_power": 347899.97,
+  "equity": 98698.12,
+  "cash": 98698.12,
+  "buying_power": 394792.48,
   "start_equity": 100141.15,
-  "day_pnl": -1440.0899999999965,
-  "day_pnl_pct": -1.4380601780586644
+  "day_pnl": -1443.0299999999988,
+  "day_pnl_pct": -1.4409960340978745
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,8 +16,8 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -1298.9400000000023,
-  "pct": -1.298940000000004,
+  "pnl": -1301.8800000000047,
+  "pct": -1.3018799999999997,
   "spy_pct": -8.624632043734227
  },
  "regime": {
@@ -41,34 +41,7 @@
   "error": null,
   "flags": []
  },
- "positions": [
-  {
-   "symbol": "COP",
-   "side": "long",
-   "qty": 145.0,
-   "entry": 135.87,
-   "price": 136.87,
-   "upl": 145.0,
-   "upl_pct": 0.736,
-   "value": 19846.15,
-   "stop": 135.5,
-   "target": null,
-   "opened": "09:51"
-  },
-  {
-   "symbol": "GM",
-   "side": "short",
-   "qty": 243.0,
-   "entry": 80.74,
-   "price": 79.18,
-   "upl": 379.08,
-   "upl_pct": 1.932,
-   "value": 19240.74,
-   "stop": 81.08,
-   "target": null,
-   "opened": "11:01"
-  }
- ],
+ "positions": [],
  "universe": [
   {
    "symbol": "MS",
@@ -102,7 +75,7 @@
    "tier": "main",
    "source": "core",
    "price": 136.76,
-   "status": "LONG",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "Analyst price target update"
   },
@@ -408,7 +381,7 @@
    "tier": "main",
    "source": "core",
    "price": 79.68,
-   "status": "SHORT",
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
   },
@@ -1073,6 +1046,10 @@
   {
    "t": "15:38",
    "v": 98686.36
+  },
+  {
+   "t": "15:42",
+   "v": 98697.16
   }
  ],
  "days": [
@@ -1177,9 +1154,186 @@
    "spy_pct": "-2.797",
    "longs": "5",
    "shorts": "4"
+  },
+  {
+   "date": "2026-11-20",
+   "start_equity": "100141.15",
+   "end_equity": "98698.12",
+   "pnl": "-1443.03",
+   "pnl_pct": "-1.441",
+   "trades": "16",
+   "wins": "2",
+   "signals": "18",
+   "ai_blocked": "0",
+   "ai_blocked_pnl": "0.0",
+   "spy_open": "713.56",
+   "spy_close": "693.5",
+   "spy_pct": "-2.811",
+   "longs": "8",
+   "shorts": "8"
   }
  ],
  "trades": [
+  {
+   "date": "2026-11-20",
+   "symbol": "GM",
+   "side": "short",
+   "qty": "243.0",
+   "entry": "80.74",
+   "exit": "79.3",
+   "pnl": "350.43",
+   "pnl_pct": "1.79"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "C",
+   "side": "short",
+   "qty": "175.0",
+   "entry": "112.07",
+   "exit": "112.58",
+   "pnl": "-89.11",
+   "pnl_pct": "-0.45"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "MS",
+   "side": "short",
+   "qty": "116.0",
+   "entry": "169.47",
+   "exit": "170.17",
+   "pnl": "-81.2",
+   "pnl_pct": "-0.41"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "PINS",
+   "side": "long",
+   "qty": "1141.0",
+   "entry": "17.25",
+   "exit": "17.17",
+   "pnl": "-86.75",
+   "pnl_pct": "-0.44"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "UNH",
+   "side": "long",
+   "qty": "57.0",
+   "entry": "345.92",
+   "exit": "343.8",
+   "pnl": "-120.56",
+   "pnl_pct": "-0.61"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "COP",
+   "side": "long",
+   "qty": "145.0",
+   "entry": "135.87",
+   "exit": "137.05",
+   "pnl": "170.71",
+   "pnl_pct": "0.87"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "GS",
+   "side": "short",
+   "qty": "24.0",
+   "entry": "814.37",
+   "exit": "819.38",
+   "pnl": "-120.24",
+   "pnl_pct": "-0.62"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "SLV",
+   "side": "long",
+   "qty": "519.0",
+   "entry": "38.22",
+   "exit": "38.03",
+   "pnl": "-98.96",
+   "pnl_pct": "-0.5"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "QQQ",
+   "side": "short",
+   "qty": "31.0",
+   "entry": "633.98",
+   "exit": "636.07",
+   "pnl": "-64.87",
+   "pnl_pct": "-0.33"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "SNDK",
+   "side": "short",
+   "qty": "230.0",
+   "entry": "86.19",
+   "exit": "87.83",
+   "pnl": "-377.06",
+   "pnl_pct": "-1.9"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "HOOD",
+   "side": "short",
+   "qty": "295.0",
+   "entry": "67.25",
+   "exit": "67.88",
+   "pnl": "-185.85",
+   "pnl_pct": "-0.94"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "AMGN",
+   "side": "short",
+   "qty": "45.0",
+   "entry": "440.18",
+   "exit": "441.87",
+   "pnl": "-76.05",
+   "pnl_pct": "-0.38"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "NFLX",
+   "side": "long",
+   "qty": "338.0",
+   "entry": "59.0",
+   "exit": "58.77",
+   "pnl": "-77.74",
+   "pnl_pct": "-0.39"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "ZS",
+   "side": "long",
+   "qty": "97.0",
+   "entry": "206.23",
+   "exit": "203.33",
+   "pnl": "-281.3",
+   "pnl_pct": "-1.41"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "SPOT",
+   "side": "long",
+   "qty": "33.0",
+   "entry": "594.39",
+   "exit": "588.79",
+   "pnl": "-184.8",
+   "pnl_pct": "-0.94"
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "SOFI",
+   "side": "long",
+   "qty": "1496.0",
+   "entry": "13.39",
+   "exit": "13.31",
+   "pnl": "-119.68",
+   "pnl_pct": "-0.6"
+  },
   {
    "date": "2026-11-19",
    "symbol": "WMT",
@@ -1319,197 +1473,37 @@
    "exit": "165.57",
    "pnl": "-189.21",
    "pnl_pct": "-0.95"
-  },
-  {
-   "date": "2026-11-18",
-   "symbol": "SLV",
-   "side": "short",
-   "qty": "487.0",
-   "entry": "40.79",
-   "exit": "40.95",
-   "pnl": "-77.92",
-   "pnl_pct": "-0.39"
-  },
-  {
-   "date": "2026-11-18",
-   "symbol": "PRMB",
-   "side": "long",
-   "qty": "883.0",
-   "entry": "22.5",
-   "exit": "22.37",
-   "pnl": "-114.79",
-   "pnl_pct": "-0.58"
-  },
-  {
-   "date": "2026-11-18",
-   "symbol": "MDLN",
-   "side": "long",
-   "qty": "528.0",
-   "entry": "37.66",
-   "exit": "39.07",
-   "pnl": "741.93",
-   "pnl_pct": "3.73"
-  },
-  {
-   "date": "2026-11-17",
-   "symbol": "SLB",
-   "side": "short",
-   "qty": "396.0",
-   "entry": "49.95",
-   "exit": "49.04",
-   "pnl": "360.36",
-   "pnl_pct": "1.82"
-  },
-  {
-   "date": "2026-11-17",
-   "symbol": "DRAM",
-   "side": "short",
-   "qty": "511.0",
-   "entry": "38.72",
-   "exit": "39.09",
-   "pnl": "-188.65",
-   "pnl_pct": "-0.95"
-  },
-  {
-   "date": "2026-11-17",
-   "symbol": "HD",
-   "side": "long",
-   "qty": "57.0",
-   "entry": "342.45",
-   "exit": "339.42",
-   "pnl": "-172.9",
-   "pnl_pct": "-0.89"
-  },
-  {
-   "date": "2026-11-17",
-   "symbol": "SBUX",
-   "side": "long",
-   "qty": "179.0",
-   "entry": "109.8",
-   "exit": "109.4",
-   "pnl": "-71.6",
-   "pnl_pct": "-0.36"
-  },
-  {
-   "date": "2026-11-17",
-   "symbol": "CRM",
-   "side": "short",
-   "qty": "95.0",
-   "entry": "205.32",
-   "exit": "194.42",
-   "pnl": "1035.5",
-   "pnl_pct": "5.31"
-  },
-  {
-   "date": "2026-11-17",
-   "symbol": "UNH",
-   "side": "short",
-   "qty": "50.0",
-   "entry": "390.36",
-   "exit": "391.96",
-   "pnl": "-80.32",
-   "pnl_pct": "-0.41"
-  },
-  {
-   "date": "2026-11-17",
-   "symbol": "MRNA",
-   "side": "short",
-   "qty": "94.0",
-   "entry": "208.32",
-   "exit": "210.38",
-   "pnl": "-194.08",
-   "pnl_pct": "-0.99"
-  },
-  {
-   "date": "2026-11-17",
-   "symbol": "ZS",
-   "side": "short",
-   "qty": "104.0",
-   "entry": "188.05",
-   "exit": "186.18",
-   "pnl": "194.48",
-   "pnl_pct": "0.99"
-  },
-  {
-   "date": "2026-11-16",
-   "symbol": "ADBE",
-   "side": "long",
-   "qty": "78.0",
-   "entry": "249.97",
-   "exit": "249.0",
-   "pnl": "-75.66",
-   "pnl_pct": "-0.39"
-  },
-  {
-   "date": "2026-11-16",
-   "symbol": "XLK",
-   "side": "short",
-   "qty": "118.0",
-   "entry": "165.37",
-   "exit": "166.01",
-   "pnl": "-76.35",
-   "pnl_pct": "-0.39"
-  },
-  {
-   "date": "2026-11-16",
-   "symbol": "TSM",
-   "side": "short",
-   "qty": "51.0",
-   "entry": "378.22",
-   "exit": "373.66",
-   "pnl": "232.4",
-   "pnl_pct": "1.2"
-  },
-  {
-   "date": "2026-11-16",
-   "symbol": "COIN",
-   "side": "long",
-   "qty": "161.0",
-   "entry": "121.8",
-   "exit": "120.61",
-   "pnl": "-191.39",
-   "pnl_pct": "-0.98"
-  },
-  {
-   "date": "2026-11-16",
-   "symbol": "USO",
-   "side": "short",
-   "qty": "138.0",
-   "entry": "142.03",
-   "exit": "142.65",
-   "pnl": "-85.53",
-   "pnl_pct": "-0.44"
   }
  ],
  "summary": {
-  "days": 6,
+  "days": 7,
   "start_equity": 100000.0,
-  "end_equity": 100144.83,
-  "return_pct": 0.145,
-  "spy_return_pct": -5.789,
-  "trades": 44,
-  "win_rate": 20.5,
-  "avg_win": 542.62,
-  "avg_loss": -134.99,
-  "profit_factor": 1.03,
+  "end_equity": 98698.12,
+  "return_pct": -1.302,
+  "spy_return_pct": -8.865,
+  "trades": 60,
+  "win_rate": 18.3,
+  "avg_win": 491.34,
+  "avg_loss": -136.51,
+  "profit_factor": 0.81,
   "max_drawdown_pct": -1.54,
   "best_day": 916.84,
-  "worst_day": -1055.34,
+  "worst_day": -1443.03,
   "green_days": 3,
   "by_side": {
    "long": {
-    "trades": 20,
-    "pnl": -2170.71,
-    "win_rate": 5.0
+    "trades": 28,
+    "pnl": -2969.79,
+    "win_rate": 7.1
    },
    "short": {
-    "trades": 24,
-    "pnl": 2329.69,
-    "win_rate": 33.3
+    "trades": 32,
+    "pnl": 1685.74,
+    "win_rate": 28.1
    }
   },
-  "est_slippage": 515.59,
-  "return_after_slippage_pct": -0.371,
+  "est_slippage": 705.19,
+  "return_after_slippage_pct": -2.007,
   "ai_blocked": 9,
   "ai_blocked_pnl": -354.89
  }
