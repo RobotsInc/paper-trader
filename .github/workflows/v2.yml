@@ -8,6 +8,8 @@ on:
     - cron: "20 13 * * 1-5"   # 9:20 ET (EDT) / 8:20 ET (EST): waits for the open
     - cron: "30 18 * * 1-5"   # second start; queues behind the first, picks up where it stopped
   workflow_dispatch:
+  push:
+    paths: [".github/run-now"]   # touch this file and push to start a run without the Actions UI
 
 permissions:
   contents: write
