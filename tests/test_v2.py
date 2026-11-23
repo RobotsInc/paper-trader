@@ -240,5 +240,24 @@ class SimDay(unittest.TestCase):
         self.assertEqual(len({(t["symbol"], t["entry"]) for t in tr}), len(tr), "no trade recorded twice")
 
 
+
+class BacktestHarness(unittest.TestCase):
+    def test_replay_and_report_on_synthetic_bars_with_gaps(self):
+        import random
+        from v2 import backtest as bt
+        day = date(2026, 11, 24)
+        src = SimBroker(SimEnv(day), C.WATCHLIST, day, seed=11)
+        rnd = random.Random(3)
+        data = {s: {d: ([r for r in rows if rnd.random() > 0.2] if d == day else list(rows))
+                    for d, rows in src.bars_by_day[s].items()} for s in C.WATCHLIST}
+        out = pathlib.Path(tempfile.mkdtemp())
+        quiet(lambda: bt.replay(data, [day], out / "m"))
+        self.assertTrue(len(rows(out / "m", "trades.csv")) > 0)
+        quiet(lambda: bt.aggregate([out / "m"], out / "rep"))
+        rep = (out / "rep" / "REPORT.md").read_text()
+        self.assertIn("Read this before trusting", rep)
+        self.assertIn("Bot scorecard", rep)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

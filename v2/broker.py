@@ -1,6 +1,7 @@
 """Alpaca PAPER broker + market data (free IEX feed). The engine only talks to this interface,
 so tests can swap in v2/sim.py's SimBroker."""
 import os
+import time
 
 import requests
 
@@ -17,7 +18,11 @@ class AlpacaBroker:
 
     # ---- plumbing ----
     def _req(self, method, base, path, ok=(200,), **kw):
-        r = requests.request(method, base + path, headers=self.h, timeout=30, **kw)
+        for attempt in range(6):
+            r = requests.request(method, base + path, headers=self.h, timeout=30, **kw)
+            if r.status_code != 429:
+                break
+            time.sleep(5 * (attempt + 1))        # rate limited: back off and retry
         if r.status_code not in ok and not (200 <= r.status_code < 300):
             raise RuntimeError(f"Alpaca {method} {path} HTTP {r.status_code}: {r.text[:200]!r}")
         return r.json() if r.content else None

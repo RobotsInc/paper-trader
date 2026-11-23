@@ -36,6 +36,7 @@ class SimBroker:
         self.closed = []       # closed orders
         self.oid = 0
         self.short_ok = short_ok
+        self.nbars = 390
         self.cursor = None     # last processed minute (datetime)
         self.bars_by_day = {s: {} for s in self.symbols}
         self.base = {s: self.rng.uniform(20, 600) for s in self.symbols}
@@ -77,15 +78,15 @@ class SimBroker:
         """Process every minute bar that has completed since the last call: stops trigger on them."""
         idx = self._now_idx()
         start = -1 if self.cursor is None else self.cursor
-        for i in range(max(start + 1, 0), min(idx, 389) + 1):
+        for i in range(max(start + 1, 0), min(idx, self.nbars - 1) + 1):
             for s in self.symbols:
                 b = self.bars_by_day[s][self.day][i]
                 self._check_stops(s, b, now)
         if idx >= 0:
-            self.cursor = min(idx, 389)
+            self.cursor = min(idx, self.nbars - 1)
 
     def _px(self, s):
-        i = min(max(self._now_idx(), 0), 389)
+        i = min(max(self._now_idx(), 0), self.nbars - 1)
         return self.bars_by_day[s][self.day][i]["c"]
 
     def _check_stops(self, s, b, now):
@@ -107,7 +108,7 @@ class SimBroker:
     # ---- broker interface ----
     def clock(self):
         i = self._now_idx()
-        return {"is_open": 0 <= i < 390}
+        return {"is_open": 0 <= i < self.nbars}
 
     def calendar(self, start, end):
         return [{"date": self.day.isoformat(), "open": "09:30", "close": "16:00"}]

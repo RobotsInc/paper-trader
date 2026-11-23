@@ -156,6 +156,9 @@ class Engine:
         st = self.state
         if st["news_done"] or now < self.first_entry - timedelta(minutes=2):
             return
+        retry_at = st.get("news_retry_at")
+        if retry_at and now < parse_ts(retry_at):
+            return
         rows = []
         for s in self.symbols:
             c = self.feed.ctx(s, now)
@@ -166,7 +169,11 @@ class Engine:
             dec, brief = {}, f"news desk error: {type(e).__name__}: {e}"
         st["news"] = {k: list(v) for k, v in dec.items()}
         st["briefing"] = brief
-        st["news_done"] = True
+        st["news_tries"] = st.get("news_tries", 0) + 1
+        if dec or st["news_tries"] >= 4:
+            st["news_done"] = True            # got calls (or gave up: the bot then trades without news)
+        else:
+            st["news_retry_at"] = (now + timedelta(minutes=20)).isoformat()   # AI service busy: try again later
         blocked = [k for k, v in dec.items() if v[0] == "block"]
         log(f"News desk done: {len(dec)} calls, blocked {blocked}" if dec else f"News desk: no calls ({brief[:100]})")
 
