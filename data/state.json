@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 725.03,
-    "spy_vwap": 719.58,
-    "spy_day_pct": 0.1,
+    "spy": 726.31,
+    "spy_vwap": 719.84,
+    "spy_day_pct": 0.28,
     "bias": "up",
-    "time": "2026-11-23T10:20-05:00"
+    "time": "2026-11-23T10:24-05:00"
   },
   "ai": {
     "done": true,
@@ -423,7 +423,8 @@
     "IBIT",
     "CRWV",
     "IBM",
-    "UNH"
+    "UNH",
+    "AFRM"
   ],
   "signals": [
     {
@@ -677,6 +678,20 @@
       "action": "entered",
       "reason": "",
       "market": "up"
+    },
+    {
+      "time": "2026-11-23T10:21-05:00",
+      "symbol": "AFRM",
+      "side": "long",
+      "price": 59.2,
+      "stop": 58.79,
+      "target": null,
+      "qty": 333,
+      "or_high": 59.14,
+      "or_low": 57.57,
+      "action": "entered",
+      "reason": "",
+      "market": "up"
     }
   ],
   "shortable": {
@@ -686,26 +701,26 @@
     "GE": true
   },
   "last_prices": {
-    "GS": 825.25,
-    "GLD": 336.205,
-    "QQQ": 654.86,
-    "SMH": 465.5,
-    "IBIT": 35.72,
-    "ZS": 226.26,
-    "KLAC": 144.525,
-    "SNDK": 94.55,
-    "ABBV": 290.09,
-    "AFRM": 59.05,
-    "CRWV": 49.52,
-    "IBM": 233.58,
-    "IWM": 265.03,
-    "GE": 319.18,
-    "TSM": 370.71,
-    "UNH": 332.54,
-    "SOFI": 13.575,
-    "CRWD": 206.58,
-    "SOXX": 141.18,
-    "SPY": 725.03
+    "QQQ": 656.21,
+    "CRWV": 49.77,
+    "GLD": 337.0,
+    "TSM": 372.26,
+    "ABBV": 289.545,
+    "ZS": 228.64,
+    "IWM": 265.305,
+    "IBIT": 35.91,
+    "GS": 826.425,
+    "UNH": 332.56,
+    "GE": 319.52,
+    "SOXX": 141.685,
+    "CRWD": 208.72,
+    "SPY": 726.31,
+    "SNDK": 94.94,
+    "IBM": 234.17,
+    "AFRM": 59.32,
+    "KLAC": 144.795,
+    "SMH": 467.18,
+    "SOFI": 13.65
   },
   "halted": false,
   "eod_done": false,
