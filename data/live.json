@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-23T09:39:35-05:00",
+ "updated": "2026-11-23T09:43:42-05:00",
  "date": "2026-11-23",
  "market_open": true,
  "account": {
-  "equity": 99073.4,
+  "equity": 99148.33,
   "cash": 177070.79,
-  "buying_power": 302696.74,
+  "buying_power": 303086.37,
   "start_equity": 98691.59,
-  "day_pnl": 381.8099999999977,
-  "day_pnl_pct": 0.3868718702373597
+  "day_pnl": 456.74000000000524,
+  "day_pnl_pct": 0.4627952594542295
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -926.6000000000058,
-  "pct": -0.9266000000000107,
-  "spy_pct": -5.8570752733389515
+  "pnl": -851.6699999999983,
+  "pct": -0.8516699999999933,
+  "spy_pct": -5.788740538267456
  },
  "regime": {
-  "spy": 716.39,
-  "spy_vwap": 719.54,
-  "spy_day_pct": -1.09,
+  "spy": 716.91,
+  "spy_vwap": 718.8,
+  "spy_day_pct": -1.02,
   "bias": "down",
-  "time": "2026-11-23T09:39-05:00"
+  "time": "2026-11-23T09:43-05:00"
  },
  "scan": {
   "scanned": 186,
@@ -60,10 +60,10 @@
    "side": "short",
    "qty": 62.0,
    "entry": 316.04,
-   "price": 316.545,
-   "upl": -31.31,
-   "upl_pct": -0.16,
-   "value": 19625.79,
+   "price": 316.16,
+   "upl": -7.44,
+   "upl_pct": -0.038,
+   "value": 19601.92,
    "stop": 317.47,
    "target": null,
    "opened": "09:37"
@@ -73,10 +73,10 @@
    "side": "short",
    "qty": 58.0,
    "entry": 336.091034,
-   "price": 335.95,
-   "upl": 8.179972,
-   "upl_pct": 0.042,
-   "value": 19485.1,
+   "price": 335.66,
+   "upl": 24.999972,
+   "upl_pct": 0.128,
+   "value": 19468.28,
    "stop": 336.74,
    "target": null,
    "opened": "09:36"
@@ -86,10 +86,10 @@
    "side": "short",
    "qty": 30.0,
    "entry": 648.76,
-   "price": 645.56,
-   "upl": 96.0,
-   "upl_pct": 0.49300000000000005,
-   "value": 19366.8,
+   "price": 645.63,
+   "upl": 93.9,
+   "upl_pct": 0.482,
+   "value": 19368.9,
    "stop": 649.98,
    "target": null,
    "opened": "09:36"
@@ -99,10 +99,10 @@
    "side": "short",
    "qty": 208.0,
    "entry": 95.33,
-   "price": 93.8447,
-   "upl": 308.9424,
-   "upl_pct": 1.558,
-   "value": 19519.6976,
+   "price": 93.67,
+   "upl": 345.28,
+   "upl_pct": 1.7409999999999999,
+   "value": 19483.36,
    "stop": 96.14,
    "target": null,
    "opened": "09:36"
@@ -122,7 +122,7 @@
    "score": 13.341,
    "tier": "main",
    "source": "core",
-   "price": 231.785,
+   "price": 230.0,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Acquired by CrowdStrike for $43.9B"
@@ -140,7 +140,7 @@
    "score": 10.483,
    "tier": "main",
    "source": "scanner",
-   "price": 93.9,
+   "price": 93.67,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "Analyst price target trim"
@@ -158,7 +158,7 @@
    "score": 5.565,
    "tier": "main",
    "source": "core",
-   "price": 645.68,
+   "price": 645.72,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "none"
@@ -176,7 +176,7 @@
    "score": 5.071,
    "tier": "main",
    "source": "core",
-   "price": 323.585,
+   "price": 327.15,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "none"
@@ -194,7 +194,7 @@
    "score": 4.937,
    "tier": "main",
    "source": "core",
-   "price": 210.98,
+   "price": 209.205,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Acquiring Zscaler and reported earnings"
@@ -212,7 +212,7 @@
    "score": 4.471,
    "tier": "main",
    "source": "core",
-   "price": 335.91,
+   "price": 335.695,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "none"
@@ -230,7 +230,7 @@
    "score": 3.952,
    "tier": "main",
    "source": "core",
-   "price": 316.5,
+   "price": 316.2,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "none"
@@ -248,7 +248,7 @@
    "score": 3.489,
    "tier": "main",
    "source": "core",
-   "price": 230.23,
+   "price": 230.74,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "none"
@@ -266,7 +266,7 @@
    "score": 3.456,
    "tier": "main",
    "source": "core",
-   "price": 821.23,
+   "price": 818.68,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "Lead market maker role and updates"
@@ -284,8 +284,8 @@
    "score": 3.447,
    "tier": "main",
    "source": "scanner",
-   "price": 35.795,
-   "status": "WATCH",
+   "price": 35.74,
+   "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
   },
@@ -302,7 +302,7 @@
    "score": 3.347,
    "tier": "main",
    "source": "scanner",
-   "price": 138.205,
+   "price": 138.32,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -320,7 +320,7 @@
    "score": 3.199,
    "tier": "main",
    "source": "core",
-   "price": 364.22,
+   "price": 365.43,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -338,7 +338,7 @@
    "score": 3.076,
    "tier": "main",
    "source": "core",
-   "price": 264.13,
+   "price": 263.99,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -356,8 +356,8 @@
    "score": 2.913,
    "tier": "main",
    "source": "scanner",
-   "price": 50.42,
-   "status": "WATCH",
+   "price": 49.04,
+   "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
   },
@@ -374,7 +374,7 @@
    "score": 2.552,
    "tier": "main",
    "source": "core",
-   "price": 58.6,
+   "price": 58.5,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "none"
@@ -392,7 +392,7 @@
    "score": 2.501,
    "tier": "main",
    "source": "core",
-   "price": 141.895,
+   "price": 140.9,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -410,7 +410,7 @@
    "score": 2.492,
    "tier": "main",
    "source": "core",
-   "price": 285.91,
+   "price": 286.99,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "China monoclonal antibody procurement eligibility"
@@ -428,7 +428,7 @@
    "score": 2.437,
    "tier": "main",
    "source": "core",
-   "price": 453.59,
+   "price": 454.64,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -446,7 +446,7 @@
    "score": 2.408,
    "tier": "main",
    "source": "core",
-   "price": 13.38,
+   "price": 13.335,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -464,13 +464,41 @@
    "score": 2.364,
    "tier": "main",
    "source": "core",
-   "price": 716.39,
+   "price": 716.91,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
   }
  ],
  "signals": [
+  {
+   "time": "2026-11-23T09:40-05:00",
+   "symbol": "CRWV",
+   "side": "short",
+   "price": 49.97,
+   "stop": 50.67,
+   "target": null,
+   "qty": 397,
+   "or_high": 51.765,
+   "or_low": 50.19,
+   "action": "skipped_side_cap",
+   "reason": "already 3 shorts",
+   "market": "down"
+  },
+  {
+   "time": "2026-11-23T09:39-05:00",
+   "symbol": "IBIT",
+   "side": "short",
+   "price": 35.77,
+   "stop": 35.94,
+   "target": null,
+   "qty": 554,
+   "or_high": 36.35,
+   "or_low": 35.78,
+   "action": "skipped_side_cap",
+   "reason": "already 3 shorts",
+   "market": "down"
+  },
   {
    "time": "2026-11-23T09:39-05:00",
    "symbol": "SOFI",
@@ -676,6 +704,10 @@
   {
    "t": "09:35",
    "v": 98691.59
+  },
+  {
+   "t": "09:39",
+   "v": 99109.39
   }
  ],
  "days": [

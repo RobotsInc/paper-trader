@@ -291,11 +291,11 @@
     "small_tracked": 0
   },
   "regime": {
-    "spy": 716.39,
-    "spy_vwap": 719.54,
-    "spy_day_pct": -1.09,
+    "spy": 716.91,
+    "spy_vwap": 718.8,
+    "spy_day_pct": -1.02,
     "bias": "down",
-    "time": "2026-11-23T09:39-05:00"
+    "time": "2026-11-23T09:43-05:00"
   },
   "ai": {
     "done": true,
@@ -419,7 +419,9 @@
     "SOXX",
     "TSM",
     "SMH",
-    "SOFI"
+    "SOFI",
+    "IBIT",
+    "CRWV"
   ],
   "signals": [
     {
@@ -617,6 +619,34 @@
       "action": "skipped_side_cap",
       "reason": "already 3 shorts",
       "market": "down"
+    },
+    {
+      "time": "2026-11-23T09:39-05:00",
+      "symbol": "IBIT",
+      "side": "short",
+      "price": 35.77,
+      "stop": 35.94,
+      "target": null,
+      "qty": 554,
+      "or_high": 36.35,
+      "or_low": 35.78,
+      "action": "skipped_side_cap",
+      "reason": "already 3 shorts",
+      "market": "down"
+    },
+    {
+      "time": "2026-11-23T09:40-05:00",
+      "symbol": "CRWV",
+      "side": "short",
+      "price": 49.97,
+      "stop": 50.67,
+      "target": null,
+      "qty": 397,
+      "or_high": 51.765,
+      "or_low": 50.19,
+      "action": "skipped_side_cap",
+      "reason": "already 3 shorts",
+      "market": "down"
     }
   ],
   "shortable": {
@@ -626,26 +656,26 @@
     "GE": true
   },
   "last_prices": {
-    "SOFI": 13.38,
-    "GS": 821.23,
-    "SMH": 453.59,
-    "TSM": 364.22,
-    "SNDK": 93.9,
-    "CRWV": 50.42,
-    "KLAC": 141.895,
-    "IBIT": 35.795,
-    "IWM": 264.13,
-    "IBM": 230.23,
-    "GLD": 335.91,
-    "CRWD": 210.98,
-    "QQQ": 645.68,
-    "ABBV": 285.91,
-    "AFRM": 58.6,
-    "ZS": 231.785,
-    "UNH": 323.585,
-    "GE": 316.5,
-    "SPY": 716.39,
-    "SOXX": 138.205
+    "GLD": 335.695,
+    "SOFI": 13.335,
+    "KLAC": 140.9,
+    "TSM": 365.43,
+    "ABBV": 286.99,
+    "AFRM": 58.5,
+    "IBM": 230.74,
+    "SOXX": 138.32,
+    "IWM": 263.99,
+    "SPY": 716.91,
+    "QQQ": 645.72,
+    "UNH": 327.15,
+    "GS": 818.68,
+    "IBIT": 35.74,
+    "CRWD": 209.205,
+    "SMH": 454.64,
+    "ZS": 230.0,
+    "SNDK": 93.67,
+    "CRWV": 49.04,
+    "GE": 316.2
   },
   "halted": false,
   "eod_done": false,
