@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-23T09:56:03-05:00",
+ "updated": "2026-11-23T10:00:11-05:00",
  "date": "2026-11-23",
  "market_open": true,
  "account": {
-  "equity": 99496.16,
-  "cash": 137743.72,
-  "buying_power": 352087.59,
+  "equity": 98939.96,
+  "cash": 118243.4,
+  "buying_power": 353078.5,
   "start_equity": 98691.59,
-  "day_pnl": 804.570000000007,
-  "day_pnl_pct": 0.8152366376912301
+  "day_pnl": 248.3700000000099,
+  "day_pnl_pct": 0.2516627809928007
  },
  "inception": {
   "date": "2026-11-12",
@@ -16,16 +16,16 @@
   "spy": 760.96
  },
  "total": {
-  "pnl": -503.8399999999965,
-  "pct": -0.5038399999999998,
-  "spy_pct": -5.313025651808245
+  "pnl": -1060.0399999999936,
+  "pct": -1.0600399999999954,
+  "spy_pct": -5.101450798990759
  },
  "regime": {
-  "spy": 720.53,
-  "spy_vwap": 718.49,
-  "spy_day_pct": -0.52,
+  "spy": 722.14,
+  "spy_vwap": 718.7,
+  "spy_day_pct": -0.3,
   "bias": "up",
-  "time": "2026-11-23T09:56-05:00"
+  "time": "2026-11-23T10:00-05:00"
  },
  "scan": {
   "scanned": 186,
@@ -56,27 +56,14 @@
  },
  "positions": [
   {
-   "symbol": "QQQ",
-   "side": "short",
-   "qty": 30.0,
-   "entry": 648.76,
-   "price": 648.01,
-   "upl": 22.5,
-   "upl_pct": 0.116,
-   "value": 19440.3,
-   "stop": 649.98,
-   "target": null,
-   "opened": "09:36"
-  },
-  {
    "symbol": "SNDK",
    "side": "short",
    "qty": 208.0,
    "entry": 95.33,
-   "price": 90.4195,
-   "upl": 1021.384,
-   "upl_pct": 5.151,
-   "value": 18807.256,
+   "price": 92.805,
+   "upl": 525.2,
+   "upl_pct": 2.649,
+   "value": 19303.44,
    "stop": 96.14,
    "target": null,
    "opened": "09:36"
@@ -96,7 +83,7 @@
    "score": 13.341,
    "tier": "main",
    "source": "core",
-   "price": 228.08,
+   "price": 227.16,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Acquired by CrowdStrike for $43.9B"
@@ -114,7 +101,7 @@
    "score": 10.483,
    "tier": "main",
    "source": "scanner",
-   "price": 90.42,
+   "price": 92.86,
    "status": "SHORT",
    "ai": "both",
    "catalyst": "Analyst price target trim"
@@ -132,8 +119,8 @@
    "score": 5.565,
    "tier": "main",
    "source": "core",
-   "price": 648.08,
-   "status": "SHORT",
+   "price": 650.91,
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
   },
@@ -150,8 +137,8 @@
    "score": 5.071,
    "tier": "main",
    "source": "core",
-   "price": 329.995,
-   "status": "WATCH",
+   "price": 330.53,
+   "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
   },
@@ -168,7 +155,7 @@
    "score": 4.937,
    "tier": "main",
    "source": "core",
-   "price": 207.27,
+   "price": 206.48,
    "status": "BLOCKED BY AI",
    "ai": "block",
    "catalyst": "Acquiring Zscaler and reported earnings"
@@ -186,7 +173,7 @@
    "score": 4.471,
    "tier": "main",
    "source": "core",
-   "price": 336.31,
+   "price": 336.32,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -204,7 +191,7 @@
    "score": 3.952,
    "tier": "main",
    "source": "core",
-   "price": 317.69,
+   "price": 317.01,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -222,7 +209,7 @@
    "score": 3.489,
    "tier": "main",
    "source": "core",
-   "price": 231.555,
+   "price": 231.79,
    "status": "ENTERED",
    "ai": "both",
    "catalyst": "none"
@@ -240,7 +227,7 @@
    "score": 3.456,
    "tier": "main",
    "source": "core",
-   "price": 817.88,
+   "price": 821.45,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "Lead market maker role and updates"
@@ -258,7 +245,7 @@
    "score": 3.447,
    "tier": "main",
    "source": "scanner",
-   "price": 35.57,
+   "price": 35.625,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -276,7 +263,7 @@
    "score": 3.347,
    "tier": "main",
    "source": "scanner",
-   "price": 138.34,
+   "price": 139.82,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -294,7 +281,7 @@
    "score": 3.199,
    "tier": "main",
    "source": "core",
-   "price": 365.3,
+   "price": 370.94,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -312,7 +299,7 @@
    "score": 3.076,
    "tier": "main",
    "source": "core",
-   "price": 263.97,
+   "price": 264.12,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -330,7 +317,7 @@
    "score": 2.913,
    "tier": "main",
    "source": "scanner",
-   "price": 47.2,
+   "price": 49.14,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -348,7 +335,7 @@
    "score": 2.552,
    "tier": "main",
    "source": "core",
-   "price": 58.51,
+   "price": 59.03,
    "status": "WATCH",
    "ai": "both",
    "catalyst": "none"
@@ -366,7 +353,7 @@
    "score": 2.501,
    "tier": "main",
    "source": "core",
-   "price": 141.95,
+   "price": 141.89,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -384,7 +371,7 @@
    "score": 2.492,
    "tier": "main",
    "source": "core",
-   "price": 289.05,
+   "price": 288.67,
    "status": "ABOVE RANGE",
    "ai": "both",
    "catalyst": "China monoclonal antibody procurement eligibility"
@@ -402,7 +389,7 @@
    "score": 2.437,
    "tier": "main",
    "source": "core",
-   "price": 456.69,
+   "price": 461.83,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -420,7 +407,7 @@
    "score": 2.408,
    "tier": "main",
    "source": "core",
-   "price": 13.43,
+   "price": 13.53,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
@@ -438,13 +425,27 @@
    "score": 2.364,
    "tier": "main",
    "source": "core",
-   "price": 720.53,
+   "price": 722.14,
    "status": "SKIPPED SIDE CAP",
    "ai": "both",
    "catalyst": "none"
   }
  ],
  "signals": [
+  {
+   "time": "2026-11-23T10:00-05:00",
+   "symbol": "UNH",
+   "side": "long",
+   "price": 330.53,
+   "stop": 328.83,
+   "target": null,
+   "qty": 59,
+   "or_high": 330.21,
+   "or_low": 321.04,
+   "action": "entered",
+   "reason": "",
+   "market": "up"
+  },
   {
    "time": "2026-11-23T09:44-05:00",
    "symbol": "IBM",
@@ -708,6 +709,10 @@
   {
    "t": "09:51",
    "v": 99746.09
+  },
+  {
+   "t": "09:56",
+   "v": 99508.84
   }
  ],
  "days": [
