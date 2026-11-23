@@ -1,0 +1,6 @@
+{
+  "start_date": "2026-11-24",
+  "start_equity": null,
+  "slippage_bps": 3,
+  "note": "v2 restart: the old v1 bot's trades are excluded. Change start_date to move the baseline."
+}
