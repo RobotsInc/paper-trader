@@ -114,7 +114,7 @@ async function get(name, kind){
   }catch(e){ return null; }
 }
 
-function tradeCost(t,bps){ return (Math.abs(+t.qty)*(+t.entry) + Math.abs(+t.qty)*(+t.exit)) * bps/10000; }
+function tradeCost(t,bps){ if(t.est_cost!==undefined && t.est_cost!=="") return +t.est_cost; return (Math.abs(+t.qty)*(+t.entry) + Math.abs(+t.qty)*(+t.exit)) * bps/10000; }
 
 function chart(points, base){
   if(points.length<2){ $("chart").innerHTML='<div class="empty">The equity line appears after the first v2 trading day.</div>'; return; }
@@ -135,7 +135,7 @@ function table(id, head, rows, emptyMsg){
 
 (async function(){
   const [live, base, daily, trades, equity, bots] = await Promise.all([
-    get("live.json"), get("baseline.json"), get("daily.csv","csv"), get("trades.csv","csv"), get("equity.csv","csv"), get("bots.json")]);
+    get("v2/live.json"), get("baseline.json"), get("v2/daily.csv","csv"), get("v2/trades.csv","csv"), get("v2/equity.csv","csv"), get("v2/bots.json")]);
   const cfg = Object.assign({start_date:"2026-11-24", slippage_bps:3, start_equity:null, note:""}, base||{});
   const bps = +cfg.slippage_bps; $("bpsTxt").textContent = bps;
   $("sinceDate").textContent = "(from "+cfg.start_date+")";
@@ -200,13 +200,13 @@ function table(id, head, rows, emptyMsg){
   const live_bots = bots && bots.bots && bots.bots.length ? bots.bots : null;
   if(live_bots){
     table("bots",[["Bot"],["Type"],["Votes","r"],["Hit rate","r"],["Avg P&L when it agreed","r"],["Weight","r"]],
-      live_bots.map(b=>[b.name,{h:`<span class="tag ${b.type==="ai"?"ai":""}">${b.type}</span>`},b.votes??"–",
+      live_bots.map(b=>[b.name,{h:`<span class="tag ${b.type==="ai"?"ai":""}">${b.type}${b.role?" · "+b.role:""}</span>`},b.votes??"–",
         b.hit_rate!=null?(b.hit_rate*100).toFixed(0)+"%":"–",
         b.avg_pnl_agree!=null?{h:smoney(b.avg_pnl_agree,2),c:cls(b.avg_pnl_agree)}:"–", b.weight!=null?b.weight.toFixed(2):"–"]),"");
     $("botNote").textContent="Hit rate = how often the trade went the way this bot voted. Low-scoring or redundant bots get cut after a few weeks.";
   } else {
     table("bots",[["Bot"],["Type"],["Status"]], PLANNED.map(p=>[p[0],{h:`<span class="tag ${p[1]==="ai"?"ai":""}">${p[1]}</span>`},{h:"not live yet",c:"mu"}]),"");
-    $("botNote").textContent="The planned roster. Once the bots run, each one's votes, hit rate and weight show up here (data/bots.json).";
+    $("botNote").textContent="The roster. Once v2 trades, each signal bot's votes, hit rate and weight show up here (data/v2/bots.json).";
   }
 
   // POSITIONS

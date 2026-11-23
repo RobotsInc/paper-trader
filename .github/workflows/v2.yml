@@ -1,0 +1,37 @@
+name: paper-trader-v2
+
+# Runs the v2 engine through the trading day. GitHub caps a job at 6 hours, so two starts share the day:
+# the engine is resumable (state lives in data/v2/state.json) and exits cleanly after --max-minutes.
+# Runs queue one at a time (concurrency group), and exit at once on weekends/holidays.
+on:
+  schedule:
+    - cron: "20 13 * * 1-5"   # 9:20 ET (EDT) / 8:20 ET (EST): waits for the open
+    - cron: "30 18 * * 1-5"   # second start; queues behind the first, picks up where it stopped
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-trader-v2
+  cancel-in-progress: false
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - name: Run v2 engine
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AI_FILTER: ${{ vars.AI_FILTER || 'on' }}
+          AI_MODEL: ${{ vars.AI_MODEL || 'auto' }}
+        run: python -m v2.engine --git --max-minutes 330

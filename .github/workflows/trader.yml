@@ -1,10 +1,7 @@
 name: paper-trader
 
 on:
-  schedule:
-    # Every 5 min, 13:00-21:55 UTC on weekdays (covers 9:30-16:00 ET in both EST and EDT).
-    # The bot checks Alpaca's market clock itself, so off-hours runs exit quickly.
-    - cron: "*/5 13-21 * * 1-5"
+  # v1 schedule removed: v2 replaced this bot (see .github/workflows/v2.yml)
   workflow_dispatch:
     inputs:
       mode:

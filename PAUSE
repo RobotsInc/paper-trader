@@ -1,2 +1,2 @@
-v2 restart (2026-11-23): the old v1 bot is paused. While this file exists, bot/trader.py sells everything,
-cancels open orders and places no trades. Delete this file and commit to resume trading.
+v1 (the old opening-range-breakout bot) is retired as of the 2026-11-23 restart. While this file exists,
+bot/trader.py does nothing. v2 (the v2/ folder, workflow v2.yml) trades the same paper account.

@@ -144,15 +144,10 @@ def main():
         log("(* = $5-10 small-cap experiment: tracked, not traded)")
         return
 
-    # Kill switch: while a file named PAUSE exists in the repo root, sell everything, cancel open
-    # orders and place no new trades. Delete the file (and commit) to resume.
+    # v1 is retired: while the PAUSE file exists this bot does nothing at all (it no longer touches the
+    # account, because v2 trades the same Alpaca paper account). Delete PAUSE to bring v1 back.
     if (Path(__file__).resolve().parent.parent / "PAUSE").exists():
-        closed = alpaca.close_all()
-        log(f"PAUSED (PAUSE file present): closed all positions and cancelled orders ({len(closed)} close request(s)).")
-        try:  # refresh the dashboard data so it shows the account as it really is
-            dashboard.write(load_state(), now_et(), alpaca.clock()["is_open"])
-        except Exception as e:
-            log(f"Dashboard update failed: {type(e).__name__}: {e}")
+        log("PAUSED (PAUSE file present): v1 does nothing.")
         return
 
     state = load_state()
