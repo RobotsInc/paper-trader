@@ -1,0 +1,2 @@
+v2 restart (2026-11-23): the old v1 bot is paused. While this file exists, bot/trader.py sells everything,
+cancels open orders and places no trades. Delete this file and commit to resume trading.

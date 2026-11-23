@@ -144,6 +144,13 @@ def main():
         log("(* = $5-10 small-cap experiment: tracked, not traded)")
         return
 
+    # Kill switch: while a file named PAUSE exists in the repo root, sell everything, cancel open
+    # orders and place no new trades. Delete the file (and commit) to resume.
+    if (Path(__file__).resolve().parent.parent / "PAUSE").exists():
+        closed = alpaca.close_all()
+        log(f"PAUSED (PAUSE file present): closed all positions and cancelled orders ({len(closed)} close request(s)).")
+        return
+
     state = load_state()
     now = now_et()
     today = now.date().isoformat()
