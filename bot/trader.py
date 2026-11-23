@@ -149,6 +149,10 @@ def main():
     if (Path(__file__).resolve().parent.parent / "PAUSE").exists():
         closed = alpaca.close_all()
         log(f"PAUSED (PAUSE file present): closed all positions and cancelled orders ({len(closed)} close request(s)).")
+        try:  # refresh the dashboard data so it shows the account as it really is
+            dashboard.write(load_state(), now_et(), alpaca.clock()["is_open"])
+        except Exception as e:
+            log(f"Dashboard update failed: {type(e).__name__}: {e}")
         return
 
     state = load_state()
