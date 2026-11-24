@@ -91,16 +91,26 @@ def _ask_gemini(key, user, result):
         "contents": [{"role": "user", "parts": [{"text": user}]}],
         "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
     }
+    import time
     errors = []
-    for model in models:
-        try:
-            r = requests.post(ENDPOINT.format(model=model), json=body, timeout=75,
-                              headers={"x-goog-api-key": key, "Content-Type": "application/json"})
-        except requests.RequestException as e:
-            errors.append(f"{model}: {type(e).__name__}")
-            continue
-        if r.status_code == 200:
-            result["model"] = model
-            return r.json()["candidates"][0]["content"]["parts"][0]["text"]
-        errors.append(f"{model}: HTTP {r.status_code} {r.text[:120]!r}")
+    for attempt in range(3):                      # busy service (503/429/5xx): wait and go round the models again
+        busy = False
+        for model in models:
+            try:
+                r = requests.post(ENDPOINT.format(model=model), json=body, timeout=75,
+                                  headers={"x-goog-api-key": key, "Content-Type": "application/json"})
+            except requests.RequestException as e:
+                errors.append(f"{model}: {type(e).__name__}")
+                busy = True
+                continue
+            if r.status_code == 200:
+                result["model"] = model
+                return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+            if r.status_code in (429, 500, 502, 503, 504):
+                busy = True
+            if attempt == 2 or not busy:
+                errors.append(f"{model}: HTTP {r.status_code}")
+        if not busy or attempt == 2:
+            break
+        time.sleep(15 * (attempt + 1))
     raise RuntimeError("; ".join(errors))
