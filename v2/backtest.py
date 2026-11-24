@@ -226,10 +226,15 @@ def aggregate(dirs, out_dir):
 - **Free IEX data only** (about 2.5% of US volume). Prices are real, volume is thin and noisy, and historical bid/ask spreads are not available, so the liquidity filter saw a fixed 3 bps spread.
 - **No news bot** in the backtest (no free historical headline feed), so the AI veto never fired.
 - **Days are independent** ($100k each day, nothing compounds), and the bot weights restart each month.
-- **The settings were chosen in advance, not tuned on 2025.** If you now adjust them to improve these numbers, the next backtest becomes in-sample and will flatter the bot.
+- **The settings were not tuned on this period unless the run is labelled otherwise.** Adjusting them to improve these numbers makes this period in-sample.
 - A backtest says what the rules would have done, not what they will do. Paper trading for a few weeks is the real test.
 """)
     (out_dir / "REPORT.md").write_text("\n".join(L))
+    for name, rows in (("trades.csv", trades), ("daily.csv", daily)):
+        with open(out_dir / name, "w", newline="") as fh:
+            w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+            w.writeheader()
+            w.writerows(rows)
     with open(out_dir / "daily_net.csv", "w") as fh:
         fh.write("date,net,cumulative\n")
         c = 0.0
@@ -259,6 +264,8 @@ def main():
     ap.add_argument("--out")
     ap.add_argument("--aggregate", nargs="+")
     ap.add_argument("--report")
+    ap.add_argument("--every", type=int, default=1, help="use every Nth trading day (speed-up)")
+    ap.add_argument("--scan", type=int, default=60, help="seconds between scans in replay")
     a = ap.parse_args()
     if a.aggregate:
         aggregate(a.aggregate, a.report or "data/backtest_v2")
@@ -270,8 +277,9 @@ def main():
     log(f"Fetching {a.month} bars for {len(C.WATCHLIST)} symbols...")
     data = fetch(api, C.WATCHLIST, start, end)
     days = trading_days(data, start, end)
-    log(f"{len(days)} trading days")
-    replay(data, days, a.out)
+    days = days[::max(1, a.every)]
+    log(f"{len(days)} trading days (every {a.every})")
+    replay(data, days, a.out, scan_seconds=a.scan)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,8 @@
 name: backtest-v2
 
-# Replays the v2 engine over every 2025 trading day (12 monthly jobs in parallel), then combines them into
-# data/backtest_v2/REPORT.md. Start it from the Actions tab, or touch .github/run-backtest and push.
+# Replays the v2 engine over a range of months in parallel, then writes data/backtest_<label>/REPORT.md.
+# Spec lives in .github/run-backtest (one line):  label=2024 months=2024-01..2024-12 every=2 scan=120
+# Start it by pushing a change to that file, or from the Actions tab (uses the file as it is).
 on:
   workflow_dispatch:
   push:
@@ -11,15 +12,40 @@ permissions:
   contents: write
 
 jobs:
-  month:
+  plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    outputs:
+      matrix: ${{ steps.p.outputs.matrix }}
+      label: ${{ steps.p.outputs.label }}
+      every: ${{ steps.p.outputs.every }}
+      scan: ${{ steps.p.outputs.scan }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: p
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          spec = dict(kv.split("=", 1) for kv in open(".github/run-backtest").read().split() if "=" in kv)
+          a, b = spec["months"].split("..")
+          y, m = map(int, a.split("-")); y2, m2 = map(int, b.split("-"))
+          ms = []
+          while (y, m) <= (y2, m2):
+              ms.append(f"{y}-{m:02d}"); m += 1
+              if m > 12: y, m = y + 1, 1
+          print("matrix=" + json.dumps({"month": ms}))
+          print("label=" + spec.get("label", "run"))
+          print("every=" + spec.get("every", "1"))
+          print("scan=" + spec.get("scan", "60"))
+          PY
+
+  month:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
     strategy:
       fail-fast: false
-      max-parallel: 3
-      matrix:
-        month: ["2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06",
-                "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12"]
+      max-parallel: 12
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -31,14 +57,14 @@ jobs:
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
-        run: python -m v2.backtest --month ${{ matrix.month }} --out out/${{ matrix.month }}
+        run: python -m v2.backtest --month ${{ matrix.month }} --out out/${{ matrix.month }} --every ${{ needs.plan.outputs.every }} --scan ${{ needs.plan.outputs.scan }}
       - uses: actions/upload-artifact@v4
         with:
           name: bt-${{ matrix.month }}
           path: out/${{ matrix.month }}
 
   report:
-    needs: month
+    needs: [plan, month]
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
@@ -53,12 +79,12 @@ jobs:
           pattern: bt-*
           path: out
       - name: Build report
-        run: python -m v2.backtest --aggregate out/bt-* --report data/backtest_v2
+        run: python -m v2.backtest --aggregate out/bt-* --report data/backtest_${{ needs.plan.outputs.label }}
       - name: Commit report
         run: |
           git config user.name "paper-trader-bot"
           git config user.email "paper-trader-bot@users.noreply.github.com"
-          git add -A data/backtest_v2
+          git add -A data/backtest_${{ needs.plan.outputs.label }}
           git diff --cached --quiet && exit 0
-          git commit -q -m "v2 backtest: 2025 report"
+          git commit -q -m "v2 backtest: ${{ needs.plan.outputs.label }} report"
           for i in 1 2 3; do git pull -q --rebase -X theirs && git push -q && break; sleep 5; done
