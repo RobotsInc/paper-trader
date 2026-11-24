@@ -119,7 +119,7 @@ class Exits(unittest.TestCase):
 class Orchestrator(unittest.TestCase):
     def ctx(self, **kw):
         c = Ctx(symbol="X", ready=True, now_idx=60, price=100.5, day_open=100, prev_close=100, vwap=100.0,
-                vwap_sd=0.3, vwap_slope=0.05, or_high=100.2, or_low=99.8, rvol=2.5, vol_last3=1000, vol_avg20=1000,
+                vwap_sd=0.3, vwap_slope=0.05, or_high=100.35, or_low=99.8, rvol=2.5, vol_last3=1000, vol_avg20=1000,
                 atr1=0.1, atr5=0.25, ema_fast=100.4, ema_slow=100.0, rsi5=62, macd_h=0.05, macd_h_prev=0.03,
                 rsi1_7=60, bb=(100.2, 100.8, 99.6), spread_bps=2.0, bar_age_min=0)
         c.bars = [{"c": 100.4, "o": 100.3, "idx": 59}] * 3
@@ -154,7 +154,17 @@ class Orchestrator(unittest.TestCase):
         self.assertAlmostEqual(costs.trade_cost(100, 50, 50, 3, 3), 3.0)
 
 
-class SimDay(unittest.TestCase):
+
+class _LooseEntries:
+    """Engine-mechanics tests need trades to happen on the synthetic day, so use permissive entry settings."""
+    def setUp(self):
+        self._old = (C.ENTRY_SCORE, C.MIN_STOP_PCT, C.MAX_STOP_PCT, C.COOLDOWN_MIN, C.MAX_COST_TO_TARGET)
+        C.ENTRY_SCORE, C.MIN_STOP_PCT, C.MAX_STOP_PCT, C.COOLDOWN_MIN, C.MAX_COST_TO_TARGET = 0.30, 0.0020, 0.0050, 10, 0.25
+
+    def tearDown(self):
+        C.ENTRY_SCORE, C.MIN_STOP_PCT, C.MAX_STOP_PCT, C.COOLDOWN_MIN, C.MAX_COST_TO_TARGET = self._old
+
+class SimDay(_LooseEntries, unittest.TestCase):
     def test_full_day_invariants(self):
         for seed in (1, 2, 3):
             tmp, env, b, eng, old = sim_day(seed, news=lambda r, n: ({"TSLA": ("block", "earnings")}, "b"))
@@ -241,7 +251,7 @@ class SimDay(unittest.TestCase):
 
 
 
-class BacktestHarness(unittest.TestCase):
+class BacktestHarness(_LooseEntries, unittest.TestCase):
     def test_replay_and_report_on_synthetic_bars_with_gaps(self):
         import random
         from v2 import backtest as bt

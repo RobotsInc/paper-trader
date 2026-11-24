@@ -18,7 +18,7 @@ FIRST_ENTRY_MIN_AFTER_OPEN = 15     # opening range = first 15 minutes; no trade
 LAST_ENTRY_MIN_BEFORE_CLOSE = 30
 FLATTEN_MIN_BEFORE_CLOSE = 10       # everything is closed by then: nothing is held overnight
 MAX_NEW_ENTRIES_PER_SCAN = 3
-COOLDOWN_MIN = 10            # after exiting a symbol, wait this long before re-entering it
+COOLDOWN_MIN = 20
 
 # ---- Risk (the risk bot enforces all of these) ----
 RISK_PER_TRADE = 0.005       # risk 0.5% of equity per trade (entry -> stop) ...
@@ -30,14 +30,14 @@ DAILY_LOSS_LIMIT = 0.03      # down 3% on the day -> close everything, stop for 
 
 # ---- Entries / stops ----
 STOP_ATR_MULT = 4.0          # stop distance = 4 x the 1-minute ATR ...
-MIN_STOP_PCT = 0.0020        # ... but between 0.20% ...
-MAX_STOP_PCT = 0.0050        # ... and 0.50% of price (tight: losers stay small)
+MIN_STOP_PCT = 0.0035
+MAX_STOP_PCT = 0.0080
 TARGET_R = 1.0               # take profit at 1x risk unless the exit manager sees it running
-ENTRY_SCORE = 0.30           # weighted vote score needed (range -1..+1)
+ENTRY_SCORE = 0.45
 MIN_AGREE = 3                # at least this many signal bots must agree
 MIN_RVOL = 1.2               # volume filter
 MAX_SPREAD_BPS = 15          # liquidity filter (free IEX quotes are noisy, so this is generous)
-MAX_COST_TO_TARGET = 0.25    # skip if est. round-trip cost > 25% of the profit target
+MAX_COST_TO_TARGET = 0.20
 
 # ---- Exit manager ----
 MAX_HOLD_MIN = 60            # close a trade that has gone nowhere (< 0.3R) after an hour
