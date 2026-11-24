@@ -158,10 +158,13 @@ class Orchestrator(unittest.TestCase):
 class _LooseEntries:
     """Engine-mechanics tests need trades to happen on the synthetic day, so use permissive entry settings."""
     def setUp(self):
+        self._gate = C.MARKET_GATE
+        C.MARKET_GATE = False
         self._old = (C.ENTRY_SCORE, C.MIN_STOP_PCT, C.MAX_STOP_PCT, C.COOLDOWN_MIN, C.MAX_COST_TO_TARGET)
         C.ENTRY_SCORE, C.MIN_STOP_PCT, C.MAX_STOP_PCT, C.COOLDOWN_MIN, C.MAX_COST_TO_TARGET = 0.30, 0.0020, 0.0050, 10, 0.25
 
     def tearDown(self):
+        C.MARKET_GATE = self._gate
         C.ENTRY_SCORE, C.MIN_STOP_PCT, C.MAX_STOP_PCT, C.COOLDOWN_MIN, C.MAX_COST_TO_TARGET = self._old
 
 class SimDay(_LooseEntries, unittest.TestCase):
@@ -271,3 +274,15 @@ class BacktestHarness(_LooseEntries, unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class MarketGate(unittest.TestCase):
+    def test_regime(self):
+        from types import SimpleNamespace as N
+        from v2.engine import Engine
+        mk = lambda price, vwap: {"SPY": N(ready=True, price=price, day_open=100.0, vwap=vwap)}
+        self.assertEqual(Engine._regime(mk(100.3, 100.1)), "long")
+        self.assertEqual(Engine._regime(mk(99.7, 99.9)), "short")
+        self.assertEqual(Engine._regime(mk(100.05, 100.0)), "")
+        self.assertEqual(Engine._regime(mk(100.3, 100.5)), "")
+        self.assertEqual(Engine._regime({}), "")

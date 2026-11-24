@@ -259,10 +259,24 @@ class Engine:
                 except Exception as e:
                     log(f"{sym}: stop move failed: {e}")
 
+    @staticmethod
+    def _regime(ctxs):
+        """'long' / 'short' when SPY is clearly trending that way right now, else '' (no new entries)."""
+        c = ctxs.get("SPY")
+        if not C.MARKET_GATE or c is None or not c.ready or not c.day_open or not c.vwap:
+            return ""
+        move = c.price / c.day_open - 1
+        if move >= C.MARKET_MIN_MOVE and c.price > c.vwap:
+            return "long"
+        if move <= -C.MARKET_MIN_MOVE and c.price < c.vwap:
+            return "short"
+        return ""
+
     def _entries(self, now, equity, positions, ctxs):
         st, metas = self.state, self.state["metas"]
         weights = orchestrator.load_weights()
         cands = []
+        regime = self._regime(ctxs)
         for s in self.symbols:
             if s in metas:
                 continue
@@ -271,6 +285,8 @@ class Engine:
                 continue
             d = orchestrator.evaluate(ctxs[s], weights)
             if d.side and not d.skip:
+                if C.MARKET_GATE and regime != d.side:
+                    continue
                 cands.append(d)
         cands.sort(key=lambda d: -abs(d.score))
         marks = {s: float(p["current_price"]) for s, p in positions.items()}

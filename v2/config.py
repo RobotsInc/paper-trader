@@ -53,3 +53,7 @@ SLIPPAGE_CAP_BPS = 15
 # ---- Reporting / bot weights ----
 MIN_VOTES_FOR_WEIGHT = 30    # a bot's weight moves off 1.0 only after this many trades it agreed with
 GIT_SYNC_SECONDS = 180
+
+# Market-direction gate (from the 2024/2026 analysis: the bots only made money when aligned with the market's trend).
+MARKET_GATE = True
+MARKET_MIN_MOVE = 0.0010      # SPY must be this far (0.10%) from its open AND on the same side of its VWAP
